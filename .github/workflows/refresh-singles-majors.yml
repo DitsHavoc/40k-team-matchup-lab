@@ -22,11 +22,14 @@ jobs:
         id: lgt
         continue-on-error: true
         run: python scripts/run_singles_imports.py --event lgt-2026
+      - name: Audit cross-source game overlaps
+        run: python scripts/audit_cross_sources.py
       - name: Publish LGT if audited
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/data/singles-lgt-2026.csv public/data/singles-import-status.json 2>/dev/null || true
+          git add public/data/cross-source-audit.json 2>/dev/null || true
           if ! git diff --cached --quiet; then
             git commit -m "Refresh LGT validated singles games"
             git pull --rebase origin main
