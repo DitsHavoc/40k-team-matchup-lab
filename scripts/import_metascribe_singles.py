@@ -38,8 +38,10 @@ def army(n):
   fn=norm(fac)
   if t.startswith(fn):
    rem=t[len(fn):]
+   if not rem:return fac,""
    for abbr,name in DISPS.items():
     if rem==abbr or rem.startswith(abbr) and rem[len(abbr):] in ("","disposition"):return fac,name
+   return fac,""
  # Image text sometimes uses singular Genestealer Cult
  if t.startswith("genestealercult"):
   rem=t[len("genestealercult"):]
@@ -98,7 +100,7 @@ def run(cfg):
     d=date(cs[0])
     if not d or not start<=d<=start+timedelta(days=5):reject("date_mismatch");continue
     f1,disp1=army(cs[2]);f2,disp2=army(cs[5])
-    if not all((f1,disp1,f2,disp2)):reject("army_missing");continue
+    if not (f1 and f2):reject("faction_missing");continue
     equiv=score(cs[4]);vp=score(cs[3])
     if vp and any(v<0 or v>100 for v in vp):reject("invalid_raw_vp");continue
     if equiv and (equiv[0]+equiv[1]!=20 or any(v<0 or v>20 for v in equiv)):reject("bad_20score");continue
