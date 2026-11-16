@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "note": "Explicit tournament-name aliases reviewed for source reconciliation. Same-event date window and event format are still required; aliases alone never merge tournaments.",
+  "aliases": {
+    "UKTC Summer ITT 2026": [
+      "The Summer I. T. T.",
+      "UKTC Summer International Team Tournament 2026"
+    ],
+    "UKTC Autumn ITT 2026": [
+      "The Autumn I. T. T.",
+      "UKTC Autumn International Team Tournament 2026"
+    ],
+    "The London Grand Tournament - 40k Main Event (LGT 40k GT)": [
+      "LGT 40K GT 2026",
+      "The London Grand Tournament 2026"
+    ],
+    "THE COVENTRY 40K : 3-Day": [
+      "UKTC Coventry 3-Day 2026"
+    ],
+    "THE COVENTRY 40K : 2-Day": [
+      "UKTC Coventry 2-Day 2026"
+    ]
+  }
+}
