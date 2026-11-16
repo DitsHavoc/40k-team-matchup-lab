@@ -335,7 +335,9 @@ function renderMatrix(){
   for(const r of matrixRows){add(r.faction_a,r.faction_b,r);add(r.faction_b,r.faction_a,flip(r))}
   const pairs=new Map();for(const [k,rows] of groups)pairs.set(k,stat(rows));
   const represented=[...pairs.values()].filter(s=>s.n>0).length;
-  $('matrixSummary').textContent=matrixRows.length+' distinct games available · '+represented+' of '+(factions.length*factions.length)+' faction-versus-faction cells have games. Each match appears from both sides but counts once in the database.';
+   const totalCells=factions.length*factions.length;
+   $('matrixSummary').textContent=matrixRows.length.toLocaleString()+' actual games · '+represented+' of '+totalCells+' faction matchup cells have evidence ('+(totalCells-represented)+' empty). Cells are matchups, not games.';
+   $('matrixCoverage').textContent='Full faction matrix: '+matrixRows.length.toLocaleString()+' recorded games ('+availableTeam.toLocaleString()+' team + '+availableSingles.toLocaleString()+' singles). Each game appears from both faction perspectives but counts as one match. '+(matrixRows.length===records.length?'All loaded games are included.':'Active filters reduce the '+records.length.toLocaleString()+' loaded games to '+matrixRows.length.toLocaleString()+'.');
   let h='<div class="matrix-legend"><span><i class="legend-positive"></i> Favourable (11+)</span><span><i class="legend-neutral"></i> Even (9–11)</span><span><i class="legend-negative"></i> Unfavourable (under 9)</span><span class="hint">Average score /20 · n = games · click a cell for its battles</span></div>';
   h+='<table class="full-matrix"><thead><tr><th scope="col" class="matrix-corner">Your faction ↓<br>Opponent →</th>'+factions.map(x=>'<th scope="col" title="'+esc(x)+'">'+esc(shortFaction(x))+'</th>').join('')+'</tr></thead><tbody>';
   for(const a of factions){h+='<tr><th scope="row" title="'+esc(a)+'">'+esc(shortFaction(a))+'</th>';
