@@ -31,27 +31,32 @@ def main(pages,limit):
   except (requests.RequestException,RuntimeError) as e:issues.append(str(e));continue
   if not any("Explore Tournaments" in text(h) for h in soup.select("h1,h2")):issues.append("Unexpected index page "+url);break
   links=0
+  reasons={"rows":0,"columns":0,"link":0,"players":0,"date":0,"version_or_year":0,"small":0,"teams":0,"duplicate":0}
+  sample=[]
   for row in soup.select("table tr"):
+   reasons["rows"]+=1
    td=row.find_all("td",recursive=False)
-   if len(td)<6:continue
-   anchor=td[1].find("a",href=re.compile(r"^/tournaments/"))
-   if not anchor:continue
-   name=text(anchor);event_url=urljoin(BASE,anchor["href"])
+   if len(td)<6:reasons["columns"]+=1;continue
+   anchor=td[1].find("a",href=re.compile(r"/tournaments/"))
+   if not anchor:reasons["link"]+=1;continue
+   name=text(anchor);event_url=urljoin(BASE,anchor.get("href",""))
    count=re.search(r"\d+",text(td[2]).replace(",",""))
-   if not count:continue
+   if not count:reasons["players"]+=1;continue
    players=int(count.group())
-   try:
-    date=datetime.strptime(text(td[0])[:11],"%b %d %Y").date()
-   except ValueError:continue
-   version=re.search(r"\b11\.\d+\.\d+\b",text(td[5]))
-   if not version or date.year!=2026 or players<16:continue
-   # Team column must explicitly be a dash/empty, not merely zero players.
-   if text(td[3]).strip() not in ("","—","-"):continue
-   if event_url in discovered:continue
+   date_match=re.search(r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\s+\\d{1,2}\\s+20\\d{2}",text(td[0]),re.I)
+   if not date_match:reasons["date"]+=1;continue
+   date=datetime.strptime(date_match.group(0),"%b %d %Y").date()
+   version=re.search(r"\\b11\\.\\d+\\.\\d+\\b",text(td[5]))
+   if not version or date.year!=2026:reasons["version_or_year"]+=1;continue
+   if players<16:reasons["small"]+=1;continue
+   # A numeric team count means this is a team event, not singles.
+   team_col=text(td[3]).strip()
+   if team_col not in ("","—","-"):reasons["teams"]+=1;continue
+   if event_url in discovered:reasons["duplicate"]+=1;continue
    discovered[event_url]={"id":hashlib.sha256(event_url.encode("utf-8")).hexdigest()[:12],"name":name,"event_date":date.isoformat(),"players_reported":players,"rules_version":version.group(),"source_url":event_url,"event_format":"singles","status":"candidate_not_imported"}
    links+=1
-  if links==0 and page>1:issues.append("No eligible events on "+url)
-  print("Page",page,"candidate count",len(discovered),flush=True)
+  if links==0:issues.append("No eligible events on "+url+"; diagnostics="+repr(reasons))
+  print("Page",page,"accepted",links,"diagnostics",reasons,flush=True)
  # Do not write empty or unexpected results; preserve previous queue.
  if len(discovered)<10:raise RuntimeError("Discovery produced too few candidates; "+repr(issues))
  out=sorted(discovered.values(),key=lambda e:(e["event_date"],e["players_reported"]),reverse=True)[:limit]
