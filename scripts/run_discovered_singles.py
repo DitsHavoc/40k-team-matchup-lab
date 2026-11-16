@@ -92,6 +92,6 @@ def main(limit,max_players):
 if __name__=="__main__":
  parser=argparse.ArgumentParser();parser.add_argument("--limit",type=int,default=2)
  parser.add_argument("--max-players",type=int,default=300);args=parser.parse_args()
- if not 1<=args.limit<=4 or not 16<=args.max_players<=2000:raise SystemExit("Unsafe collection bounds")
+ if not 1<=args.limit<=16 or not 16<=args.max_players<=2000:raise SystemExit("Unsafe collection bounds")
  try:main(args.limit,args.max_players)
  except Exception as exc:print("Auto collection failed:",exc,file=sys.stderr);sys.exit(1)
