@@ -54,12 +54,14 @@ def audit():
             duplicates.add(k);rounds_count[rnd]+=1;dates[r["event_date"]]+=1
         theoretical=892 if event=="uktc-summer-itt-2026" else teams*players*rounds//2
         ratio=round(len(rows)/theoretical*100,1) if theoretical else 0
+        if ratio < 90:
+            errors.append(f"Published game coverage {ratio}% is below 90% of event theoretical maximum; review byes or missing records before release")
         report[event]={"status":"needs_review" if errors else "passed_structural_audit",
                        "games":len(rows),"expected_max":theoretical,"coverage_pct_of_theoretical":ratio,
                        "round_counts":dict(sorted(rounds_count.items())),
                        "date_counts":dict(sorted(dates.items())),"issues_total":len(errors),
                        "issues":errors[:12],
-                       "note":"Expected maximum assumes all teams have full rosters, every round is played and no byes. Passing is a structural check, not proof of complete results."}
+                       "note":"Expected maximum assumes all teams have full rosters, every round is played and no byes. Passing requires at least 90% theoretical coverage and basic structural integrity; it is not proof of complete results."}
     return {"updated_at_utc":datetime.now(timezone.utc).isoformat(),
             "events":report}
 if __name__=="__main__":
@@ -68,4 +70,4 @@ if __name__=="__main__":
     result=audit()
     dest.write_text(json.dumps(result,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({k: {"games":v["games"],"status":v["status"],"issues":v.get("issues_total",0)} for k,v in result["events"].items()},indent=2))
-    sys.exit(0)
+    sys.exit(1 if any(v["status"]=="needs_review" for v in result["events"].values()) else 0)
