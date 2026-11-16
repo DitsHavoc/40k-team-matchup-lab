@@ -1,12 +1,41 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-16T19:52:44.907136+00:00",
-  "total_unique_games": 15435,
-  "total_source_rows": 15435,
+  "updated_at_utc": "2026-11-16T21:43:54.994681+00:00",
+  "total_unique_games": 20561,
+  "total_source_rows": 22778,
   "deduplicated": 0,
-  "duplicate_tournaments_suppressed": 0,
-  "duplicate_tournament_rows_suppressed": 0,
-  "suppressed_events": [],
+  "duplicate_tournaments_suppressed": 4,
+  "duplicate_tournament_rows_suppressed": 2217,
+  "suppressed_events": [
+    {
+      "event": "Warhammer 40000 Grand Tournament - Warhammer Open Newport",
+      "dropped_source": "public/data/singles-newport-2026.csv",
+      "chosen_source": "public/data/singles-auto-d9fd6e79e4d3.csv",
+      "suppressed_rows": 697,
+      "reason": "duplicate_tournament_source"
+    },
+    {
+      "event": "The MANCHESTER 40k SUPER-MAJOR - SUMMER",
+      "dropped_source": "public/data/singles-uktc-manchester-2026.csv",
+      "chosen_source": "public/data/singles-auto-253491d03f7d.csv",
+      "suppressed_rows": 536,
+      "reason": "duplicate_tournament_source"
+    },
+    {
+      "event": "THE COVENTRY 40K : 3-Day",
+      "dropped_source": "public/data/singles-uktc-coventry-3day-2026.csv",
+      "chosen_source": "public/data/singles-auto-17bf68b5a947.csv",
+      "suppressed_rows": 534,
+      "reason": "duplicate_tournament_source"
+    },
+    {
+      "event": "THE BIRMINGHAM 40K SUPER MAJOR",
+      "dropped_source": "public/data/singles-uktc-birmingham-2026.csv",
+      "chosen_source": "public/data/singles-auto-c460b95c7afa.csv",
+      "suppressed_rows": 450,
+      "reason": "duplicate_tournament_source"
+    }
+  ],
   "invalid_rows": 0,
   "missing_source_files": 3,
   "shard_size": 10000,
@@ -14,12 +43,17 @@
     {
       "path": "data/warehouse-0001.csv",
       "records": 10000,
-      "sha256": "a44a814ee66ff9488bbc9fec0f0bcb907cfeb50a6f4a99f774098e565e5cdd42"
+      "sha256": "1bf6acb51f378c09d4175cabc20c77ad8107cd1e843d17e9a4b9fca2fd63d1d3"
     },
     {
       "path": "data/warehouse-0002.csv",
-      "records": 5435,
-      "sha256": "45f2383580d1a928a215675e4866ad0f9de25313e277bca7e159e3e896ee7708"
+      "records": 10000,
+      "sha256": "815064a3ca3e74743fe5aa64964726558e8edd29ce5d1fb60d651f25a6d2d15b"
+    },
+    {
+      "path": "data/warehouse-0003.csv",
+      "records": 561,
+      "sha256": "15c5684c758da712fb8aeb31bde247ac95da5a73e73c6b3a6438285f59d42a64"
     }
   ],
   "sources": [
@@ -54,17 +88,32 @@
       "accepted_unique": 811
     },
     {
-      "path": "public/data/singles-newport-2026.csv",
-      "event_name": "Warhammer 40000 Grand Tournament - Warhammer Open Newport",
+      "path": "public/data/singles-auto-5550fe3c4e82.csv",
+      "event_name": "Ottawa Gaming Convention 40k Champs",
+      "accepted_unique": 719
+    },
+    {
+      "path": "public/data/singles-auto-d9fd6e79e4d3.csv",
+      "event_name": "Warhammer 40000 Grand Tournament \u2013 Warhammer Open Newport",
       "accepted_unique": 697
     },
     {
-      "path": "public/data/singles-uktc-manchester-2026.csv",
-      "event_name": "The MANCHESTER 40k SUPER-MAJOR - SUMMER",
+      "path": "public/data/singles-auto-48cb008694fe.csv",
+      "event_name": "The California Cup 2026 \u2013 Warhammer 40K",
+      "accepted_unique": 544
+    },
+    {
+      "path": "public/data/singles-auto-c16674599d0f.csv",
+      "event_name": "THE EDINBURGH 40K SUPER MAJOR",
+      "accepted_unique": 542
+    },
+    {
+      "path": "public/data/singles-auto-253491d03f7d.csv",
+      "event_name": "The MANCHESTER 40k SUPER-MAJOR \u2013 SUMMER",
       "accepted_unique": 536
     },
     {
-      "path": "public/data/singles-uktc-coventry-3day-2026.csv",
+      "path": "public/data/singles-auto-17bf68b5a947.csv",
       "event_name": "THE COVENTRY 40K : 3-Day",
       "accepted_unique": 534
     },
@@ -74,12 +123,22 @@
       "accepted_unique": 534
     },
     {
+      "path": "public/data/singles-auto-e27324e92b88.csv",
+      "event_name": "Crucible 2026",
+      "accepted_unique": 489
+    },
+    {
       "path": "public/data/gateway-open-teams-2026.csv",
       "event_name": "The 2026 Gateway Open 40K Teams Tournament",
       "accepted_unique": 480
     },
     {
-      "path": "public/data/singles-uktc-birmingham-2026.csv",
+      "path": "public/data/singles-auto-fc4279f22610.csv",
+      "event_name": "BFS GT 2026 Super Major 3 Days",
+      "accepted_unique": 472
+    },
+    {
+      "path": "public/data/singles-auto-c460b95c7afa.csv",
       "event_name": "THE BIRMINGHAM 40K SUPER MAJOR",
       "accepted_unique": 450
     },
@@ -89,9 +148,29 @@
       "accepted_unique": 436
     },
     {
+      "path": "public/data/singles-auto-ca7e9ec865ab.csv",
+      "event_name": "PATH TO GLORY \u2013 OPEN 2026",
+      "accepted_unique": 424
+    },
+    {
+      "path": "public/data/singles-auto-50675d219405.csv",
+      "event_name": "Northern Maelstrom 2026 Warhammer 40000 Grand Tournament",
+      "accepted_unique": 378
+    },
+    {
       "path": "public/data/kent-teams-november-2026.csv",
       "event_name": "The Kent Teams November 2026",
       "accepted_unique": 372
+    },
+    {
+      "path": "public/data/singles-auto-107770c0b36f.csv",
+      "event_name": "La Voz Open 2026",
+      "accepted_unique": 367
+    },
+    {
+      "path": "public/data/singles-auto-25004316c2e6.csv",
+      "event_name": "The Utah Cup 2026 \u2013 Warhammer 40K",
+      "accepted_unique": 356
     },
     {
       "path": "public/data/south-pacific-8s-2026.csv",
@@ -102,6 +181,16 @@
       "path": "public/data/scottish-open-teams-2026.csv",
       "event_name": "Scottish Open Team Championship",
       "accepted_unique": 343
+    },
+    {
+      "path": "public/data/singles-auto-0275dbd2e968.csv",
+      "event_name": "Smite Club Open 2026 \u2013 40K Worlds Qualifier & Fundraiser",
+      "accepted_unique": 332
+    },
+    {
+      "path": "public/data/singles-auto-f8b7ff6b5b05.csv",
+      "event_name": "Palm Springs Classic \u2013 40k GT",
+      "accepted_unique": 332
     },
     {
       "path": "public/data/teams-auto-ccc41fd004ab.csv",
@@ -122,6 +211,11 @@
       "path": "public/data/singles-kent-major-2026.csv",
       "event_name": "The Kent Major 2026",
       "accepted_unique": 210
+    },
+    {
+      "path": "public/data/singles-auto-de3e89b1d1e4.csv",
+      "event_name": "KREFELD MAJOR 40k 2026",
+      "accepted_unique": 171
     },
     {
       "path": "public/data/singles-epsom-2026.csv",

@@ -1,6 +1,9 @@
 {
-  "updated_at_utc": "2026-11-16T14:48:43.985004+00:00",
-  "status": "failed",
-  "reason": "Discovery produced too few candidates; [\"No eligible events on https://metascribe.gg/tournaments/; diagnostics={'anchors': 50, 'context': 50, 'players': 0, 'date': 0, 'version_or_year': 0, 'small': 0, 'teams': 0, 'duplicate': 0}; samples=[{'name': 'Nov 8 2026 WPI B26 Warhammer Tournament 6 \u2014 Worcester, United States 11.1.07', 'parent_tags': ['div', 'main', 'div', 'div', 'body'], 'parent_text': 'Explore Tournaments Community Results and Statistics Events: 2969 Search tournaments \ud83c\udf10 Worldwide \ud83c\udf10 Worldwide 3706 \ud83c\udf10 US and Canada 1871 \ud83c\udf10 Europe 1416 \ud83c\udf10 Oceania 234 \ud83c\udf10 LATAM 72 \ud83c\udf10 Asia 104 \ud83c\udf10 Africa 9 Countries United States 1616 United Kingdom '}, {'name': 'Nov 8 2026 South Wales Practice Day 40 8 Newport, United Kingdom 11.1.07', 'parent_tags': ['div', 'main', 'div', 'div', 'body'], 'parent_text': 'Explore Tournaments Community Results and Statistics Events: 2969 Search tournaments \ud83c\udf10 Worldwide \ud83c\udf10 Worldwide 3706 \ud83c\udf10 US and Canada 1871 \ud83c\udf10 Europe 1416 \ud83c\udf10 Oceania 234 \ud83c\udf10 LATAM 72 \ud83c\udf10 Asia 104 \ud83c\udf10 Africa 9 Countri",
-  "note": "Previous verified event-game CSVs are unaffected; failed discovery must not be counted."
+  "updated_at_utc": "2026-11-16T20:23:23.901818+00:00",
+  "status": "success",
+  "new_candidate_events": 70,
+  "candidate_events": 82,
+  "issues": [
+    "Page https://metascribe.gg/tournaments/page/2/?format=individual&size=super: 404 Client Error: Not Found for url: https://metascribe.gg/tournaments/page/2/?format=individual&size=super"
+  ]
 }

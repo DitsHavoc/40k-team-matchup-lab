@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-16T19:52:44.558147+00:00",
+  "updated_at_utc": "2026-11-16T21:43:54.437375+00:00",
   "published_files_audited": [
     {
       "file": "challengers-cup-2026.csv",
@@ -18,6 +18,10 @@
       "rows": 343
     },
     {
+      "file": "singles-auto-0275dbd2e968.csv",
+      "rows": 332
+    },
+    {
       "file": "singles-auto-0400ed48894d.csv",
       "rows": 37
     },
@@ -26,8 +30,36 @@
       "rows": 43
     },
     {
+      "file": "singles-auto-107770c0b36f.csv",
+      "rows": 367
+    },
+    {
       "file": "singles-auto-10d72d3f037e.csv",
       "rows": 68
+    },
+    {
+      "file": "singles-auto-17bf68b5a947.csv",
+      "rows": 534
+    },
+    {
+      "file": "singles-auto-25004316c2e6.csv",
+      "rows": 356
+    },
+    {
+      "file": "singles-auto-253491d03f7d.csv",
+      "rows": 536
+    },
+    {
+      "file": "singles-auto-48cb008694fe.csv",
+      "rows": 544
+    },
+    {
+      "file": "singles-auto-50675d219405.csv",
+      "rows": 378
+    },
+    {
+      "file": "singles-auto-5550fe3c4e82.csv",
+      "rows": 719
     },
     {
       "file": "singles-auto-8761307ae628.csv",
@@ -48,6 +80,38 @@
     {
       "file": "singles-auto-bf78bf3384fd.csv",
       "rows": 64
+    },
+    {
+      "file": "singles-auto-c16674599d0f.csv",
+      "rows": 542
+    },
+    {
+      "file": "singles-auto-c460b95c7afa.csv",
+      "rows": 450
+    },
+    {
+      "file": "singles-auto-ca7e9ec865ab.csv",
+      "rows": 424
+    },
+    {
+      "file": "singles-auto-d9fd6e79e4d3.csv",
+      "rows": 697
+    },
+    {
+      "file": "singles-auto-de3e89b1d1e4.csv",
+      "rows": 171
+    },
+    {
+      "file": "singles-auto-e27324e92b88.csv",
+      "rows": 489
+    },
+    {
+      "file": "singles-auto-f8b7ff6b5b05.csv",
+      "rows": 332
+    },
+    {
+      "file": "singles-auto-fc4279f22610.csv",
+      "rows": 472
     },
     {
       "file": "singles-epsom-2026.csv",
@@ -130,8 +194,1309 @@
       "rows": 1288
     }
   ],
-  "total_rows_checked": 15429,
-  "cross_file_same_event_duplicates": [],
+  "total_rows_checked": 22772,
+  "cross_file_same_event_duplicates": [
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 2
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 2
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 3
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 4
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 4
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 5
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 5
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 6
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 7
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 8
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 9
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 10
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 11
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 12
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 13
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 14
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 15
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 16
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 17
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 18
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 19
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 20
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 21
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 22
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 23
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 23
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 24
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 24
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 25
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 25
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 26
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 26
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 27
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 28
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 29
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 29
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 30
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 31
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 31
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 32
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 33
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 33
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 34
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 34
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 35
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 36
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 36
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 37
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 37
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 38
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 38
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 39
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 39
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 40
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 40
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 41
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 41
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 42
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 42
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 43
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 43
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 44
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 44
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 45
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 45
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 46
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 46
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 47
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 47
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 48
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 48
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 49
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 49
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 50
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 50
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 51
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 51
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 52
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 52
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 53
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 53
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 54
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 54
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 55
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 55
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 56
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 56
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 57
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 57
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 58
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 58
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 59
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 59
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 60
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 60
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 61
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 61
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 62
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 62
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 63
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 63
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 64
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 64
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 65
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 65
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 66
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 66
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 67
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 67
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 68
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 68
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 69
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 69
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 70
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 70
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 71
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 71
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 72
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 72
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 73
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 73
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 74
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 74
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 75
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 75
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 76
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 76
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 77
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 77
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 78
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 78
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 79
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 79
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 80
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 80
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 81
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 81
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 82
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 82
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 83
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 83
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 84
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 84
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 85
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 85
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 86
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 87
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 87
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 88
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 88
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 89
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 89
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 90
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 90
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 91
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 91
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 92
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 92
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 93
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 94
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 95
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 95
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 96
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 97
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 98
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 98
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 99
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 99
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 100
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 100
+        }
+      ]
+    },
+    {
+      "kind": "same_named_event_same_game",
+      "records": [
+        {
+          "file": "singles-auto-17bf68b5a947.csv",
+          "line": 101
+        },
+        {
+          "file": "singles-uktc-coventry-3day-2026.csv",
+          "line": 101
+        }
+      ]
+    }
+  ],
   "review_cross_event_candidates": [],
   "skipped_identity_rows": [
     {

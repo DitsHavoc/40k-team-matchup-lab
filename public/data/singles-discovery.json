@@ -1,15 +1,25 @@
 {
-  "updated_at_utc": "2026-11-16T14:38:00+00:00",
-  "source": "Curated source-verified Metascribe tournament pages",
-  "pages_checked": 0,
+  "updated_at_utc": "2026-11-16T20:23:23.901190+00:00",
+  "source": "https://metascribe.gg/tournaments/?format=individual&size=major",
+  "pages_checked": 4,
   "candidates": [
     {
-      "id": "bf78bf3384fd",
-      "name": "40k Brawl – November RTT 2026",
-      "event_date": "2026-11-08",
-      "players_reported": 44,
+      "id": "e8af2c90cc42",
+      "name": "Warhammer 40000 Grand Tournament \u2013 Kempton Park",
+      "event_date": "2026-11-14",
+      "players_reported": 121,
       "rules_version": "11.1.07",
-      "source_url": "https://metascribe.gg/tournaments/40k-brawl-november-rtt-2026/",
+      "source_url": "https://metascribe.gg/tournaments/warhammer-40000-grand-tournament-kempton-park/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "e2a68530f230",
+      "name": "The Autumn I. T. T. \u2013 INTERNATIONAL TEAM TOURNAMENT \u2013 November",
+      "event_date": "2026-11-14",
+      "players_reported": 107,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/the-autumn-i-t-t-international-team-tournament-november-3/",
       "event_format": "singles",
       "status": "candidate_not_imported"
     },
@@ -24,6 +34,16 @@
       "status": "candidate_not_imported"
     },
     {
+      "id": "bf78bf3384fd",
+      "name": "40k Brawl \u2013 November RTT 2026",
+      "event_date": "2026-11-08",
+      "players_reported": 44,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/40k-brawl-november-rtt-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
       "id": "4ebeade9f69a",
       "name": "Dark Star Gaming Warhammer 40k 2000pts Tournament (November 2026)",
       "event_date": "2026-11-08",
@@ -34,72 +54,22 @@
       "status": "candidate_not_imported"
     },
     {
-      "id": "71b1b08e6317",
-      "name": "Turbulent Games Warhammer 40K GT @NanoCon",
+      "id": "57b1d930db3f",
+      "name": "OGRE 2026 Open du Grand Est 4\u00e8me EDITION",
       "event_date": "2026-11-07",
-      "players_reported": 24,
+      "players_reported": 100,
       "rules_version": "11.1.07",
-      "source_url": "https://metascribe.gg/tournaments/turbulent-games-warhammer-40k-gt-nanocon/",
+      "source_url": "https://metascribe.gg/tournaments/ogre-2026-open-du-grand-est-4eme-edition/",
       "event_format": "singles",
       "status": "candidate_not_imported"
     },
     {
-      "id": "933649ae83b3",
-      "name": "Nemesis Fall 2026 – The Movie – The Game",
+      "id": "0ebb69d4f13e",
+      "name": "SSG & MM Shuffle Wars IV: Makari\u2019s Hope",
       "event_date": "2026-11-07",
-      "players_reported": 32,
+      "players_reported": 79,
       "rules_version": "11.1.07",
-      "source_url": "https://metascribe.gg/tournaments/nemesis-fall-2026-the-movie-the-game/",
-      "event_format": "singles",
-      "status": "candidate_not_imported"
-    },
-    {
-      "id": "10d72d3f037e",
-      "name": "Bunker Down GT 2026 RBBR",
-      "event_date": "2026-11-07",
-      "players_reported": 28,
-      "rules_version": "11.1.07",
-      "source_url": "https://metascribe.gg/tournaments/bunker-down-gt-2026-rbbr/",
-      "event_format": "singles",
-      "status": "candidate_not_imported"
-    },
-    {
-      "id": "6b02e594906b",
-      "name": "Lodgecon 2026",
-      "event_date": "2026-11-07",
-      "players_reported": 16,
-      "rules_version": "11.1.07",
-      "source_url": "https://metascribe.gg/tournaments/lodgecon-2026/",
-      "event_format": "singles",
-      "status": "candidate_not_imported"
-    },
-    {
-      "id": "0a6e08438761",
-      "name": "DPW Singles RTT – Warhammer 40000",
-      "event_date": "2026-11-07",
-      "players_reported": 31,
-      "rules_version": "11.1.07",
-      "source_url": "https://metascribe.gg/tournaments/dpw-singles-rtt-warhammer-40000/",
-      "event_format": "singles",
-      "status": "candidate_not_imported"
-    },
-    {
-      "id": "9c9967b5e472",
-      "name": "Dice & Bolter 40K RTT #7",
-      "event_date": "2026-11-07",
-      "players_reported": 38,
-      "rules_version": "11.1.07",
-      "source_url": "https://metascribe.gg/tournaments/dice-bolter-40k-rtt-7/",
-      "event_format": "singles",
-      "status": "candidate_not_imported"
-    },
-    {
-      "id": "0400ed48894d",
-      "name": "D6 Games- Chelmsford Chop III",
-      "event_date": "2026-11-07",
-      "players_reported": 28,
-      "rules_version": "11.1.07",
-      "source_url": "https://metascribe.gg/tournaments/d6-games-chelmsford-chop-iii/",
+      "source_url": "https://metascribe.gg/tournaments/ssg-mm-shuffle-wars-iv-makaris-hope/",
       "event_format": "singles",
       "status": "candidate_not_imported"
     },
@@ -114,16 +84,748 @@
       "status": "candidate_not_imported"
     },
     {
+      "id": "9c9967b5e472",
+      "name": "Dice & Bolter 40K RTT #7",
+      "event_date": "2026-11-07",
+      "players_reported": 38,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/dice-bolter-40k-rtt-7/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "933649ae83b3",
+      "name": "Nemesis Fall 2026 \u2013 The Movie \u2013 The Game",
+      "event_date": "2026-11-07",
+      "players_reported": 32,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/nemesis-fall-2026-the-movie-the-game/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "0a6e08438761",
+      "name": "DPW Singles RTT \u2013 Warhammer 40000",
+      "event_date": "2026-11-07",
+      "players_reported": 31,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/dpw-singles-rtt-warhammer-40000/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "10d72d3f037e",
+      "name": "Bunker Down GT 2026 RBBR",
+      "event_date": "2026-11-07",
+      "players_reported": 28,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/bunker-down-gt-2026-rbbr/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "0400ed48894d",
+      "name": "D6 Games- Chelmsford Chop III",
+      "event_date": "2026-11-07",
+      "players_reported": 28,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/d6-games-chelmsford-chop-iii/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
       "id": "3e2adc2eed25",
-      "name": "Winchester 40K GT – November 2026",
+      "name": "Winchester 40K GT \u2013 November 2026",
       "event_date": "2026-11-07",
       "players_reported": 28,
       "rules_version": "11.1.07",
       "source_url": "https://metascribe.gg/tournaments/winchester-40k-gt-november-2026/",
       "event_format": "singles",
       "status": "candidate_not_imported"
+    },
+    {
+      "id": "71b1b08e6317",
+      "name": "Turbulent Games Warhammer 40K GT @NanoCon",
+      "event_date": "2026-11-07",
+      "players_reported": 24,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/turbulent-games-warhammer-40k-gt-nanocon/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "6b02e594906b",
+      "name": "Lodgecon 2026",
+      "event_date": "2026-11-07",
+      "players_reported": 16,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/lodgecon-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "48cb008694fe",
+      "name": "The California Cup 2026 \u2013 Warhammer 40K",
+      "event_date": "2026-11-06",
+      "players_reported": 150,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/the-california-cup-2026-warhammer-40k/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "21fef44fd34d",
+      "name": "Calling the Banners 2026",
+      "event_date": "2026-10-30",
+      "players_reported": 67,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/calling-the-banners-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "9500999842e4",
+      "name": "THE COVENTRY 40K : 2-Day",
+      "event_date": "2026-10-24",
+      "players_reported": 110,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/the-coventry-40k-2-day-3/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "17bf68b5a947",
+      "name": "THE COVENTRY 40K : 3-Day",
+      "event_date": "2026-10-23",
+      "players_reported": 142,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/the-coventry-40k-3-day-3/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "a92bdb1107eb",
+      "name": "Alba GT 2026",
+      "event_date": "2026-10-17",
+      "players_reported": 100,
+      "rules_version": "11.1.06",
+      "source_url": "https://metascribe.gg/tournaments/alba-gt-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "4cee712c33a4",
+      "name": "Rumble on the Rivers 40k GT 2026",
+      "event_date": "2026-10-17",
+      "players_reported": 93,
+      "rules_version": "11.1.06",
+      "source_url": "https://metascribe.gg/tournaments/rumble-on-the-rivers-40k-gt-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "71679828719e",
+      "name": "Bloodshed Bay Two",
+      "event_date": "2026-10-17",
+      "players_reported": 82,
+      "rules_version": "11.1.06",
+      "source_url": "https://metascribe.gg/tournaments/bloodshed-bay-two/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "12c0b98dcf87",
+      "name": "That 6++ Grand Tournament: South 2026",
+      "event_date": "2026-10-17",
+      "players_reported": 74,
+      "rules_version": "11.1.06",
+      "source_url": "https://metascribe.gg/tournaments/that-6-grand-tournament-south-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "8e294ce14e64",
+      "name": "Ratcon 2026",
+      "event_date": "2026-10-16",
+      "players_reported": 94,
+      "rules_version": "11.1.06",
+      "source_url": "https://metascribe.gg/tournaments/ratcon-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "18d4c90b241c",
+      "name": "Denver 40K Fight Club Oct. Open \u201826",
+      "event_date": "2026-10-10",
+      "players_reported": 105,
+      "rules_version": "11.1.06",
+      "source_url": "https://metascribe.gg/tournaments/denver-40k-fight-club-oct-open-26/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "922e6a32d484",
+      "name": "Rook\u2019s 40k Open 2026",
+      "event_date": "2026-10-10",
+      "players_reported": 78,
+      "rules_version": "11.1.06",
+      "source_url": "https://metascribe.gg/tournaments/rooks-40k-open-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "fc4279f22610",
+      "name": "BFS GT 2026 Super Major 3 Days",
+      "event_date": "2026-10-09",
+      "players_reported": 131,
+      "rules_version": "11.1.06",
+      "source_url": "https://metascribe.gg/tournaments/bfs-gt-2026-super-major-3-days/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "606f13d6c8cb",
+      "name": "Open Les D\u00e9s Sal\u00e9s 1",
+      "event_date": "2026-10-03",
+      "players_reported": 82,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/open-les-des-sales-1/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "259cc2fb91e2",
+      "name": "LVO 2026 \u2013 Warhammer 40k Championships \u2013 Las Vegas Open",
+      "event_date": "2026-10-02",
+      "players_reported": 652,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/lvo-2026-warhammer-40k-championships-las-vegas-open/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "061143be92d0",
+      "name": "Grand Pitounerie 2 Open 40k de Loire Atlantique",
+      "event_date": "2026-09-26",
+      "players_reported": 86,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/grand-pitounerie-2-open-40k-de-loire-atlantique/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "49c6bfc674a2",
+      "name": "The Phoenix GT: End of Summer Showdown",
+      "event_date": "2026-09-26",
+      "players_reported": 74,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/the-phoenix-gt-end-of-summer-showdown-2/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "714ccb449b25",
+      "name": "Saimaa GT 2026",
+      "event_date": "2026-09-26",
+      "players_reported": 72,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/saimaa-gt-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "2076be3fc9db",
+      "name": "Dearg Doom VIII don\u2019t play in Cian\u2019s sandbox",
+      "event_date": "2026-09-26",
+      "players_reported": 67,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/dearg-doom-viii-dont-play-in-cians-sandbox/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "313ff27047ac",
+      "name": "The London Grand Tournament \u2013 40k Main Event (LGT 40k GT)",
+      "event_date": "2026-09-25",
+      "players_reported": 1049,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/the-london-grand-tournament-40k-main-event-lgt-40k-gt/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "4fb7ee13e306",
+      "name": "Hanseatic Alliance Open 2026",
+      "event_date": "2026-09-25",
+      "players_reported": 77,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/hanseatic-alliance-open-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "9bbc5ce81d82",
+      "name": "M\u00fcnsterland Major 5",
+      "event_date": "2026-09-19",
+      "players_reported": 91,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/munsterland-major-5/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "202de7aac01a",
+      "name": "Roll for Damage GT \u2013 Presented by Dragon\u2019s Lair",
+      "event_date": "2026-09-19",
+      "players_reported": 85,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/roll-for-damage-gt-presented-by-dragons-lair-2/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "beb5d2c60dea",
+      "name": "Open des 3 Fronti\u00e8res",
+      "event_date": "2026-09-19",
+      "players_reported": 66,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/open-des-3-frontieres/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "4f1700126a3d",
+      "name": "CHMECS FEST \u2013 French Warhammer 40K Open",
+      "event_date": "2026-09-18",
+      "players_reported": 69,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/chmecs-fest-french-warhammer-40k-open/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "7e38f9f3a954",
+      "name": "Doonhamer Open 2026",
+      "event_date": "2026-09-12",
+      "players_reported": 124,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/doonhamer-open-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "52d8cac9d751",
+      "name": "BAYERN MAJOR 40k 2026",
+      "event_date": "2026-09-12",
+      "players_reported": 114,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/bayern-major-40k-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "c645b84c73cf",
+      "name": "Flying Monkey Con 26 Warhammer 40k GT",
+      "event_date": "2026-09-12",
+      "players_reported": 112,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/flying-monkey-con-26-warhammer-40k-gt/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "e27324e92b88",
+      "name": "Crucible 2026",
+      "event_date": "2026-09-11",
+      "players_reported": 163,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/crucible-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "d482a230224b",
+      "name": "Warhammer 40000 Grand Tournament \u2013 Epsom Downs",
+      "event_date": "2026-09-05",
+      "players_reported": 65,
+      "rules_version": "11.1.03",
+      "source_url": "https://metascribe.gg/tournaments/warhammer-40000-grand-tournament-epsom-downs/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "356915f1f324",
+      "name": "NOVA Open 2026 Grand Tournament",
+      "event_date": "2026-09-04",
+      "players_reported": 374,
+      "rules_version": "11.1.03",
+      "source_url": "https://metascribe.gg/tournaments/nova-open-2026-grand-tournament/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "253491d03f7d",
+      "name": "The MANCHESTER 40k SUPER-MAJOR \u2013 SUMMER",
+      "event_date": "2026-08-29",
+      "players_reported": 226,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/the-manchester-40k-super-major-summer/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "107770c0b36f",
+      "name": "La Voz Open 2026",
+      "event_date": "2026-08-29",
+      "players_reported": 147,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/la-voz-open-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "008718134b2f",
+      "name": "Arch City GT 5",
+      "event_date": "2026-08-29",
+      "players_reported": 99,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/arch-city-gt-5/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "5550fe3c4e82",
+      "name": "Ottawa Gaming Convention 40k Champs",
+      "event_date": "2026-08-28",
+      "players_reported": 187,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/ottawa-gaming-convention-40k-champs/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "0275dbd2e968",
+      "name": "Smite Club Open 2026 \u2013 40K Worlds Qualifier & Fundraiser",
+      "event_date": "2026-08-22",
+      "players_reported": 126,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/smite-club-open-2026-40k-worlds-qualifier-fundraiser/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "841f9df70ad3",
+      "name": "Krootcon 2026",
+      "event_date": "2026-08-22",
+      "players_reported": 80,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/krootcon-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "fafc75c004c6",
+      "name": "Edmonton Wargaming Open 2026",
+      "event_date": "2026-08-22",
+      "players_reported": 72,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/edmonton-wargaming-open-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "61ff3d9ab946",
+      "name": "Surrey Primarchs GW Golden Ticket Event",
+      "event_date": "2026-08-22",
+      "players_reported": 66,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/surrey-primarchs-gw-golden-ticket-event/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "11ae81471f2d",
+      "name": "The Upkeep Games GT I 2026",
+      "event_date": "2026-08-15",
+      "players_reported": 123,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/the-upkeep-games-gt-i-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "947b11f0d6a3",
+      "name": "Summer Slaughter: Warhammer 40K Grand Tournament",
+      "event_date": "2026-08-15",
+      "players_reported": 73,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/summer-slaughter-warhammer-40k-grand-tournament/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "d9fd6e79e4d3",
+      "name": "Warhammer 40000 Grand Tournament \u2013 Warhammer Open Newport",
+      "event_date": "2026-08-14",
+      "players_reported": 187,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/warhammer-40000-grand-tournament-warhammer-open-newport/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "eb43a37fecb1",
+      "name": "WTC Warmaster GT 2026",
+      "event_date": "2026-08-11",
+      "players_reported": 578,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/wtc-warmaster-gt-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "25004316c2e6",
+      "name": "The Utah Cup 2026 \u2013 Warhammer 40K",
+      "event_date": "2026-08-08",
+      "players_reported": 130,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/the-utah-cup-2026-warhammer-40k/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "c7097a0e8f0e",
+      "name": "Iowaaagh! Moose-tacular 2026",
+      "event_date": "2026-08-08",
+      "players_reported": 76,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/iowaaagh-moose-tacular-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "a2896a285973",
+      "name": "Lone Star Open 2026 \u2013 Warhammer 40k Champs",
+      "event_date": "2026-08-01",
+      "players_reported": 328,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/lone-star-open-2026-warhammer-40k-champs/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "de3e89b1d1e4",
+      "name": "KREFELD MAJOR 40k 2026",
+      "event_date": "2026-08-01",
+      "players_reported": 132,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/krefeld-major-40k-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "3cdafecdcafe",
+      "name": "Denver 40K Fight Club Aug Open \u201826",
+      "event_date": "2026-08-01",
+      "players_reported": 81,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/denver-40k-fight-club-aug-open-26/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "ee35b694d896",
+      "name": "The Kent Major 2026",
+      "event_date": "2026-08-01",
+      "players_reported": 80,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/the-kent-major-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "86413f7517eb",
+      "name": "The Salt City GT 40K Grand Tournament",
+      "event_date": "2026-07-31",
+      "players_reported": 100,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/the-salt-city-gt-40k-grand-tournament/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "6dfaa4f515ad",
+      "name": "Ragnar\u00f6k GT 2026 \u2013 A Valkyrie Wargaming Event",
+      "event_date": "2026-07-31",
+      "players_reported": 68,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/ragnarok-gt-2026-a-valkyrie-wargaming-event/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "50675d219405",
+      "name": "Northern Maelstrom 2026 Warhammer 40000 Grand Tournament",
+      "event_date": "2026-07-25",
+      "players_reported": 132,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/northern-maelstrom-2026-warhammer-40000-grand-tournament/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "4ccb5264a2c0",
+      "name": "WH40k Ropecon GT 2026",
+      "event_date": "2026-07-25",
+      "players_reported": 91,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/wh40k-ropecon-gt-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "dec5e788292c",
+      "name": "Battle of the East",
+      "event_date": "2026-07-25",
+      "players_reported": 86,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/battle-of-the-east/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "b0ef2c5f6fe5",
+      "name": "BOISE CUP 40k 2026",
+      "event_date": "2026-07-25",
+      "players_reported": 79,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/boise-cup-40k-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "6b17b0096615",
+      "name": "Chimera Gaming Warhammer 40K Grand Tournament \u2013 July 2026",
+      "event_date": "2026-07-25",
+      "players_reported": 73,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/chimera-gaming-warhammer-40k-grand-tournament-july-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "c16674599d0f",
+      "name": "THE EDINBURGH 40K SUPER MAJOR",
+      "event_date": "2026-07-18",
+      "players_reported": 228,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/the-edinburgh-40k-super-major/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "f8b7ff6b5b05",
+      "name": "Palm Springs Classic \u2013 40k GT",
+      "event_date": "2026-07-18",
+      "players_reported": 125,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/palm-springs-classic-40k-gt/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "cb31f0a3329d",
+      "name": "Bordeaux OPEN",
+      "event_date": "2026-07-18",
+      "players_reported": 86,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/bordeaux-open/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "08f1218670fe",
+      "name": "Hee Yaw 2026",
+      "event_date": "2026-07-18",
+      "players_reported": 80,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/hee-yaw-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "14599f9f743d",
+      "name": "Warhammer 40000 Grand Tournament \u2013 Warhammer Open Tacoma",
+      "event_date": "2026-07-17",
+      "players_reported": 518,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/warhammer-40000-grand-tournament-warhammer-open-tacoma/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "ca7e9ec865ab",
+      "name": "PATH TO GLORY \u2013 OPEN 2026",
+      "event_date": "2026-07-11",
+      "players_reported": 184,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/path-to-glory-open-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "181b87b4ac13",
+      "name": "Ironweld: Warhammer 40K Grand Tournament",
+      "event_date": "2026-07-11",
+      "players_reported": 69,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/ironweld-warhammer-40k-grand-tournament/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "89adea26c66a",
+      "name": "I GT Tierra Vettona Ciudad d \u00c1vila",
+      "event_date": "2026-07-10",
+      "players_reported": 82,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/i-gt-tierra-vettona-ciudad-d-avila/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "c460b95c7afa",
+      "name": "THE BIRMINGHAM 40K SUPER MAJOR",
+      "event_date": "2026-07-04",
+      "players_reported": 196,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/the-birmingham-40k-super-major/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "6ab24298cc43",
+      "name": "The North East Open 2026",
+      "event_date": "2026-07-04",
+      "players_reported": 85,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/the-north-east-open-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "dabf906a5e85",
+      "name": "Tolaris GT 2026",
+      "event_date": "2026-07-04",
+      "players_reported": 78,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/tolaris-gt-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
     }
   ],
-  "issues": [],
-  "note": "Fallback queue of directly checked singles event pages, not historical game records. Source importer still independently validates all results, editions, scores and player identities before publishing."
+  "issues": [
+    "Page https://metascribe.gg/tournaments/page/2/?format=individual&size=super: 404 Client Error: Not Found for url: https://metascribe.gg/tournaments/page/2/?format=individual&size=super"
+  ],
+  "note": "Event candidates only. No score, player matchup or army list assumed until validated game-level import."
 }
