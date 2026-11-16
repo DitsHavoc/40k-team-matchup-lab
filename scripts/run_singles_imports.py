@@ -28,11 +28,19 @@ def validate(path,min_games):
 results={}
 for event,(filename,minimum) in EVENTS.items():
  path=Path(filename)
+ previous_bytes=path.read_bytes() if path.exists() else None
  try:
   proc=subprocess.run([sys.executable,"scripts/import_metascribe_singles.py","--event",event],stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=3000)
   output=proc.stdout.strip()
   count,status=validate(path,minimum)
-  results[event]={"collection_status":status if proc.returncode==0 else "failed_or_previous_file_preserved","import_succeeded":proc.returncode==0 and status=="passed_structural_audit","published_records":count,"csv_path":filename if count else None,"diagnostic":output.splitlines()[-1][:300] if output else ""}
+  succeeded=proc.returncode==0 and status=="passed_structural_audit"
+  if not succeeded:
+   if previous_bytes is None:
+    path.unlink(missing_ok=True)
+   else:
+    path.write_bytes(previous_bytes)
+   count=validate(path,minimum)[0] if path.exists() else 0
+  results[event]={"collection_status":status if succeeded else "failed_or_previous_file_preserved","import_succeeded":succeeded,"published_records":count,"csv_path":filename if count else None,"diagnostic":output.splitlines()[-1][:300] if output else ""}
  except Exception as e:results[event]={"collection_status":"failed","import_succeeded":False,"published_records":0,"diagnostic":str(e)}
 dest=Path("public/data/singles-import-status.json");dest.parent.mkdir(parents=True,exist_ok=True)
 dest.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),"events":results,"note":"Singles results are explicitly labelled, retain native raw VP, and have separately published 20-point equivalents. Failed imports preserve previously published datasets."},indent=2)+"\n",encoding="utf-8")
