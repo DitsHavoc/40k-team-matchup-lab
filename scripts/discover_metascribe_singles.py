@@ -40,6 +40,7 @@ def main(pages,limit):
     try:
      tab.goto(url,wait_until="domcontentloaded",timeout=35000)
      tab.wait_for_selector('a[href*="/tournaments/"]',timeout=25000)
+     tab.wait_for_timeout(2000)  # Event cards are populated after the navigation shell.
      soup=BeautifulSoup(tab.content(),"html.parser")
     finally:
      tab.close()
