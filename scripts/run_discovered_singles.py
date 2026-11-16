@@ -50,10 +50,10 @@ def validate(path,event):
  if len(rows)<minimum:return len(rows),f"incomplete sample ({len(rows)} below {minimum})"
  return len(rows),"passed_structural_audit"
 
-def main(limit,max_players):
+def main(limit,max_players,min_players=16):
  if not QUEUE.exists():raise RuntimeError("Discovery queue missing")
  candidates=json.loads(QUEUE.read_text(encoding="utf-8")).get("candidates",[])
- if len(candidates)<10:raise RuntimeError("Too few discovered events to proceed")
+ if not candidates:raise RuntimeError("No discovered events to process")
  previous={}
  if STATUS.exists():
   try:previous=json.loads(STATUS.read_text(encoding="utf-8")).get("events",{})
@@ -64,7 +64,7 @@ def main(limit,max_players):
  to_import=[]
  for e in candidates:
   eid=e.get("id")
-  if not eid or not 16<=int(e.get("players_reported",0))<=max_players:continue
+  if not eid or not min_players<=int(e.get("players_reported",0))<=max_players:continue
   prior=previous.get(eid,{})
   dest=ROOT/("singles-auto-"+eid+".csv")
   if prior.get("import_succeeded") and dest.exists():continue
@@ -111,7 +111,7 @@ def main(limit,max_players):
 
 if __name__=="__main__":
  parser=argparse.ArgumentParser();parser.add_argument("--limit",type=int,default=2)
- parser.add_argument("--max-players",type=int,default=300);args=parser.parse_args()
- if not 1<=args.limit<=16 or not 16<=args.max_players<=2000:raise SystemExit("Unsafe collection bounds")
- try:main(args.limit,args.max_players)
+ parser.add_argument("--max-players",type=int,default=300);parser.add_argument("--min-players",type=int,default=16);args=parser.parse_args()
+ if not 1<=args.limit<=16 or not 16<=args.min_players<=args.max_players<=2000:raise SystemExit("Unsafe collection bounds")
+ try:main(args.limit,args.max_players,args.min_players)
  except Exception as exc:print("Auto collection failed:",exc,file=sys.stderr);sys.exit(1)
