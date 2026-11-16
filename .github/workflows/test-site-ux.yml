@@ -1,0 +1,26 @@
+name: Smoke test mobile tournament UX
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'public/index.html'
+      - 'tests/site-smoke.spec.cjs'
+      - '.github/workflows/test-site-ux.yml'
+jobs:
+  mobile-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save @playwright/test
+      - run: npx playwright install --with-deps chromium
+      - name: Run real browser checks on deployed site
+        run: npx playwright test tests/site-smoke.spec.cjs --project=chromium --reporter=line
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-test-results
+          path: test-results/
