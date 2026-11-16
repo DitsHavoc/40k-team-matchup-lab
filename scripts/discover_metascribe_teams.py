@@ -35,7 +35,9 @@ def main(pages,limit):
  browser=None
  try:
   for page in range(1,pages+1):
-   url=BASE+"/tournaments/"+("page/"+str(page)+"/" if page>1 else "")+"?format=team"
+   size=("super","major")[(page-1)%2]
+   page_number=(page-1)//2+1
+   url=BASE+"/tournaments/"+("page/"+str(page_number)+"/" if page_number>1 else "")+"?format=team&size="+size
    try:
     soup=fetch(url)
     if not soup.find("a",href=re.compile(r"/tournaments/[a-z0-9-]+/?$")):
@@ -76,12 +78,13 @@ def main(pages,limit):
   if QUEUE.exists():
    for entry in json.loads(QUEUE.read_text(encoding="utf-8")).get("candidates",[]):
     url=entry.get("source_url")
-    if entry.get("event_format")=="team" and url and url not in candidates:
+    if entry.get("event_format")=="team" and url and url not in candidates and re.fullmatch(r"https://metascribe\.gg/tournaments/[a-z0-9-]+/",url):
+     entry["id"]=hashlib.sha256(url.encode("utf-8")).hexdigest()[:12]
      candidates[url]=entry
   if not candidates:raise RuntimeError("No 100+ player team events discovered or queued")
   out=sorted(candidates.values(),key=lambda x:(x["event_date"],x["players_reported"]),reverse=True)[:limit]
   QUEUE.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),
-   "source":BASE+"/tournaments/?format=team","pages_checked":pages,
+   "source":BASE+"/tournaments/?format=team&size=major","pages_checked":pages,
    "candidates":out,"issues":issues[:25],
    "note":"Event metadata candidates only; games must be independently verified from player histories."},indent=2)+"\n",encoding="utf-8")
   STATUS.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),
