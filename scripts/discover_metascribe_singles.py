@@ -29,7 +29,9 @@ def main(pages,limit):
  browser_driver=None
  browser=None
  for page in range(1,pages+1):
-  url=BASE+"/tournaments/"+("page/"+str(page)+"/" if page>1 else "")
+  size=("super","major")[(page-1)%2]
+  page_number=(page-1)//2+1
+  url=BASE+"/tournaments/"+("page/"+str(page_number)+"/" if page_number>1 else "")+"?format=individual&size="+size
   try:
    soup=get(url)
    if not soup.find("a",href=re.compile(r"/tournaments/[a-z0-9-]+/?$")):
@@ -92,13 +94,14 @@ def main(pages,limit):
    previous=json.loads(prior_path.read_text(encoding="utf-8")).get("candidates",[])
    for event in previous:
     if event.get("source_url") and event["source_url"] not in discovered and event.get("event_format")=="singles":
+     event["id"]=hashlib.sha256(event["source_url"].encode("utf-8")).hexdigest()[:12]
      discovered[event["source_url"]]=event
   except (OSError,ValueError) as exc:
    issues.append("Unable to merge previous discovery queue: "+str(exc)[:100])
  if len(discovered)<10:raise RuntimeError("Discovery produced too few candidates; "+repr(issues))
  out=sorted(discovered.values(),key=lambda e:(e["event_date"],e["players_reported"]),reverse=True)[:limit]
  dest=Path("public/data/singles-discovery.json");dest.parent.mkdir(parents=True,exist_ok=True)
- dest.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),"source":BASE+"/tournaments/","pages_checked":pages,"candidates":out,"issues":issues[:30],"note":"Event candidates only. No score, player matchup or army list assumed until validated game-level import."},indent=2)+"\n",encoding="utf-8")
+ dest.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),"source":BASE+"/tournaments/?format=individual&size=major","pages_checked":pages,"candidates":out,"issues":issues[:30],"note":"Event candidates only. No score, player matchup or army list assumed until validated game-level import."},indent=2)+"\n",encoding="utf-8")
  status=Path("public/data/singles-discovery-status.json")
  status.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),
  "status":"success","candidate_events":len(out),"issues":issues[:20]},indent=2)+"\n",encoding="utf-8")
