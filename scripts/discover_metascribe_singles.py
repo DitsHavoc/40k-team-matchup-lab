@@ -33,11 +33,12 @@ def main(pages,limit):
   links=0
   reasons={"anchors":0,"context":0,"players":0,"date":0,"version_or_year":0,"small":0,"teams":0,"duplicate":0}
   anchor_samples=[]
-  for anchor in soup.find_all("a",href=re.compile(r"^/tournaments/[a-z0-9-]+/?$")):
+  for anchor in soup.find_all("a",href=re.compile(r"/tournaments/[a-z0-9-]+/?$")):
    reasons["anchors"]+=1
    name=text(anchor)
    if not name:continue
    event_url=urljoin(BASE,anchor["href"])
+   if urlparse(event_url).netloc!="metascribe.gg":continue
    context=None
    node=anchor
    for depth in range(9):
