@@ -1,0 +1,177 @@
+{
+  "updated_at_utc": "2026-11-16T17:58:41.678925+00:00",
+  "dry_run": false,
+  "roster_lookup": true,
+  "files_processed": 19,
+  "summary": {
+    "already_recorded": 15749,
+    "missing_after": 204,
+    "rosters_scanned": 19,
+    "missing_before": 207,
+    "unverified": 204,
+    "filled": 3
+  },
+  "files": [
+    {
+      "file": "public/data/singles-auto-0400ed48894d.csv",
+      "games": 37,
+      "already_recorded": 74,
+      "missing_after": 0,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-auto-0a6e08438761.csv",
+      "games": 43,
+      "already_recorded": 85,
+      "missing_before": 1,
+      "unverified": 1,
+      "missing_after": 1,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-auto-10d72d3f037e.csv",
+      "games": 68,
+      "already_recorded": 136,
+      "missing_after": 0,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-auto-8761307ae628.csv",
+      "games": 68,
+      "already_recorded": 136,
+      "missing_after": 0,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-auto-933649ae83b3.csv",
+      "games": 78,
+      "already_recorded": 156,
+      "missing_after": 0,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-auto-9c9967b5e472.csv",
+      "games": 53,
+      "already_recorded": 100,
+      "missing_before": 6,
+      "unverified": 6,
+      "missing_after": 6,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-auto-9d01b3f48ea0.csv",
+      "games": 124,
+      "already_recorded": 248,
+      "missing_after": 0,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-auto-bf78bf3384fd.csv",
+      "games": 64,
+      "already_recorded": 128,
+      "missing_after": 0,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-epsom-2026.csv",
+      "games": 160,
+      "already_recorded": 315,
+      "missing_before": 5,
+      "unverified": 5,
+      "missing_after": 5,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-kent-major-2026.csv",
+      "games": 210,
+      "already_recorded": 411,
+      "missing_before": 9,
+      "filled": 3,
+      "unverified": 6,
+      "missing_after": 6,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-lgt-2026.csv",
+      "games": 2519,
+      "already_recorded": 4961,
+      "missing_before": 77,
+      "unverified": 77,
+      "missing_after": 77,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-lvo-2026.csv",
+      "games": 1831,
+      "already_recorded": 3656,
+      "missing_before": 6,
+      "unverified": 6,
+      "missing_after": 6,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-newport-2026.csv",
+      "games": 697,
+      "already_recorded": 1373,
+      "missing_before": 21,
+      "unverified": 21,
+      "missing_after": 21,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-october-rtt-2026.csv",
+      "games": 21,
+      "already_recorded": 39,
+      "missing_before": 3,
+      "unverified": 3,
+      "missing_after": 3,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-ratcon-2026.csv",
+      "games": 231,
+      "already_recorded": 457,
+      "missing_before": 5,
+      "unverified": 5,
+      "missing_after": 5,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-uktc-birmingham-2026.csv",
+      "games": 450,
+      "already_recorded": 847,
+      "missing_before": 53,
+      "unverified": 53,
+      "missing_after": 53,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-uktc-coventry-2day-2026.csv",
+      "games": 254,
+      "already_recorded": 505,
+      "missing_before": 3,
+      "unverified": 3,
+      "missing_after": 3,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-uktc-coventry-3day-2026.csv",
+      "games": 534,
+      "already_recorded": 1060,
+      "missing_before": 8,
+      "unverified": 8,
+      "missing_after": 8,
+      "rosters_scanned": 1
+    },
+    {
+      "file": "public/data/singles-uktc-manchester-2026.csv",
+      "games": 536,
+      "already_recorded": 1062,
+      "missing_before": 10,
+      "unverified": 10,
+      "missing_after": 10,
+      "rosters_scanned": 1
+    }
+  ],
+  "note": "Only verified missing singles dispositions filled. Event/player/faction constrained. Matches, scores and teams not changed."
+}
