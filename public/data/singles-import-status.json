@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-16T10:52:41.288425+00:00",
+  "updated_at_utc": "2026-11-16T11:28:23.059413+00:00",
   "events": {
     "epsom-2026": {
       "collection_status": "passed_structural_audit",
@@ -63,6 +63,13 @@
       "published_records": 231,
       "csv_path": "public/data/singles-ratcon-2026.csv",
       "diagnostic": "Wrote public/data/singles-ratcon-2026.csv"
+    },
+    "lgt-2026": {
+      "collection_status": "passed_structural_audit",
+      "import_succeeded": true,
+      "published_records": 2519,
+      "csv_path": "public/data/singles-lgt-2026.csv",
+      "diagnostic": "Wrote public/data/singles-lgt-2026.csv"
     }
   },
   "note": "Published files only: previous verified data retained after collection failure. Raw VP and WTC equivalents are separately recorded."

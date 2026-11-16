@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-16T10:52:41.390132+00:00",
+  "updated_at_utc": "2026-11-16T11:28:23.241631+00:00",
   "published_files_audited": [
     {
       "file": "challengers-cup-2026.csv",
@@ -24,6 +24,10 @@
     {
       "file": "singles-kent-major-2026.csv",
       "rows": 210
+    },
+    {
+      "file": "singles-lgt-2026.csv",
+      "rows": 2519
     },
     {
       "file": "singles-newport-2026.csv",
@@ -78,7 +82,7 @@
       "rows": 1288
     }
   ],
-  "total_rows_checked": 9261,
+  "total_rows_checked": 11780,
   "cross_file_same_event_duplicates": [],
   "review_cross_event_candidates": [],
   "skipped_identity_rows": [],
