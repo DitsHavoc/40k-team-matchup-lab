@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Import public individual singles match histories without inventing scores or armies.
 Sources: Metascribe public singles event standings and public player game histories.
-All records retain raw VP and the separately published 20-point WTC equivalent.
-Games without both factions, valid published WTC scores, or verifiable event identity
+All records retain raw VP and published 20-point scores when available.
+When only raw VP is available, calculate the official WTC 20-point equivalent.
+Reject contradictory published WTC scores; games without both factions or verified identity
 are excluded. No army lists or detachments are inferred.
 """
 import argparse,csv,re,sys,time,urllib.robotparser
+from wtc_scoring import wtc_battle_points
 from datetime import datetime,timedelta
 from pathlib import Path
 from urllib.parse import urljoin
@@ -13,6 +15,11 @@ import requests
 from bs4 import BeautifulSoup
 BASE="https://metascribe.gg"
 EVENTS={
+ "lgt-2026":dict(url=BASE+"/tournaments/the-london-grand-tournament-40k-main-event-lgt-40k-gt/",name="The London Grand Tournament - 40k Main Event (LGT 40k GT)",date="2026-09-25",rules_version="",players=1049,rounds=10,min_games=1700,output="public/data/singles-lgt-2026.csv"),
+ "lvo-2026":dict(url=BASE+"/tournaments/lvo-2026-warhammer-40k-championships-las-vegas-open/",name="LVO 2026 - Warhammer 40k Championships - Las Vegas Open",date="2026-10-02",rules_version="",players=652,rounds=10,min_games=1000,output="public/data/singles-lvo-2026.csv"),
+ "ratcon-2026":dict(url=BASE+"/tournaments/ratcon-2026/",name="Ratcon 2026",date="2026-10-16",rules_version="11.1.06",players=94,rounds=5,min_games=130,output="public/data/singles-ratcon-2026.csv"),
+ "kent-major-2026":dict(url=BASE+"/tournaments/the-kent-major-2026/",name="The Kent Major 2026",date="2026-08-01",rules_version="11.1.01",players=80,rounds=6,min_games=110,output="public/data/singles-kent-major-2026.csv"),
+ "october-rtt-2026":dict(url=BASE+"/tournaments/october-rtt/",name="October RTT!",date="2026-10-17",rules_version="11.1.06",players=15,rounds=3,min_games=18,output="public/data/singles-october-rtt-2026.csv"),
  "epsom-2026":dict(url=BASE+"/tournaments/warhammer-40000-grand-tournament-epsom-downs/",name="Warhammer 40000 Grand Tournament - Epsom Downs",date="2026-09-05",rules_version="11.1.03",players=65,rounds=5,min_games=100,output="public/data/singles-epsom-2026.csv"),
  "newport-2026":dict(url=BASE+"/tournaments/warhammer-40000-grand-tournament-warhammer-open-newport/",name="Warhammer 40000 Grand Tournament - Warhammer Open Newport",date="2026-08-14",rules_version="11.1.02",players=187,rounds=8,min_games=400,output="public/data/singles-newport-2026.csv"),
 }
@@ -71,6 +78,9 @@ def run(cfg):
   url=urljoin(BASE,link["href"]);players[url]=clean(link)
  if len(players)<cfg["players"]*0.9:raise RuntimeError("Insufficient event player roster")
  print("Player profiles",len(players),flush=True)
+ # Use event metadata when available; do not guess balance versions from neighbouring dates.
+ meta=re.search(r"\bMeta\s*:\s*(11(?:\.\d+){2,3})\b",clean(page),re.I)
+ if meta and not cfg.get("rules_version"):cfg["rules_version"]=meta.group(1)
  start=datetime.fromisoformat(cfg["date"]).date()
  games={}
  rejects={}
@@ -90,7 +100,14 @@ def run(cfg):
     f1,disp1=army(cs[2]);f2,disp2=army(cs[5])
     if not all((f1,disp1,f2,disp2)):reject("army_missing");continue
     equiv=score(cs[4]);vp=score(cs[3])
-    if not equiv or equiv[0]+equiv[1]!=20 or any(v<0 or v>20 for v in equiv):reject("bad_20score");continue
+    if vp and any(v<0 or v>100 for v in vp):reject("invalid_raw_vp");continue
+    if equiv and (equiv[0]+equiv[1]!=20 or any(v<0 or v>20 for v in equiv)):reject("bad_20score");continue
+    if vp:
+     calculated=wtc_battle_points(*vp)
+     if equiv and calculated!=equiv:
+      reject("source_wtc_conversion_conflict");continue
+     if not equiv:equiv=calculated
+    if not equiv:reject("no_valid_scoring");continue
     oppLink=cs[6].find("a",href=re.compile(r"/players/"));opp=clean(oppLink or cs[6])
     if not opp or not name or norm(opp)==norm(name):reject("bad_player");continue
     # Multiple games against the same opponent on different days are kept.
@@ -105,7 +122,7 @@ def run(cfg):
     record.update(event_name=cfg["name"],event_date=d.isoformat(),source_url=cfg["url"],player_a=name,player_b=opp,
       faction_a=f1,faction_b=f2,disposition_a=disp1,disposition_b=disp2,score_a_20=equiv[0],score_b_20=equiv[1],
       raw_vp_a=vp[0] if vp else "",raw_vp_b=vp[1] if vp else "",
-      edition="11",rules_version=cfg["rules_version"],event_format="singles",score_type="published_wtc_equivalent",
+      edition="11",rules_version=cfg["rules_version"],event_format="singles",score_type="published_wtc_equivalent" if score(cs[4]) else "calculated_wtc_from_raw_vp",
       player_a_source_url=url,player_b_source_url=urljoin(BASE,oppLink.get("href")) if oppLink else "")
     games[key]=record
   except Exception as e:print("Failed player",name,str(e)[:140],flush=True);reject("player_error")
