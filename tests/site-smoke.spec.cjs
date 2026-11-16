@@ -60,3 +60,21 @@ test('data page prioritises totals and hides technical diagnostics until opened'
  await page.locator('.data-more summary').click();
  await expect(page.getByRole('heading',{name:'Full tournament imports'})).toBeVisible();
 });
+
+test('Aeldari vs Sisters shows broad coverage and can remove disposition filters',async({page})=>{
+ await page.goto('/',{waitUntil:'domcontentloaded'});
+ await page.locator('#myFaction').selectOption('Aeldari');
+ await page.locator('#oppFaction').selectOption('Adepta Sororitas');
+ await expect(page.locator('#matchCoverage')).toContainText('recorded Aeldari vs Adepta Sororitas games',{timeout:60000});
+ await expect.poll(async()=>Number(await page.locator('#games').innerText()),{timeout:60000}).toBeGreaterThan(10);
+ const broad=Number(await page.locator('#games').innerText());
+ await page.locator('#myDisposition').selectOption('Take and Hold');
+ await page.locator('#oppDisposition').selectOption('Priority Assets');
+ const narrow=Number(await page.locator('#games').innerText());
+ expect(narrow).toBeLessThan(broad);
+ await expect(page.locator('#matchCoverage')).toContainText('Your current choices exclude');
+ await page.locator('#showAllFactionGames').click();
+ await expect(page.locator('#games')).toHaveText(String(broad));
+ await expect(page.locator('#myDisposition')).toHaveValue('');
+ await expect(page.locator('#oppDisposition')).toHaveValue('');
+});
