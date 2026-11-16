@@ -12,6 +12,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 EVENTS = {
+    "wtc-2026": "public/data/wtc-wh40k-2026.csv",
+    "krakow-2026": "public/data/warhammer-open-krakow-2026.csv",
+    "gateway-2026": "public/data/gateway-open-teams-2026.csv",
+    "scottish-open-2026": "public/data/scottish-open-teams-2026.csv",
+    "south-pacific-8s-2026": "public/data/south-pacific-8s-2026.csv",
     "uktc-summer-itt-2026": "public/data/uktc-summer-itt-2026.csv",
     "uktc-autumn-itt-2026": "public/data/uktc-autumn-itt-2026.csv",
     "challengers-2026": "public/data/challengers-cup-2026.csv",
