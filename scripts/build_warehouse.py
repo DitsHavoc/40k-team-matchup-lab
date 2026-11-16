@@ -6,7 +6,8 @@ unavailable/failed auto-imports are not silently counted. Retains source URLs.
 """
 import csv,json,re,hashlib
 from pathlib import Path
-from collections import Counter
+from collections import Counter,defaultdict
+from event_identity import choose_events
 from datetime import datetime,timezone
 
 ROOT=Path("public/data")
@@ -25,6 +26,13 @@ def source_paths():
    path=v.get("csv_path","")
    if v.get("import_succeeded") and re.fullmatch(r"public/data/singles-auto-[a-f0-9]{12}\.csv",path):
     paths.append(Path(path))
+ # Only formally validated, authorised Listhammer game-level exports.
+ lis=ROOT/"listhammer-import-status.json"
+ if lis.exists():
+  for e in json.loads(lis.read_text(encoding="utf-8")).get("events",{}).values():
+   p=str(e.get("csv_path",""))
+   if e.get("import_succeeded") and re.fullmatch(r"public/data/listhammer-games-[a-f0-9]{12}\.csv",p):
+    paths.append(Path(p))
  return list(dict.fromkeys(paths))
 def identity(r):
  names=tuple(sorted((r["player_a"].strip().casefold(),r["player_b"].strip().casefold())))
@@ -46,18 +54,28 @@ def valid(r):
  return True
 def main():
  rows=[];seen=set();audit=Counter();files=[]
+ groups=[]
  for path in source_paths():
   if not path.exists():audit["source_missing"]+=1;continue
-  n=0
+  by_event=defaultdict(list)
   with path.open(encoding="utf-8-sig",newline="") as f:
    reader=csv.DictReader(f)
    for r in reader:
     audit["source_rows"]+=1
     if not valid(r):audit["invalid_rows"]+=1;continue
-    k=identity(r)
-    if k in seen:audit["duplicate_rows"]+=1;continue
-    seen.add(k);rows.append({field:r.get(field,"") or "" for field in FIELDS});n+=1
-  files.append({"path":str(path),"accepted_unique":n})
+    by_event[(r["event_name"],r.get("event_format") or "team")].append(r)
+  for (name,fmt),event_rows in by_event.items():
+   groups.append({"path":str(path),"name":name,"format":fmt,"rows":event_rows})
+ chosen,suppressed=choose_events(groups)
+ audit["duplicate_events"]=len(suppressed)
+ audit["suppressed_duplicate_event_rows"]=sum(x["suppressed_rows"] for x in suppressed)
+ for event in chosen:
+  n=0
+  for r in event["rows"]:
+   k=identity(r)
+   if k in seen:audit["duplicate_rows"]+=1;continue
+   seen.add(k);rows.append({field:r.get(field,"") or "" for field in FIELDS});n+=1
+  files.append({"path":event["path"],"event_name":event["name"],"accepted_unique":n})
  rows.sort(key=lambda r:(r["event_date"],r["event_name"],r["player_a"],r["player_b"]))
  if len(rows)<1000:raise RuntimeError("Unreasonably small warehouse; preserving existing published version")
  shards=[]
@@ -68,7 +86,7 @@ def main():
   shards.append({"path":f"data/{path.name}","records":len(rows[start:start+SHARD_SIZE]),"sha256":hashlib.sha256(path.read_bytes()).hexdigest()})
  for old in ROOT.glob("warehouse-*.csv"):
   if old.name not in {Path(x["path"]).name for x in shards}:old.unlink()
- manifest={"schema_version":1,"updated_at_utc":datetime.now(timezone.utc).isoformat(),"total_unique_games":len(rows),"total_source_rows":audit["source_rows"],"deduplicated":audit["duplicate_rows"],"invalid_rows":audit["invalid_rows"],"missing_source_files":audit["source_missing"],"shard_size":SHARD_SIZE,"shards":shards,"sources":files,"note":"Verified game-level CSVs merged for efficient delivery; shards are not additional games. Data includes team and singles matches."}
+ manifest={"schema_version":1,"updated_at_utc":datetime.now(timezone.utc).isoformat(),"total_unique_games":len(rows),"total_source_rows":audit["source_rows"],"deduplicated":audit["duplicate_rows"],"duplicate_tournaments_suppressed":audit["duplicate_events"],"duplicate_tournament_rows_suppressed":audit["suppressed_duplicate_event_rows"],"suppressed_events":suppressed[:1000],"invalid_rows":audit["invalid_rows"],"missing_source_files":audit["source_missing"],"shard_size":SHARD_SIZE,"shards":shards,"sources":files,"note":"Verified game-level CSVs merged for efficient delivery; shards are not additional games. Data includes team and singles matches."}
  (ROOT/"warehouse-manifest.json").write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")
- print(json.dumps({k:manifest[k] for k in ("total_unique_games","total_source_rows","deduplicated","invalid_rows","missing_source_files","shard_size")},indent=2))
+ print(json.dumps({k:manifest[k] for k in ("total_unique_games","total_source_rows","deduplicated","invalid_rows","missing_source_files","shard_size","duplicate_tournaments_suppressed")},indent=2))
 if __name__=="__main__":main()
