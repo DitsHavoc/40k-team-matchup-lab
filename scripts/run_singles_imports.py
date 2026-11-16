@@ -48,6 +48,7 @@ def save_status(results):
 
 parser=argparse.ArgumentParser()
 parser.add_argument("--event",choices=list(EVENTS),help="Import only one event to avoid blocking on very large tournaments")
+parser.add_argument("--fast",action="store_true",help="Only smaller events; run majors separately")
 args=parser.parse_args()
 results={}
 try:
@@ -55,7 +56,7 @@ try:
  if current.exists():
   results=json.loads(current.read_text(encoding="utf-8")).get("events",{})
 except (ValueError,OSError):results={}
-targets={args.event:EVENTS[args.event]} if args.event else EVENTS
+targets={args.event:EVENTS[args.event]} if args.event else ({k:v for k,v in EVENTS.items() if k not in ("lgt-2026","lvo-2026")} if args.fast else EVENTS)
 for event,(filename,minimum) in targets.items():
  path=Path(filename)
  previous_bytes=path.read_bytes() if path.exists() else None
