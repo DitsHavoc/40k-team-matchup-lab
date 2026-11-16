@@ -52,13 +52,13 @@
       "players_per_team": 5,
       "priority": "critical",
       "source_urls": [
+        "https://www.bestcoastpairings.com/event/cIkmaPfe2nHG",
         "https://www.bestcoastpairings.com/event/0LAPTBFRVK",
-        "https://www.uktc.events/novitt",
         "https://www.uktc.team/events"
       ],
-      "import_status": "awaiting_round_level_export",
+      "import_status": "awaiting_complete_match_export",
       "verified_games": 0,
-      "notes": "BCP lists 69 placings with team scores; complete faction/disposition and opponent game records not yet available in a verified machine-readable source. Do not treat team totals as individual game records. Resolve conflicting historical event links before import.",
+      "notes": "User-confirmed BCP event page cIkmaPfe2nHG is canonical source. An alternate BCP listing 0LAPTBFRVK also shows Autumn ITT; verify event identity before merging. Full player-by-player match exports with both Force Dispositions and 20-0 scores required for statistical inclusion; BCP team placings alone insufficient. Three video-linked games are held separately and not admitted to analysis.",
       "teams_reported": 69
     },
     {
@@ -125,5 +125,11 @@
       "verified_games": 0,
       "notes": "Separate Coventry six-player event, not Kent November five-player tournament. Published CSV must be validated."
     }
-  ]
+  ],
+  "policy": {
+    "minimum_evidence": "For every new tournament, obtain game-level records with event, round, both players, both teams, both factions, both force dispositions and 20-0 scores; source URL per record.",
+    "event_scope": "Check all teams and all rounds for completeness. Partial samples must not appear in the default global matchup statistics; explicitly label provisional sets.",
+    "missing_fields": "Map/terrain and detachments remain null unless sourced, never inferred.",
+    "verification": "Record count, duplicate conflicts, impossible score pairs, unmatched games and missing rounds must be audited before dataset release."
+  }
 }
