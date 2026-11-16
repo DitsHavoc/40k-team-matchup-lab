@@ -239,6 +239,36 @@
       "import_status": "pipeline_unverified",
       "verified_games": 0,
       "notes": "Schmallenberg event; reported 147 players and 30 teams including partial rosters/byes; theoretical max 375, not guaranteed."
+    },
+    {
+      "id": "epsom-2026",
+      "name": "Warhammer 40000 Grand Tournament - Epsom Downs",
+      "date_start": "2026-09-05",
+      "edition": 11,
+      "players_reported": 65,
+      "rounds_reported": 5,
+      "event_format": "singles",
+      "import_status": "pipeline_unverified",
+      "verified_games": 0,
+      "source_urls": [
+        "https://metascribe.gg/tournaments/warhammer-40000-grand-tournament-epsom-downs/"
+      ],
+      "notes": "Singles player-level WTC equivalents and raw VP available in public Metascribe game histories. Independent collector pending successful audit. Do not apply to captain pairing by default."
+    },
+    {
+      "id": "newport-2026",
+      "name": "Warhammer 40000 Grand Tournament - Warhammer Open Newport",
+      "date_start": "2026-08-14",
+      "edition": 11,
+      "players_reported": 187,
+      "rounds_reported": 8,
+      "event_format": "singles",
+      "import_status": "pipeline_unverified",
+      "verified_games": 0,
+      "source_urls": [
+        "https://metascribe.gg/tournaments/warhammer-40000-grand-tournament-warhammer-open-newport/"
+      ],
+      "notes": "Singles player-level match history and published 20-point equivalents; preserve raw VP and individual Marine chapter classification. Collection not yet published."
     }
   ],
   "policy": {
