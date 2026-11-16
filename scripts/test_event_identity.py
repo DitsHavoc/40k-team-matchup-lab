@@ -20,4 +20,9 @@ assert len(kept)==2 and not skip
 different_month={"path":"public/data/december.csv","name":meta["name"],"format":"singles","rows":[row("2026-12-20","B")]}
 kept,skip=choose_events([meta,different_month])
 assert len(kept)==2 and not skip
-print("PASS: same event from two sources counts once; distinct events/formats are preserved")
+# Verified source names that differ must also collapse to one tournament.
+summer_a={"path":"a.csv","name":"UKTC Summer ITT 2026","format":"team","rows":[row("2026-08-08","A")]}
+summer_b={"path":"b.csv","name":"The Summer I. T. T.","format":"team","rows":[row("2026-08-09","B"),row("2026-08-09","C")]}
+kept,excluded=choose_events([summer_a,summer_b])
+assert len(kept)==1 and len(excluded)==1,(kept,excluded)
+print("PASS: cross-source events and verified name aliases are deduplicated; separate tournaments preserved")
