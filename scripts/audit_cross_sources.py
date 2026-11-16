@@ -20,6 +20,7 @@ def canonical(row):
 def run():
  all_rows=[];skipped=[];files=[]
  for path in sorted(DATA.glob("*.csv")):
+  if path.name.startswith("warehouse-"):continue  # Published shards repeat source games; never treat them as new evidence.
   with path.open(encoding="utf-8-sig",newline="") as f:
    reader=csv.DictReader(f)
    required={"event_name","event_date","player_a","player_b","score_a_20","score_b_20"}
