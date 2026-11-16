@@ -1,0 +1,36 @@
+name: Publish verified event updates
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'public/data/uktc-autumn-itt-2026-partial.csv'
+      - 'scripts/build_warehouse.py'
+      - '.github/workflows/publish-verified-events.yml'
+permissions:
+  contents: write
+concurrency:
+  group: verified-event-data-publish
+  cancel-in-progress: false
+jobs:
+  audit-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build deduplicated verified-game dataset
+        run: python scripts/build_warehouse.py
+      - name: Check tournament source overlap
+        run: python scripts/audit_cross_sources.py
+      - name: Publish updated game shards and manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/warehouse-manifest.json public/data/warehouse-*.csv public/data/cross-source-audit.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Rebuild verified tournament warehouse"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
