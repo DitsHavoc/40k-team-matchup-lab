@@ -5,6 +5,7 @@ Reads the named event's team placings, round history and individual game history
 Only keeps games with a uniquely identified round/opponent and matching event dates.
 Uses robot exclusion checks and a polite request interval. Prints coverage audit.
 """
+import argparse
 import csv
 import io
 import re
@@ -18,13 +19,40 @@ import requests
 from bs4 import BeautifulSoup
 
 BASE = "https://metascribe.gg"
-EVENT_URL = BASE + "/tournaments/the-challengers-cup-2026/"
-EVENT = "The Challengers Cup 2026"
-START = datetime(2026, 9, 11).date()
-TEAM_COUNT = 68
-ROUNDS = 6
-PLAYERS_PER_TEAM = 8
-OUT = Path("public/data/challengers-cup-2026.csv")
+EVENTS = {
+  "challengers-2026": {
+    "url": BASE + "/tournaments/the-challengers-cup-2026/",
+    "name": "The Challengers Cup 2026",
+    "date": "2026-09-11",
+    "teams": 68,
+    "rounds": 6,
+    "players_per_team": 8,
+    "min_games": 500,
+    "output": "public/data/challengers-cup-2026.csv"
+  },
+  "uktc-summer-itt-2026": {
+    "url": BASE + "/tournaments/the-summer-i-t-t-international-team-tournament-august/",
+    "name": "UKTC Summer ITT 2026",
+    "date": "2026-08-08",
+    "teams": 71,
+    "rounds": 5,
+    "players_per_team": 5,
+    "min_games": 150,
+    "output": "public/data/uktc-summer-itt-2026.csv"
+  }
+}
+parser=argparse.ArgumentParser(description="Import publicly displayed Metascribe team matches")
+parser.add_argument("--event",required=True,choices=list(EVENTS))
+args=parser.parse_args()
+cfg=EVENTS[args.event]
+EVENT_URL=cfg["url"]
+EVENT=cfg["name"]
+SOURCE_EVENT_NAME="The Summer I. T. T." if args.event.startswith("uktc") else EVENT
+START=datetime.fromisoformat(cfg["date"]).date()
+TEAM_COUNT=cfg["teams"]
+ROUNDS=cfg["rounds"]
+PLAYERS_PER_TEAM=cfg["players_per_team"]
+OUT=Path(cfg["output"])
 COLS = ["event_name","event_date","source_url","event_size_teams","round","team_a","team_b",
         "player_a","player_b","faction_a","faction_b","detachment_a","detachment_b",
         "disposition_a","disposition_b","score_a_20","score_b_20","raw_vp_a","raw_vp_b",
@@ -127,7 +155,7 @@ for ti,(team,url) in enumerate(teams,1):
         for row in data_rows(rounds_table):
             # Date, tournament, round, result, team, score, opponent ...
             if len(row)<7:continue
-            if norm(EVENT) not in norm(row[1]):continue
+            if norm(SOURCE_EVENT_NAME) not in norm(row[1]):continue
             try: rnd=int(row[2])
             except ValueError:continue
             key=norm(row[6])
@@ -175,11 +203,11 @@ for ti,(team,url) in enumerate(teams,1):
     except Exception as exc:
         print("Failed team",team,exc)
 expected=TEAM_COUNT*PLAYERS_PER_TEAM*ROUNDS//2
-print(f"Verified games: {len(games)}/{expected} ({100*len(games)/expected:.1f}%)")
+print(f"Verified games: {len(games)}/{expected} theoretical maximum ({100*len(games)/expected:.1f}%). Byes, dropouts and extra rounds can change this denominator.")
 print("Audit:",audit)
 # Do not make a nearly-empty partial export replace an apparently complete dataset.
-if len(games)<500:
-    sys.exit("Under 500 verified games; likely HTML mismatch or incomplete data. Nothing written.")
+if len(games)<cfg["min_games"]:
+    sys.exit("Insufficient verified game coverage; likely HTML mismatch or incomplete data. Nothing written.")
 OUT.parent.mkdir(parents=True,exist_ok=True)
 with OUT.open("w",newline="",encoding="utf-8") as fp:
     writer=csv.DictWriter(fp,fieldnames=COLS);writer.writeheader()
