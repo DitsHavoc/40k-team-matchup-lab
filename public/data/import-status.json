@@ -1,0 +1,24 @@
+{
+  "updated_at_utc": "2026-11-16T06:47:42.807583+00:00",
+  "note": "An import failure preserves any existing dataset. Reported counts describe published CSV rows, not event completeness.",
+  "events": {
+    "uktc-summer-itt-2026": {
+      "import_succeeded": true,
+      "published_records": 877,
+      "csv_path": "public/data/uktc-summer-itt-2026.csv",
+      "diagnostic": "Wrote public/data/uktc-summer-itt-2026.csv"
+    },
+    "challengers-2026": {
+      "import_succeeded": true,
+      "published_records": 1624,
+      "csv_path": "public/data/challengers-cup-2026.csv",
+      "diagnostic": "Wrote public/data/challengers-cup-2026.csv"
+    },
+    "kent-teams-november-2026": {
+      "import_succeeded": true,
+      "published_records": 372,
+      "csv_path": "public/data/kent-teams-november-2026.csv",
+      "diagnostic": "Wrote public/data/kent-teams-november-2026.csv"
+    }
+  }
+}
