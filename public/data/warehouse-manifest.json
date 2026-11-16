@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-16T18:06:35.116512+00:00",
+  "updated_at_utc": "2026-11-16T18:07:28.404799+00:00",
   "total_unique_games": 14149,
   "total_source_rows": 14149,
   "deduplicated": 0,
@@ -19,7 +19,7 @@
     {
       "path": "data/warehouse-0002.csv",
       "records": 4149,
-      "sha256": "6d845f6f28d644dec4f44d12886e907fb962b622d416a6ea347d04f985bdce49"
+      "sha256": "23264b44d85e90337490e03afe26a1904f92be21832f31080ebb0504a2a38e2f"
     }
   ],
   "sources": [
