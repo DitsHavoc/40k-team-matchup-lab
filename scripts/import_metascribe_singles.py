@@ -15,6 +15,10 @@ import requests
 from bs4 import BeautifulSoup
 BASE="https://metascribe.gg"
 EVENTS={
+ "uktc-birmingham-2026":dict(url=BASE+"/tournaments/the-birmingham-40k-super-major/",name="THE BIRMINGHAM 40K SUPER MAJOR",date="2026-07-04",rules_version="11.1.01",players=196,rounds=7,min_games=280,output="public/data/singles-uktc-birmingham-2026.csv"),
+ "uktc-manchester-summer-2026":dict(url=BASE+"/tournaments/the-manchester-40k-super-major-summer/",name="The MANCHESTER 40k SUPER-MAJOR - SUMMER",date="2026-08-29",rules_version="11.1.02",players=226,rounds=7,min_games=320,output="public/data/singles-uktc-manchester-2026.csv"),
+ "uktc-coventry-3day-2026":dict(url=BASE+"/tournaments/the-coventry-40k-3-day-3/",name="THE COVENTRY 40K : 3-Day",date="2026-10-23",rules_version="11.1.07",players=142,rounds=8,min_games=220,output="public/data/singles-uktc-coventry-3day-2026.csv"),
+ "uktc-coventry-2day-2026":dict(url=BASE+"/tournaments/the-coventry-40k-2-day-3/",name="THE COVENTRY 40K : 2-Day",date="2026-10-24",rules_version="11.1.07",players=110,rounds=5,min_games=150,output="public/data/singles-uktc-coventry-2day-2026.csv"),
  "lgt-2026":dict(url=BASE+"/tournaments/the-london-grand-tournament-40k-main-event-lgt-40k-gt/",name="The London Grand Tournament - 40k Main Event (LGT 40k GT)",date="2026-09-25",rules_version="",players=1049,rounds=10,min_games=1700,output="public/data/singles-lgt-2026.csv"),
  "lvo-2026":dict(url=BASE+"/tournaments/lvo-2026-warhammer-40k-championships-las-vegas-open/",name="LVO 2026 - Warhammer 40k Championships - Las Vegas Open",date="2026-10-02",rules_version="",players=652,rounds=10,min_games=1000,output="public/data/singles-lvo-2026.csv"),
  "ratcon-2026":dict(url=BASE+"/tournaments/ratcon-2026/",name="Ratcon 2026",date="2026-10-16",rules_version="11.1.06",players=94,rounds=5,min_games=130,output="public/data/singles-ratcon-2026.csv"),
@@ -81,8 +85,13 @@ def run(cfg):
  if len(players)<cfg["players"]*0.9:raise RuntimeError("Insufficient event player roster")
  print("Player profiles",len(players),flush=True)
  # Use event metadata when available; do not guess balance versions from neighbouring dates.
- meta=re.search(r"\bMeta\s*:\s*(11(?:\.\d+){2,3})\b",clean(page),re.I)
- if meta and not cfg.get("rules_version"):cfg["rules_version"]=meta.group(1)
+ meta=re.search(r"\bMeta\s*:\s*(\d+(?:\.\d+){1,3})\b",clean(page),re.I)
+ if not meta:raise RuntimeError("No published event meta version; cannot prove edition")
+ published_version=meta.group(1)
+ if not published_version.startswith("11."):raise RuntimeError("Earlier edition "+published_version+" must not enter 11th-edition matrix")
+ if cfg.get("rules_version") and cfg["rules_version"]!=published_version:
+  raise RuntimeError("Event balance version mismatch: expected "+cfg["rules_version"]+", source says "+published_version)
+ cfg["rules_version"]=published_version
  start=datetime.fromisoformat(cfg["date"]).date()
  games={}
  rejects={}
