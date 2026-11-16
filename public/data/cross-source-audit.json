@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-16T14:46:21.294404+00:00",
+  "updated_at_utc": "2026-11-16T14:58:04.806312+00:00",
   "published_files_audited": [
     {
       "file": "challengers-cup-2026.csv",
@@ -16,6 +16,38 @@
     {
       "file": "scottish-open-teams-2026.csv",
       "rows": 343
+    },
+    {
+      "file": "singles-auto-0400ed48894d.csv",
+      "rows": 37
+    },
+    {
+      "file": "singles-auto-0a6e08438761.csv",
+      "rows": 43
+    },
+    {
+      "file": "singles-auto-10d72d3f037e.csv",
+      "rows": 68
+    },
+    {
+      "file": "singles-auto-8761307ae628.csv",
+      "rows": 68
+    },
+    {
+      "file": "singles-auto-933649ae83b3.csv",
+      "rows": 78
+    },
+    {
+      "file": "singles-auto-9c9967b5e472.csv",
+      "rows": 53
+    },
+    {
+      "file": "singles-auto-9d01b3f48ea0.csv",
+      "rows": 124
+    },
+    {
+      "file": "singles-auto-bf78bf3384fd.csv",
+      "rows": 64
     },
     {
       "file": "singles-epsom-2026.csv",
@@ -86,7 +118,7 @@
       "rows": 1288
     }
   ],
-  "total_rows_checked": 13605,
+  "total_rows_checked": 14140,
   "cross_file_same_event_duplicates": [],
   "review_cross_event_candidates": [],
   "skipped_identity_rows": [

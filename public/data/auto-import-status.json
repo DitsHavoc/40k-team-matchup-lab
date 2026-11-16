@@ -1,0 +1,86 @@
+{
+  "updated_at_utc": "2026-11-16T14:58:04.520124+00:00",
+  "events": {
+    "9d01b3f48ea0": {
+      "name": "Madness in the middle",
+      "event_date": "2026-11-07",
+      "source_url": "https://metascribe.gg/tournaments/madness-in-the-middle/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 124,
+      "csv_path": "public/data/singles-auto-9d01b3f48ea0.csv",
+      "diagnostic": "Wrote public/data/singles-auto-9d01b3f48ea0.csv"
+    },
+    "8761307ae628": {
+      "name": "Warhammer 40k Modena",
+      "event_date": "2026-11-08",
+      "source_url": "https://metascribe.gg/tournaments/warhammer-40k-modena/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 68,
+      "csv_path": "public/data/singles-auto-8761307ae628.csv",
+      "diagnostic": "Wrote public/data/singles-auto-8761307ae628.csv"
+    },
+    "bf78bf3384fd": {
+      "name": "40k Brawl \u2013 November RTT 2026",
+      "event_date": "2026-11-08",
+      "source_url": "https://metascribe.gg/tournaments/40k-brawl-november-rtt-2026/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 64,
+      "csv_path": "public/data/singles-auto-bf78bf3384fd.csv",
+      "diagnostic": "Wrote public/data/singles-auto-bf78bf3384fd.csv"
+    },
+    "9c9967b5e472": {
+      "name": "Dice & Bolter 40K RTT #7",
+      "event_date": "2026-11-07",
+      "source_url": "https://metascribe.gg/tournaments/dice-bolter-40k-rtt-7/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 53,
+      "csv_path": "public/data/singles-auto-9c9967b5e472.csv",
+      "diagnostic": "Wrote public/data/singles-auto-9c9967b5e472.csv"
+    },
+    "933649ae83b3": {
+      "name": "Nemesis Fall 2026 \u2013 The Movie \u2013 The Game",
+      "event_date": "2026-11-07",
+      "source_url": "https://metascribe.gg/tournaments/nemesis-fall-2026-the-movie-the-game/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 78,
+      "csv_path": "public/data/singles-auto-933649ae83b3.csv",
+      "diagnostic": "Wrote public/data/singles-auto-933649ae83b3.csv"
+    },
+    "0a6e08438761": {
+      "name": "DPW Singles RTT \u2013 Warhammer 40000",
+      "event_date": "2026-11-07",
+      "source_url": "https://metascribe.gg/tournaments/dpw-singles-rtt-warhammer-40000/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 43,
+      "csv_path": "public/data/singles-auto-0a6e08438761.csv",
+      "diagnostic": "Wrote public/data/singles-auto-0a6e08438761.csv"
+    },
+    "10d72d3f037e": {
+      "name": "Bunker Down GT 2026 RBBR",
+      "event_date": "2026-11-07",
+      "source_url": "https://metascribe.gg/tournaments/bunker-down-gt-2026-rbbr/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 68,
+      "csv_path": "public/data/singles-auto-10d72d3f037e.csv",
+      "diagnostic": "Wrote public/data/singles-auto-10d72d3f037e.csv"
+    },
+    "0400ed48894d": {
+      "name": "D6 Games- Chelmsford Chop III",
+      "event_date": "2026-11-07",
+      "source_url": "https://metascribe.gg/tournaments/d6-games-chelmsford-chop-iii/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 37,
+      "csv_path": "public/data/singles-auto-0400ed48894d.csv",
+      "diagnostic": "Wrote public/data/singles-auto-0400ed48894d.csv"
+    }
+  },
+  "note": "Only structurally audited game-level records enter the live site; candidate standings never count as games."
+}
