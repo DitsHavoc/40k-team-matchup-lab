@@ -465,7 +465,7 @@ async function loadVerifiedBaseline(){
   }catch(e){failed.push(source+': '+e.message)}
  }
  if(added||loaded){try{persist()}catch(e){console.warn('Browser storage full:',e)}refreshOptions();render()}
- $('bootNotice').textContent='40K Team Matchup Lab — '+records.length+' match records · '+loaded+' published dataset(s)';
+ // Data totals are displayed on the Data & Sources page, not in a developer banner.
  if(failed.length)console.warn('Dataset status:',failed);
 }
 loadVerifiedBaseline();
