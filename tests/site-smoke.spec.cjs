@@ -1,0 +1,36 @@
+const {test,expect}=require('@playwright/test');
+test.use({baseURL:'https://matchup-lab-40k.onrender.com',viewport:{width:390,height:844}});
+test('five-player captain can scout, pair and see board controls',async({page})=>{
+ await page.goto('/',{waitUntil:'domcontentloaded'});
+ await expect(page.getByRole('heading',{name:'40K Team Matchup Lab'})).toBeVisible();
+ await page.getByRole('button',{name:'Faction Matchups'}).click();
+ await expect(page.locator('#matrixTable')).toContainText('Necrons');
+ await expect(page.locator('#matrixSingles')).toBeChecked();
+ await page.locator('#matrixSingles').uncheck();
+ await expect(page.locator('#matrixDataExplanation')).toContainText('Singles excluded');
+ await page.getByRole('button',{name:'Build Team Pairings'}).click();
+ await expect(page.locator('#ownTeam .pairrow')).toHaveCount(5);
+ await expect(page.locator('#enemyTeam .pairrow')).toHaveCount(5);
+ await page.locator('#ownTeamName').fill('Test Captains');
+ await page.locator('#enemyTeamName').fill('Test Opponents');
+ await page.locator('#evaluate').click();
+ await expect(page.locator('#pairsTable')).toContainText('5 × 5 matchup matrix');
+ await page.locator('#deskStart').click();
+ await expect(page.locator('#deskControls')).toContainText('Exchange 1 of 2');
+ await page.locator('#deskConfirm').click();
+ await expect(page.locator('#deskResults')).toContainText('Confirmed games (2/5)');
+ await page.locator('#deskConfirm').click();
+ await expect(page.locator('#deskResults')).toContainText('Confirmed games (5/5)');
+ await expect(page.locator('#boardEditor input[type="file"]')).toHaveCount(5);
+ await expect(page.locator('#deskCopy')).toBeEnabled();
+});
+test('match details clearly distinguish event source from army list',async({page})=>{
+ await page.goto('/',{waitUntil:'domcontentloaded'});
+ await expect(page.locator('#bootNotice')).toContainText('match records',{timeout:60000});
+ await page.locator('#myFaction').selectOption('Necrons');
+ await page.locator('#oppFaction').selectOption('Space Marines');
+ await expect(page.locator('.gameDetailBtn').first()).toBeVisible({timeout:30000});
+ await page.locator('.gameDetailBtn').first().click();
+ await expect(page.locator('#gameDetail')).toContainText('Army lists:');
+ await expect(page.locator('#gameDetail')).toContainText('Event / game evidence:');
+});
