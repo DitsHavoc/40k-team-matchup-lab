@@ -6,9 +6,10 @@ on:
       - 'scripts/discover_metascribe_singles.py'
       - 'scripts/run_discovered_singles.py'
       - 'scripts/import_metascribe_singles.py'
+      - 'scripts/build_warehouse.py'
       - '.github/workflows/discover-and-import-singles.yml'
   schedule:
-    - cron: '07 3 * * *'
+    - cron: '07 3,9,15,21 * * *'
 permissions:
   contents: write
 concurrency:
@@ -29,20 +30,22 @@ jobs:
       - name: Discover 2026 11th edition singles events globally
         id: discovery
         continue-on-error: true
-        run: python scripts/discover_metascribe_singles.py --pages 15 --limit 300
+        run: python scripts/discover_metascribe_singles.py --pages 30 --limit 1500
       - name: Confirm fallback candidate queue is available
         run: test -s public/data/singles-discovery.json
       - name: Collect up to eight separately verified singles events
         id: ingest
         continue-on-error: true
-        run: python scripts/run_discovered_singles.py --limit 8 --max-players 250
+        run: python scripts/run_discovered_singles.py --limit 12 --max-players 400
       - name: Audit overlap with existing tournament results
         run: python scripts/audit_cross_sources.py
+      - name: Build deduplicated 10,000-game delivery shards
+        run: python scripts/build_warehouse.py
       - name: Publish only validated game-level datasets and diagnostics
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for file in public/data/singles-discovery.json public/data/singles-discovery-status.json public/data/auto-import-status.json public/data/cross-source-audit.json public/data/singles-auto-*.csv; do
+          for file in public/data/singles-discovery.json public/data/singles-discovery-status.json public/data/auto-import-status.json public/data/cross-source-audit.json public/data/warehouse-manifest.json public/data/warehouse-*.csv public/data/singles-auto-*.csv; do
             if [ -f "$file" ]; then git add "$file"; fi
           done
           if ! git diff --cached --quiet; then
