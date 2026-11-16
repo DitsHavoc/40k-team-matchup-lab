@@ -13,9 +13,9 @@ BASE="https://metascribe.gg"
 QUEUE=Path("public/data/teams-discovery.json")
 STATUS=Path("public/data/teams-discovery-status.json")
 PATTERN=re.compile(
- r"^(?P<date>(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\s+\\d{1,2}\\s+20\\d{2})\\s+"
- r"(?P<name>.+?)\\s+(?P<players>\\d[\\d,]*)\\s+(?P<teams>\\d[\\d,]*)\\s+"
- r".+?\\s+(?P<version>11\\.\\d+\\.\\d+)(?:\\s+.*)?$",re.I)
+ r"^(?P<date>(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}\s+20\d{2})\s+"
+ r"(?P<name>.+?)\s+(?P<players>\d[\d,]*)\s+(?P<teams>\d[\d,]*)\s+"
+ r".+?\s+(?P<version>11\.\d+\.\d+)(?:\s+.*)?$",re.I)
 def main(pages,limit):
  session=requests.Session()
  session.headers["User-Agent"]="40k-team-matchup-lab/0.8 (public team-event discovery; polite rate limits)"
@@ -83,9 +83,9 @@ def main(pages,limit):
   QUEUE.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),
    "source":BASE+"/tournaments/?format=team","pages_checked":pages,
    "candidates":out,"issues":issues[:25],
-   "note":"Event metadata candidates only; games must be independently verified from player histories."},indent=2)+"\\n",encoding="utf-8")
+   "note":"Event metadata candidates only; games must be independently verified from player histories."},indent=2)+"\n",encoding="utf-8")
   STATUS.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),
-   "status":"success" if not issues else "partial","candidate_events":len(out),"issues":issues[:25]},indent=2)+"\\n",encoding="utf-8")
+   "status":"success" if not issues else "partial","candidate_events":len(out),"issues":issues[:25]},indent=2)+"\n",encoding="utf-8")
   print("Queued",len(out),"team events >100 players",flush=True)
  finally:
   if browser:browser.close()
@@ -97,5 +97,5 @@ if __name__=="__main__":
  try:main(a.pages,a.limit)
  except Exception as exc:
   STATUS.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),
-   "status":"failed","reason":str(exc)[:800]},indent=2)+"\\n",encoding="utf-8")
+   "status":"failed","reason":str(exc)[:800]},indent=2)+"\n",encoding="utf-8")
   print("Team discovery failed",exc,file=sys.stderr);sys.exit(1)
