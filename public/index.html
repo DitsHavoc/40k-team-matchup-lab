@@ -543,7 +543,7 @@ async function loadVerifiedBaseline(){
     r.faction_a=faction(r.faction_a);r.faction_b=faction(r.faction_b);
     r.disposition_a=disp(r.disposition_a);r.disposition_b=disp(r.disposition_b);
     normaliseScores(r);r.event_size_teams=num(r.event_size_teams);
-    if(!r.event_name||!r.player_a||!r.player_b||(formatOf(r)==='team'&&(!Number.isInteger(Number(r.round))||Number(r.round)<1||Number(r.round)>20))||!factions.includes(r.faction_a)||!factions.includes(r.faction_b)||(formatOf(r)==='team'&&(!dispositions.includes(r.disposition_a)||!dispositions.includes(r.disposition_b)))||(formatOf(r)==='singles'&&((r.disposition_a&&!dispositions.includes(r.disposition_a))||(r.disposition_b&&!dispositions.includes(r.disposition_b))))||r._score_conflict||r.score_a_20===null||r.score_b_20===null||r.score_a_20+r.score_b_20!==20)continue;
+    if(!r.event_name||!r.player_a||!r.player_b||(formatOf(r)==='team'&&!(r.round===''&&/^https:\/\/40kvodindex\.com\/games\/[a-z0-9-]+$/.test(r.source_url||''))&&(!Number.isInteger(Number(r.round))||Number(r.round)<1||Number(r.round)>20))||!factions.includes(r.faction_a)||!factions.includes(r.faction_b)||(formatOf(r)==='team'&&(!dispositions.includes(r.disposition_a)||!dispositions.includes(r.disposition_b)))||(formatOf(r)==='singles'&&((r.disposition_a&&!dispositions.includes(r.disposition_a))||(r.disposition_b&&!dispositions.includes(r.disposition_b))))||r._score_conflict||r.score_a_20===null||r.score_b_20===null||r.score_a_20+r.score_b_20!==20)continue;
     if(existing.has(key(r)))continue;existing.add(key(r));r._official=true;records.push(r);added++;
    }
    loaded++;
