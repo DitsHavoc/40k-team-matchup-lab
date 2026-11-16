@@ -9,6 +9,7 @@ from pathlib import Path
 from urllib.parse import urljoin,urlparse
 import requests
 from bs4 import BeautifulSoup
+from playwright.sync_api import sync_playwright,TimeoutError as PlaywrightTimeout
 BASE="https://metascribe.gg"
 def text(n):return n.get_text(" ",strip=True) if n else ""
 def main(pages,limit):
@@ -25,10 +26,25 @@ def main(pages,limit):
   return BeautifulSoup(response.text,"html.parser")
  discovered={}
  issues=[]
+ browser_driver=None
+ browser=None
  for page in range(1,pages+1):
   url=BASE+"/tournaments/"+("page/"+str(page)+"/" if page>1 else "")
-  try:soup=get(url)
-  except (requests.RequestException,RuntimeError) as e:issues.append(str(e));continue
+  try:
+   soup=get(url)
+   if not soup.find("a",href=re.compile(r"/tournaments/[a-z0-9-]+/?$")):
+    if browser_driver is None:
+     browser_driver=sync_playwright().start()
+     browser=browser_driver.chromium.launch(headless=True,args=["--no-sandbox"])
+    tab=browser.new_page()
+    try:
+     tab.goto(url,wait_until="domcontentloaded",timeout=35000)
+     tab.wait_for_selector('a[href*="/tournaments/"]',timeout=25000)
+     soup=BeautifulSoup(tab.content(),"html.parser")
+    finally:
+     tab.close()
+  except (requests.RequestException,RuntimeError,PlaywrightTimeout) as e:
+   issues.append("Page "+url+": "+str(e)[:180]);continue
   if not any("Explore Tournaments" in text(h) for h in soup.select("h1,h2")):issues.append("Unexpected index page "+url);break
   links=0
   reasons={"anchors":0,"context":0,"players":0,"date":0,"version_or_year":0,"small":0,"teams":0,"duplicate":0}
@@ -71,6 +87,8 @@ def main(pages,limit):
    links+=1
   if links==0:issues.append("No eligible events on "+url+"; diagnostics="+repr(reasons)+"; samples="+repr(anchor_samples))
   print("Page",page,"accepted",links,"diagnostics",reasons,flush=True)
+ if browser is not None:browser.close()
+ if browser_driver is not None:browser_driver.stop()
  # Do not write empty or unexpected results; preserve previous queue.
  if len(discovered)<10:raise RuntimeError("Discovery produced too few candidates; "+repr(issues))
  out=sorted(discovered.values(),key=lambda e:(e["event_date"],e["players_reported"]),reverse=True)[:limit]
