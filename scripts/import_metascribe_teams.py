@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Import public individual team-event histories without inventing rounds, scores or armies.
-Sources: Metascribe public singles event standings and public player game histories.
+Sources: Metascribe public team event standings and public player game histories.
 All records retain raw VP and published 20-point scores when available.
 When only raw VP is available, calculate the official WTC 20-point equivalent.
 Reject contradictory published WTC scores; games without both factions or verified identity
@@ -59,7 +59,7 @@ def run(cfg):
   time.sleep(1.25);r=session.get(url,timeout=35);r.raise_for_status()
   return BeautifulSoup(r.text,"html.parser")
  page=fetch(cfg["url"]);heading=page.find("h1")
- if not heading or norm(clean(heading))!=norm(cfg["name"]):raise RuntimeError("Wrong singles event page")
+ if not heading or norm(clean(heading))!=norm(cfg["name"]):raise RuntimeError("Wrong team event page")
  if "Team event" not in clean(page)[:600]:raise RuntimeError("Event not verified as team event")
  playersTable=table_after(page,"Player Placings")
  if not playersTable:raise RuntimeError("Player placings missing")
@@ -156,7 +156,7 @@ def run(cfg):
     record.update(event_name=cfg["name"],event_date=d.isoformat(),source_url=cfg["url"],event_size_teams=str(cfg["teams"]),team_a=roster_teams[url],team_b=roster_teams[opp_url],player_a=name,player_b=opp,
       faction_a=f1,faction_b=f2,disposition_a=disp1,disposition_b=disp2,score_a_20=equiv[0],score_b_20=equiv[1],
       raw_vp_a=vp[0] if vp else "",raw_vp_b=vp[1] if vp else "",
-      edition="11",rules_version=cfg["rules_version"],event_format="team",score_type="published_wtc_equivalent" if score(cs[4]) else "calculated_wtc_from_raw_vp",
+      edition="11",rules_version=cfg["rules_version"],event_format="team",score_type="team_wtc_score" if score(cs[4]) else "calculated_wtc_from_raw_vp",
       player_a_source_url=url,player_b_source_url=opp_url)
     games[key]=record
   except Exception as e:print("Failed player",name,str(e)[:140],flush=True);reject("player_error")
@@ -180,7 +180,7 @@ def discovered_config(candidate_id):
  if hashlib.sha256(url.encode("utf-8")).hexdigest()[:12]!=candidate_id:
   raise RuntimeError("Event URL identity mismatch")
  if row.get("event_format")!="team" or not re.fullmatch(r"11\.\d+\.\d+",row.get("rules_version","")):
-  raise RuntimeError("Candidate is not a verified 11th-edition singles event")
+  raise RuntimeError("Candidate is not a verified 11th-edition team event")
  date=row["event_date"]
  if not re.fullmatch(r"2026-\d{2}-\d{2}",date):raise RuntimeError("Date outside verified 2026 scope")
  players=int(row["players_reported"])
