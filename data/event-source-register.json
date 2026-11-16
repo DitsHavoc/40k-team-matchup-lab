@@ -54,12 +54,13 @@
       "priority": "critical",
       "source_urls": [
         "https://www.bestcoastpairings.com/event/cIkmaPfe2nHG",
+        "https://40kvodindex.com/tournaments/the-autumn-i-t-t-international-team-tournament-november",
         "https://www.bestcoastpairings.com/event/0LAPTBFRVK",
         "https://www.uktc.team/events"
       ],
-      "import_status": "automated_monitoring_awaiting_2026_source",
+      "import_status": "partial_vod_evidence_full_tournament_pending",
       "verified_games": 0,
-      "notes": "Confirmed 2026 BCP event cIkmaPfe2nHG; complete game-level export not publicly retrievable via available tools. Metascribe page with matching Autumn slug is for Nov 2025 (115 teams, 574 players), strictly excluded. Weekly guarded importer will only accept source once 2026 date and at least 600 deduplicated full-match records validate. 3 VOD games stored separately but excluded from default statistics.",
+      "notes": "2026 source confirmed via BCP cIkmaPfe2nHG and three filmed games on 14 November. Full individual game-level round scores are not publicly accessible through current importer. The same Metascribe slug currently displays 15 Nov 2025 (10th edition) and must NEVER be substituted. Three video references are not included in matrix totals.",
       "teams_reported": 69
     },
     {
@@ -397,13 +398,13 @@
       "rules_version": "11.1.07",
       "edition": 11,
       "event_format": "singles",
-      "verified_games": 0,
-      "import_status": "automated_collection_pending_validation",
+      "verified_games": 534,
+      "import_status": "published_structural_audit_passed",
       "priority": "critical",
       "source_urls": [
         "https://metascribe.gg/tournaments/the-coventry-40k-3-day-3/"
       ],
-      "notes": "2026 UKTC event page and 11th-edition meta verified. Individual game results must pass score/VP, identity, source, duplication and coverage validation. No games counted until CSV publication."
+      "notes": "Verified 11th-edition 2026 singles CSV published with score and identity structural audit. 2026 UKTC event page and 11th-edition meta verified. Individual game results must pass score/VP, identity, source, duplication and coverage validation. No games counted until CSV publication."
     },
     {
       "id": "uktc-coventry-2day-2026",
@@ -414,13 +415,13 @@
       "rules_version": "11.1.07",
       "edition": 11,
       "event_format": "singles",
-      "verified_games": 0,
-      "import_status": "automated_collection_pending_validation",
+      "verified_games": 254,
+      "import_status": "published_structural_audit_passed",
       "priority": "critical",
       "source_urls": [
         "https://metascribe.gg/tournaments/the-coventry-40k-2-day-3/"
       ],
-      "notes": "2026 UKTC event page and 11th-edition meta verified. Individual game results must pass score/VP, identity, source, duplication and coverage validation. No games counted until CSV publication."
+      "notes": "Verified 11th-edition 2026 singles CSV published with score and identity structural audit. 2026 UKTC event page and 11th-edition meta verified. Individual game results must pass score/VP, identity, source, duplication and coverage validation. No games counted until CSV publication."
     },
     {
       "id": "uktc-nottingham-2026",
