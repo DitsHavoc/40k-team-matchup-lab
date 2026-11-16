@@ -13,7 +13,7 @@ def wtc_battle_points(vp_a, vp_b):
     elif difference>=51:
         winner=20
     else:
-        winner=10+(difference+4)//5
+        winner=10+(difference-1)//5
     return (winner,20-winner) if a>=b else (20-winner,winner)
 
 def win_draw_loss_from_vp(vp_a,vp_b):
