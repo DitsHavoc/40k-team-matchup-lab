@@ -10,7 +10,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: singles-dataset-refresh
+  group: lgt-lvo-dedicated-import
   cancel-in-progress: false
 jobs:
   collect-major-events:
