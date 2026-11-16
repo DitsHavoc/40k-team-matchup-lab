@@ -494,6 +494,7 @@ $('templateBtn').onclick=()=>download('matchup-lab-template.csv',cols.join(',')+
 $('importBtn').onclick=async()=>{try{const file=$('csvFile').files[0];if(!file)throw Error('Choose a CSV file first');const parsed=parseCSV(await file.text());if(parsed.length<2)throw Error('No game rows found');const headers=parsed.shift().map(x=>lower(x).replaceAll(' ','_'));for(const c of ['event_name','event_date','player_a','player_b','faction_a','faction_b','disposition_a','disposition_b'])if(!headers.includes(c))throw Error('Missing column '+c);const keys=new Set(records.map(r=>key(r)));let added=0,skipped=0,errors=[];for(let n=0;n<parsed.length;n++){if(!parsed[n].some(x=>x.trim()))continue;const r={};headers.forEach((h,i)=>r[h]=String(parsed[n][i]??'').trim());r.faction_a=faction(r.faction_a);r.faction_b=faction(r.faction_b);r.disposition_a=disp(r.disposition_a);r.disposition_b=disp(r.disposition_b);normaliseScores(r);r.event_size_teams=num(r.event_size_teams);r.edition=r.edition||'11';if(!r.event_name||!r.player_a||!r.player_b||!r.event_date||!/^11(?:th)?$/.test(r.edition)||!factions.includes(r.faction_a)||!factions.includes(r.faction_b)||(formatOf(r)==='team'&&(!dispositions.includes(r.disposition_a)||!dispositions.includes(r.disposition_b)))||(formatOf(r)==='singles'&&((r.disposition_a&&!dispositions.includes(r.disposition_a))||(r.disposition_b&&!dispositions.includes(r.disposition_b))))||r._score_conflict||r.score_a_20===null||r.score_b_20===null||r.score_a_20<0||r.score_a_20>20||r.score_b_20<0||r.score_b_20>20||Math.abs(r.score_a_20+r.score_b_20-20)>.001){errors.push('Row '+(n+2)+': invalid edition, faction, disposition, score or required field');continue}const k=key(r);if(keys.has(k)){skipped++;continue}keys.add(k);records.push(r);added++}persist();refreshOptions();render();$('importStatus').textContent=added+' imported; '+skipped+' duplicate(s); '+errors.length+' invalid. '+errors.slice(0,10).join('\n')}catch(e){$('importStatus').textContent='Import failed: '+e.message}};function key(r){const p=[lower(r.player_a),lower(r.player_b)].sort().join('|');const scores=formatOf(r)==='singles'?'|'+[Number(r.score_a_20),Number(r.score_b_20)].sort((a,b)=>a-b).join('-'):'';return lower(r.event_name)+'|'+lower(r.event_date)+'|'+lower(r.round)+'|'+p+scores}function refreshOptions(){for(const [id,field] of [['terrain','terrain_layout'],['event','event_name'],['rulesVersion','rules_version']]){const old=$(id).value;select(id,['',...[...new Set(records.map(x=>x[field]).filter(Boolean))].sort()],old);$(id).options[0].textContent=id==='terrain'?'Any map':id==='event'?'All events':'All versions'}}refreshOptions();render();
 async function loadVerifiedBaseline(){
  let sources=['data/verified-all-ireland-2026.csv','data/uktc-autumn-itt-2026-partial.csv','data/challengers-cup-2026.csv','data/uktc-summer-itt-2026.csv','data/kent-teams-november-2026.csv','data/uktc-autumn-itt-2026.csv','data/wtc-wh40k-2026.csv','data/warhammer-open-krakow-2026.csv','data/gateway-open-teams-2026.csv','data/scottish-open-teams-2026.csv','data/south-pacific-8s-2026.csv','data/studs-and-snotlings-2026.csv','data/nrw-alpine-cup-2026.csv','data/singles-epsom-2026.csv','data/singles-newport-2026.csv','data/singles-lgt-2026.csv','data/singles-lvo-2026.csv','data/singles-ratcon-2026.csv','data/singles-kent-major-2026.csv','data/singles-october-rtt-2026.csv','data/singles-uktc-birmingham-2026.csv','data/singles-uktc-manchester-2026.csv','data/singles-uktc-coventry-3day-2026.csv','data/singles-uktc-coventry-2day-2026.csv'];
+ let warehouseActive=false;
  let officialNames=new Set(['40k All Ireland Team Championship','UKTC Autumn ITT 2026','The Challengers Cup 2026','UKTC Summer ITT 2026','The Kent Teams November 2026','UKTC Autumn ITT 2026','WTC WH40K 2026','Warhammer Open: Krakow Warhammer 40000','The 2026 Gateway Open 40K Teams Tournament','Scottish Open Team Championship','south pacific 8s October event','Studs and Snotlings 2026','NRW 40K Teams 2026 – Alpine Cup','Warhammer 40000 Grand Tournament - Epsom Downs','Warhammer 40000 Grand Tournament - Warhammer Open Newport','The London Grand Tournament - 40k Main Event (LGT 40k GT)','LVO 2026 - Warhammer 40k Championships - Las Vegas Open','Ratcon 2026','The Kent Major 2026','October RTT!','THE BIRMINGHAM 40K SUPER MAJOR','The MANCHESTER 40k SUPER-MAJOR - SUMMER','THE COVENTRY 40K : 3-Day','THE COVENTRY 40K : 2-Day']);try{
   const response=await fetch('data/auto-import-status.json',{cache:'no-cache'});
   if(response.ok){
@@ -501,12 +502,25 @@ async function loadVerifiedBaseline(){
    for(const entry of Object.values(status.events||{})){
     const path=String(entry.csv_path||'');
     if(!entry.import_succeeded||!/^public\/data\/singles-auto-[a-f0-9]{12}\.csv$/.test(path))continue;
-    sources.push(path.slice('public/'.length));
+    if(!warehouseActive)sources.push(path.slice('public/'.length));
     if(entry.name)officialNames.add(entry.name);
    }
   }
  }catch(e){console.warn('Auto-import manifest unavailable:',e)}
- records=records.filter(r=>!officialNames.has(r.event_name));
+ try{
+  const response=await fetch('data/warehouse-manifest.json',{cache:'no-cache'});
+  if(response.ok){
+   const manifest=await response.json();
+   if(manifest.schema_version===1&&Number(manifest.total_unique_games)>=1000&&Array.isArray(manifest.shards)&&manifest.shards.length){
+    const candidate=manifest.shards.map(s=>String(s.path||''));
+    if(candidate.every(p=>/^data\/warehouse-\d{4}\.csv$/.test(p))){
+     sources=candidate;warehouseActive=true;
+     console.info('Loading deduplicated warehouse:',manifest.total_unique_games,'games in',candidate.length,'shards');
+    }
+   }
+  }
+ }catch(e){console.warn('Using legacy verified data files; warehouse unavailable',e)}
+ records=records.filter(r=>!r._official&&!officialNames.has(r.event_name));
  const existing=new Set(records.map(key));let added=0,loaded=0,failed=[];
  for(const source of sources){
   try{
