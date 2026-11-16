@@ -30,6 +30,16 @@ EVENTS = {
     "min_games": 1200,
     "output": "public/data/challengers-cup-2026.csv"
   },
+  "october-super-6s-2026": {
+    "url": BASE + "/tournaments/october-super-6s/",
+    "name": "October Super 6’s.",
+    "date": "2026-10-31",
+    "teams": 24,
+    "rounds": 5,
+    "players_per_team": 6,
+    "min_games": 240,
+    "output": "public/data/october-super-6s-2026.csv"
+  },
   "kent-teams-november-2026": {
     "url": BASE + "/tournaments/the-kent-teams-november-2026/",
     "name": "The Kent Teams November 2026",
