@@ -82,7 +82,32 @@
 #matrixTable .legend-neutral{background:#4b5360}
 #matrixTable .legend-negative{background:#7b4549}
 @media(max-width:850px){#matrixTable:has(.full-matrix){max-width:calc(100vw - 52px);max-height:68vh}}
-</style></head><body><div id="bootNotice" style="background:#174438;color:#e8fff8;padding:9px 20px;font:700 13px system-ui">40K Team Matchup Lab — page loaded · Build 2.9.5</div><header><span class="tag">11th Edition / Competitive Intelligence</span><h1>40K Team Matchup Lab</h1><div class="sub">Evidence-led team matchups, disposition analysis and pairing decisions.</div></header><main>
+
+/* Compact disposition breakdown: clear samples, fewer words, click-through with filters. */
+#matrixTable:has(.disp-matrix){overflow:auto;max-width:100%;max-height:min(73vh,760px);border:1px solid var(--edge);border-radius:9px}
+#matrixTable .disp-matrix{width:100%;min-width:735px;table-layout:fixed;border-collapse:separate;border-spacing:0;font-variant-numeric:tabular-nums;text-align:center}
+#matrixTable .disp-matrix th,#matrixTable .disp-matrix td{padding:0;border-right:1px solid #293949;border-bottom:1px solid #293949}
+#matrixTable .disp-matrix thead th{position:sticky;top:0;z-index:4;background:#1c3040;color:#e4eef2;white-space:normal;line-height:1.2;letter-spacing:0;padding:12px 7px;font-size:11px;height:51px}
+#matrixTable .disp-matrix thead th:first-child{left:0;z-index:6;width:184px;text-align:left}
+#matrixTable .disp-matrix tbody th{position:sticky;left:0;z-index:3;width:184px;background:#162634;padding:10px 12px;text-align:left;color:#e4eef2;font-size:12px;line-height:1.2;font-weight:600;letter-spacing:0;text-transform:none}
+#matrixTable .disp-matrix tbody td{height:48px;background:#101923;vertical-align:middle}
+#matrixTable .disp-matrix tbody tr:hover th{background:#203a4a}
+#matrixTable .disp-matrix .disp-cell{width:100%;height:100%;min-height:48px;background:transparent;border:0;border-radius:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:5px 2px;line-height:1.1}
+#matrixTable .disp-matrix .disp-cell strong{font-size:16px;color:var(--text);font-weight:750}
+#matrixTable .disp-matrix .disp-cell small{font-size:10px;color:#d0dbe1;white-space:nowrap}
+#matrixTable .disp-matrix td.matrix-favourable{background:#163f35}
+#matrixTable .disp-matrix td.matrix-unfavourable{background:#452c31}
+#matrixTable .disp-matrix td.matrix-even{background:#2b3541}
+#matrixTable .disp-matrix td.sample-thin{background-image:repeating-linear-gradient(135deg,transparent 0,transparent 8px,#ffffff0a 8px,#ffffff0a 9px)}
+#matrixTable .disp-matrix .disp-cell:hover,#matrixTable .disp-matrix .disp-cell:focus-visible{outline:2px solid var(--teal);outline-offset:-2px;background:#ffffff1c}
+#matrixTable .disp-matrix .disp-empty{color:#536a77;font-size:15px}
+#matrixTable .disp-guide{display:flex;flex-wrap:wrap;gap:7px 17px;align-items:center;padding:9px 12px;background:#101d29;border:1px solid var(--edge);border-radius:8px 8px 0 0;font-size:12px}
+#matrixTable .disp-guide span{display:inline-flex;align-items:center;gap:5px}
+#matrixTable .disp-guide i{width:10px;height:10px;border-radius:2px}
+#matrixTable .disp-guide .disp-guide-note{color:var(--muted)}
+.matrix-singles-toggle .hint{font-size:11px;line-height:1.3}
+@media(max-width:850px){#matrixTable:has(.disp-matrix){max-width:calc(100vw - 52px);max-height:68vh}#matrixTable .disp-matrix{min-width:690px}#matrixTable .disp-matrix thead th:first-child,#matrixTable .disp-matrix tbody th{width:145px}}
+</style></head><body><div id="bootNotice" style="background:#174438;color:#e8fff8;padding:9px 20px;font:700 13px system-ui">40K Team Matchup Lab — page loaded · Build 2.9.6</div><header><span class="tag">11th Edition / Competitive Intelligence</span><h1>40K Team Matchup Lab</h1><div class="sub">Evidence-led team matchups, disposition analysis and pairing decisions.</div></header><main>
 <nav class="tabs" aria-label="Main tools"><button class="active" data-tab="explore">Check a Matchup</button><button data-tab="matrix">Faction Matchups</button><button data-tab="pairings">Build Team Pairings</button><button data-tab="events">Data Quality</button><button data-tab="import">Import CSV</button></nav><div class="quickguide"><b>How to use:</b> <span>Check a Matchup for one game</span><span>Faction Matchups to scout opponents</span><span>Build Team Pairings for your next round</span></div>
 <section id="explore" class="result active"><div class="explore-layout"><aside class="panel match-controls"><h2>Choose the two armies</h2><p class="hint">Pick the two factions first. Matches with an unknown Force Disposition count in the overall faction comparison, but not in exact-disposition searches.</p><div class="field match-my-faction"><label>My faction</label><select id="myFaction"></select></div><div class="field match-my-disposition"><label>My disposition</label><select id="myDisposition"></select></div><div class="field match-opp-faction"><label>Opponent faction</label><select id="oppFaction"></select></div><div class="field match-opp-disposition"><label>Opponent disposition</label><select id="oppDisposition"></select></div><details class="advanced-filters" id="advancedFilters"><summary>More filters — event, date, balance and terrain</summary><div class="inputs" style="padding-top:13px"><div class="field"><label>Terrain layout / map</label><select id="terrain"><option value="">Any map</option></select></div><div class="field"><label>Source format</label><select id="eventFormat"><option value="all">Teams + singles</option><option value="team">Team events only</option><option value="singles">Singles events only</option></select></div><div class="field"><label>Event</label><select id="event"><option value="">All events</option></select></div><div class="field"><label>From date</label><input id="dateFrom" type="date"></div><div class="field"><label>Sample recency</label><select id="recency"><option value="180">Last 180 days</option><option value="90">Last 90 days</option><option value="0">All dates</option></select></div><div class="field"><label>Rules / balance version</label><select id="rulesVersion"><option value="">All versions</option></select></div><div class="field"><label>Score weighting</label><select id="weighting"><option value="recent">Recent games count more (60-day half-life)</option><option value="equal">All games equal</option></select></div><div class="field"><label>Minimum teams at event</label><select id="minTeams"><option value="16">16+ (major events)</option><option value="0">All events</option></select></div><button id="clearFilters">Reset optional filters</button></div></details></aside><div class="match-results"><section class="panel match-mission"><h2>Mission interaction</h2><div id="missions" class="sub"></div><p class="hint">Mission names are calculated from disposition combinations, not inferred from tournament results. Mission naming can change with rules updates.</p></section><section class="panel match-summary"><h2>Head-to-head results</h2><p class="hint">Scores are from your selected faction's perspective. 10/20 is the midpoint; 20–0 and 0–20 are both valid outcomes.</p><div class="metrics"><div class="metric"><b id="games">0</b><small>Matching games</small></div><div class="metric"><b id="wdl">—</b><small>Win / draw / loss</small></div><div class="metric"><b id="avg">—</b><small>Average 20-0 score</small></div><div class="metric"><b id="rate">—</b><small>Weighted wins + half draws</small></div></div><div id="exploreDetails" style="margin-top:15px"></div></section><section class="panel match-evidence"><h2>Individual match evidence</h2><p class="hint">Select a game to see its source and any independently verified army-list links. A source page is not necessarily an army list.</p><div id="matches"></div><div id="gameDetail" class="pair-note" hidden></div></section></div></div></section>
 <section id="matrix" class="result"><div class="panel matrix-workspace"><h2>Scout faction matchups</h2><p class="hint matrix-intro">Select your faction to inspect historical matchups. Each result shows score /20 and number of games.</p><div class="matrix-controls"><div class="field matrix-singles-toggle"><label style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text);cursor:pointer"><input type="checkbox" id="matrixSingles" checked style="width:18px;height:18px;flex:none;accent-color:var(--teal)"> Include singles data in faction matrix</label><p class="hint" id="matrixDataExplanation">Singles results add matchup evidence; team results remain separate in the captain's pairing tool. Converted scores use published WTC brackets.</p></div><div class="field matrix-view"><label>Matrix view</label><select id="matrixMode"><option value="focus">My faction vs everyone (recommended)</option><option value="factions">Full 28 × 28 grid</option><option value="dispositions">Faction × opponent disposition</option></select></div><div class="field matrix-faction" id="matrixFactionBox"><label>My faction</label><select id="matrixFaction"></select></div><div class="field matrix-disposition" id="matrixOwnDispBox" style="display:none"><label>My disposition</label><select id="matrixOwnDisp"><option value="">Any — show all your dispositions (recommended)</option></select></div></div><div class="hint" id="matrixSummary" style="margin-bottom:10px" role="status"></div><div class="scroll" id="matrixTable"></div><p class="hint">— means no recorded games under the selected filters; it doesn't mean the factions have never played. Overall means all recorded dispositions. Advanced filters on Check a Matchup also affect this view. Small samples are marked; blank cells are not predictions.</p></div></section>
@@ -173,10 +198,9 @@ function factionMatchRows(a,b,ownDisposition,oppDisposition,ignoreFormat=false){
 function renderMatrix(){
  const mode=$('matrixMode').value;
  const matrixRows=records.filter(r=>baseFilter(r,true)&&($('matrixSingles').checked||formatOf(r)==='team'));
- $('matrixDataExplanation').textContent=($('matrixSingles').checked?'Singles included where available. ':'Singles excluded. ')+ 'This toggle controls faction matrix evidence independently of the Matchup Explorer event-format filter. Event, balance version and date filters still apply. Captain pairing advice remains team-only.';
+ $('matrixDataExplanation').textContent=$('matrixSingles').checked?'Singles included in scouting':'Team games only';
  $('matrixOwnDispBox').style.display=mode==='dispositions'?'block':'none';
  $('matrixFactionBox').style.display=mode==='factions'?'none':'block';
- const cell=s=>s.n?'<b>'+fmt(s.avg)+'/20</b><small>n='+s.n+' · '+sampleLabel(s)+'</small>':'<small>—</small>';
  const shortFaction=name=>({'Adepta Sororitas':'Sisters','Adeptus Custodes':'Custodes','Adeptus Mechanicus':'AdMech','Astra Militarum':'Guard','Black Templars':'Black Templars','Blood Angels':'Blood Angels','Chaos Space Marines':'CSM','Chaos Knights':'Chaos Knights','Chaos Daemons':'Daemons','Dark Angels':'Dark Angels','Death Guard':'Death Guard',"Emperor's Children":'Emperor’s Children','Genestealer Cults':'GSC','Grey Knights':'Grey Knights','Imperial Agents':'Agents','Imperial Knights':'Imp. Knights','Leagues of Votann':'Votann','Space Marines':'Marines','Space Wolves':'Space Wolves',"T'au Empire":'T’au','Thousand Sons':'Thousand Sons'}[name]||name);
  const compactCell=(a,b,st)=>{
   const severity=st.n<10?'sample-thin':st.n<30?'sample-mid':'sample-good';
@@ -217,12 +241,27 @@ function renderMatrix(){
   $('matrixTable').querySelectorAll('.scoutPick').forEach(b=>b.onclick=()=>openFactionMatchup(a,b.dataset.scout));
   return;
  }
- let h='<table><thead><tr><th>Opponent faction</th><th>Overall (all dispositions)</th>'+dispositions.map(x=>'<th>'+esc(x)+'</th>').join('')+'</tr></thead><tbody>';
- for(const o of opponents){h+='<tr><td>'+esc(o.faction)+'</td><td>'+cell(o.overall)+'</td>';for(const db of dispositions){const st=stat(matrixFactionRows(o.faction,da,db));h+='<td title="'+esc(o.faction)+' / '+esc(db)+'">'+cell(st)+'</td>'}h+='</tr>'}
- $('matrixTable').innerHTML=h+'</tbody></table>'
+ const gridCell=(b,op,st)=>{
+  if(!st.n)return '<td class="disp-empty" title="No recorded games">—</td>';
+  const category=st.avg>=11?'matrix-favourable':st.avg<=9?'matrix-unfavourable':'matrix-even';
+  const low=st.n<10?' sample-thin':'';
+  const ownLabel=da||'Any disposition',oppLabel=op||'Any disposition';
+  const description=a+' ('+ownLabel+') vs '+b+' ('+oppLabel+'): '+fmt(st.avg)+'/20 from '+st.n+' games. '+sampleLabel(st)+'. Click to see these games.';
+  return '<td class="disp-data '+category+low+'"><button class="disp-cell" type="button" data-own="'+esc(a)+'" data-opponent="'+esc(b)+'" data-own-disp="'+esc(da)+'" data-opp-disp="'+esc(op)+'" title="'+esc(description)+'" aria-label="'+esc(description)+'"><strong>'+fmt(st.avg)+'</strong><small>'+st.n+' '+(st.n===1?'game':'games')+'</small></button></td>';
+ };
+ let h='<div class="disp-guide"><span><i class="legend-positive"></i> 11+ favourable</span><span><i class="legend-neutral"></i> 9–11 even</span><span><i class="legend-negative"></i> Below 9 unfavourable</span><span class="disp-guide-note">Score /20 · striped = under 10 games · click to inspect</span></div>';
+ h+='<table class="disp-matrix"><thead><tr><th scope="col">Opponent faction</th><th scope="col" title="All opponent dispositions combined">All opponents</th>'+dispositions.map(x=>'<th scope="col">'+esc(x)+'</th>').join('')+'</tr></thead><tbody>';
+ for(const o of opponents){
+  h+='<tr><th scope="row">'+esc(o.faction)+'</th>'+gridCell(o.faction,'',o.overall);
+  for(const db of dispositions)h+=gridCell(o.faction,db,stat(matrixFactionRows(o.faction,da,db)));
+  h+='</tr>';
+ }
+ $('matrixTable').innerHTML=h+'</tbody></table>';
+ $('matrixTable').querySelectorAll('.disp-cell').forEach(button=>button.addEventListener('click',()=>openFactionMatchup(button.dataset.own,button.dataset.opponent,button.dataset.ownDisp,button.dataset.oppDisp)))
 }
-function openFactionMatchup(a,b){
+function openFactionMatchup(a,b,da='',db=''){
  $('myFaction').value=a;$('oppFaction').value=b;
+ $('myDisposition').value=da;$('oppDisposition').value=db;
  document.querySelector('[data-tab="explore"]').click();
  $('explore').scrollIntoView({behavior:'smooth',block:'start'});
 }
