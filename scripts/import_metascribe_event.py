@@ -51,15 +51,29 @@ def parse_date(s):
     if not m: return None
     return datetime.strptime(m.group(0),"%b %d %Y").date()
 def parse_army(cell):
+    """Metascribe renders army name and short disposition as adjacent text:
+    e.g. NecronsPurge or AeldariRecon, often with an icon and hyperlink.
+    Match a complete known faction prefix and disposition suffix.
+    """
     t=get_text(cell)
-    for d,val in sorted(DISPS.items(),key=lambda pair:-len(pair[0])):
-        match=re.search(r"(?:\s|^)"+re.escape(d)+r"(?:\s|$)",t,re.I)
-        if match:
-            name=clean(t[:match.start()])
-            normalized=norm(name)
-            for fac in FACTIONS:
-                if norm(fac)==normalized or (normalized=="genestealercult" and fac=="Genestealer Cults"):
+    alts=[clean(im.get("alt","")) for im in cell.select("img") if im.get("alt")]
+    labels=[t]+alts
+    for label in labels:
+        n=norm(label)
+        for fac in sorted(FACTIONS,key=len,reverse=True):
+            fn=norm(fac)
+            if not n.startswith(fn):
+                continue
+            rem=n[len(fn):]
+            for key,val in DISPS.items():
+                if rem==key or rem.startswith(key) and rem[len(key):] in ("","disposition"):
                     return fac,val
+    # Account for singular 'Genestealer Cult' on Metascribe.
+    if norm(t).startswith("genestealercult"):
+        tail=norm(t)[len("genestealercult"):]
+        for key,val in DISPS.items():
+            if tail==key:
+                return "Genestealer Cults",val
     return None,None
 def table_after(soup,heading):
     for h in soup.find_all(re.compile(r"^h[1-6]$")):
@@ -164,8 +178,8 @@ expected=TEAM_COUNT*PLAYERS_PER_TEAM*ROUNDS//2
 print(f"Verified games: {len(games)}/{expected} ({100*len(games)/expected:.1f}%)")
 print("Audit:",audit)
 # Do not make a nearly-empty partial export replace an apparently complete dataset.
-if len(games)<100:
-    sys.exit("Too few verified records; likely HTML mismatch or incomplete data. Nothing written.")
+if len(games)<500:
+    sys.exit("Under 500 verified games; likely HTML mismatch or incomplete data. Nothing written.")
 OUT.parent.mkdir(parents=True,exist_ok=True)
 with OUT.open("w",newline="",encoding="utf-8") as fp:
     writer=csv.DictWriter(fp,fieldnames=COLS);writer.writeheader()
