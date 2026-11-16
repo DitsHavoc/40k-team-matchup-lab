@@ -286,7 +286,8 @@
       "source_urls": [
         "https://metascribe.gg/tournaments/the-london-grand-tournament-40k-main-event-lgt-40k-gt/"
       ],
-      "notes": "Source event page verified. Raw VP → WTC-equivalent only using official 11th edition 20BP table. Published WTC BP disagreements rejected. Missing detachments and maps not inferred. Game-level import not yet verified."
+      "notes": "Source event page verified. Raw VP → WTC-equivalent only using official 11th edition 20BP table. Published WTC BP disagreements rejected. Missing detachments and maps not inferred. Game-level import not yet verified. Verified source lists meta 11.1.04. Full game-level collection must pass scoring and source integrity checks.",
+      "rules_version": "11.1.04"
     },
     {
       "id": "lvo-2026",
@@ -302,7 +303,8 @@
       "source_urls": [
         "https://metascribe.gg/tournaments/lvo-2026-warhammer-40k-championships-las-vegas-open/"
       ],
-      "notes": "Source event page verified. Raw VP → WTC-equivalent only using official 11th edition 20BP table. Published WTC BP disagreements rejected. Missing detachments and maps not inferred. Game-level import not yet verified."
+      "notes": "Source event page verified. Raw VP → WTC-equivalent only using official 11th edition 20BP table. Published WTC BP disagreements rejected. Missing detachments and maps not inferred. Game-level import not yet verified. Verified source lists meta 11.1.04. Full game-level collection must pass scoring and source integrity checks.",
+      "rules_version": "11.1.04"
     },
     {
       "id": "ratcon-2026",
