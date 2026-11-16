@@ -62,18 +62,22 @@ def main():
    print("Country page unavailable",country,str(e)[:90],file=sys.stderr);continue
   roster_header=next((h for h in page.find_all(re.compile("^h[1-6]$")) if text(h).strip().lower()=="roster"),None)
   if not roster_header:continue
-  # Examine only the roster section to avoid collecting opposition players
-  for sib in roster_header.next_siblings:
-   if getattr(sib,"name","") in ("h1","h2"):break
-   for anchor in sib.find_all("a",href=True) if hasattr(sib,"find_all") else []:
-    url=urljoin(ROOT,anchor["href"])
-    if not urlparse(url).path.startswith("/players/") or not domain_safe(url):continue
-    name=text(anchor);faction_node=anchor.find_parent(["li","tr","div"])
-    nearby=text(faction_node) if faction_node else ""
-    factions=[f for f in FACTIONS if norm(f) in norm(nearby)]
-    exact=[f for f in factions if norm(f) in roster.get(norm(name),set())]
-    if len(exact)==1:
-     links[(norm(name),norm(exact[0]))].add(url)
+  # Traverse the section after the roster heading, including nested lists.
+  # Do not scan the preceding matchups, as those include opposition players.
+  for node in roster_header.next_elements:
+   if getattr(node,"name",None) in ("h1","h2","h3") and node is not roster_header:break
+   if getattr(node,"name",None)!="a":continue
+   url=urljoin(ROOT,node.get("href",""))
+   if not urlparse(url).path.startswith("/players/") or not domain_safe(url):continue
+   name=text(node)
+   parent=node.find_parent("li") or node.find_parent("tr")
+   if parent is None:continue
+   nearby=text(parent)
+   factions=[f for f in FACTIONS if norm(f) in norm(nearby)]
+   # A bullet should contain only one faction; generic Space Marines
+   # must not silently absorb Dark Angels, Blood Angels, etc.
+   exact=[f for f in factions if norm(f) in roster.get(norm(name),set())]
+   if len(exact)==1 and len(factions)==1:links[(norm(name),norm(exact[0]))].add(url)
   checked+=1
  matches=[]
  ambiguous=[]
