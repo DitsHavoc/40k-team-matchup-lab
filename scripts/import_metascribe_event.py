@@ -50,6 +50,17 @@ EVENTS = {
     "min_games": 250,
     "output": "public/data/kent-teams-november-2026.csv"
   },
+  "uktc-autumn-itt-2026": {
+    "url": BASE + "/tournaments/the-autumn-i-t-t-international-team-tournament-november/",
+    "name": "UKTC Autumn ITT 2026",
+    "date": "2026-11-14",
+    "teams": 60,
+    "rounds": 5,
+    "players_per_team": 5,
+    "min_games": 600,
+    "output": "public/data/uktc-autumn-itt-2026.csv",
+    "strict_event_date": True
+  },
   "uktc-summer-itt-2026": {
     "url": BASE + "/tournaments/the-summer-i-t-t-international-team-tournament-august/",
     "name": "UKTC Summer ITT 2026",
@@ -67,7 +78,7 @@ args=parser.parse_args()
 cfg=EVENTS[args.event]
 EVENT_URL=cfg["url"]
 EVENT=cfg["name"]
-SOURCE_EVENT_NAME="The Summer I. T. T." if args.event=="uktc-summer-itt-2026" else EVENT
+SOURCE_EVENT_NAME=("The Summer I. T. T." if args.event=="uktc-summer-itt-2026" else "The Autumn I. T. T." if args.event=="uktc-autumn-itt-2026" else EVENT)
 START=datetime.fromisoformat(cfg["date"]).date()
 TEAM_COUNT=cfg["teams"]
 ROUNDS=cfg["rounds"]
@@ -152,6 +163,16 @@ def fetch(url):
     r.raise_for_status()
     return BeautifulSoup(r.text,"html.parser")
 event_soup=fetch(EVENT_URL)
+if cfg.get("strict_event_date"):
+    heading=event_soup.find("h1")
+    if not heading or "autumn" not in norm(get_text(heading)):
+        sys.exit("Autumn event page is not yet a verified 2026 event; refusing to import")
+    # The 2025 event is currently indexed at this address. Never import it.
+    heading_parent=heading.parent
+    block=get_text(heading_parent)[:1200] if heading_parent else ""
+    year_mentions=re.findall(r"\\b(?:Nov(?:ember)?\\s+1[45],?\\s+20\\d{2}|20\\d{2}[-/]11[-/]1[45])\\b",block,re.I)
+    if not any("2026" in match for match in year_mentions):
+        sys.exit("No 14-15 November 2026 event date confirmed on page. Avoiding 2025 cross-edition contamination")
 placings=table_after(event_soup,"Team Placings")
 if not placings: sys.exit("No team placings table: site layout may have changed")
 teams=[]
