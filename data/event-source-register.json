@@ -56,9 +56,9 @@
         "https://www.bestcoastpairings.com/event/0LAPTBFRVK",
         "https://www.uktc.team/events"
       ],
-      "import_status": "awaiting_complete_match_export",
+      "import_status": "automated_monitoring_awaiting_2026_source",
       "verified_games": 0,
-      "notes": "User-confirmed BCP event page cIkmaPfe2nHG is canonical source. An alternate BCP listing 0LAPTBFRVK also shows Autumn ITT; verify event identity before merging. Full player-by-player match exports with both Force Dispositions and 20-0 scores required for statistical inclusion; BCP team placings alone insufficient. Three video-linked games are held separately and not admitted to analysis.",
+      "notes": "Confirmed 2026 BCP event cIkmaPfe2nHG; complete game-level export not publicly retrievable via available tools. Metascribe page with matching Autumn slug is for Nov 2025 (115 teams, 574 players), strictly excluded. Weekly guarded importer will only accept source once 2026 date and at least 600 deduplicated full-match records validate. 3 VOD games stored separately but excluded from default statistics.",
       "teams_reported": 69
     },
     {
