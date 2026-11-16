@@ -27,7 +27,7 @@ EVENTS = {
     "teams": 68,
     "rounds": 6,
     "players_per_team": 8,
-    "min_games": 500,
+    "min_games": 1200,
     "output": "public/data/challengers-cup-2026.csv"
   },
   "uktc-summer-itt-2026": {
@@ -37,7 +37,7 @@ EVENTS = {
     "teams": 71,
     "rounds": 5,
     "players_per_team": 5,
-    "min_games": 150,
+    "min_games": 600,
     "output": "public/data/uktc-summer-itt-2026.csv"
   }
 }
