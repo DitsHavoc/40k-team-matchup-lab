@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/refresh-tournaments.yml'
+      - 'scripts/run_imports.py'
   schedule:
     - cron: '23 4 * * 1'
 permissions:
@@ -23,7 +24,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install requests beautifulsoup4
-      - name: Collect and audit UKTC Summer, Challengers Cup and Kent November
+      - name: Collect and audit all nine configured 11th-edition events
         id: collect
         continue-on-error: true
         run: python scripts/run_imports.py --event all
