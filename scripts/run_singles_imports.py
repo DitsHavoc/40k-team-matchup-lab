@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Validate and publish separately sourced singles results."""
 import csv,json,subprocess,sys
+from wtc_scoring import wtc_battle_points
 from pathlib import Path
 from datetime import datetime,timezone
 EVENTS={
@@ -25,6 +26,13 @@ def validate(path,min_games):
   try:a=int(r["score_a_20"]);b=int(r["score_b_20"])
   except ValueError:return len(rows),f"line {n} invalid score"
   if not 0<=a<=20 or not 0<=b<=20 or a+b!=20:return len(rows),f"line {n} non-20 score"
+  raw_a,raw_b=r.get("raw_vp_a",""),r.get("raw_vp_b","")
+  if raw_a!="" or raw_b!="":
+   if raw_a=="" or raw_b=="":return len(rows),f"line {n} incomplete raw VP pair"
+   try:converted=wtc_battle_points(raw_a,raw_b)
+   except (TypeError,ValueError):return len(rows),f"line {n} invalid raw VP"
+   if (a,b)!=converted:return len(rows),f"line {n} published/calculated WTC mismatch"
+  elif r.get("score_type")=="calculated_wtc_from_raw_vp":return len(rows),f"line {n} calculated score missing raw VP"
   k=(r["event_date"],tuple(sorted([r["player_a"].casefold(),r["player_b"].casefold()])),tuple(sorted([a,b])))
   if k in seen:return len(rows),f"line {n} duplicate pair and score"
   seen.add(k)
