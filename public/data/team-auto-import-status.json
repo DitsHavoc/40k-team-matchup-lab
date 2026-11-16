@@ -1,0 +1,45 @@
+{
+  "updated_at_utc": "2026-11-16T19:52:44.394714+00:00",
+  "events": {
+    "1819236fabb2": {
+      "name": "GT BUNKERHAMMER XIV",
+      "event_date": "2026-09-26",
+      "source_url": "https://metascribe.gg/tournaments/gt-bunkerhammer-xiv/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 534,
+      "csv_path": "public/data/teams-auto-1819236fabb2.csv",
+      "diagnostic": "Wrote public/data/teams-auto-1819236fabb2.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-16T19:39:14.796344+00:00",
+      "retry_after_utc": null
+    },
+    "8353bf8e5647": {
+      "name": "GT MADRID LETANIA DEL OSO",
+      "event_date": "2026-10-10",
+      "source_url": "https://metascribe.gg/tournaments/gt-madrid-letania-del-oso/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 436,
+      "csv_path": "public/data/teams-auto-8353bf8e5647.csv",
+      "diagnostic": "Wrote public/data/teams-auto-8353bf8e5647.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-16T19:46:33.283858+00:00",
+      "retry_after_utc": null
+    },
+    "ccc41fd004ab": {
+      "name": "Gladiator Gaming Teams Sept",
+      "event_date": "2026-09-25",
+      "source_url": "https://metascribe.gg/tournaments/gladiator-gaming-teams-sept/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 316,
+      "csv_path": "public/data/teams-auto-ccc41fd004ab.csv",
+      "diagnostic": "Wrote public/data/teams-auto-ccc41fd004ab.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-16T19:52:44.394680+00:00",
+      "retry_after_utc": null
+    }
+  },
+  "note": "Only structurally audited game-level records enter the live site; candidate standings never count as games."
+}

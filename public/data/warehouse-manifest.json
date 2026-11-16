@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-16T19:29:02.701081+00:00",
-  "total_unique_games": 14149,
-  "total_source_rows": 14149,
+  "updated_at_utc": "2026-11-16T19:52:44.907136+00:00",
+  "total_unique_games": 15435,
+  "total_source_rows": 15435,
   "deduplicated": 0,
   "duplicate_tournaments_suppressed": 0,
   "duplicate_tournament_rows_suppressed": 0,
@@ -14,12 +14,12 @@
     {
       "path": "data/warehouse-0001.csv",
       "records": 10000,
-      "sha256": "76817dd9f0f09f66f0c037acebd2cebef8653fcc2c5f275f5dc20f05eb33fdb1"
+      "sha256": "a44a814ee66ff9488bbc9fec0f0bcb907cfeb50a6f4a99f774098e565e5cdd42"
     },
     {
       "path": "data/warehouse-0002.csv",
-      "records": 4149,
-      "sha256": "23264b44d85e90337490e03afe26a1904f92be21832f31080ebb0504a2a38e2f"
+      "records": 5435,
+      "sha256": "45f2383580d1a928a215675e4866ad0f9de25313e277bca7e159e3e896ee7708"
     }
   ],
   "sources": [
@@ -69,6 +69,11 @@
       "accepted_unique": 534
     },
     {
+      "path": "public/data/teams-auto-1819236fabb2.csv",
+      "event_name": "GT BUNKERHAMMER XIV",
+      "accepted_unique": 534
+    },
+    {
       "path": "public/data/gateway-open-teams-2026.csv",
       "event_name": "The 2026 Gateway Open 40K Teams Tournament",
       "accepted_unique": 480
@@ -77,6 +82,11 @@
       "path": "public/data/singles-uktc-birmingham-2026.csv",
       "event_name": "THE BIRMINGHAM 40K SUPER MAJOR",
       "accepted_unique": 450
+    },
+    {
+      "path": "public/data/teams-auto-8353bf8e5647.csv",
+      "event_name": "GT MADRID LETANIA DEL OSO",
+      "accepted_unique": 436
     },
     {
       "path": "public/data/kent-teams-november-2026.csv",
@@ -92,6 +102,11 @@
       "path": "public/data/scottish-open-teams-2026.csv",
       "event_name": "Scottish Open Team Championship",
       "accepted_unique": 343
+    },
+    {
+      "path": "public/data/teams-auto-ccc41fd004ab.csv",
+      "event_name": "Gladiator Gaming Teams Sept",
+      "accepted_unique": 316
     },
     {
       "path": "public/data/singles-uktc-coventry-2day-2026.csv",

@@ -1,11 +1,22 @@
 {
-  "updated_at_utc": "2026-11-16T18:51:00+00:00",
-  "source": "Curated directly verified Metascribe team events (over 100 players)",
-  "pages_checked": 0,
+  "updated_at_utc": "2026-11-16T19:30:50.717390+00:00",
+  "source": "https://metascribe.gg/tournaments/?format=team",
+  "pages_checked": 5,
   "candidates": [
     {
+      "id": "b0579e05373f",
+      "name": "Danmarksmesterskaberne i 40K for hold",
+      "event_date": "2026-11-14",
+      "players_reported": 2026,
+      "teams_reported": 240,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/danmarksmesterskaberne-i-40k-for-hold-2026/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
       "id": "ace282df4822",
-      "name": "PragueGT – Fall 2026",
+      "name": "PragueGT \u2013 Fall 2026",
       "event_date": "2026-11-14",
       "players_reported": 175,
       "teams_reported": 35,
@@ -15,35 +26,13 @@
       "status": "candidate_not_imported"
     },
     {
-      "id": "b0579e05373f",
-      "name": "Danmarksmesterskaberne i 40K for hold 2026",
-      "event_date": "2026-11-14",
-      "players_reported": 240,
-      "teams_reported": 48,
-      "rules_version": "11.1.07",
-      "source_url": "https://metascribe.gg/tournaments/danmarksmesterskaberne-i-40k-for-hold-2026/",
-      "event_format": "team",
-      "status": "candidate_not_imported"
-    },
-    {
       "id": "4d48cfa3cf33",
-      "name": "NTL 8-Player Championship – VENUE UPDATE",
+      "name": "NTL 8-Player Championship \u2013 VENUE UPDATE",
       "event_date": "2026-11-13",
       "players_reported": 112,
       "teams_reported": 14,
       "rules_version": "11.1.07",
       "source_url": "https://metascribe.gg/tournaments/ntl-8-player-championship-venue-update/",
-      "event_format": "team",
-      "status": "candidate_not_imported"
-    },
-    {
-      "id": "ac88494ecd47",
-      "name": "SASO Teams 5v5’s",
-      "event_date": "2026-11-07",
-      "players_reported": 125,
-      "teams_reported": 24,
-      "rules_version": "11.1.07",
-      "source_url": "https://metascribe.gg/tournaments/saso-teams-5v5s/",
       "event_format": "team",
       "status": "candidate_not_imported"
     },
@@ -59,8 +48,41 @@
       "status": "candidate_not_imported"
     },
     {
+      "id": "c0beb001d564",
+      "name": "Green Dice Games Presents: The Lehigh Valley Team Tournament II",
+      "event_date": "2026-11-07",
+      "players_reported": 128,
+      "teams_reported": 16,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/green-dice-games-presents-the-lehigh-valley-team-tournament-ii/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "ac88494ecd47",
+      "name": "SASO Teams 5v5\u2019s",
+      "event_date": "2026-11-07",
+      "players_reported": 125,
+      "teams_reported": 24,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/saso-teams-5v5s/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "56959cb58db4",
+      "name": "Onslaught Team Open",
+      "event_date": "2026-11-07",
+      "players_reported": 110,
+      "teams_reported": 22,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/onslaught-team-open/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
       "id": "574510058d7a",
-      "name": "October Super 6’s.",
+      "name": "October Super 6\u2019s.",
       "event_date": "2026-10-31",
       "players_reported": 144,
       "teams_reported": 24,
@@ -71,10 +93,10 @@
     },
     {
       "id": "b10a88ec8802",
-      "name": "GT TALAVERA 2026",
+      "name": "GT TALAVERA",
       "event_date": "2026-10-30",
-      "players_reported": 804,
-      "teams_reported": 134,
+      "players_reported": 2026,
+      "teams_reported": 804,
       "rules_version": "11.1.07",
       "source_url": "https://metascribe.gg/tournaments/gt-talavera-2026/",
       "event_format": "team",
@@ -82,16 +104,247 @@
     },
     {
       "id": "d9bee4bf81c5",
-      "name": "Team National Championship 2026",
+      "name": "Team National Championship",
       "event_date": "2026-10-17",
-      "players_reported": 264,
-      "teams_reported": 44,
+      "players_reported": 2026,
+      "teams_reported": 264,
       "rules_version": "11.1.06",
       "source_url": "https://metascribe.gg/tournaments/team-national-championship-2026/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "a745dbaae1f0",
+      "name": "Scottish Open Team Championship",
+      "event_date": "2026-10-17",
+      "players_reported": 140,
+      "teams_reported": 28,
+      "rules_version": "11.1.06",
+      "source_url": "https://metascribe.gg/tournaments/scottish-open-team-championship/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "8353bf8e5647",
+      "name": "GT MADRID LETANIA DEL OSO",
+      "event_date": "2026-10-10",
+      "players_reported": 228,
+      "teams_reported": 38,
+      "rules_version": "11.1.06",
+      "source_url": "https://metascribe.gg/tournaments/gt-madrid-letania-del-oso/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "3677a9164ea8",
+      "name": "south pacific 8s October event",
+      "event_date": "2026-10-09",
+      "players_reported": 144,
+      "teams_reported": 18,
+      "rules_version": "11.1.06",
+      "source_url": "https://metascribe.gg/tournaments/south-pacific-8s-october-event/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "aaac98706520",
+      "name": "Grand Fanatic V \u2013 40k",
+      "event_date": "2026-10-03",
+      "players_reported": 120,
+      "teams_reported": 30,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/grand-fanatic-v-40k/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "1819236fabb2",
+      "name": "GT BUNKERHAMMER XIV",
+      "event_date": "2026-09-26",
+      "players_reported": 264,
+      "teams_reported": 44,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/gt-bunkerhammer-xiv/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "14d4a81dbf23",
+      "name": "WHTQC \u2013 TEAM EVENT SEPTEMBRE",
+      "event_date": "2026-09-26",
+      "players_reported": 140,
+      "teams_reported": 28,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/whtqc-team-event-septembre/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "ccc41fd004ab",
+      "name": "Gladiator Gaming Teams Sept",
+      "event_date": "2026-09-25",
+      "players_reported": 192,
+      "teams_reported": 32,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/gladiator-gaming-teams-sept/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "589923493fce",
+      "name": "The Armadillo Cup WarZone Houston",
+      "event_date": "2026-09-25",
+      "players_reported": 160,
+      "teams_reported": 20,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/the-armadillo-cup-warzone-houston/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "e24c15fb6e1b",
+      "name": "Studs and Snotlings",
+      "event_date": "2026-09-19",
+      "players_reported": 2026,
+      "teams_reported": 208,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/studs-and-snotlings-2026/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "abe52db76a14",
+      "name": "GT BCN 2026 Warhammer 40K",
+      "event_date": "2026-09-19",
+      "players_reported": 156,
+      "teams_reported": 26,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/gt-bcn-2026-warhammer-40k/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "98b749ee9a6c",
+      "name": "NRW 40K Teams 2026 \u2013 Alpine Cup",
+      "event_date": "2026-09-19",
+      "players_reported": 147,
+      "teams_reported": 30,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/nrw-40k-teams-2026-alpine-cup/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "31bf50f7e44d",
+      "name": "Risky Rollers Team Tournament",
+      "event_date": "2026-09-19",
+      "players_reported": 112,
+      "teams_reported": 14,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/risky-rollers-team-tournament/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "d06ce249f07e",
+      "name": "V GT de C\u00f3rdoba",
+      "event_date": "2026-09-12",
+      "players_reported": 170,
+      "teams_reported": 34,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/v-gt-de-cordoba/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "aaa7cb1cfa88",
+      "name": "The Challengers Cup",
+      "event_date": "2026-09-11",
+      "players_reported": 2026,
+      "teams_reported": 544,
+      "rules_version": "11.1.04",
+      "source_url": "https://metascribe.gg/tournaments/the-challengers-cup-2026/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "8f597765a905",
+      "name": "NOVA Open 2026 ATC Team Tournament",
+      "event_date": "2026-09-03",
+      "players_reported": 105,
+      "teams_reported": 21,
+      "rules_version": "11.1.03",
+      "source_url": "https://metascribe.gg/tournaments/nova-open-2026-atc-team-tournament/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "9328a5149d4e",
+      "name": "New Mexico\u2019s 5v5 Teams Tournament Hosted by Pile of Games",
+      "event_date": "2026-08-22",
+      "players_reported": 110,
+      "teams_reported": 22,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/new-mexicos-5v5-teams-tournament-hosted-by-pile-of-games/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "277c6d322511",
+      "name": "WTC WH40K",
+      "event_date": "2026-08-13",
+      "players_reported": 2026,
+      "teams_reported": 368,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/wtc-wh40k-2026/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "f584aac962aa",
+      "name": "The Summer I. T. T. \u2013 INTERNATIONAL TEAM TOURNAMENT \u2013 August",
+      "event_date": "2026-08-08",
+      "players_reported": 355,
+      "teams_reported": 71,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/the-summer-i-t-t-international-team-tournament-august/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "0122b3e9e664",
+      "name": "The 2026 Gateway Open 40K Teams Tournament",
+      "event_date": "2026-08-07",
+      "players_reported": 192,
+      "teams_reported": 24,
+      "rules_version": "11.1.02",
+      "source_url": "https://metascribe.gg/tournaments/the-2026-gateway-open-40k-teams-tournament/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "4532c2534026",
+      "name": "Gladiator Gaming Teams July",
+      "event_date": "2026-07-24",
+      "players_reported": 180,
+      "teams_reported": 30,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/gladiator-gaming-teams-july/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "469228d7ce70",
+      "name": "40k All Ireland Team Championship",
+      "event_date": "2026-07-24",
+      "players_reported": 120,
+      "teams_reported": 24,
+      "rules_version": "11.1.01",
+      "source_url": "https://metascribe.gg/tournaments/40k-all-ireland-team-championship/",
       "event_format": "team",
       "status": "candidate_not_imported"
     }
   ],
   "issues": [],
-  "note": "Candidate roster metadata only. Individual games must pass independent player-history, team-membership, scoring and deduplication validation."
+  "note": "Event metadata candidates only; games must be independently verified from player histories."
 }
