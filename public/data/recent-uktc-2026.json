@@ -1,0 +1,67 @@
+{
+  "updated_at_utc": "2026-11-16T11:04:00Z",
+  "basis": "Three most recently completed UKTC 40K tournaments by start date: Autumn ITT 14 November, Coventry 2-Day 24 October, Coventry 3-Day 23 October.",
+  "events": [
+    {
+      "id": "uktc-autumn-itt-2026",
+      "name": "UKTC Autumn ITT 2026",
+      "date_start": "2026-11-14",
+      "date_end": "2026-11-15",
+      "format": "five_player_teams",
+      "status": "partial_verified_evidence_not_in_matchup_statistics",
+      "verified_games_in_main_dataset": 0,
+      "organiser_results": "https://www.bestcoastpairings.com/event/cIkmaPfe2nHG",
+      "source_notice": "The Metascribe Autumn slug currently serves the 2025 event. Do not import it as November 2026.",
+      "filmed_games": [
+        {
+          "player_a": "Gonzalo de La Moneda",
+          "faction_a": "Emperor's Children",
+          "score_a_20": 20,
+          "player_b": "Dan Johnson",
+          "faction_b": "Chaos Knights",
+          "score_b_20": 0,
+          "source_url": "https://40kvodindex.com/games/gonzalo-raven-de-la-moneda-emperors-children-vs-dan-johnson-chaos-knights-2100"
+        },
+        {
+          "player_a": "Edward Hearn",
+          "faction_a": "Space Wolves",
+          "score_a_20": 15,
+          "player_b": "Jim Allan",
+          "faction_b": "Adeptus Mechanicus",
+          "score_b_20": 5,
+          "source_url": "https://40kvodindex.com/games/edward-hearn-space-wolves-vs-jim-allan-adeptus-mechanicus-18300"
+        },
+        {
+          "player_a": "Ed Watts",
+          "faction_a": "Chaos Space Marines",
+          "score_a_20": 12,
+          "player_b": "Darren Corp",
+          "faction_b": "Tyranids",
+          "score_b_20": 8,
+          "source_url": "https://40kvodindex.com/games/ed-watts-chaos-space-marines-vs-darren-corp-tyranids-30900"
+        }
+      ]
+    },
+    {
+      "id": "uktc-coventry-2day-2026",
+      "name": "UKTC Coventry 2-Day",
+      "date_start": "2026-10-24",
+      "date_end": "2026-10-25",
+      "format": "singles",
+      "status": "published_structurally_validated",
+      "verified_games_in_main_dataset": 254,
+      "source_url": "https://metascribe.gg/tournaments/the-coventry-40k-2-day-3/"
+    },
+    {
+      "id": "uktc-coventry-3day-2026",
+      "name": "UKTC Coventry 3-Day",
+      "date_start": "2026-10-23",
+      "date_end": "2026-10-25",
+      "format": "singles",
+      "status": "published_structurally_validated",
+      "verified_games_in_main_dataset": 534,
+      "source_url": "https://metascribe.gg/tournaments/the-coventry-40k-3-day-3/"
+    }
+  ],
+  "note": "BCP source for Autumn is verified but public BCP requires JavaScript, and only three filmed games are independently verified. These three games are references, not imported as full tournament results or mixed into the 11th edition matrix without round identity."
+}
