@@ -76,12 +76,20 @@ def run(cfg):
  playersTable=table_after(page,"Player Placings")
  if not playersTable:raise RuntimeError("Player placings missing")
  players={}
+ roster_armies={}
  for tr in playersTable.find_all("tr"):
   cols=tr.find_all("td",recursive=False)
   if len(cols)<3:continue
   link=cols[1].find("a",href=re.compile(r"/players/"))
   if not link:continue
   url=urljoin(BASE,link["href"]);players[url]=clean(link)
+  # Tournament placings expose a declared faction and Force Disposition
+  # independent of the per-game history; use it only for that same player/event.
+  for cell in cols[2:]:
+   roster_faction,roster_disp=army(cell)
+   if roster_faction:
+    if roster_disp:roster_armies[url]=(roster_faction,roster_disp)
+    break
  if len(players)<cfg["players"]*0.9:raise RuntimeError("Insufficient event player roster")
  print("Player profiles",len(players),flush=True)
  # Use event metadata when available; do not guess balance versions from neighbouring dates.
@@ -120,6 +128,13 @@ def run(cfg):
      if not equiv:equiv=calculated
     if not equiv:reject("no_valid_scoring");continue
     oppLink=cs[6].find("a",href=re.compile(r"/players/"));opp=clean(oppLink or cs[6])
+    opp_url=urljoin(BASE,oppLink.get("href")) if oppLink else ""
+    # Fill only independently published roster dispositions, and only
+    # when the roster's faction matches the actual game faction.
+    if not disp1 and url in roster_armies and roster_armies[url][0]==f1:
+     disp1=roster_armies[url][1]
+    if not disp2 and opp_url in roster_armies and roster_armies[opp_url][0]==f2:
+     disp2=roster_armies[opp_url][1]
     if not opp or not name or norm(opp)==norm(name):reject("bad_player");continue
     # Multiple games against the same opponent on different days are kept.
     # Same-day duplicate matches with identical scores cannot be distinguished
@@ -127,14 +142,27 @@ def run(cfg):
     key=(d.isoformat(),tuple(sorted((norm(name),norm(opp)))),tuple(sorted(equiv)))
     if key in games:
      prior=games[key]
-     if prior["faction_a"]!=f1 and prior["faction_b"]!=f1:reject("mirrored_faction_conflict")
+     if prior["faction_a"]!=f1 and prior["faction_b"]!=f1:
+      reject("mirrored_faction_conflict")
+     else:
+      # The opponent's mirrored player history can supply missing dispositions.
+      # Resolve orientation via player profile URL; do not infer across people.
+      if prior.get("player_a_source_url")==url:
+       paired=(("disposition_a",disp1),("disposition_b",disp2))
+      elif prior.get("player_b_source_url")==url:
+       paired=(("disposition_a",disp2),("disposition_b",disp1))
+      else:
+       paired=()
+      for field,value in paired:
+       if value and not prior[field]:prior[field]=value
+       elif value and prior[field] and prior[field]!=value:reject("conflicting_disposition")
      continue
     record={k:"" for k in COLS}
     record.update(event_name=cfg["name"],event_date=d.isoformat(),source_url=cfg["url"],player_a=name,player_b=opp,
       faction_a=f1,faction_b=f2,disposition_a=disp1,disposition_b=disp2,score_a_20=equiv[0],score_b_20=equiv[1],
       raw_vp_a=vp[0] if vp else "",raw_vp_b=vp[1] if vp else "",
       edition="11",rules_version=cfg["rules_version"],event_format="singles",score_type="published_wtc_equivalent" if score(cs[4]) else "calculated_wtc_from_raw_vp",
-      player_a_source_url=url,player_b_source_url=urljoin(BASE,oppLink.get("href")) if oppLink else "")
+      player_a_source_url=url,player_b_source_url=opp_url)
     games[key]=record
   except Exception as e:print("Failed player",name,str(e)[:140],flush=True);reject("player_error")
   if idx%40==0:print("Scanned",idx,"/",len(players),"games",len(games),flush=True)
