@@ -1,12 +1,12 @@
 {
-  "updated_at_utc": "2026-11-16T07:13:51.709Z",
-  "note": "Initial source-file audit based on published CSVs. Scores, deduplication and round limits are checked; expected maxima assume full rosters and no byes. Passing structural checks does not establish complete tournament data.",
+  "updated_at_utc": "2026-11-16T07:22:10.311Z",
+  "note": "Per-source round, score, required-field and duplicate checks. Structural audit is not certification of complete tournament results. Summer ITT has five main rounds plus a valid five-game sixth-round final.",
   "events": {
     "uktc-summer-itt-2026": {
-      "status": "needs_review",
+      "status": "passed_structural_audit",
       "games": 877,
-      "expected_max": 887,
-      "coverage_pct_of_theoretical": 98.9,
+      "expected_max": 892,
+      "coverage_pct_of_theoretical": 98.3,
       "round_counts": {
         "1": 174,
         "2": 175,
@@ -19,15 +19,9 @@
         "2026-08-08": 523,
         "2026-08-09": 354
       },
-      "issues_total": 5,
-      "issues": [
-        "Row 874: invalid round 6",
-        "Row 875: invalid round 6",
-        "Row 876: invalid round 6",
-        "Row 877: invalid round 6",
-        "Row 878: invalid round 6"
-      ],
-      "note": "Theoretical maximum assumes all teams have full rosters, no byes or dropouts. Structural pass is not certification of event completeness."
+      "issues_total": 0,
+      "issues": [],
+      "note": "Five regular rounds plus a five-game sixth-round final verified via Metascribe. Theoretical denominator is an approximation; the full round-six match is included."
     },
     "challengers-2026": {
       "status": "passed_structural_audit",
@@ -69,6 +63,124 @@
       "issues_total": 0,
       "issues": [],
       "note": "Theoretical maximum assumes all teams have full rosters, no byes or dropouts. Structural pass is not certification of event completeness."
+    },
+    "wtc-2026": {
+      "status": "passed_structural_audit",
+      "games": 1288,
+      "expected_max": 1288,
+      "coverage_pct_of_theoretical": 100,
+      "round_counts": {
+        "1": 184,
+        "2": 184,
+        "3": 184,
+        "4": 184,
+        "5": 184,
+        "6": 184,
+        "7": 184
+      },
+      "date_counts": {
+        "2026-08-13": 552,
+        "2026-08-16": 736
+      },
+      "issues_total": 0,
+      "issues": [],
+      "note": "Assumes all teams and rounds have no byes; gaps need separate provenance review."
+    },
+    "krakow-2026": {
+      "status": "passed_structural_audit",
+      "games": 811,
+      "expected_max": 855,
+      "coverage_pct_of_theoretical": 94.9,
+      "round_counts": {
+        "1": 139,
+        "2": 137,
+        "3": 136,
+        "4": 136,
+        "5": 136,
+        "6": 127
+      },
+      "date_counts": {
+        "2026-09-11": 412,
+        "2026-09-13": 399
+      },
+      "issues_total": 0,
+      "issues": [],
+      "note": "Assumes all teams and rounds have no byes; gaps need separate provenance review."
+    },
+    "gateway-2026": {
+      "status": "passed_structural_audit",
+      "games": 480,
+      "expected_max": 480,
+      "coverage_pct_of_theoretical": 100,
+      "round_counts": {
+        "1": 96,
+        "2": 96,
+        "3": 96,
+        "4": 96,
+        "5": 96
+      },
+      "date_counts": {
+        "2026-08-07": 288,
+        "2026-08-09": 192
+      },
+      "issues_total": 0,
+      "issues": [],
+      "note": "Assumes all teams and rounds have no byes; gaps need separate provenance review."
+    },
+    "scottish-open-2026": {
+      "status": "passed_structural_audit",
+      "games": 343,
+      "expected_max": 350,
+      "coverage_pct_of_theoretical": 98,
+      "round_counts": {
+        "1": 67,
+        "2": 69,
+        "3": 69,
+        "4": 69,
+        "5": 69
+      },
+      "date_counts": {
+        "2026-10-17": 205,
+        "2026-10-18": 138
+      },
+      "issues_total": 0,
+      "issues": [],
+      "note": "Assumes all teams and rounds have no byes; gaps need separate provenance review."
+    },
+    "south-pacific-8s-2026": {
+      "status": "passed_structural_audit",
+      "games": 345,
+      "expected_max": 360,
+      "coverage_pct_of_theoretical": 95.8,
+      "round_counts": {
+        "1": 69,
+        "2": 69,
+        "3": 69,
+        "4": 69,
+        "5": 69
+      },
+      "date_counts": {
+        "2026-10-09": 207,
+        "2026-10-11": 138
+      },
+      "issues_total": 0,
+      "issues": [],
+      "note": "Assumes all teams and rounds have no byes; gaps need separate provenance review."
+    },
+    "uktc-autumn-itt-2026": {
+      "status": "awaiting_data",
+      "games": 0,
+      "expected_max": 862
+    },
+    "studs-snotlings-2026": {
+      "status": "awaiting_data",
+      "games": 0,
+      "expected_max": 520
+    },
+    "nrw-alpine-2026": {
+      "status": "awaiting_data",
+      "games": 0,
+      "expected_max": 375
     }
   }
 }
