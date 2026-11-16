@@ -27,7 +27,7 @@ jobs:
       - name: Discover 2026 11th edition singles events globally
         id: discovery
         continue-on-error: true
-        run: python scripts/discover_metascribe_singles.py --pages 6 --limit 120
+        run: python scripts/discover_metascribe_singles.py --pages 10 --limit 200
       - name: Collect two source-verified events without blocking other datasets
         id: ingest
         if: steps.discovery.outcome == 'success'
@@ -39,8 +39,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/singles-discovery.json public/data/singles-discovery-status.json public/data/auto-import-status.json public/data/cross-source-audit.json 2>/dev/null || true
-          git add public/data/singles-auto-*.csv 2>/dev/null || true
+          for file in public/data/singles-discovery.json public/data/singles-discovery-status.json public/data/auto-import-status.json public/data/cross-source-audit.json public/data/singles-auto-*.csv; do
+            if [ -f "$file" ]; then git add "$file"; fi
+          done
           if ! git diff --cached --quiet; then
             git commit -m "Refresh verified worldwide singles game evidence"
             git pull --rebase origin main
