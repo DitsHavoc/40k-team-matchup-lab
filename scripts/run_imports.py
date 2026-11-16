@@ -13,6 +13,7 @@ from pathlib import Path
 
 EVENTS = {
     "uktc-summer-itt-2026": "public/data/uktc-summer-itt-2026.csv",
+    "uktc-autumn-itt-2026": "public/data/uktc-autumn-itt-2026.csv",
     "challengers-2026": "public/data/challengers-cup-2026.csv",
     "kent-teams-november-2026": "public/data/kent-teams-november-2026.csv",
 }
