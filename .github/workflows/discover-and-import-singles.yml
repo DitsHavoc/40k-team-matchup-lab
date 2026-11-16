@@ -7,6 +7,9 @@ on:
       - 'scripts/run_discovered_singles.py'
       - 'scripts/import_metascribe_singles.py'
       - 'scripts/build_warehouse.py'
+      - 'scripts/event_identity.py'
+      - 'scripts/import_listhammer_export.py'
+      - 'scripts/test_event_identity.py'
       - '.github/workflows/discover-and-import-singles.yml'
   schedule:
     - cron: '07 3,9,15,21 * * *'
@@ -29,7 +32,8 @@ jobs:
         run: python -m playwright install --with-deps chromium
       - name: Check importer syntax and 100,000-game warehouse stress test
         run: |
-          python -m py_compile scripts/discover_metascribe_singles.py scripts/run_discovered_singles.py scripts/build_warehouse.py scripts/import_metascribe_singles.py
+          python -m py_compile scripts/discover_metascribe_singles.py scripts/run_discovered_singles.py scripts/build_warehouse.py scripts/import_metascribe_singles.py scripts/event_identity.py scripts/import_listhammer_export.py
+          python scripts/test_event_identity.py
           python scripts/test_warehouse.py
       - name: Discover 2026 11th edition singles events globally
         id: discovery
@@ -49,7 +53,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for file in public/data/singles-discovery.json public/data/singles-discovery-status.json public/data/auto-import-status.json public/data/cross-source-audit.json public/data/warehouse-manifest.json public/data/warehouse-*.csv public/data/singles-auto-*.csv; do
+          for file in public/data/singles-discovery.json public/data/singles-discovery-status.json public/data/auto-import-status.json public/data/cross-source-audit.json public/data/warehouse-manifest.json public/data/warehouse-*.csv public/data/listhammer-import-status.json public/data/listhammer-games-*.csv public/data/singles-auto-*.csv; do
             if [ -f "$file" ]; then git add "$file"; fi
           done
           if ! git diff --cached --quiet; then
