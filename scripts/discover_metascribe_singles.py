@@ -80,6 +80,10 @@ def main(pages,limit):
   print("Page",page,"accepted",links,"diagnostics",reasons,flush=True)
  if browser is not None:browser.close()
  if browser_driver is not None:browser_driver.stop()
+ # Do not report discovery success just because a previous fallback queue exists.
+ freshly_discovered=len(discovered)
+ if freshly_discovered<10:
+  raise RuntimeError("Only "+str(freshly_discovered)+" eligible events discovered from live listings; previous fallback queue remains untouched. "+repr(issues[:5]))
  # Preserve previously validated queue items when paginating or when new results roll in.
  # Discovery is a queue; it must not silently forget unprocessed event IDs.
  prior_path=Path("public/data/singles-discovery.json")
