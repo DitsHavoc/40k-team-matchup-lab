@@ -30,6 +30,16 @@ EVENTS = {
     "min_games": 1200,
     "output": "public/data/challengers-cup-2026.csv"
   },
+  "kent-teams-november-2026": {
+    "url": BASE + "/tournaments/the-kent-teams-november-2026/",
+    "name": "The Kent Teams November 2026",
+    "date": "2026-11-07",
+    "teams": 30,
+    "rounds": 5,
+    "players_per_team": 5,
+    "min_games": 250,
+    "output": "public/data/kent-teams-november-2026.csv"
+  },
   "uktc-summer-itt-2026": {
     "url": BASE + "/tournaments/the-summer-i-t-t-international-team-tournament-august/",
     "name": "UKTC Summer ITT 2026",
@@ -47,7 +57,7 @@ args=parser.parse_args()
 cfg=EVENTS[args.event]
 EVENT_URL=cfg["url"]
 EVENT=cfg["name"]
-SOURCE_EVENT_NAME="The Summer I. T. T." if args.event.startswith("uktc") else EVENT
+SOURCE_EVENT_NAME="The Summer I. T. T." if args.event=="uktc-summer-itt-2026" else EVENT
 START=datetime.fromisoformat(cfg["date"]).date()
 TEAM_COUNT=cfg["teams"]
 ROUNDS=cfg["rounds"]
