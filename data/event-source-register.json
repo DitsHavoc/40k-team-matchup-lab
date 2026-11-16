@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-16",
+  "notes": "Source registry only. Listing an event is not evidence that individual games are imported. Data acquisition requires game-level records with provenance and checks.",
+  "events": [
+    {
+      "id": "uktc-summer-itt-2026",
+      "name": "UKTC Summer International Team Tournament 2026",
+      "date_start": "2026-08-08",
+      "date_end": "2026-08-09",
+      "edition": 11,
+      "teams_reported": 72,
+      "players_per_team": 5,
+      "priority": "critical",
+      "source_urls": [
+        "https://www.uktc.events/summeritt",
+        "https://www.uktc.events/blog/categories/teams",
+        "https://www.uktc.team/events"
+      ],
+      "import_status": "not_imported",
+      "verified_games": 0,
+      "required_fields": [
+        "round",
+        "team_a",
+        "team_b",
+        "player_a",
+        "player_b",
+        "faction_a",
+        "faction_b",
+        "disposition_a",
+        "disposition_b",
+        "score_a_20",
+        "score_b_20"
+      ],
+      "optional_fields": [
+        "detachment_a",
+        "detachment_b",
+        "terrain_layout",
+        "mission_a",
+        "mission_b",
+        "pairing_role"
+      ],
+      "notes": "11th-edition team event. Obtain complete BCP or organiser round/game export; summary win-rates are insufficient."
+    },
+    {
+      "id": "uktc-autumn-itt-2026",
+      "name": "UKTC Autumn International Team Tournament 2026",
+      "date_start": "2026-11-14",
+      "date_end": "2026-11-15",
+      "edition": 11,
+      "players_per_team": 5,
+      "priority": "critical",
+      "source_urls": [
+        "https://www.uktc.events/post/autumn-itt-what-is-at-stake",
+        "https://www.uktc.team/events",
+        "https://www.bestcoastpairings.com/event/cIkmaPfe2nHG"
+      ],
+      "import_status": "not_imported",
+      "verified_games": 0,
+      "notes": "Completed recently. Individual game records and army/disposition information may be split between BCP and third-party pages. Verify complete extraction before publication."
+    },
+    {
+      "id": "all-ireland-team-championship-2026",
+      "name": "40K All Ireland Team Championship 2026",
+      "edition": 11,
+      "teams_reported": 24,
+      "priority": "high",
+      "import_status": "partial",
+      "verified_games": 25,
+      "source_urls": [
+        "https://metascribe.gg/teams/4-irish-and-an-englishman-walk-into-11th-edition/"
+      ],
+      "notes": "25-game partial-team sample imported, not event-wide results."
+    },
+    {
+      "id": "challengers-cup-2026",
+      "name": "The Challengers Cup 2026",
+      "edition": 11,
+      "teams_reported": 68,
+      "players_per_team": 8,
+      "rounds_reported": 6,
+      "priority": "high",
+      "import_status": "pipeline_unverified",
+      "verified_games": 0,
+      "source_urls": [
+        "https://metascribe.gg/tournaments/the-challengers-cup-2026/"
+      ],
+      "notes": "GitHub Actions importer committed; output CSV not verified published."
+    }
+  ]
+}
