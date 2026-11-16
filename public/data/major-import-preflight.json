@@ -1,0 +1,32 @@
+{
+  "updated_at_utc": "2026-11-16T10:58:04.285085+00:00",
+  "events": {
+    "lgt-2026": {
+      "event": "lgt-2026",
+      "source_url": "https://metascribe.gg/tournaments/the-london-grand-tournament-40k-main-event-lgt-40k-gt/",
+      "heading_ok": true,
+      "singles_identified": true,
+      "meta_version": "11.1.04",
+      "players_found": 1049,
+      "players_expected": 1049,
+      "profiles_checked": 5,
+      "valid_matching_game_rows": 45,
+      "sample_issues": [],
+      "status": "passed"
+    },
+    "lvo-2026": {
+      "event": "lvo-2026",
+      "source_url": "https://metascribe.gg/tournaments/lvo-2026-warhammer-40k-championships-las-vegas-open/",
+      "heading_ok": true,
+      "singles_identified": true,
+      "meta_version": "11.1.04",
+      "players_found": 651,
+      "players_expected": 652,
+      "profiles_checked": 5,
+      "valid_matching_game_rows": 46,
+      "sample_issues": [],
+      "status": "passed"
+    }
+  },
+  "note": "Preflight checks are diagnostics only; do not increase game count."
+}
