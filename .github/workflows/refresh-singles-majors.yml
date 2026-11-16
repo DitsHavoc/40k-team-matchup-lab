@@ -1,0 +1,49 @@
+name: Refresh major 1000-player singles events
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '19 6 * * 4'
+permissions:
+  contents: write
+concurrency:
+  group: singles-dataset-refresh
+  cancel-in-progress: false
+jobs:
+  collect-major-events:
+    runs-on: ubuntu-latest
+    timeout-minutes: 140
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Collect London Grand Tournament
+        id: lgt
+        continue-on-error: true
+        run: python scripts/run_singles_imports.py --event lgt-2026
+      - name: Publish LGT if audited
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/singles-lgt-2026.csv public/data/singles-import-status.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh LGT validated singles games"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Collect Las Vegas Open
+        id: lvo
+        continue-on-error: true
+        run: python scripts/run_singles_imports.py --event lvo-2026
+      - name: Publish LVO if audited
+        run: |
+          git add public/data/singles-lvo-2026.csv public/data/singles-import-status.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh LVO validated singles games"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Report collection failures
+        if: steps.lgt.outcome == 'failure' || steps.lvo.outcome == 'failure'
+        run: exit 1
