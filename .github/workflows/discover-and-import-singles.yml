@@ -1,4 +1,5 @@
 name: Discover and validate worldwide singles events
+# Explicit rerun requested after 2026-11-16 importer changes.
 on:
   workflow_dispatch:
   push:
