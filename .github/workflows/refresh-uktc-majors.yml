@@ -1,0 +1,58 @@
+name: Import UKTC 2026 11th-edition major events
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/refresh-uktc-majors.yml'
+  schedule:
+    - cron: '43 4 * * 3'
+permissions:
+  contents: write
+concurrency:
+  group: singles-dataset-refresh
+  cancel-in-progress: false
+jobs:
+  import-uktc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 85
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Check scoring formula tests
+        run: python scripts/wtc_scoring.py
+      - name: Coventry 2-Day
+        id: cov2
+        continue-on-error: true
+        run: python scripts/run_singles_imports.py --event uktc-coventry-2day-2026
+      - name: Coventry 3-Day
+        id: cov3
+        continue-on-error: true
+        run: python scripts/run_singles_imports.py --event uktc-coventry-3day-2026
+      - name: Birmingham Super-Major
+        id: bham
+        continue-on-error: true
+        run: python scripts/run_singles_imports.py --event uktc-birmingham-2026
+      - name: Manchester Summer Super-Major
+        id: manchester
+        continue-on-error: true
+        run: python scripts/run_singles_imports.py --event uktc-manchester-summer-2026
+      - name: Audit all published individual games
+        run: python scripts/audit_cross_sources.py
+      - name: Publish valid UKTC game CSVs and failure diagnostics
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/singles-uktc-*.csv public/data/singles-import-status.json public/data/cross-source-audit.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish audited UKTC 11th edition major game results"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Flag failed collections for inspection
+        if: steps.cov2.outcome == 'failure' || steps.cov3.outcome == 'failure' || steps.bham.outcome == 'failure' || steps.manchester.outcome == 'failure'
+        run: exit 1
