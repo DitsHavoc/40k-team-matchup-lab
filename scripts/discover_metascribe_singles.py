@@ -52,39 +52,27 @@ def main(pages,limit):
   anchor_samples=[]
   for anchor in soup.find_all("a",href=re.compile(r"/tournaments/[a-z0-9-]+/?$")):
    reasons["anchors"]+=1
-   name=text(anchor)
-   if not name:continue
+   label=text(anchor)
    event_url=urljoin(BASE,anchor["href"])
    if urlparse(event_url).netloc!="metascribe.gg":continue
-   context=None
-   node=anchor
-   for depth in range(9):
-    node=node.parent
-    if node is None:break
-    line=text(node)
-    if 0<len(line)<650 and name in line and re.search(r"\b11\.\d+\.\d+\b",line) and re.search(r"\b20(?:25|26)\b",line):
-     context=line
-     break
-   if context is None:
+   # Metascribe renders each tournament as one clickable card:
+   # "Nov 8 2026 Tournament Name 44 — City, Country 11.1.07"
+   found=re.match(
+    r"^(?P<date>(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}\s+20\d{2})\s+(?P<name>.+?)\s+(?P<players>\d[\d,]*)\s+(?P<teams>—|-|\d+)\s+.+?\s+(?P<version>11\.\d+\.\d+)(?:\s+.*)?$",
+    label,re.I)
+   if not found:
     reasons["context"]+=1
-    if len(anchor_samples)<3:anchor_samples.append({"name":name,"parent_tags":[p.name for p in list(anchor.parents)[:5]],"parent_text":text(anchor.parent.parent)[:240] if anchor.parent and anchor.parent.parent else ""})
+    if len(anchor_samples)<3:anchor_samples.append({"label":label[:300]})
     continue
-   date_match=re.search(r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}\s+20\d{2}",context,re.I)
-   if not date_match:reasons["date"]+=1;continue
-   date=datetime.strptime(date_match.group(0),"%b %d %Y").date()
-   version=re.search(r"\b11\.\d+\.\d+\b",context)
-   if not version or date.year!=2026:reasons["version_or_year"]+=1;continue
-   tail=context.split(name,1)[-1]
-   match=re.match(r"\s*([\d,]+)\s+(—|-|\d+)(?:\s|$)",tail)
-   if not match:
-    reasons["players"]+=1
-    if len(anchor_samples)<3:anchor_samples.append({"name":name,"context":context[:260]})
-    continue
-   players=int(match.group(1).replace(",",""))
+   date=datetime.strptime(found.group("date"),"%b %d %Y").date()
+   name=found.group("name").strip()
+   players=int(found.group("players").replace(",",""))
+   if date.year!=2026:reasons["version_or_year"]+=1;continue
    if players<16:reasons["small"]+=1;continue
-   if match.group(2) not in ("—","-"):reasons["teams"]+=1;continue
+   if found.group("teams") not in ("—","-"):reasons["teams"]+=1;continue
+   version=found.group("version")
    if event_url in discovered:reasons["duplicate"]+=1;continue
-   discovered[event_url]={"id":hashlib.sha256(event_url.encode("utf-8")).hexdigest()[:12],"name":name,"event_date":date.isoformat(),"players_reported":players,"rules_version":version.group(),"source_url":event_url,"event_format":"singles","status":"candidate_not_imported"}
+   discovered[event_url]={"id":hashlib.sha256(event_url.encode("utf-8")).hexdigest()[:12],"name":name,"event_date":date.isoformat(),"players_reported":players,"rules_version":version,"source_url":event_url,"event_format":"singles","status":"candidate_not_imported"}
    links+=1
   if links==0:issues.append("No eligible events on "+url+"; diagnostics="+repr(reasons)+"; samples="+repr(anchor_samples))
   print("Page",page,"accepted",links,"diagnostics",reasons,flush=True)
