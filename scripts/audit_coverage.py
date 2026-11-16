@@ -8,6 +8,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 CONFIG = {
+ "studs-snotlings-2026": ("public/data/studs-and-snotlings-2026.csv", 26, 8, 5),
+ "nrw-alpine-2026": ("public/data/nrw-alpine-cup-2026.csv", 30, 5, 5),
  "uktc-summer-itt-2026": ("public/data/uktc-summer-itt-2026.csv", 71, 5, 5),
  "uktc-autumn-itt-2026": ("public/data/uktc-autumn-itt-2026.csv", 69, 5, 5),
  "challengers-2026": ("public/data/challengers-cup-2026.csv", 68, 8, 6),
