@@ -1,0 +1,39 @@
+name: Preflight London GT and LVO source parsers
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/preflight_major_imports.py'
+      - '.github/workflows/preflight-big-events.yml'
+permissions:
+  contents: write
+concurrency:
+  group: preflight-big-events
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Verify major event and sample histories
+        id: preflight
+        continue-on-error: true
+        run: python scripts/preflight_major_imports.py --samples 5
+      - name: Publish diagnostics even if source parsing fails
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/major-import-preflight.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish major singles source preflight report"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Fail workflow when validation fails
+        if: steps.preflight.outcome == 'failure'
+        run: exit 1
