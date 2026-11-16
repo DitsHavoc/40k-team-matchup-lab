@@ -351,6 +351,129 @@
         "https://metascribe.gg/tournaments/october-rtt/"
       ],
       "notes": "Source event page verified. Raw VP → WTC-equivalent only using official 11th edition 20BP table. Published WTC BP disagreements rejected. Missing detachments and maps not inferred. Game-level import not yet verified."
+    },
+    {
+      "id": "uktc-birmingham-2026",
+      "name": "THE BIRMINGHAM 40K SUPER MAJOR",
+      "date_start": "2026-07-04",
+      "players_reported": 196,
+      "rounds_reported": 7,
+      "rules_version": "11.1.01",
+      "edition": 11,
+      "event_format": "singles",
+      "verified_games": 0,
+      "import_status": "automated_collection_pending_validation",
+      "priority": "critical",
+      "source_urls": [
+        "https://metascribe.gg/tournaments/the-birmingham-40k-super-major/"
+      ],
+      "notes": "2026 UKTC event page and 11th-edition meta verified. Individual game results must pass score/VP, identity, source, duplication and coverage validation. No games counted until CSV publication."
+    },
+    {
+      "id": "uktc-manchester-summer-2026",
+      "name": "The MANCHESTER 40k SUPER-MAJOR - SUMMER",
+      "date_start": "2026-08-29",
+      "players_reported": 226,
+      "rounds_reported": 7,
+      "rules_version": "11.1.02",
+      "edition": 11,
+      "event_format": "singles",
+      "verified_games": 0,
+      "import_status": "automated_collection_pending_validation",
+      "priority": "critical",
+      "source_urls": [
+        "https://metascribe.gg/tournaments/the-manchester-40k-super-major-summer/"
+      ],
+      "notes": "2026 UKTC event page and 11th-edition meta verified. Individual game results must pass score/VP, identity, source, duplication and coverage validation. No games counted until CSV publication."
+    },
+    {
+      "id": "uktc-coventry-3day-2026",
+      "name": "THE COVENTRY 40K : 3-Day",
+      "date_start": "2026-10-23",
+      "players_reported": 142,
+      "rounds_reported": 8,
+      "rules_version": "11.1.07",
+      "edition": 11,
+      "event_format": "singles",
+      "verified_games": 0,
+      "import_status": "automated_collection_pending_validation",
+      "priority": "critical",
+      "source_urls": [
+        "https://metascribe.gg/tournaments/the-coventry-40k-3-day-3/"
+      ],
+      "notes": "2026 UKTC event page and 11th-edition meta verified. Individual game results must pass score/VP, identity, source, duplication and coverage validation. No games counted until CSV publication."
+    },
+    {
+      "id": "uktc-coventry-2day-2026",
+      "name": "THE COVENTRY 40K : 2-Day",
+      "date_start": "2026-10-24",
+      "players_reported": 110,
+      "rounds_reported": 5,
+      "rules_version": "11.1.07",
+      "edition": 11,
+      "event_format": "singles",
+      "verified_games": 0,
+      "import_status": "automated_collection_pending_validation",
+      "priority": "critical",
+      "source_urls": [
+        "https://metascribe.gg/tournaments/the-coventry-40k-2-day-3/"
+      ],
+      "notes": "2026 UKTC event page and 11th-edition meta verified. Individual game results must pass score/VP, identity, source, duplication and coverage validation. No games counted until CSV publication."
+    },
+    {
+      "id": "uktc-nottingham-2026",
+      "name": "The NOTTINGHAM 40K SUPER-MAJOR",
+      "date_start": "2026-01-10",
+      "players_reported": 355,
+      "rules_version": "10.4",
+      "edition": 10,
+      "import_status": "excluded_wrong_edition",
+      "verified_games": 0,
+      "notes": "Official Metascribe event displays Meta 10.4; exclude from current 11th-edition matchup calculations."
+    },
+    {
+      "id": "uktc-windsor-2026",
+      "name": "The UKTC Windsor Super-Major",
+      "date_start": "2026-03-07",
+      "players_reported": 246,
+      "rules_version": "10.4",
+      "edition": 10,
+      "import_status": "excluded_wrong_edition",
+      "verified_games": 0,
+      "notes": "Official Metascribe event displays Meta 10.4; exclude from current 11th-edition matchup calculations."
+    },
+    {
+      "id": "uktc-sheffield-2026",
+      "name": "THE SHEFFIELD 40K GT",
+      "date_start": "2026-03-28",
+      "players_reported": 243,
+      "rules_version": "10.4",
+      "edition": 10,
+      "import_status": "excluded_wrong_edition",
+      "verified_games": 0,
+      "notes": "Official Metascribe event displays Meta 10.4; exclude from current 11th-edition matchup calculations."
+    },
+    {
+      "id": "uktc-south-coast-2026",
+      "name": "THE SOUTH-COAST 40k SUPER-MAJOR",
+      "date_start": "2026-04-11",
+      "players_reported": 245,
+      "rules_version": "10.4",
+      "edition": 10,
+      "import_status": "excluded_wrong_edition",
+      "verified_games": 0,
+      "notes": "Official Metascribe event displays Meta 10.4; exclude from current 11th-edition matchup calculations."
+    },
+    {
+      "id": "uktc-spring-itt-2026",
+      "name": "The Spring I. T. T. - INTERNATIONAL TEAM TOURNAMENT - May",
+      "date_start": "2026-05-02",
+      "players_reported": 355,
+      "rules_version": "10.4",
+      "edition": 10,
+      "import_status": "excluded_wrong_edition",
+      "verified_games": 0,
+      "notes": "Official Metascribe event displays Meta 10.4; exclude from current 11th-edition matchup calculations."
     }
   ],
   "policy": {
