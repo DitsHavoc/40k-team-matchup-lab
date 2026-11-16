@@ -53,6 +53,7 @@ def save_status(results):
 parser=argparse.ArgumentParser()
 parser.add_argument("--event",choices=list(EVENTS),help="Import only one event to avoid blocking on very large tournaments")
 parser.add_argument("--fast",action="store_true",help="Only smaller events; run majors separately")
+parser.add_argument("--isolated-status",action="store_true",help="Write event-specific status without racing another parallel import")
 args=parser.parse_args()
 results={}
 try:
@@ -77,6 +78,10 @@ for event,(filename,minimum) in targets.items():
    count=validate(path,minimum)[0] if path.exists() else 0
   results[event]={"collection_status":status if succeeded else "failed_or_previous_file_preserved","import_succeeded":succeeded,"published_records":count,"csv_path":filename if count else None,"diagnostic":output.splitlines()[-1][:300] if output else ""}
  except Exception as e:results[event]={"collection_status":"failed","import_succeeded":False,"published_records":0,"diagnostic":str(e)}
-save_status(results)
-print(json.dumps(results,indent=2),flush=True)
+if args.isolated_status:
+ if not args.event:parser.error("--isolated-status requires --event")
+ out=Path("public/data/singles-import-"+args.event+".json")
+ out.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),"events":{args.event:results[args.event]},"note":"Independent large-event import validation; game CSV is published only after source and score audits."},indent=2)+"\n",encoding="utf-8")
+else:save_status(results)
+print(json.dumps({k:results[k] for k in targets},indent=2),flush=True)
 sys.exit(0 if all(results[e]["import_succeeded"] for e in targets) else 1)
