@@ -9,15 +9,16 @@
       "date_start": "2026-08-08",
       "date_end": "2026-08-09",
       "edition": 11,
-      "teams_reported": 72,
+      "teams_reported": 71,
       "players_per_team": 5,
       "priority": "critical",
       "source_urls": [
+        "https://metascribe.gg/tournaments/the-summer-i-t-t-international-team-tournament-august/",
         "https://www.uktc.events/summeritt",
         "https://www.uktc.events/blog/categories/teams",
         "https://www.uktc.team/events"
       ],
-      "import_status": "not_imported",
+      "import_status": "pipeline_unverified",
       "verified_games": 0,
       "required_fields": [
         "round",
@@ -40,7 +41,7 @@
         "mission_b",
         "pairing_role"
       ],
-      "notes": "11th-edition team event. Obtain complete BCP or organiser round/game export; summary win-rates are insufficient."
+      "notes": "Metascribe event page has 71 listed teams/355 players. UKTC organiser publication has separately cited 72 teams; source count discrepancy remains to reconcile. Automated collector targets Metascribe individual-game histories and verifies round coverage. No game CSV published yet."
     },
     {
       "id": "uktc-autumn-itt-2026",
@@ -85,7 +86,7 @@
       "source_urls": [
         "https://metascribe.gg/tournaments/the-challengers-cup-2026/"
       ],
-      "notes": "GitHub Actions importer committed; output CSV not verified published."
+      "notes": "68 teams, 544 players and six rounds from Metascribe. Collector configured with a substantial minimum-coverage requirement; no published game CSV verified yet."
     }
   ]
 }
