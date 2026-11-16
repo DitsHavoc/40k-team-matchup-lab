@@ -1,6 +1,10 @@
-name: Refresh major 1000-player singles events
+name: Refresh major singles LGT and LVO (validated)
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/refresh-singles-majors.yml'
+      - 'scripts/import_metascribe_singles.py'
   schedule:
     - cron: '19 6 * * 4'
 permissions:
