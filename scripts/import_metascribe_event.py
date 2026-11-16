@@ -23,6 +23,7 @@ EVENTS = {
   "wtc-2026": {
     "url": BASE + "/tournaments/wtc-wh40k-2026/",
     "name": "WTC WH40K 2026",
+    "max_days": 5,
     "date": "2026-08-13",
     "teams": 46,
     "rounds": 7,
@@ -73,6 +74,7 @@ EVENTS = {
   "challengers-2026": {
     "url": BASE + "/tournaments/the-challengers-cup-2026/",
     "name": "The Challengers Cup 2026",
+    "max_days": 4,
     "date": "2026-09-11",
     "teams": 68,
     "rounds": 6,
