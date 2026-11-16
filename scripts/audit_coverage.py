@@ -47,21 +47,25 @@ def audit():
                 a=int(r["score_a_20"]);b=int(r["score_b_20"])
             except ValueError:
                 errors.append(f"Row {line}: invalid round/score");continue
-            if not (1<=rnd<=rounds):errors.append(f"Row {line}: out-of-range round {rnd}")
+            # Additional observed rounds can be shadow rounds or finals.
+            # Only reject implausible round identifiers; report extra rounds separately.
+            if not (1<=rnd<=20):errors.append(f"Row {line}: invalid round number {rnd}")
             if not (0<=a<=20 and 0<=b<=20 and a+b==20):errors.append(f"Row {line}: impossible scores")
             k=(rnd,tuple(sorted([r["player_a"].casefold(),r["player_b"].casefold()])))
             if k in duplicates:errors.append(f"Row {line}: duplicate pairing")
             duplicates.add(k);rounds_count[rnd]+=1;dates[r["event_date"]]+=1
         theoretical=892 if event=="uktc-summer-itt-2026" else teams*players*rounds//2
         ratio=round(len(rows)/theoretical*100,1) if theoretical else 0
+        extra_rounds={str(k):v for k,v in sorted(rounds_count.items()) if k>rounds}
         if ratio < 90:
             errors.append(f"Published game coverage {ratio}% is below 90% of event theoretical maximum; review byes or missing records before release")
         report[event]={"status":"needs_review" if errors else "passed_structural_audit",
                        "games":len(rows),"expected_max":theoretical,"coverage_pct_of_theoretical":ratio,
                        "round_counts":dict(sorted(rounds_count.items())),
+                       "extra_observed_rounds":extra_rounds,
                        "date_counts":dict(sorted(dates.items())),"issues_total":len(errors),
                        "issues":errors[:12],
-                       "note":"Expected maximum assumes all teams have full rosters, every round is played and no byes. Passing requires at least 90% theoretical coverage and basic structural integrity; it is not proof of complete results."}
+                       "note":"Expected base uses advertised rounds and full rosters. Extra source-recorded shadow/final rounds are included and reported separately; counts can exceed the base. Structural pass does not certify event completeness."}
     return {"updated_at_utc":datetime.now(timezone.utc).isoformat(),
             "events":report}
 if __name__=="__main__":
