@@ -39,7 +39,7 @@ jobs:
       - name: Discover 2026 11th edition singles events globally
         id: discovery
         continue-on-error: true
-        run: python scripts/discover_metascribe_singles.py --pages 12 --limit 1000
+        run: python scripts/discover_metascribe_singles.py --pages 4 --limit 1000
       - name: Confirm fallback candidate queue is available
         run: test -s public/data/singles-discovery.json
       - name: Collect up to sixteen separately verified smaller singles events
