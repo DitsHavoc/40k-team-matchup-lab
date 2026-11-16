@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Import a bounded batch of discovered 11th edition singles events.
+"""Import a bounded batch of discovered 11th edition team events.
 
 Candidates never count as recorded games until complete source, scoring, faction,
 deduplication and coverage checks pass. Each event is independently published or
@@ -52,7 +52,7 @@ def validate(path,event):
  if len(rows)<minimum:return len(rows),f"incomplete sample ({len(rows)} below {minimum})"
  return len(rows),"passed_structural_audit"
 
-def main(limit,max_players,min_players=16):
+def main(limit,max_players,min_players=101):
  if not QUEUE.exists():raise RuntimeError("Discovery queue missing")
  candidates=json.loads(QUEUE.read_text(encoding="utf-8")).get("candidates",[])
  if not candidates:raise RuntimeError("No discovered events to process")
