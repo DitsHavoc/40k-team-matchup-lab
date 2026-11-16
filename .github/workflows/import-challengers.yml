@@ -18,7 +18,7 @@ jobs:
           python-version: '3.12'
       - run: pip install requests beautifulsoup4
       - name: Collect and validate public team-event games
-        run: python scripts/import_metascribe_event.py
+        run: python scripts/import_metascribe_event.py --event challengers-2026
       - name: Commit verified game records
         run: |
           git config user.name "github-actions[bot]"
