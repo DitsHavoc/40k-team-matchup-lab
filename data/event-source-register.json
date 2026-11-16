@@ -124,6 +124,86 @@
       "import_status": "pipeline_unverified",
       "verified_games": 0,
       "notes": "Separate Coventry six-player event, not Kent November five-player tournament. Published CSV must be validated."
+    },
+    {
+      "id": "wtc-2026",
+      "name": "WTC WH40K 2026",
+      "date_start": "2026-08-13",
+      "edition": 11,
+      "teams_reported": 46,
+      "players_per_team": 8,
+      "rounds_reported": 7,
+      "priority": "high",
+      "source_urls": [
+        "https://metascribe.gg/tournaments/wtc-wh40k-2026/"
+      ],
+      "import_status": "pipeline_unverified",
+      "verified_games": 0,
+      "notes": "Public Metascribe event source identified. Full game-level CSV to be published only after importer validation. Map data may be absent."
+    },
+    {
+      "id": "krakow-2026",
+      "name": "Warhammer Open: Krakow Warhammer 40000",
+      "date_start": "2026-09-11",
+      "edition": 11,
+      "teams_reported": 57,
+      "players_per_team": 5,
+      "rounds_reported": 6,
+      "priority": "high",
+      "source_urls": [
+        "https://metascribe.gg/tournaments/warhammer-open-krakow-warhammer-40000/"
+      ],
+      "import_status": "pipeline_unverified",
+      "verified_games": 0,
+      "notes": "Public Metascribe event source identified. Full game-level CSV to be published only after importer validation. Map data may be absent."
+    },
+    {
+      "id": "gateway-2026",
+      "name": "The 2026 Gateway Open 40K Teams Tournament",
+      "date_start": "2026-08-07",
+      "edition": 11,
+      "teams_reported": 24,
+      "players_per_team": 8,
+      "rounds_reported": 5,
+      "priority": "high",
+      "source_urls": [
+        "https://metascribe.gg/tournaments/the-2026-gateway-open-40k-teams-tournament/"
+      ],
+      "import_status": "pipeline_unverified",
+      "verified_games": 0,
+      "notes": "Public Metascribe event source identified. Full game-level CSV to be published only after importer validation. Map data may be absent."
+    },
+    {
+      "id": "scottish-open-2026",
+      "name": "Scottish Open Team Championship",
+      "date_start": "2026-10-17",
+      "edition": 11,
+      "teams_reported": 28,
+      "players_per_team": 5,
+      "rounds_reported": 5,
+      "priority": "high",
+      "source_urls": [
+        "https://metascribe.gg/tournaments/scottish-open-team-championship/"
+      ],
+      "import_status": "pipeline_unverified",
+      "verified_games": 0,
+      "notes": "Public Metascribe event source identified. Full game-level CSV to be published only after importer validation. Map data may be absent."
+    },
+    {
+      "id": "south-pacific-8s-2026",
+      "name": "south pacific 8s October event",
+      "date_start": "2026-10-09",
+      "edition": 11,
+      "teams_reported": 18,
+      "players_per_team": 8,
+      "rounds_reported": 5,
+      "priority": "high",
+      "source_urls": [
+        "https://metascribe.gg/tournaments/south-pacific-8s-october-event/"
+      ],
+      "import_status": "pipeline_unverified",
+      "verified_games": 0,
+      "notes": "Public Metascribe event source identified. Full game-level CSV to be published only after importer validation. Map data may be absent."
     }
   ],
   "policy": {
