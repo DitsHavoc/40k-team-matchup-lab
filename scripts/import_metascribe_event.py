@@ -1,0 +1,173 @@
+#!/usr/bin/env python3
+"""Extract publicly visible event match records from Metascribe.
+
+Reads the named event's team placings, round history and individual game history.
+Only keeps games with a uniquely identified round/opponent and matching event dates.
+Uses robot exclusion checks and a polite request interval. Prints coverage audit.
+"""
+import csv
+import io
+import re
+import sys
+import time
+import urllib.robotparser
+from datetime import datetime, timedelta
+from pathlib import Path
+from urllib.parse import urljoin, urlparse
+import requests
+from bs4 import BeautifulSoup
+
+BASE = "https://metascribe.gg"
+EVENT_URL = BASE + "/tournaments/the-challengers-cup-2026/"
+EVENT = "The Challengers Cup 2026"
+START = datetime(2026, 9, 11).date()
+TEAM_COUNT = 68
+ROUNDS = 6
+PLAYERS_PER_TEAM = 8
+OUT = Path("public/data/challengers-cup-2026.csv")
+COLS = ["event_name","event_date","source_url","event_size_teams","round","team_a","team_b",
+        "player_a","player_b","faction_a","faction_b","detachment_a","detachment_b",
+        "disposition_a","disposition_b","score_a_20","score_b_20","raw_vp_a","raw_vp_b",
+        "mission_a","mission_b","terrain_layout","terrain_pack","deployment",
+        "attacker_defender","edition","rules_version"]
+DISPS = {"take":"Take and Hold","purge":"Purge the Foe","priority":"Priority Assets",
+         "recon":"Reconnaissance","disruption":"Disruption"}
+FACTIONS = ["Adepta Sororitas","Adeptus Custodes","Adeptus Mechanicus","Aeldari",
+"Astra Militarum","Black Templars","Blood Angels","Chaos Daemons","Chaos Knights",
+"Chaos Space Marines","Dark Angels","Death Guard","Deathwatch","Drukhari",
+"Emperor's Children","Genestealer Cults","Grey Knights","Imperial Agents","Imperial Knights",
+"Leagues of Votann","Necrons","Orks","Space Marines","Space Wolves","T'au Empire",
+"Thousand Sons","Tyranids","World Eaters"]
+def clean(s):
+    return re.sub(r"\s+", " ", str(s or "")).strip()
+def norm(s):
+    return re.sub(r"[^a-z0-9]+", "", clean(s).casefold())
+def get_text(node):
+    clone=BeautifulSoup(str(node),"html.parser")
+    for x in clone.select("img,svg,script,style"): x.decompose()
+    return clean(clone.get_text(" ", strip=True))
+def parse_date(s):
+    m=re.search(r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}\s+2026",s,re.I)
+    if not m: return None
+    return datetime.strptime(m.group(0),"%b %d %Y").date()
+def parse_army(cell):
+    t=get_text(cell)
+    for d,val in sorted(DISPS.items(),key=lambda pair:-len(pair[0])):
+        match=re.search(r"(?:\s|^)"+re.escape(d)+r"(?:\s|$)",t,re.I)
+        if match:
+            name=clean(t[:match.start()])
+            normalized=norm(name)
+            for fac in FACTIONS:
+                if norm(fac)==normalized or (normalized=="genestealercult" and fac=="Genestealer Cults"):
+                    return fac,val
+    return None,None
+def table_after(soup,heading):
+    for h in soup.find_all(re.compile(r"^h[1-6]$")):
+        if heading.casefold() in get_text(h).casefold():
+            t=h.find_next("table")
+            if t:return t
+    return None
+def data_rows(table):
+    if not table:return []
+    return [[get_text(c) for c in tr.find_all("td",recursive=False)] for tr in table.find_all("tr") if tr.find_all("td",recursive=False)]
+session=requests.Session()
+session.headers.update({"User-Agent":"40k-team-matchup-lab/0.2 (research; uses public pages; contact repository issues)"})
+robots=urllib.robotparser.RobotFileParser()
+try:
+    rr=session.get(BASE+"/robots.txt",timeout=20)
+    if rr.ok:
+        robots.parse(rr.text.splitlines())
+        if not robots.can_fetch("*",EVENT_URL):
+            sys.exit("Robots policy disallows event URL; stopping")
+    else:
+        sys.exit("Cannot verify site robots policy; stopping")
+except requests.RequestException as exc:
+    sys.exit("Cannot verify site robots policy: "+str(exc))
+def fetch(url):
+    if not robots.can_fetch("*",url):raise RuntimeError("Robots policy disallows "+url)
+    time.sleep(1.25)
+    r=session.get(url,timeout=35)
+    r.raise_for_status()
+    return BeautifulSoup(r.text,"html.parser")
+event_soup=fetch(EVENT_URL)
+placings=table_after(event_soup,"Team Placings")
+if not placings: sys.exit("No team placings table: site layout may have changed")
+teams=[]
+for row in placings.select("tr"):
+    cells=row.find_all("td",recursive=False)
+    if len(cells)<2:continue
+    a=cells[1].find("a",href=re.compile(r"/teams/"))
+    if a:
+        teams.append((get_text(a),urljoin(BASE,a.get("href"))))
+teams=list({url:(name,url) for name,url in teams}.values())
+print("Teams on event page:",len(teams))
+if len(teams)<TEAM_COUNT:sys.exit("Incomplete event team listing; refusing to publish partial data as whole event")
+games={}
+audit={"no_round":0,"no_faction":0,"bad_score":0,"stale":0,"rows":0}
+for ti,(team,url) in enumerate(teams,1):
+    try:
+        soup=fetch(url)
+        rounds_table=table_after(soup,"Round History")
+        games_table=table_after(soup,"Game History - Team Events")
+        roundlookup={}
+        for row in data_rows(rounds_table):
+            # Date, tournament, round, result, team, score, opponent ...
+            if len(row)<7:continue
+            if norm(EVENT) not in norm(row[1]):continue
+            try: rnd=int(row[2])
+            except ValueError:continue
+            key=norm(row[6])
+            roundlookup.setdefault(key,set()).add(rnd)
+        if not games_table:
+            print("No games table for:",team)
+            continue
+        for tr in games_table.find_all("tr"):
+            cells=tr.find_all("td",recursive=False)
+            if len(cells)<8:continue
+            audit["rows"]+=1
+            d=parse_date(get_text(cells[0]))
+            if not d or not START<=d<=START+8*timedelta(days=1):
+                audit["stale"]+=1;continue
+            opponent_team=get_text(cells[7])
+            rn=roundlookup.get(norm(opponent_team),set())
+            if len(rn)!=1:
+                audit["no_round"]+=1;continue
+            rnd=next(iter(rn))
+            fac_a,disp_a=parse_army(cells[3])
+            fac_b,disp_b=parse_army(cells[5])
+            if not all([fac_a,disp_a,fac_b,disp_b]):
+                audit["no_faction"]+=1;continue
+            m=re.search(r"(\d+)\s*[-–]\s*(\d+)",get_text(cells[4]))
+            if not m or int(m.group(1))+int(m.group(2))!=20:
+                audit["bad_score"]+=1;continue
+            pa,pb=get_text(cells[2]),get_text(cells[6])
+            if not pa or not pb:continue
+            # An unordered player pair is unique within event+round.
+            key=(rnd,tuple(sorted([norm(pa),norm(pb)])))
+            score_a,score_b=map(int,m.groups())
+            if key not in games:
+                record={k:"" for k in COLS}
+                record.update(event_name=EVENT,event_date=d.isoformat(),source_url=url,event_size_teams=TEAM_COUNT,
+                              round=rnd,team_a=team,team_b=opponent_team,player_a=pa,player_b=pb,
+                              faction_a=fac_a,faction_b=fac_b,disposition_a=disp_a,disposition_b=disp_b,
+                              score_a_20=score_a,score_b_20=score_b,edition="11",rules_version="11.01.01")
+                games[key]=record
+            else:
+                prior=games[key]
+                if score_a not in (int(prior["score_a_20"]),int(prior["score_b_20"])):
+                    print("CONFLICT! Game:",key)
+                    sys.exit("Conflicting mirrored score: aborting import")
+        print(f"Processed {ti}/{len(teams)}: {team}, unique games={len(games)}")
+    except Exception as exc:
+        print("Failed team",team,exc)
+expected=TEAM_COUNT*PLAYERS_PER_TEAM*ROUNDS//2
+print(f"Verified games: {len(games)}/{expected} ({100*len(games)/expected:.1f}%)")
+print("Audit:",audit)
+# Do not make a nearly-empty partial export replace an apparently complete dataset.
+if len(games)<100:
+    sys.exit("Too few verified records; likely HTML mismatch or incomplete data. Nothing written.")
+OUT.parent.mkdir(parents=True,exist_ok=True)
+with OUT.open("w",newline="",encoding="utf-8") as fp:
+    writer=csv.DictWriter(fp,fieldnames=COLS);writer.writeheader()
+    writer.writerows(sorted(games.values(),key=lambda r:(int(r["round"]),r["team_a"],r["player_a"])))
+print("Wrote",OUT)
