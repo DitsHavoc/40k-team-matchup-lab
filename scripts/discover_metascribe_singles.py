@@ -58,7 +58,7 @@ def main(pages,limit):
    # Metascribe renders each tournament as one clickable card:
    # "Nov 8 2026 Tournament Name 44 — City, Country 11.1.07"
    found=re.match(
-    r"^(?P<date>(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}\s+20\d{2})\s+(?P<name>.+?)\s+(?P<players>\d[\d,]*)\s+(?P<teams>—|-|\d+)\s+.+?\s+(?P<version>11\.\d+\.\d+)(?:\s+.*)?$",
+    r"^(?P<date>(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}\s+20\d{2})\s+(?P<name>.+)\s+(?P<players>\d[\d,]*)\s+(?P<teams>—|-|\d+)\s+.+?\s+(?P<version>11\.\d+\.\d+)(?:\s+.*)?$",
     label,re.I)
    if not found:
     reasons["context"]+=1
