@@ -26,6 +26,13 @@ def source_paths():
    path=v.get("csv_path","")
    if v.get("import_succeeded") and re.fullmatch(r"public/data/singles-auto-[a-f0-9]{12}\.csv",path):
     paths.append(Path(path))
+ # Public verified team event imports, audited separately from singles.
+ team_status=ROOT/"team-auto-import-status.json"
+ if team_status.exists():
+  for item in json.loads(team_status.read_text(encoding="utf-8")).get("events",{}).values():
+   location=str(item.get("csv_path") or "")
+   if item.get("import_succeeded") and re.fullmatch(r"public/data/teams-auto-[a-f0-9]{12}\.csv",location):
+    paths.append(Path(location))
  # Only formally validated, authorised Listhammer game-level exports.
  lis=ROOT/"listhammer-import-status.json"
  if lis.exists():
@@ -37,7 +44,7 @@ def source_paths():
 def identity(r):
  names=tuple(sorted((r["player_a"].strip().casefold(),r["player_b"].strip().casefold())))
  fmt=r.get("event_format") or "team"
- scores=tuple(sorted((int(r["score_a_20"]),int(r["score_b_20"])))) if fmt=="singles" else ()
+ scores=tuple(sorted((int(r["score_a_20"]),int(r["score_b_20"])))) if fmt=="singles" or not str(r.get("round","")).strip() else ()
  return (r["event_name"].strip().casefold(),r["event_date"],str(r.get("round","")).strip().casefold(),names,scores)
 def valid(r):
  if not all(r.get(k,"").strip() for k in REQUIRED):return False
@@ -53,9 +60,15 @@ def valid(r):
    try:
     if not 1<=int(round_text)<=20:return False
    except (ValueError,TypeError):return False
-  elif not re.fullmatch(r"https://40kvodindex\.com/games/[a-z0-9-]+",str(r.get("source_url",""))):
-   # A directly verifiable game detail may omit the round; never manufacture one.
-   return False
+  elif re.fullmatch(r"https://40kvodindex\.com/games/[a-z0-9-]+",str(r.get("source_url",""))):
+   pass  # A directly verifiable VOD game may omit the round.
+  elif (re.fullmatch(r"https://metascribe\.gg/tournaments/[a-z0-9-]+/",str(r.get("source_url",""))) and
+        all(re.fullmatch(r"https://metascribe\.gg/players/[a-z0-9-]+/",str(r.get(k,"")))
+            for k in ("player_a_source_url","player_b_source_url")) and
+        r.get("team_a") and r.get("team_b") and r["team_a"]!=r["team_b"] and
+        str(r.get("event_size_teams","")).isdigit()):
+   pass  # Verified individual team matchup with team identities; do not fabricate a round.
+  else:return False
  return True
 def main():
  rows=[];seen=set();audit=Counter();files=[]
