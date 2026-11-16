@@ -243,9 +243,8 @@ if cfg.get("strict_event_date"):
     if not heading or "autumn" not in norm(get_text(heading)):
         sys.exit("Autumn event page is not yet a verified 2026 event; refusing to import")
     # The 2025 event is currently indexed at this address. Never import it.
-    heading_parent=heading.parent
-    block=get_text(heading_parent)[:1200] if heading_parent else ""
-    year_mentions=re.findall(r"\\b(?:Nov(?:ember)?\\s+1[45],?\\s+20\\d{2}|20\\d{2}[-/]11[-/]1[45])\\b",block,re.I)
+    block=get_text(event_soup)[:1200]
+    year_mentions=re.findall(r"\b(?:Nov(?:ember)?\s+1[45],?\s+20\d{2}|20\d{2}[-/]11[-/]1[45])\b",block,re.I)
     if not any("2026" in match for match in year_mentions):
         sys.exit("No 14-15 November 2026 event date confirmed on page. Avoiding 2025 cross-edition contamination")
 placings=table_after(event_soup,"Team Placings")
