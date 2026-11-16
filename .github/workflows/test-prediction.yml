@@ -1,0 +1,19 @@
+name: Matchup prediction checks
+on:
+  push:
+    paths:
+      - 'public/index.html'
+      - 'public/prediction-model.js'
+      - 'scripts/test_prediction.js'
+      - '.github/workflows/test-prediction.yml'
+  workflow_dispatch:
+jobs:
+  prediction-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Browser syntax, unit tests and chronological holdout
+        run: node scripts/test_prediction.js
