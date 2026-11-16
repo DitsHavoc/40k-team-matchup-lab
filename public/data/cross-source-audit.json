@@ -1,0 +1,50 @@
+{
+  "updated_at_utc": "2026-11-16T08:28:00Z",
+  "published_files_audited": [
+    {
+      "file": "public/data/wtc-wh40k-2026.csv",
+      "rows": 1288
+    },
+    {
+      "file": "public/data/warhammer-open-krakow-2026.csv",
+      "rows": 811
+    },
+    {
+      "file": "public/data/gateway-open-teams-2026.csv",
+      "rows": 480
+    },
+    {
+      "file": "public/data/scottish-open-teams-2026.csv",
+      "rows": 343
+    },
+    {
+      "file": "public/data/south-pacific-8s-2026.csv",
+      "rows": 345
+    },
+    {
+      "file": "public/data/uktc-summer-itt-2026.csv",
+      "rows": 877
+    },
+    {
+      "file": "public/data/challengers-cup-2026.csv",
+      "rows": 1624
+    },
+    {
+      "file": "public/data/kent-teams-november-2026.csv",
+      "rows": 372
+    },
+    {
+      "file": "public/data/singles-epsom-2026.csv",
+      "rows": 155
+    },
+    {
+      "file": "public/data/singles-newport-2026.csv",
+      "rows": 677
+    }
+  ],
+  "total_rows_checked": 6972,
+  "cross_file_same_event_duplicates": [],
+  "review_cross_event_candidates": [],
+  "skipped_identity_rows": [],
+  "note": "Generated from currently published CSVs; preserves all source records. Possible overlap is not automatically removed."
+}
