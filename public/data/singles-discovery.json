@@ -1,0 +1,129 @@
+{
+  "updated_at_utc": "2026-11-16T14:38:00+00:00",
+  "source": "Curated source-verified Metascribe tournament pages",
+  "pages_checked": 0,
+  "candidates": [
+    {
+      "id": "bf78bf3384fd",
+      "name": "40k Brawl – November RTT 2026",
+      "event_date": "2026-11-08",
+      "players_reported": 44,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/40k-brawl-november-rtt-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "8761307ae628",
+      "name": "Warhammer 40k Modena",
+      "event_date": "2026-11-08",
+      "players_reported": 47,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/warhammer-40k-modena/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "4ebeade9f69a",
+      "name": "Dark Star Gaming Warhammer 40k 2000pts Tournament (November 2026)",
+      "event_date": "2026-11-08",
+      "players_reported": 25,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/dark-star-gaming-warhammer-40k-2000pts-tournament-november-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "71b1b08e6317",
+      "name": "Turbulent Games Warhammer 40K GT @NanoCon",
+      "event_date": "2026-11-07",
+      "players_reported": 24,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/turbulent-games-warhammer-40k-gt-nanocon/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "933649ae83b3",
+      "name": "Nemesis Fall 2026 – The Movie – The Game",
+      "event_date": "2026-11-07",
+      "players_reported": 32,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/nemesis-fall-2026-the-movie-the-game/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "10d72d3f037e",
+      "name": "Bunker Down GT 2026 RBBR",
+      "event_date": "2026-11-07",
+      "players_reported": 28,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/bunker-down-gt-2026-rbbr/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "6b02e594906b",
+      "name": "Lodgecon 2026",
+      "event_date": "2026-11-07",
+      "players_reported": 16,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/lodgecon-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "0a6e08438761",
+      "name": "DPW Singles RTT – Warhammer 40000",
+      "event_date": "2026-11-07",
+      "players_reported": 31,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/dpw-singles-rtt-warhammer-40000/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "9c9967b5e472",
+      "name": "Dice & Bolter 40K RTT #7",
+      "event_date": "2026-11-07",
+      "players_reported": 38,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/dice-bolter-40k-rtt-7/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "0400ed48894d",
+      "name": "D6 Games- Chelmsford Chop III",
+      "event_date": "2026-11-07",
+      "players_reported": 28,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/d6-games-chelmsford-chop-iii/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "9d01b3f48ea0",
+      "name": "Madness in the middle",
+      "event_date": "2026-11-07",
+      "players_reported": 66,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/madness-in-the-middle/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "3e2adc2eed25",
+      "name": "Winchester 40K GT – November 2026",
+      "event_date": "2026-11-07",
+      "players_reported": 28,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/winchester-40k-gt-november-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    }
+  ],
+  "issues": [],
+  "note": "Fallback queue of directly checked singles event pages, not historical game records. Source importer still independently validates all results, editions, scores and player identities before publishing."
+}
