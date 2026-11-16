@@ -19,8 +19,8 @@ def validate(path,min_games):
  if not path.exists():return 0,"missing"
  with path.open(encoding="utf-8",newline="") as f:
   reader=csv.DictReader(f);fields=set(reader.fieldnames or []);rows=list(reader)
- required={"event_name","event_date","player_a","player_b","faction_a","faction_b","disposition_a","disposition_b","score_a_20","score_b_20","event_format","source_url"}
- if not required<=fields:return len(rows),"missing required columns"
+ required={"event_name","event_date","player_a","player_b","faction_a","faction_b","score_a_20","score_b_20","event_format","source_url"}
+ if not required<=fields or not {"disposition_a","disposition_b"}<=fields:return len(rows),"missing required columns"
  seen=set()
  for n,r in enumerate(rows,2):
   if any(not r[k] for k in required):return len(rows),f"line {n} missing required field"
