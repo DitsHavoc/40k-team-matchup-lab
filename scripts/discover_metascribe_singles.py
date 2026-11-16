@@ -43,10 +43,10 @@ def main(pages,limit):
    count=re.search(r"\d+",text(td[2]).replace(",",""))
    if not count:reasons["players"]+=1;continue
    players=int(count.group())
-   date_match=re.search(r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\s+\\d{1,2}\\s+20\\d{2}",text(td[0]),re.I)
+   date_match=re.search(r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}\s+20\d{2}",text(td[0]),re.I)
    if not date_match:reasons["date"]+=1;continue
    date=datetime.strptime(date_match.group(0),"%b %d %Y").date()
-   version=re.search(r"\\b11\\.\\d+\\.\\d+\\b",text(td[5]))
+   version=re.search(r"\b11\.\d+\.\d+\b",text(td[5]))
    if not version or date.year!=2026:reasons["version_or_year"]+=1;continue
    if players<16:reasons["small"]+=1;continue
    # A numeric team count means this is a team event, not singles.
