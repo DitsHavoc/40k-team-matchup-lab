@@ -1,50 +1,86 @@
 {
-  "updated_at_utc": "2026-11-16T08:28:00Z",
+  "updated_at_utc": "2026-11-16T09:57:06.042626+00:00",
   "published_files_audited": [
     {
-      "file": "public/data/wtc-wh40k-2026.csv",
-      "rows": 1288
-    },
-    {
-      "file": "public/data/warhammer-open-krakow-2026.csv",
-      "rows": 811
-    },
-    {
-      "file": "public/data/gateway-open-teams-2026.csv",
-      "rows": 480
-    },
-    {
-      "file": "public/data/scottish-open-teams-2026.csv",
-      "rows": 343
-    },
-    {
-      "file": "public/data/south-pacific-8s-2026.csv",
-      "rows": 345
-    },
-    {
-      "file": "public/data/uktc-summer-itt-2026.csv",
-      "rows": 877
-    },
-    {
-      "file": "public/data/challengers-cup-2026.csv",
+      "file": "challengers-cup-2026.csv",
       "rows": 1624
     },
     {
-      "file": "public/data/kent-teams-november-2026.csv",
+      "file": "gateway-open-teams-2026.csv",
+      "rows": 480
+    },
+    {
+      "file": "kent-teams-november-2026.csv",
       "rows": 372
     },
     {
-      "file": "public/data/singles-epsom-2026.csv",
-      "rows": 155
+      "file": "scottish-open-teams-2026.csv",
+      "rows": 343
     },
     {
-      "file": "public/data/singles-newport-2026.csv",
-      "rows": 677
+      "file": "singles-epsom-2026.csv",
+      "rows": 160
+    },
+    {
+      "file": "singles-kent-major-2026.csv",
+      "rows": 210
+    },
+    {
+      "file": "singles-newport-2026.csv",
+      "rows": 697
+    },
+    {
+      "file": "singles-october-rtt-2026.csv",
+      "rows": 21
+    },
+    {
+      "file": "singles-ratcon-2026.csv",
+      "rows": 231
+    },
+    {
+      "file": "singles-uktc-birmingham-2026.csv",
+      "rows": 450
+    },
+    {
+      "file": "singles-uktc-coventry-2day-2026.csv",
+      "rows": 254
+    },
+    {
+      "file": "singles-uktc-coventry-3day-2026.csv",
+      "rows": 534
+    },
+    {
+      "file": "singles-uktc-manchester-2026.csv",
+      "rows": 536
+    },
+    {
+      "file": "south-pacific-8s-2026.csv",
+      "rows": 345
+    },
+    {
+      "file": "uktc-autumn-itt-2026-partial.csv",
+      "rows": 3
+    },
+    {
+      "file": "uktc-summer-itt-2026.csv",
+      "rows": 877
+    },
+    {
+      "file": "verified-all-ireland-2026.csv",
+      "rows": 25
+    },
+    {
+      "file": "warhammer-open-krakow-2026.csv",
+      "rows": 811
+    },
+    {
+      "file": "wtc-wh40k-2026.csv",
+      "rows": 1288
     }
   ],
-  "total_rows_checked": 6972,
+  "total_rows_checked": 9261,
   "cross_file_same_event_duplicates": [],
   "review_cross_event_candidates": [],
   "skipped_identity_rows": [],
-  "note": "Generated from currently published CSVs; preserves all source records. Possible overlap is not automatically removed."
+  "note": "Audits duplicate candidate identity and preserves historical records. A flagged candidate is not automatically deleted; matches must be source-verified."
 }
