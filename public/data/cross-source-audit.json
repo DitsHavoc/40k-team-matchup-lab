@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-16T17:58:42.231204+00:00",
+  "updated_at_utc": "2026-11-16T18:06:35.374230+00:00",
   "published_files_audited": [
     {
       "file": "challengers-cup-2026.csv",
@@ -99,7 +99,7 @@
     },
     {
       "file": "uktc-autumn-itt-2026-partial.csv",
-      "rows": 3
+      "rows": 6
     },
     {
       "file": "uktc-summer-itt-2026.csv",
@@ -118,7 +118,7 @@
       "rows": 1288
     }
   ],
-  "total_rows_checked": 14140,
+  "total_rows_checked": 14143,
   "cross_file_same_event_duplicates": [],
   "review_cross_event_candidates": [],
   "skipped_identity_rows": [

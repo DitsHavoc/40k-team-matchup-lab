@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-16T17:58:42.046532+00:00",
-  "total_unique_games": 14146,
-  "total_source_rows": 14146,
+  "updated_at_utc": "2026-11-16T18:06:35.116512+00:00",
+  "total_unique_games": 14149,
+  "total_source_rows": 14149,
   "deduplicated": 0,
   "duplicate_tournaments_suppressed": 0,
   "duplicate_tournament_rows_suppressed": 0,
@@ -18,8 +18,8 @@
     },
     {
       "path": "data/warehouse-0002.csv",
-      "records": 4146,
-      "sha256": "cb50941960c0dab035a2af46429ef147b6adf16c34b5920fee927b02eff2175e"
+      "records": 4149,
+      "sha256": "6d845f6f28d644dec4f44d12886e907fb962b622d416a6ea347d04f985bdce49"
     }
   ],
   "sources": [
@@ -166,7 +166,7 @@
     {
       "path": "public/data/uktc-autumn-itt-2026-partial.csv",
       "event_name": "UKTC Autumn ITT 2026",
-      "accepted_unique": 3
+      "accepted_unique": 6
     }
   ],
   "note": "Verified game-level CSVs merged for efficient delivery; shards are not additional games. Data includes team and singles matches."
