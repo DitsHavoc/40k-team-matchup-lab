@@ -20,6 +20,56 @@ from bs4 import BeautifulSoup
 
 BASE = "https://metascribe.gg"
 EVENTS = {
+  "wtc-2026": {
+    "url": BASE + "/tournaments/wtc-wh40k-2026/",
+    "name": "WTC WH40K 2026",
+    "date": "2026-08-13",
+    "teams": 46,
+    "rounds": 7,
+    "players_per_team": 8,
+    "min_games": 950,
+    "output": "public/data/wtc-wh40k-2026.csv"
+  },
+  "krakow-2026": {
+    "url": BASE + "/tournaments/warhammer-open-krakow-warhammer-40000/",
+    "name": "Warhammer Open: Krakow Warhammer 40000",
+    "date": "2026-09-11",
+    "teams": 57,
+    "rounds": 6,
+    "players_per_team": 5,
+    "min_games": 600,
+    "output": "public/data/warhammer-open-krakow-2026.csv"
+  },
+  "gateway-2026": {
+    "url": BASE + "/tournaments/the-2026-gateway-open-40k-teams-tournament/",
+    "name": "The 2026 Gateway Open 40K Teams Tournament",
+    "date": "2026-08-07",
+    "teams": 24,
+    "rounds": 5,
+    "players_per_team": 8,
+    "min_games": 350,
+    "output": "public/data/gateway-open-teams-2026.csv"
+  },
+  "scottish-open-2026": {
+    "url": BASE + "/tournaments/scottish-open-team-championship/",
+    "name": "Scottish Open Team Championship",
+    "date": "2026-10-17",
+    "teams": 28,
+    "rounds": 5,
+    "players_per_team": 5,
+    "min_games": 260,
+    "output": "public/data/scottish-open-teams-2026.csv"
+  },
+  "south-pacific-8s-2026": {
+    "url": BASE + "/tournaments/south-pacific-8s-october-event/",
+    "name": "south pacific 8s October event",
+    "date": "2026-10-09",
+    "teams": 18,
+    "rounds": 5,
+    "players_per_team": 8,
+    "min_games": 280,
+    "output": "public/data/south-pacific-8s-2026.csv"
+  },
   "challengers-2026": {
     "url": BASE + "/tournaments/the-challengers-cup-2026/",
     "name": "The Challengers Cup 2026",
