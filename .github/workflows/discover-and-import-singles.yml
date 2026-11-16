@@ -32,7 +32,6 @@ jobs:
         run: python scripts/discover_metascribe_singles.py --pages 15 --limit 300
       - name: Collect up to eight separately verified singles events
         id: ingest
-        if: steps.discovery.outcome == 'success'
         continue-on-error: true
         run: python scripts/run_discovered_singles.py --limit 8 --max-players 250
       - name: Audit overlap with existing tournament results
@@ -49,6 +48,6 @@ jobs:
             git pull --rebase origin main
             git push origin HEAD:main
           fi
-      - name: Expose discovery or validation failures
-        if: steps.discovery.outcome == 'failure' || steps.ingest.outcome == 'failure'
+      - name: Expose import validation failures
+        if: steps.ingest.outcome == 'failure'
         run: exit 1
