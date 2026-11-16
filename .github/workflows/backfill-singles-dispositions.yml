@@ -1,0 +1,45 @@
+name: Backfill verified Force Dispositions for existing singles
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/backfill_singles_dispositions.py'
+      - 'scripts/test_backfill_dispositions.py'
+      - '.github/workflows/backfill-singles-dispositions.yml'
+permissions:
+  contents: write
+concurrency:
+  group: verified-singles-disposition-backfill
+  cancel-in-progress: false
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install public-page parsers
+        run: pip install requests beautifulsoup4
+      - name: Validate backfill and warehouse code
+        run: |
+          python -m py_compile scripts/backfill_singles_dispositions.py scripts/test_backfill_dispositions.py scripts/build_warehouse.py
+          python scripts/test_backfill_dispositions.py
+          python scripts/test_event_identity.py
+      - name: Backfill ALL previously published singles files
+        run: python scripts/backfill_singles_dispositions.py --rosters
+      - name: Rebuild unique-game warehouse without duplicating events
+        run: python scripts/build_warehouse.py
+      - name: Audit raw sources (do not count warehouse shards twice)
+        run: python scripts/audit_cross_sources.py
+      - name: Publish corrected singles, audit, and warehouse
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/singles-*.csv public/data/singles-disposition-backfill.json public/data/warehouse-manifest.json public/data/warehouse-*.csv public/data/cross-source-audit.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Recover verified Force Dispositions across all singles events"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
