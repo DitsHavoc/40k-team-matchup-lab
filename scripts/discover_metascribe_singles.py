@@ -3,7 +3,7 @@
 Checks Metascribe robots, index metadata, dates, event format and event identity.
 Outputs a *candidate queue*, never published match records.
 """
-import argparse,json,re,sys,time,urllib.robotparser
+import argparse,hashlib,json,re,sys,time,urllib.robotparser
 from datetime import datetime,timezone
 from pathlib import Path
 from urllib.parse import urljoin,urlparse
@@ -48,7 +48,7 @@ def main(pages,limit):
    # Team column must explicitly be a dash/empty, not merely zero players.
    if text(td[3]).strip() not in ("","—","-"):continue
    if event_url in discovered:continue
-   discovered[event_url]={"name":name,"event_date":date.isoformat(),"players_reported":players,"rules_version":version.group(),"source_url":event_url,"event_format":"singles","status":"candidate_not_imported"}
+   discovered[event_url]={"id":hashlib.sha256(event_url.encode("utf-8")).hexdigest()[:12],"name":name,"event_date":date.isoformat(),"players_reported":players,"rules_version":version.group(),"source_url":event_url,"event_format":"singles","status":"candidate_not_imported"}
    links+=1
   if links==0 and page>1:issues.append("No eligible events on "+url)
   print("Page",page,"candidate count",len(discovered),flush=True)
