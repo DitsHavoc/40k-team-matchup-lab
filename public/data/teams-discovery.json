@@ -1,0 +1,97 @@
+{
+  "updated_at_utc": "2026-11-16T18:51:00+00:00",
+  "source": "Curated directly verified Metascribe team events (over 100 players)",
+  "pages_checked": 0,
+  "candidates": [
+    {
+      "id": "ace282df4822",
+      "name": "PragueGT – Fall 2026",
+      "event_date": "2026-11-14",
+      "players_reported": 175,
+      "teams_reported": 35,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/praguegt-fall-2026/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "b0579e05373f",
+      "name": "Danmarksmesterskaberne i 40K for hold 2026",
+      "event_date": "2026-11-14",
+      "players_reported": 240,
+      "teams_reported": 48,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/danmarksmesterskaberne-i-40k-for-hold-2026/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "4d48cfa3cf33",
+      "name": "NTL 8-Player Championship – VENUE UPDATE",
+      "event_date": "2026-11-13",
+      "players_reported": 112,
+      "teams_reported": 14,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/ntl-8-player-championship-venue-update/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "ac88494ecd47",
+      "name": "SASO Teams 5v5’s",
+      "event_date": "2026-11-07",
+      "players_reported": 125,
+      "teams_reported": 24,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/saso-teams-5v5s/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "af51b810dbc8",
+      "name": "The Kent Teams November 2026",
+      "event_date": "2026-11-07",
+      "players_reported": 151,
+      "teams_reported": 30,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/the-kent-teams-november-2026/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "574510058d7a",
+      "name": "October Super 6’s.",
+      "event_date": "2026-10-31",
+      "players_reported": 144,
+      "teams_reported": 24,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/october-super-6s/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "b10a88ec8802",
+      "name": "GT TALAVERA 2026",
+      "event_date": "2026-10-30",
+      "players_reported": 804,
+      "teams_reported": 134,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/gt-talavera-2026/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "d9bee4bf81c5",
+      "name": "Team National Championship 2026",
+      "event_date": "2026-10-17",
+      "players_reported": 264,
+      "teams_reported": 44,
+      "rules_version": "11.1.06",
+      "source_url": "https://metascribe.gg/tournaments/team-national-championship-2026/",
+      "event_format": "team",
+      "status": "candidate_not_imported"
+    }
+  ],
+  "issues": [],
+  "note": "Candidate roster metadata only. Individual games must pass independent player-history, team-membership, scoring and deduplication validation."
+}
