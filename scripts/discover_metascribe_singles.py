@@ -57,8 +57,10 @@ def main(pages,limit):
    if urlparse(event_url).netloc!="metascribe.gg":continue
    # Metascribe renders each tournament as one clickable card:
    # "Nov 8 2026 Tournament Name 44 — City, Country 11.1.07"
+   # Parse singles only: the em dash is the *team-count* placeholder.
+   # Do not misread a number inside a tournament name as a team count.
    found=re.match(
-    r"^(?P<date>(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}\s+20\d{2})\s+(?P<name>.+)\s+(?P<players>\d[\d,]*)\s+(?P<teams>—|-|\d+)\s+.+?\s+(?P<version>11\.\d+\.\d+)(?:\s+.*)?$",
+    r"^(?P<date>(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}\s+20\d{2})\s+(?P<name>.+)\s+(?P<players>\d[\d,]*)\s+(?P<teams>—|-)\s+.+?\s+(?P<version>11\.\d+\.\d+)(?:\s+.*)?$",
     label,re.I)
    if not found:
     reasons["context"]+=1
@@ -78,7 +80,17 @@ def main(pages,limit):
   print("Page",page,"accepted",links,"diagnostics",reasons,flush=True)
  if browser is not None:browser.close()
  if browser_driver is not None:browser_driver.stop()
- # Do not write empty or unexpected results; preserve previous queue.
+ # Preserve previously validated queue items when paginating or when new results roll in.
+ # Discovery is a queue; it must not silently forget unprocessed event IDs.
+ prior_path=Path("public/data/singles-discovery.json")
+ if prior_path.exists():
+  try:
+   previous=json.loads(prior_path.read_text(encoding="utf-8")).get("candidates",[])
+   for event in previous:
+    if event.get("source_url") and event["source_url"] not in discovered and event.get("event_format")=="singles":
+     discovered[event["source_url"]]=event
+  except (OSError,ValueError) as exc:
+   issues.append("Unable to merge previous discovery queue: "+str(exc)[:100])
  if len(discovered)<10:raise RuntimeError("Discovery produced too few candidates; "+repr(issues))
  out=sorted(discovered.values(),key=lambda e:(e["event_date"],e["players_reported"]),reverse=True)[:limit]
  dest=Path("public/data/singles-discovery.json");dest.parent.mkdir(parents=True,exist_ok=True)
@@ -89,7 +101,7 @@ def main(pages,limit):
  print("Discovered",len(out),"eligible event candidates")
 if __name__=="__main__":
  p=argparse.ArgumentParser();p.add_argument("--pages",type=int,default=6);p.add_argument("--limit",type=int,default=120);a=p.parse_args()
- if not 1<=a.pages<=30 or not 1<=a.limit<=500:raise SystemExit("Invalid discovery bounds")
+ if not 1<=a.pages<=60 or not 1<=a.limit<=5000:raise SystemExit("Invalid discovery bounds")
  try:main(a.pages,a.limit)
  except Exception as e:
   error=str(e)
