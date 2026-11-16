@@ -106,6 +106,24 @@
       "import_status": "pipeline_unverified",
       "verified_games": 0,
       "notes": "Kent 30-team five-player team event; may not be the similarly described Kent Super 6. Preserve original event name until confirmed. Workflow available; load verified game CSV only."
+    },
+    {
+      "id": "october-super-6s-2026",
+      "name": "October Super 6’s.",
+      "date_start": "2026-10-31",
+      "date_end": "2026-11-01",
+      "edition": 11,
+      "teams_reported": 24,
+      "players_reported": 144,
+      "players_per_team": 6,
+      "rounds_reported": 5,
+      "priority": "high",
+      "source_urls": [
+        "https://metascribe.gg/tournaments/october-super-6s/"
+      ],
+      "import_status": "pipeline_unverified",
+      "verified_games": 0,
+      "notes": "Separate Coventry six-player event, not Kent November five-player tournament. Published CSV must be validated."
     }
   ]
 }
