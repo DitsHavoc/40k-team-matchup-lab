@@ -1,0 +1,201 @@
+#!/usr/bin/env python3
+"""Import public individual team-event histories without inventing rounds, scores or armies.
+Sources: Metascribe public singles event standings and public player game histories.
+All records retain raw VP and published 20-point scores when available.
+When only raw VP is available, calculate the official WTC 20-point equivalent.
+Reject contradictory published WTC scores; games without both factions or verified identity
+are excluded. No army lists or detachments are inferred.
+"""
+import argparse,csv,hashlib,json,math,re,sys,time,urllib.robotparser
+from wtc_scoring import wtc_battle_points
+from datetime import datetime,timedelta
+from pathlib import Path
+from urllib.parse import urljoin
+import requests
+from bs4 import BeautifulSoup
+BASE="https://metascribe.gg"
+EVENTS={}
+FACTIONS=["Adepta Sororitas","Adeptus Custodes","Adeptus Mechanicus","Aeldari","Astra Militarum","Black Templars","Blood Angels","Chaos Daemons","Chaos Knights","Chaos Space Marines","Dark Angels","Death Guard","Deathwatch","Drukhari","Emperor's Children","Genestealer Cults","Grey Knights","Imperial Agents","Imperial Knights","Leagues of Votann","Necrons","Orks","Space Marines","Space Wolves","T'au Empire","Thousand Sons","Tyranids","World Eaters"]
+DISPS={"take":"Take and Hold","purge":"Purge the Foe","priority":"Priority Assets","recon":"Reconnaissance","disruption":"Disruption"}
+COLS=["event_name","event_date","source_url","event_size_teams","round","team_a","team_b","player_a","player_b","faction_a","faction_b","detachment_a","detachment_b","disposition_a","disposition_b","score_a_20","score_b_20","raw_vp_a","raw_vp_b","mission_a","mission_b","terrain_layout","terrain_pack","deployment","attacker_defender","edition","rules_version","event_format","score_type","player_a_source_url","player_b_source_url","army_list_a_url","army_list_b_url"]
+def clean(n):
+ if n is None:return ""
+ clone=BeautifulSoup(str(n),"html.parser")
+ for t in clone.select("img,svg,script,style"):t.decompose()
+ return re.sub(r"\s+"," ",clone.get_text(" ",strip=True)).strip()
+def norm(s):return re.sub(r"[^a-z0-9]","",str(s or "").casefold())
+def army(n):
+ t=norm(clean(n))
+ for fac in sorted(FACTIONS,key=len,reverse=True):
+  fn=norm(fac)
+  if t.startswith(fn):
+   rem=t[len(fn):]
+   if not rem:return fac,""
+   for abbr,name in DISPS.items():
+    if rem==abbr or rem.startswith(abbr) and rem[len(abbr):] in ("","disposition"):return fac,name
+   return fac,""
+ # Image text sometimes uses singular Genestealer Cult
+ if t.startswith("genestealercult"):
+  rem=t[len("genestealercult"):]
+  for abbr,name in DISPS.items():
+   if rem==abbr:return "Genestealer Cults",name
+ return None,None
+def table_after(soup,label):
+ for h in soup.find_all(re.compile(r"^h[1-6]$")):
+  if label.casefold() in clean(h).casefold():return h.find_next("table")
+ return None
+def score(n):
+ m=re.search(r"(\d+)\s*[-–]\s*(\d+)",clean(n))
+ return (int(m[1]),int(m[2])) if m else None
+def date(n):
+ m=re.search(r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}\s+2026",clean(n),re.I)
+ return datetime.strptime(m.group(0),"%b %d %Y").date() if m else None
+def run(cfg):
+ session=requests.Session();session.headers["User-Agent"]="40k-team-matchup-lab/0.3 (public non-commercial event statistics; contact GitHub)"
+ robots=urllib.robotparser.RobotFileParser()
+ rr=session.get(BASE+"/robots.txt",timeout=30);rr.raise_for_status();robots.parse(rr.text.splitlines())
+ def fetch(url):
+  if not url.startswith(BASE+"/") or not robots.can_fetch("*",url):raise RuntimeError("Site disallows page "+url)
+  time.sleep(1.25);r=session.get(url,timeout=35);r.raise_for_status()
+  return BeautifulSoup(r.text,"html.parser")
+ page=fetch(cfg["url"]);heading=page.find("h1")
+ if not heading or norm(clean(heading))!=norm(cfg["name"]):raise RuntimeError("Wrong singles event page")
+ if "Team event" not in clean(page)[:600]:raise RuntimeError("Event not verified as team event")
+ playersTable=table_after(page,"Player Placings")
+ if not playersTable:raise RuntimeError("Player placings missing")
+ players={}
+ roster_armies={}
+ roster_teams={}
+ for tr in playersTable.find_all("tr"):
+  cols=tr.find_all("td",recursive=False)
+  if len(cols)<3:continue
+  link=cols[1].find("a",href=re.compile(r"/players/"))
+  if not link:continue
+  url=urljoin(BASE,link["href"]);players[url]=clean(link)
+  team_cell=cols[-1]
+  team_link=team_cell.find("a",href=re.compile(r"/teams/"))
+  if team_link:roster_teams[url]=clean(team_link)
+  # Tournament placings expose a declared faction and Force Disposition
+  # independent of the per-game history; use it only for that same player/event.
+  for cell in cols[2:]:
+   roster_faction,roster_disp=army(cell)
+   if roster_faction:
+    if roster_disp:roster_armies[url]=(roster_faction,roster_disp)
+    break
+ if len(players)<cfg["players"]*0.75:raise RuntimeError("Insufficient team event player roster")
+ print("Player profiles",len(players),flush=True)
+ # Use event metadata when available; do not guess balance versions from neighbouring dates.
+ meta=re.search(r"\bMeta\s*:\s*(\d+(?:\.\d+){1,3})\b",clean(page),re.I)
+ if not meta:raise RuntimeError("No published event meta version; cannot prove edition")
+ published_version=meta.group(1)
+ if not published_version.startswith("11."):raise RuntimeError("Earlier edition "+published_version+" must not enter 11th-edition matrix")
+ if cfg.get("rules_version") and cfg["rules_version"]!=published_version:
+  raise RuntimeError("Event balance version mismatch: expected "+cfg["rules_version"]+", source says "+published_version)
+ cfg["rules_version"]=published_version
+ start=datetime.fromisoformat(cfg["date"]).date()
+ games={}
+ rejects={}
+ def reject(reason):rejects[reason]=rejects.get(reason,0)+1
+ for idx,(url,name) in enumerate(players.items(),1):
+  try:
+   p=fetch(url);history=table_after(p,"Game History - All Events")
+   if not history:reject("no_history");continue
+   for tr in history.find_all("tr"):
+    cs=tr.find_all("td",recursive=False)
+    if len(cs)<8:continue
+    evt=cs[7];link=evt.find("a",href=re.compile(r"/tournaments/"))
+    if not link or urljoin(BASE,link.get("href",""))!=cfg["url"]:continue
+    if "Team event" not in clean(evt):reject("not_team");continue
+    d=date(cs[0])
+    if not d or not start<=d<=start+timedelta(days=5):reject("date_mismatch");continue
+    f1,disp1=army(cs[2]);f2,disp2=army(cs[5])
+    if not (f1 and f2):reject("faction_missing");continue
+    equiv=score(cs[4]);vp=score(cs[3])
+    if vp and any(v<0 or v>100 for v in vp):reject("invalid_raw_vp");continue
+    if equiv and (equiv[0]+equiv[1]!=20 or any(v<0 or v>20 for v in equiv)):reject("bad_20score");continue
+    if vp:
+     calculated=wtc_battle_points(*vp)
+     if equiv and calculated!=equiv:
+      reject("source_wtc_conversion_conflict");continue
+     if not equiv:equiv=calculated
+    if not equiv:reject("no_valid_scoring");continue
+    oppLink=cs[6].find("a",href=re.compile(r"/players/"));opp=clean(oppLink or cs[6])
+    opp_url=urljoin(BASE,oppLink.get("href")) if oppLink else ""
+    # Fill only independently published roster dispositions, and only
+    # when the roster's faction matches the actual game faction.
+    if not disp1 and url in roster_armies and roster_armies[url][0]==f1:
+     disp1=roster_armies[url][1]
+    if not disp2 and opp_url in roster_armies and roster_armies[opp_url][0]==f2:
+     disp2=roster_armies[opp_url][1]
+    if not opp or not name or norm(opp)==norm(name):reject("bad_player");continue
+    if not opp_url or not roster_teams.get(url) or not roster_teams.get(opp_url):reject("team_membership_missing");continue
+    if roster_teams[url]==roster_teams[opp_url]:reject("same_team");continue
+    if not disp1 or not disp2:reject("missing_verified_dispositions");continue
+    # Multiple games against the same opponent on different days are kept.
+    # Same-day duplicate matches with identical scores cannot be distinguished
+    # without a round; count one and record this limitation in the status.
+    key=(d.isoformat(),tuple(sorted((norm(name),norm(opp)))),tuple(sorted(equiv)))
+    if key in games:
+     prior=games[key]
+     if prior["faction_a"]!=f1 and prior["faction_b"]!=f1:
+      reject("mirrored_faction_conflict")
+     else:
+      # The opponent's mirrored player history can supply missing dispositions.
+      # Resolve orientation via player profile URL; do not infer across people.
+      if prior.get("player_a_source_url")==url:
+       paired=(("disposition_a",disp1),("disposition_b",disp2))
+      elif prior.get("player_b_source_url")==url:
+       paired=(("disposition_a",disp2),("disposition_b",disp1))
+      else:
+       paired=()
+      for field,value in paired:
+       if value and not prior[field]:prior[field]=value
+       elif value and prior[field] and prior[field]!=value:reject("conflicting_disposition")
+     continue
+    record={k:"" for k in COLS}
+    record.update(event_name=cfg["name"],event_date=d.isoformat(),source_url=cfg["url"],event_size_teams=str(cfg["teams"]),team_a=roster_teams[url],team_b=roster_teams[opp_url],player_a=name,player_b=opp,
+      faction_a=f1,faction_b=f2,disposition_a=disp1,disposition_b=disp2,score_a_20=equiv[0],score_b_20=equiv[1],
+      raw_vp_a=vp[0] if vp else "",raw_vp_b=vp[1] if vp else "",
+      edition="11",rules_version=cfg["rules_version"],event_format="team",score_type="published_wtc_equivalent" if score(cs[4]) else "calculated_wtc_from_raw_vp",
+      player_a_source_url=url,player_b_source_url=opp_url)
+    games[key]=record
+  except Exception as e:print("Failed player",name,str(e)[:140],flush=True);reject("player_error")
+  if idx%40==0:print("Scanned",idx,"/",len(players),"games",len(games),flush=True)
+ print("Collected verified team games",len(games),"rejections",rejects,flush=True)
+ if len(games)<cfg["min_games"]:raise RuntimeError("Below minimum team game coverage; no CSV written")
+ out=Path(cfg["output"]);out.parent.mkdir(parents=True,exist_ok=True)
+ with out.open("w",newline="",encoding="utf-8") as fd:
+  w=csv.DictWriter(fd,fieldnames=COLS);w.writeheader();w.writerows(sorted(games.values(),key=lambda r:(r["event_date"],r["player_a"],r["player_b"])))
+ print("Wrote",out,flush=True)
+def discovered_config(candidate_id):
+ path=Path("public/data/teams-discovery.json")
+ if not path.is_file():raise RuntimeError("Event discovery queue not published")
+ source=json.loads(path.read_text(encoding="utf-8"))
+ found=[x for x in source.get("candidates",[]) if x.get("id")==candidate_id]
+ if len(found)!=1:raise RuntimeError("Event candidate must match exactly one queued ID")
+ row=found[0]
+ url=row["source_url"]
+ if not re.fullmatch(r"https://metascribe\.gg/tournaments/[a-z0-9-]+/",url):
+  raise RuntimeError("Invalid event source URL")
+ if hashlib.sha256(url.encode("utf-8")).hexdigest()[:12]!=candidate_id:
+  raise RuntimeError("Event URL identity mismatch")
+ if row.get("event_format")!="team" or not re.fullmatch(r"11\.\d+\.\d+",row.get("rules_version","")):
+  raise RuntimeError("Candidate is not a verified 11th-edition singles event")
+ date=row["event_date"]
+ if not re.fullmatch(r"2026-\d{2}-\d{2}",date):raise RuntimeError("Date outside verified 2026 scope")
+ players=int(row["players_reported"])
+ if not 101<=players<=2000:raise RuntimeError("Player count outside validated bounds")
+ teams=int(row.get("teams_reported",0))
+ if not 5<=teams<=500:raise RuntimeError("Team count outside validated bounds")
+ return dict(url=url,name=row["name"],date=date,rules_version=row["rules_version"],
+  players=players,teams=teams,rounds=10,min_games=max(25,math.ceil(players*.6)),
+  output="public/data/teams-auto-"+candidate_id+".csv")
+
+if __name__=="__main__":
+ p=argparse.ArgumentParser()
+ group=p.add_mutually_exclusive_group(required=True)
+ group.add_argument("--event",choices=list(EVENTS))
+ group.add_argument("--candidate-id",help="Stable ID in audited singles-discovery.json")
+ args=p.parse_args()
+ try:run(EVENTS[args.event] if args.event else discovered_config(args.candidate_id))
+ except Exception as e:print("Import failed",str(e),file=sys.stderr);sys.exit(1)
