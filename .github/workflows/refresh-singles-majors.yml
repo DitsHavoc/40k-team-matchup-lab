@@ -39,9 +39,12 @@ jobs:
         id: lvo
         continue-on-error: true
         run: python scripts/run_singles_imports.py --event lvo-2026
+      - name: Re-audit all sources with updated LVO data
+        run: python scripts/audit_cross_sources.py
       - name: Publish LVO if audited
         run: |
           git add public/data/singles-lvo-2026.csv public/data/singles-import-status.json 2>/dev/null || true
+          git add public/data/cross-source-audit.json 2>/dev/null || true
           if ! git diff --cached --quiet; then
             git commit -m "Refresh LVO validated singles games"
             git pull --rebase origin main
