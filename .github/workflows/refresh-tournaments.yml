@@ -1,6 +1,9 @@
 name: Refresh verified team tournament datasets
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/refresh-tournaments.yml'
   schedule:
     - cron: '23 4 * * 1'
 permissions:
