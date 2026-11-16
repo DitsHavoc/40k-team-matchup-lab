@@ -1,0 +1,48 @@
+name: Import super-major team tournaments
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/import-supermajor-teams.yml'
+  schedule:
+    - cron: '15 4 * * 3,6'
+permissions:
+  contents: write
+concurrency:
+  group: team-event-ingestion
+  cancel-in-progress: false
+jobs:
+  import-supermajor-team:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Check scripts before importing
+        run: |
+          python -m py_compile scripts/import_metascribe_teams.py scripts/run_discovered_teams.py scripts/build_warehouse.py
+          python scripts/test_event_identity.py
+      - name: Import one source-verified very large team event
+        id: import
+        continue-on-error: true
+        run: python scripts/run_discovered_teams.py --limit 1 --min-players 351 --max-players 2000
+      - run: python scripts/audit_cross_sources.py
+      - run: python scripts/build_warehouse.py
+      - name: Publish verified team matches
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for file in public/data/team-auto-import-status.json public/data/teams-auto-*.csv public/data/warehouse-manifest.json public/data/warehouse-*.csv public/data/cross-source-audit.json; do
+            if [ -f "$file" ]; then git add "$file"; fi
+          done
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish validated super-major team matches"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Surface failed import
+        if: steps.import.outcome == 'failure'
+        run: exit 1
