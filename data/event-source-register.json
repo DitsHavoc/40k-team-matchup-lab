@@ -204,6 +204,40 @@
       "import_status": "pipeline_unverified",
       "verified_games": 0,
       "notes": "Public Metascribe event source identified. Full game-level CSV to be published only after importer validation. Map data may be absent."
+    },
+    {
+      "id": "studs-snotlings-2026",
+      "name": "Studs and Snotlings 2026",
+      "date_start": "2026-09-19",
+      "edition": 11,
+      "teams_reported": 26,
+      "players_reported": 208,
+      "players_per_team": 8,
+      "rounds_reported": 5,
+      "source_urls": [
+        "https://metascribe.gg/tournaments/studs-and-snotlings-2026/"
+      ],
+      "priority": "high",
+      "import_status": "pipeline_unverified",
+      "verified_games": 0,
+      "notes": "Kitchener event. 26 teams × 8 players × 5 rounds gives theoretical 520 individual games; await full collector audit."
+    },
+    {
+      "id": "nrw-alpine-2026",
+      "name": "NRW 40K Teams 2026 – Alpine Cup",
+      "date_start": "2026-09-19",
+      "edition": 11,
+      "teams_reported": 30,
+      "players_reported": 147,
+      "players_per_team": 5,
+      "rounds_reported": 5,
+      "source_urls": [
+        "https://metascribe.gg/tournaments/nrw-40k-teams-2026-alpine-cup/"
+      ],
+      "priority": "high",
+      "import_status": "pipeline_unverified",
+      "verified_games": 0,
+      "notes": "Schmallenberg event; reported 147 players and 30 teams including partial rosters/byes; theoretical max 375, not guaranteed."
     }
   ],
   "policy": {
