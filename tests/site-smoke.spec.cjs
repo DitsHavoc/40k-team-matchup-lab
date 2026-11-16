@@ -3,12 +3,12 @@ test.use({baseURL:'https://matchup-lab-40k.onrender.com',viewport:{width:390,hei
 test('five-player captain can scout, pair and see board controls',async({page})=>{
  await page.goto('/',{waitUntil:'domcontentloaded'});
  await expect(page.getByRole('heading',{name:'40K Team Matchup Lab'})).toBeVisible();
- await page.getByRole('button',{name:'Faction Matchups'}).click();
+ await page.getByRole('button',{name:'Faction Scout'}).click();
  await expect(page.locator('#matrixTable')).toContainText('Necrons');
  await expect(page.locator('#matrixSingles')).toBeChecked();
  await page.locator('#matrixSingles').uncheck();
- await expect(page.locator('#matrixDataExplanation')).toContainText('Singles excluded');
- await page.getByRole('button',{name:'Build Team Pairings'}).click();
+ await expect(page.locator('#matrixDataExplanation')).toContainText('Team games only');
+ await page.getByRole('button',{name:'Team Pairings'}).click();
  await expect(page.locator('#ownTeam .pairrow')).toHaveCount(5);
  await expect(page.locator('#enemyTeam .pairrow')).toHaveCount(5);
  await page.locator('#ownTeamName').fill('Test Captains');
@@ -26,11 +26,37 @@ test('five-player captain can scout, pair and see board controls',async({page})=
 });
 test('match details clearly distinguish event source from army list',async({page})=>{
  await page.goto('/',{waitUntil:'domcontentloaded'});
- await expect(page.locator('#bootNotice')).toContainText('match records',{timeout:60000});
+ await expect(page.locator('#recordsCount')).toHaveText(/^[0-9,]+$/,{timeout:60000});
  await page.locator('#myFaction').selectOption('Necrons');
  await page.locator('#oppFaction').selectOption('Space Marines');
  await expect(page.locator('.gameDetailBtn').first()).toBeVisible({timeout:30000});
  await page.locator('.gameDetailBtn').first().click();
  await expect(page.locator('#gameDetail')).toContainText('Army lists:');
  await expect(page.locator('#gameDetail')).toContainText('Event / game evidence:');
+});
+
+test('desktop scout and disposition breakdown remain readable and clickable',async({page})=>{
+ await page.setViewportSize({width:1440,height:900});
+ await page.goto('/',{waitUntil:'domcontentloaded'});
+ await page.getByRole('button',{name:'Faction Scout'}).click();
+ await page.locator('#matrixMode').selectOption('factions');
+ await expect(page.locator('.full-matrix thead th')).toHaveCount(29,{timeout:60000});
+ await expect(page.locator('.full-matrix tbody tr')).toHaveCount(28);
+ await expect(page.locator('.full-matrix .matrix-cell').first()).toBeVisible();
+ await page.locator('#matrixMode').selectOption('dispositions');
+ await page.locator('#matrixFaction').selectOption('Necrons');
+ await expect(page.locator('.disp-matrix tbody tr')).toHaveCount(28);
+ await expect(page.locator('.disp-matrix .disp-cell').first()).toBeVisible();
+ await page.locator('.disp-matrix .disp-cell').first().click();
+ await expect(page.locator('#explore')).toHaveClass(/active/);
+ await expect(page.locator('#myFaction')).toHaveValue('Necrons');
+});
+test('data page prioritises totals and hides technical diagnostics until opened',async({page})=>{
+ await page.goto('/',{waitUntil:'domcontentloaded'});
+ await page.getByRole('button',{name:'Data & Sources'}).click();
+ await expect(page.getByRole('heading',{name:"What's in the database?"})).toBeVisible();
+ await expect(page.locator('#recordsCount')).toHaveText(/^[0-9,]+$/,{timeout:60000});
+ await expect(page.locator('.data-more')).not.toHaveAttribute('open');
+ await page.locator('.data-more summary').click();
+ await expect(page.getByRole('heading',{name:'Full tournament imports'})).toBeVisible();
 });
