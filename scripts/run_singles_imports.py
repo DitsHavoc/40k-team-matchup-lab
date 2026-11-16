@@ -5,10 +5,10 @@ from wtc_scoring import wtc_battle_points
 from pathlib import Path
 from datetime import datetime,timezone
 EVENTS={
- "uktc-birmingham-2026":("public/data/singles-uktc-birmingham-2026.csv",280),
- "uktc-manchester-summer-2026":("public/data/singles-uktc-manchester-2026.csv",320),
- "uktc-coventry-3day-2026":("public/data/singles-uktc-coventry-3day-2026.csv",220),
- "uktc-coventry-2day-2026":("public/data/singles-uktc-coventry-2day-2026.csv",150),
+ "uktc-birmingham-2026":("public/data/singles-uktc-birmingham-2026.csv",365),
+ "uktc-manchester-summer-2026":("public/data/singles-uktc-manchester-2026.csv",420),
+ "uktc-coventry-3day-2026":("public/data/singles-uktc-coventry-3day-2026.csv",280),
+ "uktc-coventry-2day-2026":("public/data/singles-uktc-coventry-2day-2026.csv",205),
  # Fast useful coverage first; slow majors must not block small verified events.
  "october-rtt-2026":("public/data/singles-october-rtt-2026.csv",18),
  "kent-major-2026":("public/data/singles-kent-major-2026.csv",110),
