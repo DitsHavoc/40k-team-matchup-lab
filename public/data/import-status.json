@@ -1,21 +1,66 @@
 {
-  "updated_at_utc": "2026-11-16T06:47:42.807583+00:00",
+  "updated_at_utc": "2026-11-16T07:16:22.513005+00:00",
   "note": "An import failure preserves any existing dataset. Reported counts describe published CSV rows, not event completeness.",
   "events": {
+    "wtc-2026": {
+      "import_succeeded": true,
+      "collection_status": "ready",
+      "published_records": 1288,
+      "csv_path": "public/data/wtc-wh40k-2026.csv",
+      "diagnostic": "Wrote public/data/wtc-wh40k-2026.csv"
+    },
+    "krakow-2026": {
+      "import_succeeded": true,
+      "collection_status": "ready",
+      "published_records": 811,
+      "csv_path": "public/data/warhammer-open-krakow-2026.csv",
+      "diagnostic": "Wrote public/data/warhammer-open-krakow-2026.csv"
+    },
+    "gateway-2026": {
+      "import_succeeded": true,
+      "collection_status": "ready",
+      "published_records": 480,
+      "csv_path": "public/data/gateway-open-teams-2026.csv",
+      "diagnostic": "Wrote public/data/gateway-open-teams-2026.csv"
+    },
+    "scottish-open-2026": {
+      "import_succeeded": true,
+      "collection_status": "ready",
+      "published_records": 343,
+      "csv_path": "public/data/scottish-open-teams-2026.csv",
+      "diagnostic": "Wrote public/data/scottish-open-teams-2026.csv"
+    },
+    "south-pacific-8s-2026": {
+      "import_succeeded": true,
+      "collection_status": "ready",
+      "published_records": 345,
+      "csv_path": "public/data/south-pacific-8s-2026.csv",
+      "diagnostic": "Wrote public/data/south-pacific-8s-2026.csv"
+    },
     "uktc-summer-itt-2026": {
       "import_succeeded": true,
+      "collection_status": "ready",
       "published_records": 877,
       "csv_path": "public/data/uktc-summer-itt-2026.csv",
       "diagnostic": "Wrote public/data/uktc-summer-itt-2026.csv"
     },
+    "uktc-autumn-itt-2026": {
+      "import_succeeded": false,
+      "collection_status": "awaiting_2026_source",
+      "published_records": 0,
+      "csv_path": null,
+      "diagnostic": "No 14-15 November 2026 event date confirmed on page. Avoiding 2025 cross-edition contamination"
+    },
     "challengers-2026": {
       "import_succeeded": true,
+      "collection_status": "ready",
       "published_records": 1624,
       "csv_path": "public/data/challengers-cup-2026.csv",
       "diagnostic": "Wrote public/data/challengers-cup-2026.csv"
     },
     "kent-teams-november-2026": {
       "import_succeeded": true,
+      "collection_status": "ready",
       "published_records": 372,
       "csv_path": "public/data/kent-teams-november-2026.csv",
       "diagnostic": "Wrote public/data/kent-teams-november-2026.csv"
