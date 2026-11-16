@@ -1,0 +1,24 @@
+name: Validate matchup data and import code
+on:
+  push:
+    paths:
+      - 'scripts/**'
+      - 'tests/test_import_logic.py'
+      - '.github/workflows/validate-data.yml'
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Check Python syntax
+        run: python -m compileall -q scripts tests
+      - name: Test VP conversion, faction classes and missing dispositions
+        run: python -m unittest discover -s tests -p 'test_import_logic.py' -v
+      - name: Audit published cross-source game identities
+        run: python scripts/audit_cross_sources.py
