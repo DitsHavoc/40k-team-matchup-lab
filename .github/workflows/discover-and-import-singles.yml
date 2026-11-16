@@ -17,7 +17,7 @@ concurrency:
 jobs:
   discover-and-collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 105
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -27,12 +27,12 @@ jobs:
       - name: Discover 2026 11th edition singles events globally
         id: discovery
         continue-on-error: true
-        run: python scripts/discover_metascribe_singles.py --pages 10 --limit 200
-      - name: Collect two source-verified events without blocking other datasets
+        run: python scripts/discover_metascribe_singles.py --pages 15 --limit 300
+      - name: Collect up to eight separately verified singles events
         id: ingest
         if: steps.discovery.outcome == 'success'
         continue-on-error: true
-        run: python scripts/run_discovered_singles.py --limit 2 --max-players 300
+        run: python scripts/run_discovered_singles.py --limit 8 --max-players 250
       - name: Audit overlap with existing tournament results
         run: python scripts/audit_cross_sources.py
       - name: Publish only validated game-level datasets and diagnostics
