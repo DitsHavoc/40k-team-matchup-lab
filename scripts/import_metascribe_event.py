@@ -290,10 +290,16 @@ for ti,(team,url) in enumerate(teams,1):
             if len(rn)!=1:
                 audit["no_round"]+=1;continue
             rnd=next(iter(rn))
-            if rnd < 1 or rnd > ROUNDS:
-                audit.setdefault('out_of_range_round',0)
-                audit['out_of_range_round']+=1
+            # The round comes from this event's team Round History, not an inferred schedule.
+            # ROUNDS is the advertised regular-round count, NOT a hard upper limit.
+            # Shadow rounds, playoffs and finals can extend a valid event.
+            if rnd < 1 or rnd > 20:
+                audit.setdefault('invalid_round',0)
+                audit['invalid_round']+=1
                 continue
+            if rnd > ROUNDS:
+                audit.setdefault('extra_recorded_round',0)
+                audit['extra_recorded_round']+=1
             fac_a,disp_a=parse_army(cells[3])
             fac_b,disp_b=parse_army(cells[5])
             if not all([fac_a,disp_a,fac_b,disp_b]):
@@ -324,6 +330,7 @@ for ti,(team,url) in enumerate(teams,1):
 expected=cfg.get("expected_games",TEAM_COUNT*PLAYERS_PER_TEAM*ROUNDS//2)
 print(f"Verified games: {len(games)}/{expected} theoretical maximum ({100*len(games)/expected:.1f}%). Byes, dropouts and extra rounds can change this denominator.")
 print("Audit:",audit)
+print("Observed round numbers:",sorted({int(r["round"]) for r in games.values()}))
 # Do not make a nearly-empty partial export replace an apparently complete dataset.
 if len(games)<cfg["min_games"]:
     sys.exit("Insufficient verified game coverage; likely HTML mismatch or incomplete data. Nothing written.")
