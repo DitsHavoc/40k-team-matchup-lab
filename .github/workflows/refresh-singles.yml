@@ -1,0 +1,42 @@
+name: Refresh verified singles event datasets
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/import_metascribe_singles.py'
+      - 'scripts/run_singles_imports.py'
+      - '.github/workflows/refresh-singles.yml'
+  schedule:
+    - cron: '47 5 * * 2'
+permissions:
+  contents: write
+concurrency:
+  group: singles-dataset-refresh
+  cancel-in-progress: false
+jobs:
+  collect-singles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Import singles without altering team records
+        id: collect
+        continue-on-error: true
+        run: python scripts/run_singles_imports.py
+      - name: Publish only passed CSVs and collection diagnostics
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/singles-*.csv public/data/singles-import-status.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh verified singles matchup evidence"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Report failures
+        if: steps.collect.outcome == 'failure'
+        run: exit 1
