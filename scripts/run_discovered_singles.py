@@ -61,8 +61,9 @@ def main(limit,max_players):
  # Do not re-fetch already validated events on every pass.
  to_import=[e for e in candidates if e.get("id") not in previous or not previous[e["id"]].get("import_succeeded")]
  to_import=[e for e in to_import if 16<=int(e["players_reported"])<=max_players]
- # Prefer recent events and modest sizes; revisit failures on later schedules.
- to_import.sort(key=lambda e:(e["event_date"],e["players_reported"]),reverse=True)
+ # Prefer substantial tournaments (more usable matchup evidence) over tiny RTTs.
+ # All candidates are source-verified 2026 events; recent date breaks ties.
+ to_import.sort(key=lambda e:(int(e["players_reported"])>=40,int(e["players_reported"]),e["event_date"]),reverse=True)
  reports=dict(previous)
  for event in to_import[:limit]:
   eid=event["id"];dest=ROOT/("singles-auto-"+eid+".csv")
