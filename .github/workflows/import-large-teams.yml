@@ -1,0 +1,61 @@
+name: Discover and import verified team events (100+ players)
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/import-large-teams.yml'
+      - 'scripts/discover_metascribe_teams.py'
+      - 'scripts/import_metascribe_teams.py'
+      - 'scripts/run_discovered_teams.py'
+  schedule:
+    - cron: '24 1,7,13,19 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: team-event-ingestion
+  cancel-in-progress: false
+jobs:
+  team-results:
+    runs-on: ubuntu-latest
+    timeout-minutes: 160
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 playwright
+      - name: Install Chromium for dynamic listing pages
+        run: python -m playwright install --with-deps chromium
+      - name: Validate importer scripts
+        run: |
+          python -m py_compile scripts/discover_metascribe_teams.py scripts/import_metascribe_teams.py scripts/run_discovered_teams.py scripts/build_warehouse.py
+          python scripts/test_event_identity.py
+      - name: Discover team tournaments over 100 players
+        id: discover
+        continue-on-error: true
+        run: python scripts/discover_metascribe_teams.py --pages 5 --limit 500
+      - name: Require an audited event candidate queue
+        run: test -s public/data/teams-discovery.json
+      - name: Import three validated team tournaments
+        id: ingest
+        continue-on-error: true
+        run: python scripts/run_discovered_teams.py --limit 3 --min-players 101 --max-players 350
+      - name: Audit cross-source matches
+        run: python scripts/audit_cross_sources.py
+      - name: Rebuild unique-game warehouse
+        run: python scripts/build_warehouse.py
+      - name: Publish validated game rows and diagnostics
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for file in public/data/teams-discovery.json public/data/teams-discovery-status.json public/data/team-auto-import-status.json public/data/teams-auto-*.csv public/data/warehouse-manifest.json public/data/warehouse-*.csv public/data/cross-source-audit.json; do
+            if [ -f "$file" ]; then git add "$file"; fi
+          done
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish validated 100+ player Metascribe team results"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Report import failure without losing valid data
+        if: steps.ingest.outcome == 'failure'
+        run: exit 1
