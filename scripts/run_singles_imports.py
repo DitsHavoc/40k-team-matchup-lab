@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
 """Validate and publish separately sourced singles results."""
-import csv,json,subprocess,sys
+import argparse,csv,json,subprocess,sys
 from wtc_scoring import wtc_battle_points
 from pathlib import Path
 from datetime import datetime,timezone
 EVENTS={
- "lgt-2026":("public/data/singles-lgt-2026.csv",1700),
- "lvo-2026":("public/data/singles-lvo-2026.csv",1000),
- "ratcon-2026":("public/data/singles-ratcon-2026.csv",130),
- "kent-major-2026":("public/data/singles-kent-major-2026.csv",110),
+ # Fast useful coverage first; slow majors must not block small verified events.
  "october-rtt-2026":("public/data/singles-october-rtt-2026.csv",18),
+ "kent-major-2026":("public/data/singles-kent-major-2026.csv",110),
+ "ratcon-2026":("public/data/singles-ratcon-2026.csv",130),
  "epsom-2026":("public/data/singles-epsom-2026.csv",100),
  "newport-2026":("public/data/singles-newport-2026.csv",400),
+ "lgt-2026":("public/data/singles-lgt-2026.csv",1700),
+ "lvo-2026":("public/data/singles-lvo-2026.csv",1000),
 }
+
 def validate(path,min_games):
  if not path.exists():return 0,"missing"
  with path.open(encoding="utf-8",newline="") as f:
@@ -38,8 +40,23 @@ def validate(path,min_games):
   seen.add(k)
  if len(rows)<min_games:return len(rows),"below minimum game count"
  return len(rows),"passed_structural_audit"
+def save_status(results):
+ dest=Path("public/data/singles-import-status.json")
+ dest.parent.mkdir(parents=True,exist_ok=True)
+ dest.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),
+ "events":results,"note":"Published files only: previous verified data retained after collection failure. Raw VP and WTC equivalents are separately recorded."},indent=2)+"\n",encoding="utf-8")
+
+parser=argparse.ArgumentParser()
+parser.add_argument("--event",choices=list(EVENTS),help="Import only one event to avoid blocking on very large tournaments")
+args=parser.parse_args()
 results={}
-for event,(filename,minimum) in EVENTS.items():
+try:
+ current=Path("public/data/singles-import-status.json")
+ if current.exists():
+  results=json.loads(current.read_text(encoding="utf-8")).get("events",{})
+except (ValueError,OSError):results={}
+targets={args.event:EVENTS[args.event]} if args.event else EVENTS
+for event,(filename,minimum) in targets.items():
  path=Path(filename)
  previous_bytes=path.read_bytes() if path.exists() else None
  try:
@@ -55,7 +72,6 @@ for event,(filename,minimum) in EVENTS.items():
    count=validate(path,minimum)[0] if path.exists() else 0
   results[event]={"collection_status":status if succeeded else "failed_or_previous_file_preserved","import_succeeded":succeeded,"published_records":count,"csv_path":filename if count else None,"diagnostic":output.splitlines()[-1][:300] if output else ""}
  except Exception as e:results[event]={"collection_status":"failed","import_succeeded":False,"published_records":0,"diagnostic":str(e)}
-dest=Path("public/data/singles-import-status.json");dest.parent.mkdir(parents=True,exist_ok=True)
-dest.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),"events":results,"note":"Singles results are explicitly labelled, retain native raw VP, and have separately published 20-point equivalents. Failed imports preserve previously published datasets."},indent=2)+"\n",encoding="utf-8")
+save_status(results)
 print(json.dumps(results,indent=2),flush=True)
-sys.exit(0 if all(v["import_succeeded"] for v in results.values()) else 1)
+sys.exit(0 if all(results[e]["import_succeeded"] for e in targets) else 1)
