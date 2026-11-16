@@ -271,6 +271,86 @@
       ],
       "notes": "Singles player-level match history and published 20-point equivalents; preserve raw VP and individual Marine chapter classification. Collection not yet published. Published game-level CSV validated with scores summing 20, raw VP provided, player URLs available; army list URLs not verified. Theoretical event coverage may be incomplete.",
       "rules_version": "11.1.02"
+    },
+    {
+      "id": "lgt-2026",
+      "name": "The London Grand Tournament - 40k Main Event (LGT 40k GT)",
+      "date_start": "2026-09-25",
+      "players_reported": 1049,
+      "rounds_reported": 10,
+      "edition": 11,
+      "event_format": "singles",
+      "verified_games": 0,
+      "import_status": "automated_collection_pending_validation",
+      "priority": "critical",
+      "source_urls": [
+        "https://metascribe.gg/tournaments/the-london-grand-tournament-40k-main-event-lgt-40k-gt/"
+      ],
+      "notes": "Source event page verified. Raw VP → WTC-equivalent only using official 11th edition 20BP table. Published WTC BP disagreements rejected. Missing detachments and maps not inferred. Game-level import not yet verified."
+    },
+    {
+      "id": "lvo-2026",
+      "name": "LVO 2026 - Warhammer 40k Championships - Las Vegas Open",
+      "date_start": "2026-10-02",
+      "players_reported": 652,
+      "rounds_reported": 10,
+      "edition": 11,
+      "event_format": "singles",
+      "verified_games": 0,
+      "import_status": "automated_collection_pending_validation",
+      "priority": "critical",
+      "source_urls": [
+        "https://metascribe.gg/tournaments/lvo-2026-warhammer-40k-championships-las-vegas-open/"
+      ],
+      "notes": "Source event page verified. Raw VP → WTC-equivalent only using official 11th edition 20BP table. Published WTC BP disagreements rejected. Missing detachments and maps not inferred. Game-level import not yet verified."
+    },
+    {
+      "id": "ratcon-2026",
+      "name": "Ratcon 2026",
+      "date_start": "2026-10-16",
+      "players_reported": 94,
+      "rounds_reported": 5,
+      "edition": 11,
+      "event_format": "singles",
+      "verified_games": 0,
+      "import_status": "automated_collection_pending_validation",
+      "priority": "high",
+      "source_urls": [
+        "https://metascribe.gg/tournaments/ratcon-2026/"
+      ],
+      "notes": "Source event page verified. Raw VP → WTC-equivalent only using official 11th edition 20BP table. Published WTC BP disagreements rejected. Missing detachments and maps not inferred. Game-level import not yet verified."
+    },
+    {
+      "id": "kent-major-2026",
+      "name": "The Kent Major 2026",
+      "date_start": "2026-08-01",
+      "players_reported": 80,
+      "rounds_reported": 6,
+      "edition": 11,
+      "event_format": "singles",
+      "verified_games": 0,
+      "import_status": "automated_collection_pending_validation",
+      "priority": "high",
+      "source_urls": [
+        "https://metascribe.gg/tournaments/the-kent-major-2026/"
+      ],
+      "notes": "Source event page verified. Raw VP → WTC-equivalent only using official 11th edition 20BP table. Published WTC BP disagreements rejected. Missing detachments and maps not inferred. Game-level import not yet verified."
+    },
+    {
+      "id": "october-rtt-2026",
+      "name": "October RTT!",
+      "date_start": "2026-10-17",
+      "players_reported": 15,
+      "rounds_reported": 3,
+      "edition": 11,
+      "event_format": "singles",
+      "verified_games": 0,
+      "import_status": "automated_collection_pending_validation",
+      "priority": "high",
+      "source_urls": [
+        "https://metascribe.gg/tournaments/october-rtt/"
+      ],
+      "notes": "Source event page verified. Raw VP → WTC-equivalent only using official 11th edition 20BP table. Published WTC BP disagreements rejected. Missing detachments and maps not inferred. Game-level import not yet verified."
     }
   ],
   "policy": {
