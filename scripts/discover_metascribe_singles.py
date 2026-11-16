@@ -26,7 +26,7 @@ def main(pages,limit):
  discovered={}
  issues=[]
  for page in range(1,pages+1):
-  url=BASE+"/tournaments/"+("?page="+str(page) if page>1 else "")
+  url=BASE+"/tournaments/"+("page/"+str(page)+"/" if page>1 else "")
   try:soup=get(url)
   except (requests.RequestException,RuntimeError) as e:issues.append(str(e));continue
   if not any("Explore Tournaments" in text(h) for h in soup.select("h1,h2")):issues.append("Unexpected index page "+url);break
