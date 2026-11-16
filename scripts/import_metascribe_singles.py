@@ -13,8 +13,8 @@ import requests
 from bs4 import BeautifulSoup
 BASE="https://metascribe.gg"
 EVENTS={
- "epsom-2026":dict(url=BASE+"/tournaments/warhammer-40000-grand-tournament-epsom-downs/",name="Warhammer 40000 Grand Tournament - Epsom Downs",date="2026-09-05",players=65,rounds=5,min_games=100,output="public/data/singles-epsom-2026.csv"),
- "newport-2026":dict(url=BASE+"/tournaments/warhammer-40000-grand-tournament-warhammer-open-newport/",name="Warhammer 40000 Grand Tournament - Warhammer Open Newport",date="2026-08-14",players=187,rounds=8,min_games=400,output="public/data/singles-newport-2026.csv"),
+ "epsom-2026":dict(url=BASE+"/tournaments/warhammer-40000-grand-tournament-epsom-downs/",name="Warhammer 40000 Grand Tournament - Epsom Downs",date="2026-09-05",rules_version="11.1.03",players=65,rounds=5,min_games=100,output="public/data/singles-epsom-2026.csv"),
+ "newport-2026":dict(url=BASE+"/tournaments/warhammer-40000-grand-tournament-warhammer-open-newport/",name="Warhammer 40000 Grand Tournament - Warhammer Open Newport",date="2026-08-14",rules_version="11.1.02",players=187,rounds=8,min_games=400,output="public/data/singles-newport-2026.csv"),
 }
 FACTIONS=["Adepta Sororitas","Adeptus Custodes","Adeptus Mechanicus","Aeldari","Astra Militarum","Black Templars","Blood Angels","Chaos Daemons","Chaos Knights","Chaos Space Marines","Dark Angels","Death Guard","Deathwatch","Drukhari","Emperor's Children","Genestealer Cults","Grey Knights","Imperial Agents","Imperial Knights","Leagues of Votann","Necrons","Orks","Space Marines","Space Wolves","T'au Empire","Thousand Sons","Tyranids","World Eaters"]
 DISPS={"take":"Take and Hold","purge":"Purge the Foe","priority":"Priority Assets","recon":"Reconnaissance","disruption":"Disruption"}
@@ -105,7 +105,7 @@ def run(cfg):
     record.update(event_name=cfg["name"],event_date=d.isoformat(),source_url=cfg["url"],player_a=name,player_b=opp,
       faction_a=f1,faction_b=f2,disposition_a=disp1,disposition_b=disp2,score_a_20=equiv[0],score_b_20=equiv[1],
       raw_vp_a=vp[0] if vp else "",raw_vp_b=vp[1] if vp else "",
-      edition="11",event_format="singles",score_type="published_wtc_equivalent",
+      edition="11",rules_version=cfg["rules_version"],event_format="singles",score_type="published_wtc_equivalent",
       player_a_source_url=url,player_b_source_url=urljoin(BASE,oppLink.get("href")) if oppLink else "")
     games[key]=record
   except Exception as e:print("Failed player",name,str(e)[:140],flush=True);reject("player_error")
