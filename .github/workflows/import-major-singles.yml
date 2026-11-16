@@ -1,0 +1,50 @@
+name: Import large verified 40K singles events
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/import-major-singles.yml'
+  schedule:
+    - cron: '35 2 * * 2,5'
+permissions:
+  contents: write
+concurrency:
+  group: worldwide-event-discovery
+  cancel-in-progress: false
+jobs:
+  collect-major-events:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Verify scripts and scoring assumptions
+        run: |
+          python -m py_compile scripts/import_metascribe_singles.py scripts/run_discovered_singles.py scripts/build_warehouse.py
+          python scripts/test_event_identity.py
+      - name: Import up to two uncollected major singles events
+        id: ingest
+        continue-on-error: true
+        run: python scripts/run_discovered_singles.py --limit 2 --min-players 301 --max-players 1200
+      - name: Audit all available event match results
+        run: python scripts/audit_cross_sources.py
+      - name: Rebuild unique-game warehouse
+        run: python scripts/build_warehouse.py
+      - name: Publish only successfully validated event datasets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for file in public/data/auto-import-status.json public/data/cross-source-audit.json public/data/warehouse-manifest.json public/data/warehouse-*.csv public/data/singles-auto-*.csv; do
+            if [ -f "$file" ]; then git add "$file"; fi
+          done
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish verified major singles games"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Report failed import attempts
+        if: steps.ingest.outcome == 'failure'
+        run: exit 1
