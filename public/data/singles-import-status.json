@@ -1,0 +1,20 @@
+{
+  "updated_at_utc": "2026-11-16T07:59:45.289033+00:00",
+  "events": {
+    "epsom-2026": {
+      "collection_status": "passed_structural_audit",
+      "import_succeeded": true,
+      "published_records": 155,
+      "csv_path": "public/data/singles-epsom-2026.csv",
+      "diagnostic": "Wrote public/data/singles-epsom-2026.csv"
+    },
+    "newport-2026": {
+      "collection_status": "passed_structural_audit",
+      "import_succeeded": true,
+      "published_records": 677,
+      "csv_path": "public/data/singles-newport-2026.csv",
+      "diagnostic": "Wrote public/data/singles-newport-2026.csv"
+    }
+  },
+  "note": "Singles results are explicitly labelled, retain native raw VP, and have separately published 20-point equivalents. Failed imports preserve previously published datasets."
+}
