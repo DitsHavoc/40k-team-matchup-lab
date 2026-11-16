@@ -18,7 +18,7 @@
         "https://www.uktc.events/blog/categories/teams",
         "https://www.uktc.team/events"
       ],
-      "import_status": "imported_pending_round_audit",
+      "import_status": "published_structural_audit_passed",
       "verified_games": 877,
       "required_fields": [
         "round",
@@ -41,7 +41,8 @@
         "mission_b",
         "pairing_role"
       ],
-      "notes": "877 rows in published CSV at 2026-11-16: rounds 1=174, 2=175, 3=174, 4=174, 5=175, 6=5. Five round-6 records require checking, and several rounds may have byes. Source is Metascribe; terrain fields missing."
+      "notes": "Metascribe confirms six rounds, with final round 6 played between Team Sigil and Carnage Behemoth (five individual games). All 877 records restored. Tournament has 5 main rounds and a final, so treating every team as playing 6 rounds would overstate theoretical games. Source meta 11.1.02 July balance; maps not provided.",
+      "rounds_reported": 6
     },
     {
       "id": "uktc-autumn-itt-2026",
@@ -82,12 +83,12 @@
       "players_per_team": 8,
       "rounds_reported": 6,
       "priority": "high",
-      "import_status": "pipeline_unverified",
-      "verified_games": 0,
+      "import_status": "published_structural_audit_passed",
+      "verified_games": 1624,
       "source_urls": [
         "https://metascribe.gg/tournaments/the-challengers-cup-2026/"
       ],
-      "notes": "68 teams, 544 players and six rounds from Metascribe. Collector configured with a substantial minimum-coverage requirement; no published game CSV verified yet."
+      "notes": "68 teams, 544 players and six rounds from Metascribe. Collector configured with a substantial minimum-coverage requirement; no published game CSV verified yet. Published verified-game CSV present; see coverage-audit.json for round-level coverage."
     },
     {
       "id": "kent-teams-november-2026",
@@ -103,9 +104,9 @@
       "source_urls": [
         "https://metascribe.gg/tournaments/the-kent-teams-november-2026/"
       ],
-      "import_status": "pipeline_unverified",
-      "verified_games": 0,
-      "notes": "Kent 30-team five-player team event; may not be the similarly described Kent Super 6. Preserve original event name until confirmed. Workflow available; load verified game CSV only."
+      "import_status": "published_structural_audit_passed",
+      "verified_games": 372,
+      "notes": "Kent 30-team five-player team event; may not be the similarly described Kent Super 6. Preserve original event name until confirmed. Workflow available; load verified game CSV only. Published verified-game CSV present; see coverage-audit.json for round-level coverage."
     },
     {
       "id": "october-super-6s-2026",
@@ -137,9 +138,9 @@
       "source_urls": [
         "https://metascribe.gg/tournaments/wtc-wh40k-2026/"
       ],
-      "import_status": "pipeline_unverified",
-      "verified_games": 0,
-      "notes": "Public Metascribe event source identified. Full game-level CSV to be published only after importer validation. Map data may be absent."
+      "import_status": "published_structural_audit_passed",
+      "verified_games": 1288,
+      "notes": "Public Metascribe event source identified. Full game-level CSV to be published only after importer validation. Map data may be absent. Published verified-game CSV present; see coverage-audit.json for round-level coverage."
     },
     {
       "id": "krakow-2026",
@@ -153,9 +154,9 @@
       "source_urls": [
         "https://metascribe.gg/tournaments/warhammer-open-krakow-warhammer-40000/"
       ],
-      "import_status": "pipeline_unverified",
-      "verified_games": 0,
-      "notes": "Public Metascribe event source identified. Full game-level CSV to be published only after importer validation. Map data may be absent."
+      "import_status": "published_structural_audit_passed",
+      "verified_games": 811,
+      "notes": "Public Metascribe event source identified. Full game-level CSV to be published only after importer validation. Map data may be absent. Published verified-game CSV present; see coverage-audit.json for round-level coverage."
     },
     {
       "id": "gateway-2026",
@@ -169,9 +170,9 @@
       "source_urls": [
         "https://metascribe.gg/tournaments/the-2026-gateway-open-40k-teams-tournament/"
       ],
-      "import_status": "pipeline_unverified",
-      "verified_games": 0,
-      "notes": "Public Metascribe event source identified. Full game-level CSV to be published only after importer validation. Map data may be absent."
+      "import_status": "published_structural_audit_passed",
+      "verified_games": 480,
+      "notes": "Public Metascribe event source identified. Full game-level CSV to be published only after importer validation. Map data may be absent. Published verified-game CSV present; see coverage-audit.json for round-level coverage."
     },
     {
       "id": "scottish-open-2026",
@@ -185,9 +186,9 @@
       "source_urls": [
         "https://metascribe.gg/tournaments/scottish-open-team-championship/"
       ],
-      "import_status": "pipeline_unverified",
-      "verified_games": 0,
-      "notes": "Public Metascribe event source identified. Full game-level CSV to be published only after importer validation. Map data may be absent."
+      "import_status": "published_structural_audit_passed",
+      "verified_games": 343,
+      "notes": "Public Metascribe event source identified. Full game-level CSV to be published only after importer validation. Map data may be absent. Published verified-game CSV present; see coverage-audit.json for round-level coverage."
     },
     {
       "id": "south-pacific-8s-2026",
@@ -201,9 +202,9 @@
       "source_urls": [
         "https://metascribe.gg/tournaments/south-pacific-8s-october-event/"
       ],
-      "import_status": "pipeline_unverified",
-      "verified_games": 0,
-      "notes": "Public Metascribe event source identified. Full game-level CSV to be published only after importer validation. Map data may be absent."
+      "import_status": "published_structural_audit_passed",
+      "verified_games": 345,
+      "notes": "Public Metascribe event source identified. Full game-level CSV to be published only after importer validation. Map data may be absent. Published verified-game CSV present; see coverage-audit.json for round-level coverage."
     },
     {
       "id": "studs-snotlings-2026",
