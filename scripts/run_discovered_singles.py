@@ -7,7 +7,7 @@ kept out of the manifest, and failed attempts retain previous validated CSVs.
 """
 import argparse,csv,json,math,subprocess,sys
 from pathlib import Path
-from datetime import datetime,timezone
+from datetime import datetime,timezone,timedelta
 from wtc_scoring import wtc_battle_points
 
 ROOT=Path("public/data")
@@ -58,19 +58,30 @@ def main(limit,max_players):
  if STATUS.exists():
   try:previous=json.loads(STATUS.read_text(encoding="utf-8")).get("events",{})
   except (ValueError,OSError):previous={}
- # Do not re-fetch already validated events on every pass.
- to_import=[e for e in candidates if e.get("id") not in previous or not previous[e["id"]].get("import_succeeded")]
- to_import=[e for e in to_import if 16<=int(e["players_reported"])<=max_players]
- # Prefer substantial tournaments (more usable matchup evidence) over tiny RTTs.
- # All candidates are source-verified 2026 events; recent date breaks ties.
- to_import.sort(key=lambda e:(int(e["players_reported"])>=40,int(e["players_reported"]),e["event_date"]),reverse=True)
+ # Never let a broken high-priority event monopolise every scheduled run.
+ # Failed events are retried after a capped cooldown. New events go first.
+ now=datetime.now(timezone.utc)
+ to_import=[]
+ for e in candidates:
+  eid=e.get("id")
+  if not eid or not 16<=int(e.get("players_reported",0))<=max_players:continue
+  prior=previous.get(eid,{})
+  dest=ROOT/("singles-auto-"+eid+".csv")
+  if prior.get("import_succeeded") and dest.exists():continue
+  retry_after=prior.get("retry_after_utc","")
+  if retry_after:
+   try:
+    if datetime.fromisoformat(retry_after)>now:continue
+   except ValueError:pass
+  to_import.append(e)
+ to_import.sort(key=lambda e:(not bool(previous.get(e["id"])),int(e["players_reported"]),e["event_date"]),reverse=True)
  reports=dict(previous)
  for event in to_import[:limit]:
   eid=event["id"];dest=ROOT/("singles-auto-"+eid+".csv")
   old=dest.read_bytes() if dest.exists() else None
   try:
    proc=subprocess.run([sys.executable,"scripts/import_metascribe_singles.py","--candidate-id",eid],
-                       capture_output=True,text=True,timeout=3200)
+                       capture_output=True,text=True,timeout=1500)
    count,status=validate(dest,event)
    success=proc.returncode==0 and status=="passed_structural_audit"
    if not success:
@@ -85,6 +96,14 @@ def main(limit,max_players):
    else:dest.write_bytes(old)
    reports[eid]={"name":event["name"],"import_succeeded":False,"collection_status":"exception_not_published",
         "published_records":0,"diagnostic":str(exc)[:250],"csv_path":None}
+  prior_attempts=int(previous.get(eid,{}).get("attempts",0))
+  reports[eid]["attempts"]=prior_attempts+1
+  reports[eid]["last_attempt_utc"]=datetime.now(timezone.utc).isoformat()
+  if not reports[eid].get("import_succeeded"):
+   hours=min(6*2**min(prior_attempts,4),72)
+   reports[eid]["retry_after_utc"]=(datetime.now(timezone.utc)+timedelta(hours=hours)).isoformat()
+  else:
+   reports[eid]["retry_after_utc"]=None
   print(eid,reports[eid]["collection_status"],flush=True)
  STATUS.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),
  "events":reports,"note":"Only structurally audited game-level records enter the live site; candidate standings never count as games."},indent=2)+"\n",encoding="utf-8")
