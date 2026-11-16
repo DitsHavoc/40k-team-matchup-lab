@@ -57,9 +57,20 @@ def main(pages,limit):
  out=sorted(discovered.values(),key=lambda e:(e["event_date"],e["players_reported"]),reverse=True)[:limit]
  dest=Path("public/data/singles-discovery.json");dest.parent.mkdir(parents=True,exist_ok=True)
  dest.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),"source":BASE+"/tournaments/","pages_checked":pages,"candidates":out,"issues":issues[:30],"note":"Event candidates only. No score, player matchup or army list assumed until validated game-level import."},indent=2)+"\n",encoding="utf-8")
+ status=Path("public/data/singles-discovery-status.json")
+ status.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),
+ "status":"success","candidate_events":len(out),"issues":issues[:20]},indent=2)+"\n",encoding="utf-8")
  print("Discovered",len(out),"eligible event candidates")
 if __name__=="__main__":
  p=argparse.ArgumentParser();p.add_argument("--pages",type=int,default=6);p.add_argument("--limit",type=int,default=120);a=p.parse_args()
  if not 1<=a.pages<=30 or not 1<=a.limit<=500:raise SystemExit("Invalid discovery bounds")
  try:main(a.pages,a.limit)
- except Exception as e:print("Discovery failed:",e,file=sys.stderr);sys.exit(1)
+ except Exception as e:
+  error=str(e)
+  print("Discovery failed:",error,file=sys.stderr)
+  status=Path("public/data/singles-discovery-status.json")
+  status.parent.mkdir(parents=True,exist_ok=True)
+  status.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),
+   "status":"failed","reason":error[:1000],
+   "note":"Previous verified event-game CSVs are unaffected; failed discovery must not be counted."},indent=2)+"\n",encoding="utf-8")
+  sys.exit(1)
