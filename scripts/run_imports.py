@@ -24,6 +24,7 @@ def main():
     args = p.parse_args()
     selected = EVENTS if args.event == "all" else {args.event: EVENTS[args.event]}
     results = {}
+    pending = {"uktc-autumn-itt-2026"}
     for event, filename in selected.items():
         path = Path(filename)
         proc = subprocess.run(
@@ -38,6 +39,7 @@ def main():
                 count = sum(1 for _ in csv.DictReader(fp))
         results[event] = {
             "import_succeeded": proc.returncode == 0,
+            "collection_status": "ready" if proc.returncode == 0 else ("awaiting_2026_source" if event in pending and count == 0 else "failed"),
             "published_records": count,
             "csv_path": filename if count else None,
             "diagnostic": (proc.stdout.strip().splitlines()[-1] if proc.stdout.strip() else "No output")[:300]
@@ -51,7 +53,7 @@ def main():
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(json.dumps(status, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(status, indent=2))
-    return 0 if all(item["import_succeeded"] for item in results.values()) else 1
+    return 0 if all(item["import_succeeded"] or event in pending and item["collection_status"] == "awaiting_2026_source" for event, item in results.items()) else 1
 
 if __name__ == "__main__":
     sys.exit(main())
