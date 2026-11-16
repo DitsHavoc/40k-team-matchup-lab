@@ -1,59 +1,60 @@
-name: Refresh major singles LGT and LVO (validated)
+name: Import and publish London GT and LVO independently
 on:
   workflow_dispatch:
   push:
     paths:
       - '.github/workflows/refresh-singles-majors.yml'
-      - 'scripts/import_metascribe_singles.py'
   schedule:
     - cron: '19 6 * * 4'
 permissions:
   contents: write
-concurrency:
-  group: lgt-lvo-dedicated-import
-  cancel-in-progress: false
 jobs:
-  collect-major-events:
+  collect-major:
+    strategy:
+      fail-fast: false
+      matrix:
+        event: [lgt-2026, lvo-2026]
+    concurrency:
+      group: verified-major-${{ matrix.event }}
+      cancel-in-progress: false
     runs-on: ubuntu-latest
-    timeout-minutes: 140
+    timeout-minutes: 85
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - run: pip install requests beautifulsoup4
-      - name: Collect London Grand Tournament
-        id: lgt
+      - name: Run real full-event collection and score audit
+        id: collect
         continue-on-error: true
-        run: python scripts/run_singles_imports.py --event lgt-2026
-      - name: Audit cross-source game overlaps
-        run: python scripts/audit_cross_sources.py
-      - name: Publish LGT if audited
+        run: python -u scripts/run_singles_imports.py --event "${{ matrix.event }}" --isolated-status
+      - name: Publish audited CSV independently, or detailed failure status
+        env:
+          EVENT: ${{ matrix.event }}
         run: |
+          case "$EVENT" in
+            lgt-2026) CSV="public/data/singles-lgt-2026.csv" ;;
+            lvo-2026) CSV="public/data/singles-lvo-2026.csv" ;;
+            *) echo "::error::Unknown major event"; exit 1 ;;
+          esac
+          STATUS="public/data/singles-import-$EVENT.json"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/singles-lgt-2026.csv public/data/singles-import-status.json 2>/dev/null || true
-          git add public/data/cross-source-audit.json 2>/dev/null || true
+          git add "$STATUS" || exit 1
+          if [ -f "$CSV" ]; then git add "$CSV"; fi
           if ! git diff --cached --quiet; then
-            git commit -m "Refresh LGT validated singles games"
-            git pull --rebase origin main
-            git push origin HEAD:main
+            git commit -m "Publish $EVENT validated individual games or failure diagnostic"
+            for attempt in 1 2 3 4 5 6 7 8; do
+              git pull --rebase origin main
+              if git push origin HEAD:main; then exit 0; fi
+              sleep 4
+            done
+            echo "::error::Could not publish after retries"
+            exit 1
           fi
-      - name: Collect Las Vegas Open
-        id: lvo
-        continue-on-error: true
-        run: python scripts/run_singles_imports.py --event lvo-2026
-      - name: Re-audit all sources with updated LVO data
-        run: python scripts/audit_cross_sources.py
-      - name: Publish LVO if audited
+      - name: Flag incomplete or failed import
+        if: steps.collect.outcome == 'failure'
         run: |
-          git add public/data/singles-lvo-2026.csv public/data/singles-import-status.json 2>/dev/null || true
-          git add public/data/cross-source-audit.json 2>/dev/null || true
-          if ! git diff --cached --quiet; then
-            git commit -m "Refresh LVO validated singles games"
-            git pull --rebase origin main
-            git push origin HEAD:main
-          fi
-      - name: Report collection failures
-        if: steps.lgt.outcome == 'failure' || steps.lvo.outcome == 'failure'
-        run: exit 1
+          echo "::error::${{ matrix.event }} full game collection failed; see its published independent status JSON."
+          exit 1
