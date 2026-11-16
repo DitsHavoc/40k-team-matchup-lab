@@ -309,7 +309,7 @@ for ti,(team,url) in enumerate(teams,1):
                 record.update(event_name=EVENT,event_date=d.isoformat(),source_url=url,event_size_teams=TEAM_COUNT,
                               round=rnd,team_a=team,team_b=opponent_team,player_a=pa,player_b=pb,
                               faction_a=fac_a,faction_b=fac_b,disposition_a=disp_a,disposition_b=disp_b,
-                              score_a_20=score_a,score_b_20=score_b,edition="11",rules_version="11.01.01")
+                              score_a_20=score_a,score_b_20=score_b,edition="11",rules_version=cfg.get("rules_version",""))
                 games[key]=record
             else:
                 prior=games[key]
