@@ -48,9 +48,14 @@ def valid(r):
  except (TypeError,ValueError):return False
  if (r.get("event_format") or "team")=="team":
   if not r.get("disposition_a") or not r.get("disposition_b"):return False
-  try:
-   if not 1<=int(r.get("round",""))<=20:return False
-  except (ValueError,TypeError):return False
+  round_text=str(r.get("round","")).strip()
+  if round_text:
+   try:
+    if not 1<=int(round_text)<=20:return False
+   except (ValueError,TypeError):return False
+  elif not re.fullmatch(r"https://40kvodindex\.com/games/[a-z0-9-]+",str(r.get("source_url",""))):
+   # A directly verifiable game detail may omit the round; never manufacture one.
+   return False
  return True
 def main():
  rows=[];seen=set();audit=Counter();files=[]
