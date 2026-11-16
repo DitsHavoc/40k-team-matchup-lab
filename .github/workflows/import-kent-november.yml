@@ -1,6 +1,9 @@
 name: Import Kent Teams November 2026
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/import-kent-november.yml'
 permissions:
   contents: write
 jobs:
