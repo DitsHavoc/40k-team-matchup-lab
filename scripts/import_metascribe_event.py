@@ -161,7 +161,8 @@ COLS = ["event_name","event_date","source_url","event_size_teams","round","team_
         "player_a","player_b","faction_a","faction_b","detachment_a","detachment_b",
         "disposition_a","disposition_b","score_a_20","score_b_20","raw_vp_a","raw_vp_b",
         "mission_a","mission_b","terrain_layout","terrain_pack","deployment",
-        "attacker_defender","edition","rules_version"]
+        "attacker_defender","edition","rules_version","event_format","score_type",
+        "player_a_source_url","player_b_source_url","army_list_a_url","army_list_b_url"]
 DISPS = {"take":"Take and Hold","purge":"Purge the Foe","priority":"Priority Assets",
          "recon":"Reconnaissance","disruption":"Disruption"}
 FACTIONS = ["Adepta Sororitas","Adeptus Custodes","Adeptus Mechanicus","Aeldari",
@@ -308,6 +309,10 @@ for ti,(team,url) in enumerate(teams,1):
             if not m or int(m.group(1))+int(m.group(2))!=20:
                 audit["bad_score"]+=1;continue
             pa,pb=get_text(cells[2]),get_text(cells[6])
+            pa_link=cells[2].find("a",href=re.compile(r"/players/"))
+            pb_link=cells[6].find("a",href=re.compile(r"/players/"))
+            pa_url=urljoin(BASE,pa_link["href"]) if pa_link else ""
+            pb_url=urljoin(BASE,pb_link["href"]) if pb_link else ""
             if not pa or not pb:continue
             # An unordered player pair is unique within event+round.
             key=(rnd,tuple(sorted([norm(pa),norm(pb)])))
@@ -317,7 +322,9 @@ for ti,(team,url) in enumerate(teams,1):
                 record.update(event_name=EVENT,event_date=d.isoformat(),source_url=url,event_size_teams=TEAM_COUNT,
                               round=rnd,team_a=team,team_b=opponent_team,player_a=pa,player_b=pb,
                               faction_a=fac_a,faction_b=fac_b,disposition_a=disp_a,disposition_b=disp_b,
-                              score_a_20=score_a,score_b_20=score_b,edition="11",rules_version=EVENT_RULES_VERSION)
+                              score_a_20=score_a,score_b_20=score_b,edition="11",rules_version=EVENT_RULES_VERSION,
+                              event_format="team",score_type="team_wtc_score",
+                              player_a_source_url=pa_url,player_b_source_url=pb_url)
                 games[key]=record
             else:
                 prior=games[key]
