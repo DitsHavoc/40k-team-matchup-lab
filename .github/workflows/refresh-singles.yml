@@ -1,10 +1,11 @@
-name: Refresh verified singles event datasets
+name: Refresh verified singles RTT and GT events
 on:
   workflow_dispatch:
   push:
     paths:
       - 'scripts/import_metascribe_singles.py'
       - 'scripts/run_singles_imports.py'
+      - 'scripts/wtc_scoring.py'
       - '.github/workflows/refresh-singles.yml'
   schedule:
     - cron: '47 5 * * 2'
@@ -16,7 +17,7 @@ concurrency:
 jobs:
   collect-singles:
     runs-on: ubuntu-latest
-    timeout-minutes: 100
+    timeout-minutes: 65
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -26,7 +27,7 @@ jobs:
       - name: Import singles without altering team records
         id: collect
         continue-on-error: true
-        run: python scripts/run_singles_imports.py
+        run: python scripts/run_singles_imports.py --fast
       - name: Publish only passed CSVs and collection diagnostics
         run: |
           git config user.name "github-actions[bot]"
