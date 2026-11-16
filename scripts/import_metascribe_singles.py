@@ -6,7 +6,7 @@ When only raw VP is available, calculate the official WTC 20-point equivalent.
 Reject contradictory published WTC scores; games without both factions or verified identity
 are excluded. No army lists or detachments are inferred.
 """
-import argparse,csv,re,sys,time,urllib.robotparser
+import argparse,csv,hashlib,json,math,re,sys,time,urllib.robotparser
 from wtc_scoring import wtc_battle_points
 from datetime import datetime,timedelta
 from pathlib import Path
@@ -135,7 +135,33 @@ def run(cfg):
  with out.open("w",newline="",encoding="utf-8") as fd:
   w=csv.DictWriter(fd,fieldnames=COLS);w.writeheader();w.writerows(sorted(games.values(),key=lambda r:(r["event_date"],r["player_a"],r["player_b"])))
  print("Wrote",out,flush=True)
+def discovered_config(candidate_id):
+ path=Path("public/data/singles-discovery.json")
+ if not path.is_file():raise RuntimeError("Event discovery queue not published")
+ source=json.loads(path.read_text(encoding="utf-8"))
+ found=[x for x in source.get("candidates",[]) if x.get("id")==candidate_id]
+ if len(found)!=1:raise RuntimeError("Event candidate must match exactly one queued ID")
+ row=found[0]
+ url=row["source_url"]
+ if not re.fullmatch(r"https://metascribe\.gg/tournaments/[a-z0-9-]+/",url):
+  raise RuntimeError("Invalid event source URL")
+ if hashlib.sha256(url.encode("utf-8")).hexdigest()[:12]!=candidate_id:
+  raise RuntimeError("Event URL identity mismatch")
+ if row.get("event_format")!="singles" or not re.fullmatch(r"11\.\d+\.\d+",row.get("rules_version","")):
+  raise RuntimeError("Candidate is not a verified 11th-edition singles event")
+ date=row["event_date"]
+ if not re.fullmatch(r"2026-\d{2}-\d{2}",date):raise RuntimeError("Date outside verified 2026 scope")
+ players=int(row["players_reported"])
+ if not 16<=players<=2000:raise RuntimeError("Player count outside validated bounds")
+ return dict(url=url,name=row["name"],date=date,rules_version=row["rules_version"],
+  players=players,rounds=10,min_games=max(12,math.ceil(players*.9)),
+  output="public/data/singles-auto-"+candidate_id+".csv")
+
 if __name__=="__main__":
- p=argparse.ArgumentParser();p.add_argument("--event",choices=list(EVENTS),required=True);args=p.parse_args()
- try:run(EVENTS[args.event])
+ p=argparse.ArgumentParser()
+ group=p.add_mutually_exclusive_group(required=True)
+ group.add_argument("--event",choices=list(EVENTS))
+ group.add_argument("--candidate-id",help="Stable ID in audited singles-discovery.json")
+ args=p.parse_args()
+ try:run(EVENTS[args.event] if args.event else discovered_config(args.candidate_id))
  except Exception as e:print("Import failed",str(e),file=sys.stderr);sys.exit(1)
