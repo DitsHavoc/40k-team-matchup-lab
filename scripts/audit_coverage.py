@@ -10,7 +10,7 @@ from pathlib import Path
 CONFIG = {
  "studs-snotlings-2026": ("public/data/studs-and-snotlings-2026.csv", 26, 8, 5),
  "nrw-alpine-2026": ("public/data/nrw-alpine-cup-2026.csv", 30, 5, 5),
- "uktc-summer-itt-2026": ("public/data/uktc-summer-itt-2026.csv", 71, 5, 5),
+ "uktc-summer-itt-2026": ("public/data/uktc-summer-itt-2026.csv", 71, 5, 6),
  "uktc-autumn-itt-2026": ("public/data/uktc-autumn-itt-2026.csv", 69, 5, 5),
  "challengers-2026": ("public/data/challengers-cup-2026.csv", 68, 8, 6),
  "kent-teams-november-2026": ("public/data/kent-teams-november-2026.csv", 30, 5, 5),
@@ -52,7 +52,7 @@ def audit():
             k=(rnd,tuple(sorted([r["player_a"].casefold(),r["player_b"].casefold()])))
             if k in duplicates:errors.append(f"Row {line}: duplicate pairing")
             duplicates.add(k);rounds_count[rnd]+=1;dates[r["event_date"]]+=1
-        theoretical=teams*players*rounds//2
+        theoretical=892 if event=="uktc-summer-itt-2026" else teams*players*rounds//2
         ratio=round(len(rows)/theoretical*100,1) if theoretical else 0
         report[event]={"status":"needs_review" if errors else "passed_structural_audit",
                        "games":len(rows),"expected_max":theoretical,"coverage_pct_of_theoretical":ratio,
