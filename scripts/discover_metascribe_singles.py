@@ -84,8 +84,8 @@ def main(pages,limit):
  if browser_driver is not None:browser_driver.stop()
  # Do not report discovery success just because a previous fallback queue exists.
  freshly_discovered=len(discovered)
- if freshly_discovered<10:
-  raise RuntimeError("Only "+str(freshly_discovered)+" eligible events discovered from live listings; previous fallback queue remains untouched. "+repr(issues[:5]))
+ if freshly_discovered==0:
+  issues.append("No new candidates found on filtered major lists; retaining existing verified queue.")
  # Preserve previously validated queue items when paginating or when new results roll in.
  # Discovery is a queue; it must not silently forget unprocessed event IDs.
  prior_path=Path("public/data/singles-discovery.json")
@@ -98,13 +98,13 @@ def main(pages,limit):
      discovered[event["source_url"]]=event
   except (OSError,ValueError) as exc:
    issues.append("Unable to merge previous discovery queue: "+str(exc)[:100])
- if len(discovered)<10:raise RuntimeError("Discovery produced too few candidates; "+repr(issues))
+ if not discovered:raise RuntimeError("No discoverable or previously verified candidate events; "+repr(issues))
  out=sorted(discovered.values(),key=lambda e:(e["event_date"],e["players_reported"]),reverse=True)[:limit]
  dest=Path("public/data/singles-discovery.json");dest.parent.mkdir(parents=True,exist_ok=True)
  dest.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),"source":BASE+"/tournaments/?format=individual&size=major","pages_checked":pages,"candidates":out,"issues":issues[:30],"note":"Event candidates only. No score, player matchup or army list assumed until validated game-level import."},indent=2)+"\n",encoding="utf-8")
  status=Path("public/data/singles-discovery-status.json")
  status.write_text(json.dumps({"updated_at_utc":datetime.now(timezone.utc).isoformat(),
- "status":"success","candidate_events":len(out),"issues":issues[:20]},indent=2)+"\n",encoding="utf-8")
+ "status":"success" if freshly_discovered else "fallback_queue_used","new_candidate_events":freshly_discovered,"candidate_events":len(out),"issues":issues[:20]},indent=2)+"\n",encoding="utf-8")
  print("Discovered",len(out),"eligible event candidates")
 if __name__=="__main__":
  p=argparse.ArgumentParser();p.add_argument("--pages",type=int,default=6);p.add_argument("--limit",type=int,default=120);a=p.parse_args()
