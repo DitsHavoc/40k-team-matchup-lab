@@ -12,7 +12,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: singles-dataset-refresh
+  group: worldwide-event-discovery
   cancel-in-progress: false
 jobs:
   discover-and-collect:
