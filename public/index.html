@@ -316,7 +316,9 @@ function factionMatchRows(a,b,ownDisposition,oppDisposition,ignoreFormat=false){
 function renderMatrix(){
  const mode=$('matrixMode').value;
  const matrixRows=records.filter(r=>baseFilter(r,true)&&($('matrixSingles').checked||formatOf(r)==='team'));
- $('matrixDataExplanation').textContent=$('matrixSingles').checked?'Singles included in scouting':'Team games only';
+ const availableTeam=matrixRows.filter(r=>formatOf(r)==='team').length;
+  const availableSingles=matrixRows.length-availableTeam;
+  $('matrixDataExplanation').textContent='Dataset available to matrix: '+matrixRows.length+' games ('+availableTeam+' team + '+availableSingles+' singles) after active filters. '+($('matrixSingles').checked?'Singles included.':'Singles excluded.');
  $('matrixOwnDispBox').style.display=mode==='dispositions'?'block':'none';
  $('matrixFactionBox').style.display=mode==='factions'?'none':'block';
  const shortFaction=name=>({'Adepta Sororitas':'Sisters','Adeptus Custodes':'Custodes','Adeptus Mechanicus':'AdMech','Astra Militarum':'Guard','Black Templars':'Black Templars','Blood Angels':'Blood Angels','Chaos Space Marines':'CSM','Chaos Knights':'Chaos Knights','Chaos Daemons':'Daemons','Dark Angels':'Dark Angels','Death Guard':'Death Guard',"Emperor's Children":'Emperor’s Children','Genestealer Cults':'GSC','Grey Knights':'Grey Knights','Imperial Agents':'Agents','Imperial Knights':'Imp. Knights','Leagues of Votann':'Votann','Space Marines':'Marines','Space Wolves':'Space Wolves',"T'au Empire":'T’au','Thousand Sons':'Thousand Sons'}[name]||name);
@@ -333,7 +335,7 @@ function renderMatrix(){
   for(const r of matrixRows){add(r.faction_a,r.faction_b,r);add(r.faction_b,r.faction_a,flip(r))}
   const pairs=new Map();for(const [k,rows] of groups)pairs.set(k,stat(rows));
   const represented=[...pairs.values()].filter(s=>s.n>0).length;
-  $('matrixSummary').textContent='Faction × faction across all selected tournaments · '+represented+' of '+(factions.length*factions.length)+' directed cells have games. Every real game appears once from each side\'s perspective.';
+  $('matrixSummary').textContent=matrixRows.length+' distinct games available · '+represented+' of '+(factions.length*factions.length)+' faction-versus-faction cells have games. Each match appears from both sides but counts once in the database.';
   let h='<div class="matrix-legend"><span><i class="legend-positive"></i> Favourable (11+)</span><span><i class="legend-neutral"></i> Even (9–11)</span><span><i class="legend-negative"></i> Unfavourable (under 9)</span><span class="hint">Average score /20 · n = games · click a cell for its battles</span></div>';
   h+='<table class="full-matrix"><thead><tr><th scope="col" class="matrix-corner">Your faction ↓<br>Opponent →</th>'+factions.map(x=>'<th scope="col" title="'+esc(x)+'">'+esc(shortFaction(x))+'</th>').join('')+'</tr></thead><tbody>';
   for(const a of factions){h+='<tr><th scope="row" title="'+esc(a)+'">'+esc(shortFaction(a))+'</th>';
@@ -357,7 +359,7 @@ function renderMatrix(){
  $('matrixCoverage').textContent=(da?'Your selected disposition has '+ownWithDisp.length+' of '+ownAfterFilters.length+' games for '+a+' after optional filters. ':'')+
   'All recorded '+a+' games: '+ownBroad.length+' · with current event/date filters: '+ownAfterFilters.length+'. The opponent rows below split those games by faction.';
 
- $('matrixSummary').textContent=total+' recorded games for '+a+' · '+observed+' of '+factions.length+' opposing factions represented'+(da?' · your disposition: '+da:' · all your dispositions');
+ $('matrixSummary').textContent=total+' '+a+' games from '+matrixRows.length+' total available games · '+observed+' of '+factions.length+' opposing factions represented'+(da?' · your disposition: '+da:' · all your dispositions');
  if(mode==='focus'){
   let h='<table class="scoutTable"><thead><tr><th>Opposing faction</th><th>Your average score</th><th>Recorded games</th><th>Evidence</th><th>Inspect</th></tr></thead><tbody>';
   for(const o of opponents){const st=o.overall;h+='<tr><th>'+esc(o.faction)+'</th><td>'+(st.n?'<b class="'+(st.avg>11?'scoreGood':st.avg<9?'scoreBad':'scoreEven')+'">'+fmt(st.avg)+'/20</b>':'—')+'</td><td>'+st.n+'</td><td>'+esc(sampleLabel(st))+'</td><td><button type="button" class="scoutPick" data-scout="'+esc(o.faction)+'">View games</button></td></tr>'}
