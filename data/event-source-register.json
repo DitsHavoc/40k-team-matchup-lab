@@ -18,8 +18,8 @@
         "https://www.uktc.events/blog/categories/teams",
         "https://www.uktc.team/events"
       ],
-      "import_status": "pipeline_unverified",
-      "verified_games": 0,
+      "import_status": "imported_pending_round_audit",
+      "verified_games": 877,
       "required_fields": [
         "round",
         "team_a",
@@ -41,7 +41,7 @@
         "mission_b",
         "pairing_role"
       ],
-      "notes": "Metascribe event page has 71 listed teams/355 players. UKTC organiser publication has separately cited 72 teams; source count discrepancy remains to reconcile. Automated collector targets Metascribe individual-game histories and verifies round coverage. No game CSV published yet."
+      "notes": "877 rows in published CSV at 2026-11-16: rounds 1=174, 2=175, 3=174, 4=174, 5=175, 6=5. Five round-6 records require checking, and several rounds may have byes. Source is Metascribe; terrain fields missing."
     },
     {
       "id": "uktc-autumn-itt-2026",
