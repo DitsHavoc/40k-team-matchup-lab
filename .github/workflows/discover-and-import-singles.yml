@@ -1,0 +1,50 @@
+name: Discover and validate worldwide singles events
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/discover_metascribe_singles.py'
+      - 'scripts/run_discovered_singles.py'
+      - '.github/workflows/discover-and-import-singles.yml'
+  schedule:
+    - cron: '07 3 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: singles-dataset-refresh
+  cancel-in-progress: false
+jobs:
+  discover-and-collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 105
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Discover 2026 11th edition singles events globally
+        id: discovery
+        continue-on-error: true
+        run: python scripts/discover_metascribe_singles.py --pages 6 --limit 120
+      - name: Collect two source-verified events without blocking other datasets
+        id: ingest
+        if: steps.discovery.outcome == 'success'
+        continue-on-error: true
+        run: python scripts/run_discovered_singles.py --limit 2 --max-players 300
+      - name: Audit overlap with existing tournament results
+        run: python scripts/audit_cross_sources.py
+      - name: Publish only validated game-level datasets and diagnostics
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/singles-discovery.json public/data/auto-import-status.json public/data/cross-source-audit.json 2>/dev/null || true
+          git add public/data/singles-auto-*.csv 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh verified worldwide singles game evidence"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Expose discovery or validation failures
+        if: steps.discovery.outcome == 'failure' || steps.ingest.outcome == 'failure'
+        run: exit 1
