@@ -266,6 +266,10 @@ for ti,(team,url) in enumerate(teams,1):
             if len(rn)!=1:
                 audit["no_round"]+=1;continue
             rnd=next(iter(rn))
+            if rnd < 1 or rnd > ROUNDS:
+                audit.setdefault('out_of_range_round',0)
+                audit['out_of_range_round']+=1
+                continue
             fac_a,disp_a=parse_army(cells[3])
             fac_b,disp_b=parse_army(cells[5])
             if not all([fac_a,disp_a,fac_b,disp_b]):
