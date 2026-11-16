@@ -33,7 +33,7 @@ jobs:
       - name: Discover team tournaments over 100 players
         id: discover
         continue-on-error: true
-        run: python scripts/discover_metascribe_teams.py --pages 5 --limit 500
+        run: python scripts/discover_metascribe_teams.py --pages 4 --limit 500
       - name: Require an audited event candidate queue
         run: test -s public/data/teams-discovery.json
       - name: Import three validated team tournaments
