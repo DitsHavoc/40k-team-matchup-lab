@@ -238,8 +238,11 @@ function fmt(n){return n==null?'—':n.toFixed(1)}function matchFor(a,b,da,db,ig
 function render(){const a=$('myFaction').value,b=$('oppFaction').value,da=$('myDisposition').value,db=$('oppDisposition').value;const i=dispositions.indexOf(da),j=dispositions.indexOf(db);$('missions').innerHTML=i>=0&&j>=0?'<div class="two"><div><small class="muted">Your primary mission</small><h3>'+esc(missionMap[i][j])+'</h3></div><div><small class="muted">Opponent primary mission</small><h3>'+esc(missionMap[j][i])+'</h3></div></div>':'<span class="hint">Select both Force Dispositions to see the calculated mission interaction. Results below include all dispositions currently selected.</span>';const rows=matchFor(a,b,da,db);const s=stat(rows);
  const allFactionGames=records.filter(r=>(r.faction_a===a&&r.faction_b===b)||(r.faction_b===a&&r.faction_a===b));
  const allGames=allFactionGames.length,afterOtherFilters=matchFor(a,b,'','').length;
- const ownDispositionGames=da?matchFor(a,b,da,'').length:afterOtherFilters;
- const oppDispositionGames=db?matchFor(a,b,'',db).length:afterOtherFilters;
+ const broadRows=matchFor(a,b,'','');
+ const ownRows=da?matchFor(a,b,da,''):broadRows;
+ const oppRows=db?matchFor(a,b,'',db):broadRows;
+ const ownDispositionGames=ownRows.length;
+ const oppDispositionGames=oppRows.length;
  const selected=rows.length,knownBoth=allFactionGames.filter(r=>r.disposition_a&&r.disposition_b).length;
  const filterText=(da||db)?' · <b>'+selected+'</b> match the selected disposition'+(da&&db?' pair':''):'';
  const moreHidden=selected<allGames;
@@ -252,7 +255,13 @@ function render(){const a=$('myFaction').value,b=$('oppFaction').value,da=$('myD
   $('terrain').value='';$('event').value='';$('dateFrom').value='';$('minTeams').value='0';$('recency').value='0';$('rulesVersion').value='';$('eventFormat').value='all';
   render();
  };
- $('games').textContent=s.n;$('wdl').textContent=s.n?s.w+' / '+s.d+' / '+s.l+(s.unknown?' (+'+s.unknown+' unknown)':''):'—';$('avg').textContent=fmt(s.avg);$('rate').textContent=s.rate==null?'—':fmt(s.rate)+'%';$('exploreDetails').innerHTML=s.n?'<span class="chip">Opponent average '+fmt(20-s.avg)+'/20</span><span class="chip">'+sampleLabel(s)+' · '+s.n+' games from '+s.events+' events</span>':'<div class="empty">No recorded games under these filters. Try choosing any disposition or resetting the advanced filters.</div>';$('matches').innerHTML=rows.length?'<div class="scroll"><table><thead><tr><th>Event / Round</th><th>Players</th><th>Score</th><th>Format</th><th>Details</th></tr></thead><tbody>'+rows.slice(0,300).map((r,i)=>'<tr><td>'+esc(r.event_name)+'<small>'+(r.round?'Round '+esc(r.round):esc(r.event_date))+'</small></td><td>'+esc(r.player_a)+' vs '+esc(r.player_b)+'</td><td>'+esc(r.score_a_20)+'–'+esc(r.score_b_20)+'</td><td>'+esc(formatOf(r))+'</td><td><button type="button" class="gameDetailBtn" data-game="'+i+'">Open game</button></td></tr>').join('')+'</tbody></table></div>':'<div class="empty">No matching individual games.</div>';
+ const broad=stat(broadRows),ownStat=stat(ownRows),oppStat=stat(oppRows);
+ const evidenceTable=(da||db)&&selected<10?'<div class="pair-note" style="margin-top:12px"><b>Wider matchup evidence (not exact results)</b><p class="hint">A tiny exact sample is unreliable. These groups overlap; do not add their sample sizes together.</p><div class="scroll"><table style="min-width:360px"><thead><tr><th>Evidence</th><th>Games</th><th>Average /20</th></tr></thead><tbody>'+
+ '<tr><td>All '+esc(a)+' vs '+esc(b)+'</td><td>'+broad.n+'</td><td>'+fmt(broad.avg)+'</td></tr>'+
+ (da?'<tr><td>Your '+esc(da)+' vs any opposing disposition</td><td>'+ownStat.n+'</td><td>'+fmt(ownStat.avg)+'</td></tr>':'')+
+ (db?'<tr><td>Any of yours vs opponent '+esc(db)+'</td><td>'+oppStat.n+'</td><td>'+fmt(oppStat.avg)+'</td></tr>':'')+
+ '<tr><td>Exact selected matchup</td><td>'+s.n+'</td><td>'+fmt(s.avg)+'</td></tr></tbody></table></div><p class="hint">These are observed averages, not a validated prediction.</p></div>':'';
+ $('games').textContent=s.n;$('wdl').textContent=s.n?s.w+' / '+s.d+' / '+s.l+(s.unknown?' (+'+s.unknown+' unknown)':''):'—';$('avg').textContent=fmt(s.avg);$('rate').textContent=s.rate==null?'—':fmt(s.rate)+'%';$('exploreDetails').innerHTML=(s.n?'<span class="chip">Opponent average '+fmt(20-s.avg)+'/20</span><span class="chip">'+sampleLabel(s)+' · '+s.n+' games from '+s.events+' events</span>':'<div class="empty">No recorded games under these filters. Try choosing any disposition or resetting the advanced filters.</div>')+evidenceTable;$('matches').innerHTML=rows.length?'<div class="scroll"><table><thead><tr><th>Event / Round</th><th>Players</th><th>Score</th><th>Format</th><th>Details</th></tr></thead><tbody>'+rows.slice(0,300).map((r,i)=>'<tr><td>'+esc(r.event_name)+'<small>'+(r.round?'Round '+esc(r.round):esc(r.event_date))+'</small></td><td>'+esc(r.player_a)+' vs '+esc(r.player_b)+'</td><td>'+esc(r.score_a_20)+'–'+esc(r.score_b_20)+'</td><td>'+esc(formatOf(r))+'</td><td><button type="button" class="gameDetailBtn" data-game="'+i+'">Open game</button></td></tr>').join('')+'</tbody></table></div>':'<div class="empty">No matching individual games.</div>';
  $('gameDetail').hidden=true;$('gameDetail').innerHTML='';
  $('matches').querySelectorAll('.gameDetailBtn').forEach(btn=>btn.onclick=()=>showGame(rows[Number(btn.dataset.game)]));renderMatrix();renderEvents()}let verifiedPlayerLinks=new Map();
 function profileKey(event,name,faction){return [String(event||'').toLowerCase().replace(/[^a-z0-9]/g,''),String(name||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,''),String(faction||'').toLowerCase().replace(/[^a-z0-9]/g,'')].join('|')}
