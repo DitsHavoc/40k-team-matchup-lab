@@ -7,7 +7,8 @@ additional safeguard within the selected event.
 """
 from collections import defaultdict
 from datetime import date
-import re,unicodedata
+from pathlib import Path
+import json,re,unicodedata
 
 def normal_name(text):
     t=unicodedata.normalize("NFKD",str(text or "")).casefold()
@@ -15,9 +16,21 @@ def normal_name(text):
     t=t.replace("&","and")
     return re.sub(r"[^a-z0-9]","",t)
 
+def alias_name(name):
+    normalized=normal_name(name)
+    path=Path(__file__).resolve().parent.parent/"public/data/event-aliases.json"
+    try:
+        aliases=json.loads(path.read_text(encoding="utf-8")).get("aliases",{})
+        for canonical,variants in aliases.items():
+            if normalized in {normal_name(canonical),*(normal_name(n) for n in variants)}:
+                return normal_name(canonical)
+    except (OSError,ValueError,TypeError):
+        pass
+    return normalized
+
 def event_group_key(name, event_format):
     fmt="singles" if event_format=="singles" else "team"
-    return (normal_name(name),fmt)
+    return (alias_name(name),fmt)
 
 def first_date(rows):
     dates=[]
