@@ -20,6 +20,26 @@ from bs4 import BeautifulSoup
 
 BASE = "https://metascribe.gg"
 EVENTS = {
+  "studs-snotlings-2026": {
+    "url": BASE + "/tournaments/studs-and-snotlings-2026/",
+    "name": "Studs and Snotlings 2026",
+    "date": "2026-09-19",
+    "teams": 26,
+    "rounds": 5,
+    "players_per_team": 8,
+    "min_games": 400,
+    "output": "public/data/studs-and-snotlings-2026.csv"
+  },
+  "nrw-alpine-2026": {
+    "url": BASE + "/tournaments/nrw-40k-teams-2026-alpine-cup/",
+    "name": "NRW 40K Teams 2026 – Alpine Cup",
+    "date": "2026-09-19",
+    "teams": 30,
+    "rounds": 5,
+    "players_per_team": 5,
+    "min_games": 260,
+    "output": "public/data/nrw-alpine-cup-2026.csv"
+  },
   "wtc-2026": {
     "url": BASE + "/tournaments/wtc-wh40k-2026/",
     "name": "WTC WH40K 2026",
