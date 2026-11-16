@@ -1,0 +1,6 @@
+{
+  "updated_at_utc": "2026-11-16T14:18:57.142125+00:00",
+  "status": "failed",
+  "reason": "Discovery produced too few candidates; ['No eligible events on https://metascribe.gg/tournaments/?page=2', 'No eligible events on https://metascribe.gg/tournaments/?page=3', 'No eligible events on https://metascribe.gg/tournaments/?page=4', 'No eligible events on https://metascribe.gg/tournaments/?page=5', 'No eligible events on https://metascribe.gg/tournaments/?page=6', 'No eligible events on https://metascribe.gg/tournaments/?page=7', 'No eligible events on https://metascribe.gg/tournaments/?page=8', 'No eligible events on https://metascribe.gg/tournaments/?page=9', 'No eligible events on https://metascribe.gg/tournaments/?page=10']",
+  "note": "Previous verified event-game CSVs are unaffected; failed discovery must not be counted."
+}
