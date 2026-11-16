@@ -4,6 +4,11 @@ import csv,json,subprocess,sys
 from pathlib import Path
 from datetime import datetime,timezone
 EVENTS={
+ "lgt-2026":("public/data/singles-lgt-2026.csv",1700),
+ "lvo-2026":("public/data/singles-lvo-2026.csv",1000),
+ "ratcon-2026":("public/data/singles-ratcon-2026.csv",130),
+ "kent-major-2026":("public/data/singles-kent-major-2026.csv",110),
+ "october-rtt-2026":("public/data/singles-october-rtt-2026.csv",18),
  "epsom-2026":("public/data/singles-epsom-2026.csv",100),
  "newport-2026":("public/data/singles-newport-2026.csv",400),
 }
@@ -16,7 +21,7 @@ def validate(path,min_games):
  seen=set()
  for n,r in enumerate(rows,2):
   if any(not r[k] for k in required):return len(rows),f"line {n} missing required field"
-  if r["event_format"]!="singles" or r.get("score_type")!="published_wtc_equivalent":return len(rows),f"line {n} wrong score provenance"
+  if r["event_format"]!="singles" or r.get("score_type") not in ("published_wtc_equivalent","calculated_wtc_from_raw_vp"):return len(rows),f"line {n} wrong score provenance"
   try:a=int(r["score_a_20"]);b=int(r["score_b_20"])
   except ValueError:return len(rows),f"line {n} invalid score"
   if not 0<=a<=20 or not 0<=b<=20 or a+b!=20:return len(rows),f"line {n} non-20 score"
