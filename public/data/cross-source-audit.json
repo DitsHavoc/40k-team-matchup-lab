@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-16T21:43:54.437375+00:00",
+  "updated_at_utc": "2026-11-17T04:33:51.472158+00:00",
   "published_files_audited": [
     {
       "file": "challengers-cup-2026.csv",
@@ -16,6 +16,10 @@
     {
       "file": "scottish-open-teams-2026.csv",
       "rows": 343
+    },
+    {
+      "file": "singles-auto-008718134b2f.csv",
+      "rows": 237
     },
     {
       "file": "singles-auto-0275dbd2e968.csv",
@@ -38,8 +42,16 @@
       "rows": 68
     },
     {
+      "file": "singles-auto-11ae81471f2d.csv",
+      "rows": 345
+    },
+    {
       "file": "singles-auto-17bf68b5a947.csv",
       "rows": 534
+    },
+    {
+      "file": "singles-auto-18d4c90b241c.csv",
+      "rows": 294
     },
     {
       "file": "singles-auto-25004316c2e6.csv",
@@ -54,20 +66,56 @@
       "rows": 544
     },
     {
+      "file": "singles-auto-4ccb5264a2c0.csv",
+      "rows": 214
+    },
+    {
+      "file": "singles-auto-4cee712c33a4.csv",
+      "rows": 226
+    },
+    {
       "file": "singles-auto-50675d219405.csv",
       "rows": 378
+    },
+    {
+      "file": "singles-auto-52d8cac9d751.csv",
+      "rows": 206
     },
     {
       "file": "singles-auto-5550fe3c4e82.csv",
       "rows": 719
     },
     {
+      "file": "singles-auto-57b1d930db3f.csv",
+      "rows": 248
+    },
+    {
+      "file": "singles-auto-7e38f9f3a954.csv",
+      "rows": 288
+    },
+    {
+      "file": "singles-auto-86413f7517eb.csv",
+      "rows": 342
+    },
+    {
       "file": "singles-auto-8761307ae628.csv",
       "rows": 68
     },
     {
+      "file": "singles-auto-8e294ce14e64.csv",
+      "rows": 231
+    },
+    {
       "file": "singles-auto-933649ae83b3.csv",
       "rows": 78
+    },
+    {
+      "file": "singles-auto-9500999842e4.csv",
+      "rows": 254
+    },
+    {
+      "file": "singles-auto-9bbc5ce81d82.csv",
+      "rows": 90
     },
     {
       "file": "singles-auto-9c9967b5e472.csv",
@@ -76,6 +124,10 @@
     {
       "file": "singles-auto-9d01b3f48ea0.csv",
       "rows": 124
+    },
+    {
+      "file": "singles-auto-a92bdb1107eb.csv",
+      "rows": 243
     },
     {
       "file": "singles-auto-bf78bf3384fd.csv",
@@ -88,6 +140,10 @@
     {
       "file": "singles-auto-c460b95c7afa.csv",
       "rows": 450
+    },
+    {
+      "file": "singles-auto-c645b84c73cf.csv",
+      "rows": 321
     },
     {
       "file": "singles-auto-ca7e9ec865ab.csv",
@@ -104,6 +160,10 @@
     {
       "file": "singles-auto-e27324e92b88.csv",
       "rows": 489
+    },
+    {
+      "file": "singles-auto-e8af2c90cc42.csv",
+      "rows": 299
     },
     {
       "file": "singles-auto-f8b7ff6b5b05.csv",
@@ -194,7 +254,7 @@
       "rows": 1288
     }
   ],
-  "total_rows_checked": 22772,
+  "total_rows_checked": 26610,
   "cross_file_same_event_duplicates": [
     {
       "kind": "same_named_event_same_game",

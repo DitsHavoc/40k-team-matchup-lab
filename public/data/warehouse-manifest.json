@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-16T21:43:54.994681+00:00",
-  "total_unique_games": 20561,
-  "total_source_rows": 22778,
+  "updated_at_utc": "2026-11-17T04:33:52.205519+00:00",
+  "total_unique_games": 23914,
+  "total_source_rows": 26616,
   "deduplicated": 0,
-  "duplicate_tournaments_suppressed": 4,
-  "duplicate_tournament_rows_suppressed": 2217,
+  "duplicate_tournaments_suppressed": 6,
+  "duplicate_tournament_rows_suppressed": 2702,
   "suppressed_events": [
     {
       "event": "Warhammer 40000 Grand Tournament - Warhammer Open Newport",
@@ -34,6 +34,20 @@
       "chosen_source": "public/data/singles-auto-c460b95c7afa.csv",
       "suppressed_rows": 450,
       "reason": "duplicate_tournament_source"
+    },
+    {
+      "event": "THE COVENTRY 40K : 2-Day",
+      "dropped_source": "public/data/singles-uktc-coventry-2day-2026.csv",
+      "chosen_source": "public/data/singles-auto-9500999842e4.csv",
+      "suppressed_rows": 254,
+      "reason": "duplicate_tournament_source"
+    },
+    {
+      "event": "Ratcon 2026",
+      "dropped_source": "public/data/singles-ratcon-2026.csv",
+      "chosen_source": "public/data/singles-auto-8e294ce14e64.csv",
+      "suppressed_rows": 231,
+      "reason": "duplicate_tournament_source"
     }
   ],
   "invalid_rows": 0,
@@ -43,17 +57,17 @@
     {
       "path": "data/warehouse-0001.csv",
       "records": 10000,
-      "sha256": "1bf6acb51f378c09d4175cabc20c77ad8107cd1e843d17e9a4b9fca2fd63d1d3"
+      "sha256": "774b6c930a8c21abeb72e7497b374ba31cfb826f46a9b2f07959b7ffc933eaa7"
     },
     {
       "path": "data/warehouse-0002.csv",
       "records": 10000,
-      "sha256": "815064a3ca3e74743fe5aa64964726558e8edd29ce5d1fb60d651f25a6d2d15b"
+      "sha256": "e9f160b0d3e05e6100754e72b3d8c66d73174d565de6c404d04d1f6b2e0b4028"
     },
     {
       "path": "data/warehouse-0003.csv",
-      "records": 561,
-      "sha256": "15c5684c758da712fb8aeb31bde247ac95da5a73e73c6b3a6438285f59d42a64"
+      "records": 3914,
+      "sha256": "6c967a64189f2b3624434749290d073bab1564186448d7f957f66d5a1650d2f2"
     }
   ],
   "sources": [
@@ -173,6 +187,11 @@
       "accepted_unique": 356
     },
     {
+      "path": "public/data/singles-auto-11ae81471f2d.csv",
+      "event_name": "The Upkeep Games GT I 2026",
+      "accepted_unique": 345
+    },
+    {
       "path": "public/data/south-pacific-8s-2026.csv",
       "event_name": "south pacific 8s October event",
       "accepted_unique": 345
@@ -181,6 +200,11 @@
       "path": "public/data/scottish-open-teams-2026.csv",
       "event_name": "Scottish Open Team Championship",
       "accepted_unique": 343
+    },
+    {
+      "path": "public/data/singles-auto-86413f7517eb.csv",
+      "event_name": "The Salt City GT 40K Grand Tournament",
+      "accepted_unique": 342
     },
     {
       "path": "public/data/singles-auto-0275dbd2e968.csv",
@@ -193,24 +217,74 @@
       "accepted_unique": 332
     },
     {
+      "path": "public/data/singles-auto-c645b84c73cf.csv",
+      "event_name": "Flying Monkey Con 26 Warhammer 40k GT",
+      "accepted_unique": 321
+    },
+    {
       "path": "public/data/teams-auto-ccc41fd004ab.csv",
       "event_name": "Gladiator Gaming Teams Sept",
       "accepted_unique": 316
     },
     {
-      "path": "public/data/singles-uktc-coventry-2day-2026.csv",
+      "path": "public/data/singles-auto-e8af2c90cc42.csv",
+      "event_name": "Warhammer 40000 Grand Tournament \u2013 Kempton Park",
+      "accepted_unique": 299
+    },
+    {
+      "path": "public/data/singles-auto-18d4c90b241c.csv",
+      "event_name": "Denver 40K Fight Club Oct. Open \u201826",
+      "accepted_unique": 294
+    },
+    {
+      "path": "public/data/singles-auto-7e38f9f3a954.csv",
+      "event_name": "Doonhamer Open 2026",
+      "accepted_unique": 288
+    },
+    {
+      "path": "public/data/singles-auto-9500999842e4.csv",
       "event_name": "THE COVENTRY 40K : 2-Day",
       "accepted_unique": 254
     },
     {
-      "path": "public/data/singles-ratcon-2026.csv",
+      "path": "public/data/singles-auto-57b1d930db3f.csv",
+      "event_name": "OGRE 2026 Open du Grand Est 4\u00e8me EDITION",
+      "accepted_unique": 248
+    },
+    {
+      "path": "public/data/singles-auto-a92bdb1107eb.csv",
+      "event_name": "Alba GT 2026",
+      "accepted_unique": 243
+    },
+    {
+      "path": "public/data/singles-auto-008718134b2f.csv",
+      "event_name": "Arch City GT 5",
+      "accepted_unique": 237
+    },
+    {
+      "path": "public/data/singles-auto-8e294ce14e64.csv",
       "event_name": "Ratcon 2026",
       "accepted_unique": 231
+    },
+    {
+      "path": "public/data/singles-auto-4cee712c33a4.csv",
+      "event_name": "Rumble on the Rivers 40k GT 2026",
+      "accepted_unique": 226
+    },
+    {
+      "path": "public/data/singles-auto-4ccb5264a2c0.csv",
+      "event_name": "WH40k Ropecon GT 2026",
+      "accepted_unique": 214
     },
     {
       "path": "public/data/singles-kent-major-2026.csv",
       "event_name": "The Kent Major 2026",
       "accepted_unique": 210
+    },
+    {
+      "path": "public/data/singles-auto-52d8cac9d751.csv",
+      "event_name": "BAYERN MAJOR 40k 2026",
+      "accepted_unique": 206
     },
     {
       "path": "public/data/singles-auto-de3e89b1d1e4.csv",
@@ -226,6 +300,11 @@
       "path": "public/data/singles-auto-9d01b3f48ea0.csv",
       "event_name": "Madness in the middle",
       "accepted_unique": 124
+    },
+    {
+      "path": "public/data/singles-auto-9bbc5ce81d82.csv",
+      "event_name": "M\u00fcnsterland Major 5",
+      "accepted_unique": 90
     },
     {
       "path": "public/data/singles-auto-933649ae83b3.csv",
