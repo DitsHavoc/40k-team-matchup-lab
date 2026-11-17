@@ -1,6 +1,8 @@
 {
-  "updated_at_utc": "2026-11-16T19:30:50.717855+00:00",
-  "status": "success",
+  "updated_at_utc": "2026-11-17T09:24:49.697730+00:00",
+  "status": "partial",
   "candidate_events": 31,
-  "issues": []
+  "issues": [
+    "Page 3: 404 Client Error: Not Found for url: https://metascribe.gg/tournaments/page/2/?format=team&size=super"
+  ]
 }

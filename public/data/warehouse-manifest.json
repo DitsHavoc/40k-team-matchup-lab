@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-17T04:33:52.205519+00:00",
-  "total_unique_games": 23914,
-  "total_source_rows": 26616,
+  "updated_at_utc": "2026-11-17T09:41:23.052754+00:00",
+  "total_unique_games": 24551,
+  "total_source_rows": 27708,
   "deduplicated": 0,
-  "duplicate_tournaments_suppressed": 6,
-  "duplicate_tournament_rows_suppressed": 2702,
+  "duplicate_tournaments_suppressed": 7,
+  "duplicate_tournament_rows_suppressed": 3157,
   "suppressed_events": [
     {
       "event": "Warhammer 40000 Grand Tournament - Warhammer Open Newport",
@@ -26,6 +26,13 @@
       "dropped_source": "public/data/singles-uktc-coventry-3day-2026.csv",
       "chosen_source": "public/data/singles-auto-17bf68b5a947.csv",
       "suppressed_rows": 534,
+      "reason": "duplicate_tournament_source"
+    },
+    {
+      "event": "The 2026 Gateway Open 40K Teams Tournament",
+      "dropped_source": "public/data/teams-auto-0122b3e9e664.csv",
+      "chosen_source": "public/data/gateway-open-teams-2026.csv",
+      "suppressed_rows": 455,
       "reason": "duplicate_tournament_source"
     },
     {
@@ -57,17 +64,17 @@
     {
       "path": "data/warehouse-0001.csv",
       "records": 10000,
-      "sha256": "774b6c930a8c21abeb72e7497b374ba31cfb826f46a9b2f07959b7ffc933eaa7"
+      "sha256": "54733e3e1da26b4aa94e60c7244b64d5d258523c5bd9460bc2a3129372858fb1"
     },
     {
       "path": "data/warehouse-0002.csv",
       "records": 10000,
-      "sha256": "e9f160b0d3e05e6100754e72b3d8c66d73174d565de6c404d04d1f6b2e0b4028"
+      "sha256": "347b379a83c9a618d7bbaa3fe14d7d4f7fafb46b4319ccbba04871ba74fa8ae1"
     },
     {
       "path": "data/warehouse-0003.csv",
-      "records": 3914,
-      "sha256": "6c967a64189f2b3624434749290d073bab1564186448d7f957f66d5a1650d2f2"
+      "records": 4551,
+      "sha256": "a942eae02b05b40caab0368c042d6f544dc111696c7f0da28d3a4eb1463af60e"
     }
   ],
   "sources": [
@@ -197,6 +204,11 @@
       "accepted_unique": 345
     },
     {
+      "path": "public/data/teams-auto-ace282df4822.csv",
+      "event_name": "PragueGT \u2013 Fall 2026",
+      "accepted_unique": 344
+    },
+    {
       "path": "public/data/scottish-open-teams-2026.csv",
       "event_name": "Scottish Open Team Championship",
       "accepted_unique": 343
@@ -235,6 +247,11 @@
       "path": "public/data/singles-auto-18d4c90b241c.csv",
       "event_name": "Denver 40K Fight Club Oct. Open \u201826",
       "accepted_unique": 294
+    },
+    {
+      "path": "public/data/teams-auto-4532c2534026.csv",
+      "event_name": "Gladiator Gaming Teams July",
+      "accepted_unique": 293
     },
     {
       "path": "public/data/singles-auto-7e38f9f3a954.csv",

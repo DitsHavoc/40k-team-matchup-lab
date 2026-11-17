@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-16T19:52:44.394714+00:00",
+  "updated_at_utc": "2026-11-17T09:41:21.668993+00:00",
   "events": {
     "1819236fabb2": {
       "name": "GT BUNKERHAMMER XIV",
@@ -38,6 +38,45 @@
       "diagnostic": "Wrote public/data/teams-auto-ccc41fd004ab.csv",
       "attempts": 1,
       "last_attempt_utc": "2026-11-16T19:52:44.394680+00:00",
+      "retry_after_utc": null
+    },
+    "0122b3e9e664": {
+      "name": "The 2026 Gateway Open 40K Teams Tournament",
+      "event_date": "2026-08-07",
+      "source_url": "https://metascribe.gg/tournaments/the-2026-gateway-open-40k-teams-tournament/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 455,
+      "csv_path": "public/data/teams-auto-0122b3e9e664.csv",
+      "diagnostic": "Wrote public/data/teams-auto-0122b3e9e664.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-17T09:31:03.256822+00:00",
+      "retry_after_utc": null
+    },
+    "4532c2534026": {
+      "name": "Gladiator Gaming Teams July",
+      "event_date": "2026-07-24",
+      "source_url": "https://metascribe.gg/tournaments/gladiator-gaming-teams-july/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 293,
+      "csv_path": "public/data/teams-auto-4532c2534026.csv",
+      "diagnostic": "Wrote public/data/teams-auto-4532c2534026.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-17T09:36:16.583884+00:00",
+      "retry_after_utc": null
+    },
+    "ace282df4822": {
+      "name": "PragueGT \u2013 Fall 2026",
+      "event_date": "2026-11-14",
+      "source_url": "https://metascribe.gg/tournaments/praguegt-fall-2026/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 344,
+      "csv_path": "public/data/teams-auto-ace282df4822.csv",
+      "diagnostic": "Wrote public/data/teams-auto-ace282df4822.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-17T09:41:21.668957+00:00",
       "retry_after_utc": null
     }
   },

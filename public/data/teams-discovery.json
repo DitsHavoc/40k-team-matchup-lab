@@ -1,7 +1,7 @@
 {
-  "updated_at_utc": "2026-11-16T19:30:50.717390+00:00",
-  "source": "https://metascribe.gg/tournaments/?format=team",
-  "pages_checked": 5,
+  "updated_at_utc": "2026-11-17T09:24:49.697359+00:00",
+  "source": "https://metascribe.gg/tournaments/?format=team&size=major",
+  "pages_checked": 4,
   "candidates": [
     {
       "id": "b0579e05373f",
@@ -345,6 +345,8 @@
       "status": "candidate_not_imported"
     }
   ],
-  "issues": [],
+  "issues": [
+    "Page 3: 404 Client Error: Not Found for url: https://metascribe.gg/tournaments/page/2/?format=team&size=super"
+  ],
   "note": "Event metadata candidates only; games must be independently verified from player histories."
 }
