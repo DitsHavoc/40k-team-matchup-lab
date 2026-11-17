@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-17T09:41:21.668993+00:00",
+  "updated_at_utc": "2026-11-17T22:06:20.536760+00:00",
   "events": {
     "1819236fabb2": {
       "name": "GT BUNKERHAMMER XIV",
@@ -77,6 +77,45 @@
       "diagnostic": "Wrote public/data/teams-auto-ace282df4822.csv",
       "attempts": 1,
       "last_attempt_utc": "2026-11-17T09:41:21.668957+00:00",
+      "retry_after_utc": null
+    },
+    "d06ce249f07e": {
+      "name": "V GT de C\u00f3rdoba",
+      "event_date": "2026-09-12",
+      "source_url": "https://metascribe.gg/tournaments/v-gt-de-cordoba/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 342,
+      "csv_path": "public/data/teams-auto-d06ce249f07e.csv",
+      "diagnostic": "Wrote public/data/teams-auto-d06ce249f07e.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-17T21:56:42.587296+00:00",
+      "retry_after_utc": null
+    },
+    "589923493fce": {
+      "name": "The Armadillo Cup WarZone Houston",
+      "event_date": "2026-09-25",
+      "source_url": "https://metascribe.gg/tournaments/the-armadillo-cup-warzone-houston/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 392,
+      "csv_path": "public/data/teams-auto-589923493fce.csv",
+      "diagnostic": "Wrote public/data/teams-auto-589923493fce.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-17T22:01:33.402967+00:00",
+      "retry_after_utc": null
+    },
+    "abe52db76a14": {
+      "name": "GT BCN 2026 Warhammer 40K",
+      "event_date": "2026-09-19",
+      "source_url": "https://metascribe.gg/tournaments/gt-bcn-2026-warhammer-40k/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 336,
+      "csv_path": "public/data/teams-auto-abe52db76a14.csv",
+      "diagnostic": "Wrote public/data/teams-auto-abe52db76a14.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-17T22:06:20.536724+00:00",
       "retry_after_utc": null
     }
   },

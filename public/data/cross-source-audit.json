@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-17T19:06:57.681116+00:00",
+  "updated_at_utc": "2026-11-17T22:06:20.876279+00:00",
   "published_files_audited": [
     {
       "file": "challengers-cup-2026.csv",
@@ -298,8 +298,16 @@
       "rows": 293
     },
     {
+      "file": "teams-auto-589923493fce.csv",
+      "rows": 392
+    },
+    {
       "file": "teams-auto-8353bf8e5647.csv",
       "rows": 436
+    },
+    {
+      "file": "teams-auto-abe52db76a14.csv",
+      "rows": 336
     },
     {
       "file": "teams-auto-ace282df4822.csv",
@@ -308,6 +316,10 @@
     {
       "file": "teams-auto-ccc41fd004ab.csv",
       "rows": 316
+    },
+    {
+      "file": "teams-auto-d06ce249f07e.csv",
+      "rows": 342
     },
     {
       "file": "uktc-autumn-itt-2026-partial.csv",
@@ -330,7 +342,7 @@
       "rows": 1288
     }
   ],
-  "total_rows_checked": 32566,
+  "total_rows_checked": 33636,
   "cross_file_same_event_duplicates": [
     {
       "kind": "same_named_event_same_game",

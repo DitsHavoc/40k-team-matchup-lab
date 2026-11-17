@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-17T19:06:58.974636+00:00",
-  "total_unique_games": 27380,
-  "total_source_rows": 32578,
+  "updated_at_utc": "2026-11-17T22:06:21.927809+00:00",
+  "total_unique_games": 28450,
+  "total_source_rows": 33648,
   "deduplicated": 0,
   "duplicate_tournaments_suppressed": 9,
   "duplicate_tournament_rows_suppressed": 5198,
@@ -83,12 +83,12 @@
     {
       "path": "data/warehouse-0002.csv",
       "records": 10000,
-      "sha256": "f04a26a04e0a5221f5da2a79bf0d0371bc72fd1c347f04f4219b5e6119949fa5"
+      "sha256": "cc7cda9af3741d41a0ae3fa14aa71fc53769b3463572af3cd73425d3e3bc3994"
     },
     {
       "path": "data/warehouse-0003.csv",
-      "records": 7380,
-      "sha256": "67a51ed5c23169ffaebf1027c9b4a17db6a58ee90319200b6dff516ddad5c559"
+      "records": 8450,
+      "sha256": "9842edb46170d7fe36c2a48d224281fba67c8bfd0a633f09961f12f5b82aa932"
     }
   ],
   "sources": [
@@ -188,6 +188,11 @@
       "accepted_unique": 424
     },
     {
+      "path": "public/data/teams-auto-589923493fce.csv",
+      "event_name": "The Armadillo Cup WarZone Houston",
+      "accepted_unique": 392
+    },
+    {
       "path": "public/data/singles-auto-50675d219405.csv",
       "event_name": "Northern Maelstrom 2026 Warhammer 40000 Grand Tournament",
       "accepted_unique": 378
@@ -231,6 +236,16 @@
       "path": "public/data/singles-auto-86413f7517eb.csv",
       "event_name": "The Salt City GT 40K Grand Tournament",
       "accepted_unique": 342
+    },
+    {
+      "path": "public/data/teams-auto-d06ce249f07e.csv",
+      "event_name": "V GT de C\u00f3rdoba",
+      "accepted_unique": 342
+    },
+    {
+      "path": "public/data/teams-auto-abe52db76a14.csv",
+      "event_name": "GT BCN 2026 Warhammer 40K",
+      "accepted_unique": 336
     },
     {
       "path": "public/data/singles-auto-0275dbd2e968.csv",
