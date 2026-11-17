@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-17T11:46:39.629014+00:00",
-  "total_unique_games": 24551,
-  "total_source_rows": 29539,
+  "updated_at_utc": "2026-11-17T19:06:58.974636+00:00",
+  "total_unique_games": 27380,
+  "total_source_rows": 32578,
   "deduplicated": 0,
-  "duplicate_tournaments_suppressed": 8,
-  "duplicate_tournament_rows_suppressed": 4988,
+  "duplicate_tournaments_suppressed": 9,
+  "duplicate_tournament_rows_suppressed": 5198,
   "suppressed_events": [
     {
       "event": "LVO 2026 - Warhammer 40k Championships - Las Vegas Open",
@@ -62,6 +62,13 @@
       "chosen_source": "public/data/singles-auto-8e294ce14e64.csv",
       "suppressed_rows": 231,
       "reason": "duplicate_tournament_source"
+    },
+    {
+      "event": "The Kent Major 2026",
+      "dropped_source": "public/data/singles-kent-major-2026.csv",
+      "chosen_source": "public/data/singles-auto-ee35b694d896.csv",
+      "suppressed_rows": 210,
+      "reason": "duplicate_tournament_source"
     }
   ],
   "invalid_rows": 0,
@@ -71,17 +78,17 @@
     {
       "path": "data/warehouse-0001.csv",
       "records": 10000,
-      "sha256": "54733e3e1da26b4aa94e60c7244b64d5d258523c5bd9460bc2a3129372858fb1"
+      "sha256": "bd741070328af7aab74d39a1c6a8518353668a1c3b3b3247d523e5afcd7788d7"
     },
     {
       "path": "data/warehouse-0002.csv",
       "records": 10000,
-      "sha256": "955b6fb3edd0b226d90f42ff64df71b26416de9b1541363fd382b0af3d75985e"
+      "sha256": "f04a26a04e0a5221f5da2a79bf0d0371bc72fd1c347f04f4219b5e6119949fa5"
     },
     {
       "path": "data/warehouse-0003.csv",
-      "records": 4551,
-      "sha256": "a942eae02b05b40caab0368c042d6f544dc111696c7f0da28d3a4eb1463af60e"
+      "records": 7380,
+      "sha256": "67a51ed5c23169ffaebf1027c9b4a17db6a58ee90319200b6dff516ddad5c559"
     }
   ],
   "sources": [
@@ -276,6 +283,11 @@
       "accepted_unique": 248
     },
     {
+      "path": "public/data/singles-auto-202de7aac01a.csv",
+      "event_name": "Roll for Damage GT \u2013 Presented by Dragon\u2019s Lair",
+      "accepted_unique": 244
+    },
+    {
       "path": "public/data/singles-auto-a92bdb1107eb.csv",
       "event_name": "Alba GT 2026",
       "accepted_unique": 243
@@ -291,8 +303,23 @@
       "accepted_unique": 231
     },
     {
+      "path": "public/data/singles-auto-3cdafecdcafe.csv",
+      "event_name": "Denver 40K Fight Club Aug Open \u201826",
+      "accepted_unique": 228
+    },
+    {
       "path": "public/data/singles-auto-4cee712c33a4.csv",
       "event_name": "Rumble on the Rivers 40k GT 2026",
+      "accepted_unique": 226
+    },
+    {
+      "path": "public/data/singles-auto-71679828719e.csv",
+      "event_name": "Bloodshed Bay Two",
+      "accepted_unique": 226
+    },
+    {
+      "path": "public/data/singles-auto-922e6a32d484.csv",
+      "event_name": "Rook\u2019s 40k Open 2026",
       "accepted_unique": 226
     },
     {
@@ -301,14 +328,59 @@
       "accepted_unique": 214
     },
     {
-      "path": "public/data/singles-kent-major-2026.csv",
+      "path": "public/data/singles-auto-061143be92d0.csv",
+      "event_name": "Grand Pitounerie 2 Open 40k de Loire Atlantique",
+      "accepted_unique": 212
+    },
+    {
+      "path": "public/data/singles-auto-dec5e788292c.csv",
+      "event_name": "Battle of the East",
+      "accepted_unique": 210
+    },
+    {
+      "path": "public/data/singles-auto-ee35b694d896.csv",
       "event_name": "The Kent Major 2026",
       "accepted_unique": 210
+    },
+    {
+      "path": "public/data/singles-auto-cb31f0a3329d.csv",
+      "event_name": "Bordeaux OPEN",
+      "accepted_unique": 209
     },
     {
       "path": "public/data/singles-auto-52d8cac9d751.csv",
       "event_name": "BAYERN MAJOR 40k 2026",
       "accepted_unique": 206
+    },
+    {
+      "path": "public/data/singles-auto-841f9df70ad3.csv",
+      "event_name": "Krootcon 2026",
+      "accepted_unique": 192
+    },
+    {
+      "path": "public/data/singles-auto-08f1218670fe.csv",
+      "event_name": "Hee Yaw 2026",
+      "accepted_unique": 190
+    },
+    {
+      "path": "public/data/singles-auto-606f13d6c8cb.csv",
+      "event_name": "Open Les D\u00e9s Sal\u00e9s 1",
+      "accepted_unique": 189
+    },
+    {
+      "path": "public/data/singles-auto-b0ef2c5f6fe5.csv",
+      "event_name": "BOISE CUP 40k 2026",
+      "accepted_unique": 189
+    },
+    {
+      "path": "public/data/singles-auto-0ebb69d4f13e.csv",
+      "event_name": "SSG & MM Shuffle Wars IV: Makari\u2019s Hope",
+      "accepted_unique": 184
+    },
+    {
+      "path": "public/data/singles-auto-6ab24298cc43.csv",
+      "event_name": "The North East Open 2026",
+      "accepted_unique": 182
     },
     {
       "path": "public/data/singles-auto-de3e89b1d1e4.csv",
@@ -319,6 +391,11 @@
       "path": "public/data/singles-epsom-2026.csv",
       "event_name": "Warhammer 40000 Grand Tournament - Epsom Downs",
       "accepted_unique": 160
+    },
+    {
+      "path": "public/data/singles-auto-dabf906a5e85.csv",
+      "event_name": "Tolaris GT 2026",
+      "accepted_unique": 148
     },
     {
       "path": "public/data/singles-auto-9d01b3f48ea0.csv",
