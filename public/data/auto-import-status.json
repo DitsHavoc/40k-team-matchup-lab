@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-17T04:33:51.185786+00:00",
+  "updated_at_utc": "2026-11-17T11:46:37.745182+00:00",
   "events": {
     "9d01b3f48ea0": {
       "name": "Madness in the middle",
@@ -495,6 +495,30 @@
       "diagnostic": "Wrote public/data/singles-auto-4ccb5264a2c0.csv",
       "attempts": 1,
       "last_attempt_utc": "2026-11-17T04:33:51.185756+00:00",
+      "retry_after_utc": null
+    },
+    "313ff27047ac": {
+      "name": "The London Grand Tournament \u2013 40k Main Event (LGT 40k GT)",
+      "import_succeeded": false,
+      "collection_status": "exception_not_published",
+      "published_records": 0,
+      "diagnostic": "Command '['/opt/hostedtoolcache/Python/3.12.16/x64/bin/python', 'scripts/import_metascribe_singles.py', '--candidate-id', '313ff27047ac']' timed out after 1500 seconds",
+      "csv_path": null,
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-17T11:26:40.072730+00:00",
+      "retry_after_utc": "2026-11-17T17:26:40.072753+00:00"
+    },
+    "259cc2fb91e2": {
+      "name": "LVO 2026 \u2013 Warhammer 40k Championships \u2013 Las Vegas Open",
+      "event_date": "2026-10-02",
+      "source_url": "https://metascribe.gg/tournaments/lvo-2026-warhammer-40k-championships-las-vegas-open/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 1831,
+      "csv_path": "public/data/singles-auto-259cc2fb91e2.csv",
+      "diagnostic": "Wrote public/data/singles-auto-259cc2fb91e2.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-17T11:46:37.745134+00:00",
       "retry_after_utc": null
     }
   },

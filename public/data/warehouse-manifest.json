@@ -1,12 +1,19 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-17T09:41:23.052754+00:00",
+  "updated_at_utc": "2026-11-17T11:46:39.629014+00:00",
   "total_unique_games": 24551,
-  "total_source_rows": 27708,
+  "total_source_rows": 29539,
   "deduplicated": 0,
-  "duplicate_tournaments_suppressed": 7,
-  "duplicate_tournament_rows_suppressed": 3157,
+  "duplicate_tournaments_suppressed": 8,
+  "duplicate_tournament_rows_suppressed": 4988,
   "suppressed_events": [
+    {
+      "event": "LVO 2026 - Warhammer 40k Championships - Las Vegas Open",
+      "dropped_source": "public/data/singles-lvo-2026.csv",
+      "chosen_source": "public/data/singles-auto-259cc2fb91e2.csv",
+      "suppressed_rows": 1831,
+      "reason": "duplicate_tournament_source"
+    },
     {
       "event": "Warhammer 40000 Grand Tournament - Warhammer Open Newport",
       "dropped_source": "public/data/singles-newport-2026.csv",
@@ -69,7 +76,7 @@
     {
       "path": "data/warehouse-0002.csv",
       "records": 10000,
-      "sha256": "347b379a83c9a618d7bbaa3fe14d7d4f7fafb46b4319ccbba04871ba74fa8ae1"
+      "sha256": "955b6fb3edd0b226d90f42ff64df71b26416de9b1541363fd382b0af3d75985e"
     },
     {
       "path": "data/warehouse-0003.csv",
@@ -84,8 +91,8 @@
       "accepted_unique": 2519
     },
     {
-      "path": "public/data/singles-lvo-2026.csv",
-      "event_name": "LVO 2026 - Warhammer 40k Championships - Las Vegas Open",
+      "path": "public/data/singles-auto-259cc2fb91e2.csv",
+      "event_name": "LVO 2026 \u2013 Warhammer 40k Championships \u2013 Las Vegas Open",
       "accepted_unique": 1831
     },
     {

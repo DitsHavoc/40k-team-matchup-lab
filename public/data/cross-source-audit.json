@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-17T09:41:22.051879+00:00",
+  "updated_at_utc": "2026-11-17T11:46:38.291744+00:00",
   "published_files_audited": [
     {
       "file": "challengers-cup-2026.csv",
@@ -60,6 +60,10 @@
     {
       "file": "singles-auto-253491d03f7d.csv",
       "rows": 536
+    },
+    {
+      "file": "singles-auto-259cc2fb91e2.csv",
+      "rows": 1825
     },
     {
       "file": "singles-auto-48cb008694fe.csv",
@@ -266,7 +270,7 @@
       "rows": 1288
     }
   ],
-  "total_rows_checked": 27702,
+  "total_rows_checked": 29527,
   "cross_file_same_event_duplicates": [
     {
       "kind": "same_named_event_same_game",
@@ -1571,6 +1575,36 @@
   ],
   "review_cross_event_candidates": [],
   "skipped_identity_rows": [
+    {
+      "file": "singles-auto-259cc2fb91e2.csv",
+      "line": 725,
+      "issue": "incomplete identity"
+    },
+    {
+      "file": "singles-auto-259cc2fb91e2.csv",
+      "line": 963,
+      "issue": "incomplete identity"
+    },
+    {
+      "file": "singles-auto-259cc2fb91e2.csv",
+      "line": 964,
+      "issue": "incomplete identity"
+    },
+    {
+      "file": "singles-auto-259cc2fb91e2.csv",
+      "line": 1194,
+      "issue": "incomplete identity"
+    },
+    {
+      "file": "singles-auto-259cc2fb91e2.csv",
+      "line": 1747,
+      "issue": "incomplete identity"
+    },
+    {
+      "file": "singles-auto-259cc2fb91e2.csv",
+      "line": 1832,
+      "issue": "incomplete identity"
+    },
     {
       "file": "singles-lvo-2026.csv",
       "line": 725,
