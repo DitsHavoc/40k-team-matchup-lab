@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-18T11:38:41.361784+00:00",
-  "total_unique_games": 31703,
-  "total_source_rows": 37400,
+  "updated_at_utc": "2026-11-18T13:13:52.899328+00:00",
+  "total_unique_games": 32541,
+  "total_source_rows": 38238,
   "deduplicated": 0,
   "duplicate_tournaments_suppressed": 11,
   "duplicate_tournament_rows_suppressed": 5697,
@@ -92,22 +92,22 @@
     {
       "path": "data/warehouse-0001.csv",
       "records": 10000,
-      "sha256": "3302c76726b948f4d6ee2956f0ce6792a191e8568ac053aa6c79b75fba9f141f"
+      "sha256": "d2854f9ae96d42d62141ab2194cc0248adf27fc512688df4761622520d57ca5c"
     },
     {
       "path": "data/warehouse-0002.csv",
       "records": 10000,
-      "sha256": "fdd1f8e836135d2300d94e40496804d4ab381253ca01c238ce43781e88c15088"
+      "sha256": "9f9f6de91b4246c6f6edbc01acff4c5265cca1a28bf97470f2ee248ba5c2190c"
     },
     {
       "path": "data/warehouse-0003.csv",
       "records": 10000,
-      "sha256": "8da003b9f015fcb3c32ffce6633164dcdcce37295b9e98953cb5579786a5c268"
+      "sha256": "a075c8d65f24456e1c65e829d3603fab8e98a5c9e9fe4a57d908148b028638ab"
     },
     {
       "path": "data/warehouse-0004.csv",
-      "records": 1703,
-      "sha256": "a16f96b24d6b775471d66896e51c80b1b4e402e666a1ad7caf7dcb688256f6f7"
+      "records": 2541,
+      "sha256": "cbd8fe79b372eef216f606226ef7ffa2253b7591af18c746644814bb8c851cb1"
     }
   ],
   "sources": [
@@ -135,6 +135,11 @@
       "path": "public/data/uktc-summer-itt-2026.csv",
       "event_name": "UKTC Summer ITT 2026",
       "accepted_unique": 877
+    },
+    {
+      "path": "public/data/teams-auto-f584aac962aa.csv",
+      "event_name": "The Summer I. T. T. \u2013 INTERNATIONAL TEAM TOURNAMENT \u2013 August",
+      "accepted_unique": 838
     },
     {
       "path": "public/data/warhammer-open-krakow-2026.csv",

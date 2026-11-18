@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-18T08:56:18.275775+00:00",
+  "updated_at_utc": "2026-11-18T13:13:50.293363+00:00",
   "events": {
     "1819236fabb2": {
       "name": "GT BUNKERHAMMER XIV",
@@ -155,6 +155,19 @@
       "diagnostic": "Wrote public/data/teams-auto-574510058d7a.csv",
       "attempts": 1,
       "last_attempt_utc": "2026-11-18T08:56:18.275744+00:00",
+      "retry_after_utc": null
+    },
+    "f584aac962aa": {
+      "name": "The Summer I. T. T. \u2013 INTERNATIONAL TEAM TOURNAMENT \u2013 August",
+      "event_date": "2026-08-08",
+      "source_url": "https://metascribe.gg/tournaments/the-summer-i-t-t-international-team-tournament-august/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 838,
+      "csv_path": "public/data/teams-auto-f584aac962aa.csv",
+      "diagnostic": "Wrote public/data/teams-auto-f584aac962aa.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-18T13:13:50.293308+00:00",
       "retry_after_utc": null
     }
   },

@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-18T11:38:38.825693+00:00",
+  "updated_at_utc": "2026-11-18T13:13:50.900890+00:00",
   "published_files_audited": [
     {
       "file": "challengers-cup-2026.csv",
@@ -410,6 +410,10 @@
       "rows": 342
     },
     {
+      "file": "teams-auto-f584aac962aa.csv",
+      "rows": 838
+    },
+    {
       "file": "uktc-autumn-itt-2026-partial.csv",
       "rows": 6
     },
@@ -430,7 +434,7 @@
       "rows": 1288
     }
   ],
-  "total_rows_checked": 37388,
+  "total_rows_checked": 38226,
   "cross_file_same_event_duplicates": [
     {
       "kind": "same_named_event_same_game",
@@ -1733,7 +1737,1508 @@
       ]
     }
   ],
-  "review_cross_event_candidates": [],
+  "review_cross_event_candidates": [
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 2,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 446,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 3,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 292,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 4,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 520,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 5,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 171,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 6,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 346,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 7,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 366,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 8,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 426,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 9,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 266,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 10,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 447,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 11,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 293,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 12,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 182,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 13,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 107,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 14,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 361,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 15,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 77,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 16,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 416,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 17,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 140,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 18,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 485,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 19,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 321,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 20,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 131,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 21,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 183,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 22,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 421,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 23,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 296,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 24,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 106,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 25,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 450,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 26,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 386,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 27,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 246,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 28,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 48,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 29,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 212,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 30,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 247,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 31,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 517,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 32,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 145,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 33,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 270,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 34,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 411,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 35,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 33,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 36,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 275,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 37,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 381,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 38,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 461,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 39,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 87,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 40,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 480,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 41,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 78,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 42,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 255,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 43,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 236,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 44,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 306,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 45,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 336,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 46,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 141,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 47,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 367,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 48,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 121,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 49,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 311,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 50,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 286,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 51,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 151,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 52,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 505,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 53,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 220,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 54,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 276,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 55,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 347,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 56,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 172,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 57,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 387,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 58,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 137,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 59,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 184,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 60,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 43,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 61,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 469,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 62,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 103,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 63,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 396,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 64,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 211,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 65,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 142,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 66,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 476,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 67,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 264,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 68,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 117,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 69,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 468,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 70,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 285,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 71,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 406,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 72,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 53,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 73,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 376,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 74,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 192,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 75,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 28,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 76,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 297,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 77,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 143,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 78,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 338,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 79,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 464,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 80,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 490,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 81,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 8,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 82,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 251,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 83,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 79,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 84,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 434,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 85,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 9,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 86,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 357,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 87,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 190,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 88,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 427,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 89,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 221,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 90,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 146,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 91,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 384,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 92,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 308,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 93,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 486,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 94,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 132,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 95,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 322,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 96,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 187,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 97,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 371,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 98,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 23,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 99,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 260,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 100,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 451,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    },
+    {
+      "kind": "different_event_labels_same_date_players_score",
+      "records": [
+        {
+          "file": "teams-auto-f584aac962aa.csv",
+          "line": 101,
+          "event": "thesummerittinternationalteamtournamentaugust"
+        },
+        {
+          "file": "uktc-summer-itt-2026.csv",
+          "line": 241,
+          "event": "uktcsummeritt2026"
+        }
+      ]
+    }
+  ],
   "skipped_identity_rows": [
     {
       "file": "singles-auto-259cc2fb91e2.csv",
