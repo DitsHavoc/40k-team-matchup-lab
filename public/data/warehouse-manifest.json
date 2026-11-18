@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-18T13:13:52.899328+00:00",
-  "total_unique_games": 32541,
-  "total_source_rows": 38238,
+  "updated_at_utc": "2026-11-18T21:49:43.902632+00:00",
+  "total_unique_games": 32840,
+  "total_source_rows": 39201,
   "deduplicated": 0,
-  "duplicate_tournaments_suppressed": 11,
-  "duplicate_tournament_rows_suppressed": 5697,
+  "duplicate_tournaments_suppressed": 13,
+  "duplicate_tournament_rows_suppressed": 6361,
   "suppressed_events": [
     {
       "event": "LVO 2026 - Warhammer 40k Championships - Las Vegas Open",
@@ -57,6 +57,20 @@
       "reason": "duplicate_tournament_source"
     },
     {
+      "event": "south pacific 8s October event",
+      "dropped_source": "public/data/teams-auto-3677a9164ea8.csv",
+      "chosen_source": "public/data/south-pacific-8s-2026.csv",
+      "suppressed_rows": 333,
+      "reason": "duplicate_tournament_source"
+    },
+    {
+      "event": "Scottish Open Team Championship",
+      "dropped_source": "public/data/teams-auto-a745dbaae1f0.csv",
+      "chosen_source": "public/data/scottish-open-teams-2026.csv",
+      "suppressed_rows": 331,
+      "reason": "duplicate_tournament_source"
+    },
+    {
       "event": "THE COVENTRY 40K : 2-Day",
       "dropped_source": "public/data/singles-uktc-coventry-2day-2026.csv",
       "chosen_source": "public/data/singles-auto-9500999842e4.csv",
@@ -102,12 +116,12 @@
     {
       "path": "data/warehouse-0003.csv",
       "records": 10000,
-      "sha256": "a075c8d65f24456e1c65e829d3603fab8e98a5c9e9fe4a57d908148b028638ab"
+      "sha256": "1359b1c7bd9355ef9c52386d2c5a029f344ea720c501e723cb8638316a3c5012"
     },
     {
       "path": "data/warehouse-0004.csv",
-      "records": 2541,
-      "sha256": "cbd8fe79b372eef216f606226ef7ffa2253b7591af18c746644814bb8c851cb1"
+      "records": 2840,
+      "sha256": "7f67fd1b08ccb0d2bf3ebaa0a3fcb6586b9b1844e2110348719b6451b90f38e8"
     }
   ],
   "sources": [
@@ -299,6 +313,11 @@
     {
       "path": "public/data/singles-auto-e8af2c90cc42.csv",
       "event_name": "Warhammer 40000 Grand Tournament \u2013 Kempton Park",
+      "accepted_unique": 299
+    },
+    {
+      "path": "public/data/teams-auto-14d4a81dbf23.csv",
+      "event_name": "WHTQC \u2013 TEAM EVENT SEPTEMBRE",
       "accepted_unique": 299
     },
     {

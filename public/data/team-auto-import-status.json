@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-18T13:13:50.293363+00:00",
+  "updated_at_utc": "2026-11-18T21:49:41.904063+00:00",
   "events": {
     "1819236fabb2": {
       "name": "GT BUNKERHAMMER XIV",
@@ -168,6 +168,45 @@
       "diagnostic": "Wrote public/data/teams-auto-f584aac962aa.csv",
       "attempts": 1,
       "last_attempt_utc": "2026-11-18T13:13:50.293308+00:00",
+      "retry_after_utc": null
+    },
+    "3677a9164ea8": {
+      "name": "south pacific 8s October event",
+      "event_date": "2026-10-09",
+      "source_url": "https://metascribe.gg/tournaments/south-pacific-8s-october-event/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 333,
+      "csv_path": "public/data/teams-auto-3677a9164ea8.csv",
+      "diagnostic": "Wrote public/data/teams-auto-3677a9164ea8.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-18T21:41:12.068631+00:00",
+      "retry_after_utc": null
+    },
+    "a745dbaae1f0": {
+      "name": "Scottish Open Team Championship",
+      "event_date": "2026-10-17",
+      "source_url": "https://metascribe.gg/tournaments/scottish-open-team-championship/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 331,
+      "csv_path": "public/data/teams-auto-a745dbaae1f0.csv",
+      "diagnostic": "Wrote public/data/teams-auto-a745dbaae1f0.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-18T21:45:28.777942+00:00",
+      "retry_after_utc": null
+    },
+    "14d4a81dbf23": {
+      "name": "WHTQC \u2013 TEAM EVENT SEPTEMBRE",
+      "event_date": "2026-09-26",
+      "source_url": "https://metascribe.gg/tournaments/whtqc-team-event-septembre/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 299,
+      "csv_path": "public/data/teams-auto-14d4a81dbf23.csv",
+      "diagnostic": "Wrote public/data/teams-auto-14d4a81dbf23.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-18T21:49:41.904038+00:00",
       "retry_after_utc": null
     }
   },
