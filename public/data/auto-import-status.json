@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-18T03:27:45.729689+00:00",
+  "updated_at_utc": "2026-11-18T11:38:38.199633+00:00",
   "events": {
     "9d01b3f48ea0": {
       "name": "Madness in the middle",
@@ -376,9 +376,9 @@
       "published_records": 0,
       "csv_path": null,
       "diagnostic": "Import failed Below minimum singles game coverage; no CSV written",
-      "attempts": 1,
-      "last_attempt_utc": "2026-11-17T04:06:23.254831+00:00",
-      "retry_after_utc": "2026-11-17T10:06:23.254848+00:00"
+      "attempts": 2,
+      "last_attempt_utc": "2026-11-18T11:34:16.240764+00:00",
+      "retry_after_utc": "2026-11-18T23:34:16.240781+00:00"
     },
     "18d4c90b241c": {
       "name": "Denver 40K Fight Club Oct. Open \u201826",
@@ -621,9 +621,9 @@
       "published_records": 0,
       "csv_path": null,
       "diagnostic": "Import failed Below minimum singles game coverage; no CSV written",
-      "attempts": 1,
-      "last_attempt_utc": "2026-11-17T18:47:28.775068+00:00",
-      "retry_after_utc": "2026-11-18T00:47:28.775086+00:00"
+      "attempts": 2,
+      "last_attempt_utc": "2026-11-18T11:36:33.321829+00:00",
+      "retry_after_utc": "2026-11-18T23:36:33.321846+00:00"
     },
     "3cdafecdcafe": {
       "name": "Denver 40K Fight Club Aug Open \u201826",
@@ -738,9 +738,9 @@
       "published_records": 0,
       "csv_path": null,
       "diagnostic": "Import failed Below minimum singles game coverage; no CSV written",
-      "attempts": 1,
-      "last_attempt_utc": "2026-11-18T02:53:16.225914+00:00",
-      "retry_after_utc": "2026-11-18T08:53:16.225936+00:00"
+      "attempts": 2,
+      "last_attempt_utc": "2026-11-18T11:38:38.199587+00:00",
+      "retry_after_utc": "2026-11-18T23:38:38.199604+00:00"
     },
     "c7097a0e8f0e": {
       "name": "Iowaaagh! Moose-tacular 2026",
@@ -935,6 +935,58 @@
       "diagnostic": "Wrote public/data/singles-auto-d482a230224b.csv",
       "attempts": 1,
       "last_attempt_utc": "2026-11-18T03:27:45.729635+00:00",
+      "retry_after_utc": null
+    },
+    "3e2adc2eed25": {
+      "name": "Winchester 40K GT \u2013 November 2026",
+      "event_date": "2026-11-07",
+      "source_url": "https://metascribe.gg/tournaments/winchester-40k-gt-november-2026/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 66,
+      "csv_path": "public/data/singles-auto-3e2adc2eed25.csv",
+      "diagnostic": "Wrote public/data/singles-auto-3e2adc2eed25.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-18T11:29:44.708956+00:00",
+      "retry_after_utc": null
+    },
+    "4ebeade9f69a": {
+      "name": "Dark Star Gaming Warhammer 40k 2000pts Tournament (November 2026)",
+      "event_date": "2026-11-08",
+      "source_url": "https://metascribe.gg/tournaments/dark-star-gaming-warhammer-40k-2000pts-tournament-november-2026/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 36,
+      "csv_path": "public/data/singles-auto-4ebeade9f69a.csv",
+      "diagnostic": "Wrote public/data/singles-auto-4ebeade9f69a.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-18T11:30:29.604073+00:00",
+      "retry_after_utc": null
+    },
+    "71b1b08e6317": {
+      "name": "Turbulent Games Warhammer 40K GT @NanoCon",
+      "event_date": "2026-11-07",
+      "source_url": "https://metascribe.gg/tournaments/turbulent-games-warhammer-40k-gt-nanocon/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 58,
+      "csv_path": "public/data/singles-auto-71b1b08e6317.csv",
+      "diagnostic": "Wrote public/data/singles-auto-71b1b08e6317.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-18T11:31:14.264185+00:00",
+      "retry_after_utc": null
+    },
+    "6b02e594906b": {
+      "name": "Lodgecon 2026",
+      "event_date": "2026-11-07",
+      "source_url": "https://metascribe.gg/tournaments/lodgecon-2026/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 24,
+      "csv_path": "public/data/singles-auto-6b02e594906b.csv",
+      "diagnostic": "Wrote public/data/singles-auto-6b02e594906b.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-18T11:31:43.132238+00:00",
       "retry_after_utc": null
     }
   },

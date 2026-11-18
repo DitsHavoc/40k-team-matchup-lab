@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-18T08:56:20.582711+00:00",
-  "total_unique_games": 31519,
-  "total_source_rows": 37216,
+  "updated_at_utc": "2026-11-18T11:38:41.361784+00:00",
+  "total_unique_games": 31703,
+  "total_source_rows": 37400,
   "deduplicated": 0,
   "duplicate_tournaments_suppressed": 11,
   "duplicate_tournament_rows_suppressed": 5697,
@@ -102,12 +102,12 @@
     {
       "path": "data/warehouse-0003.csv",
       "records": 10000,
-      "sha256": "3669fff09939b766f50580cc8cb749a16f50d1f6eadb8aaa481e238c0334dc3a"
+      "sha256": "8da003b9f015fcb3c32ffce6633164dcdcce37295b9e98953cb5579786a5c268"
     },
     {
       "path": "data/warehouse-0004.csv",
-      "records": 1519,
-      "sha256": "ec1559060bbc576661c266ec4693e5cf6532a270335b3347c7cc5d09a9c636b6"
+      "records": 1703,
+      "sha256": "a16f96b24d6b775471d66896e51c80b1b4e402e666a1ad7caf7dcb688256f6f7"
     }
   ],
   "sources": [
@@ -537,9 +537,19 @@
       "accepted_unique": 68
     },
     {
+      "path": "public/data/singles-auto-3e2adc2eed25.csv",
+      "event_name": "Winchester 40K GT \u2013 November 2026",
+      "accepted_unique": 66
+    },
+    {
       "path": "public/data/singles-auto-bf78bf3384fd.csv",
       "event_name": "40k Brawl \u2013 November RTT 2026",
       "accepted_unique": 64
+    },
+    {
+      "path": "public/data/singles-auto-71b1b08e6317.csv",
+      "event_name": "Turbulent Games Warhammer 40K GT @NanoCon",
+      "accepted_unique": 58
     },
     {
       "path": "public/data/singles-auto-9c9967b5e472.csv",
@@ -557,9 +567,19 @@
       "accepted_unique": 37
     },
     {
+      "path": "public/data/singles-auto-4ebeade9f69a.csv",
+      "event_name": "Dark Star Gaming Warhammer 40k 2000pts Tournament (November 2026)",
+      "accepted_unique": 36
+    },
+    {
       "path": "public/data/verified-all-ireland-2026.csv",
       "event_name": "40k All Ireland Team Championship",
       "accepted_unique": 25
+    },
+    {
+      "path": "public/data/singles-auto-6b02e594906b.csv",
+      "event_name": "Lodgecon 2026",
+      "accepted_unique": 24
     },
     {
       "path": "public/data/singles-october-rtt-2026.csv",
