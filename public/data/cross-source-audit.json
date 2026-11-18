@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-17T22:06:20.876279+00:00",
+  "updated_at_utc": "2026-11-18T03:27:46.131443+00:00",
   "published_files_audited": [
     {
       "file": "challengers-cup-2026.csv",
@@ -58,8 +58,16 @@
       "rows": 345
     },
     {
+      "file": "singles-auto-12c0b98dcf87.csv",
+      "rows": 175
+    },
+    {
       "file": "singles-auto-17bf68b5a947.csv",
       "rows": 534
+    },
+    {
+      "file": "singles-auto-181b87b4ac13.csv",
+      "rows": 162
     },
     {
       "file": "singles-auto-18d4c90b241c.csv",
@@ -68,6 +76,14 @@
     {
       "file": "singles-auto-202de7aac01a.csv",
       "rows": 244
+    },
+    {
+      "file": "singles-auto-2076be3fc9db.csv",
+      "rows": 145
+    },
+    {
+      "file": "singles-auto-21fef44fd34d.csv",
+      "rows": 158
     },
     {
       "file": "singles-auto-25004316c2e6.csv",
@@ -90,12 +106,20 @@
       "rows": 544
     },
     {
+      "file": "singles-auto-49c6bfc674a2.csv",
+      "rows": 179
+    },
+    {
       "file": "singles-auto-4ccb5264a2c0.csv",
       "rows": 214
     },
     {
       "file": "singles-auto-4cee712c33a4.csv",
       "rows": 226
+    },
+    {
+      "file": "singles-auto-4f1700126a3d.csv",
+      "rows": 169
     },
     {
       "file": "singles-auto-50675d219405.csv",
@@ -118,8 +142,24 @@
       "rows": 189
     },
     {
+      "file": "singles-auto-61ff3d9ab946.csv",
+      "rows": 151
+    },
+    {
       "file": "singles-auto-6ab24298cc43.csv",
       "rows": 182
+    },
+    {
+      "file": "singles-auto-6b17b0096615.csv",
+      "rows": 205
+    },
+    {
+      "file": "singles-auto-6dfaa4f515ad.csv",
+      "rows": 198
+    },
+    {
+      "file": "singles-auto-714ccb449b25.csv",
+      "rows": 177
     },
     {
       "file": "singles-auto-71679828719e.csv",
@@ -154,6 +194,10 @@
       "rows": 78
     },
     {
+      "file": "singles-auto-947b11f0d6a3.csv",
+      "rows": 169
+    },
+    {
       "file": "singles-auto-9500999842e4.csv",
       "rows": 254
     },
@@ -178,6 +222,10 @@
       "rows": 189
     },
     {
+      "file": "singles-auto-beb5d2c60dea.csv",
+      "rows": 162
+    },
+    {
       "file": "singles-auto-bf78bf3384fd.csv",
       "rows": 64
     },
@@ -194,12 +242,20 @@
       "rows": 321
     },
     {
+      "file": "singles-auto-c7097a0e8f0e.csv",
+      "rows": 210
+    },
+    {
       "file": "singles-auto-ca7e9ec865ab.csv",
       "rows": 424
     },
     {
       "file": "singles-auto-cb31f0a3329d.csv",
       "rows": 209
+    },
+    {
+      "file": "singles-auto-d482a230224b.csv",
+      "rows": 160
     },
     {
       "file": "singles-auto-d9fd6e79e4d3.csv",
@@ -232,6 +288,10 @@
     {
       "file": "singles-auto-f8b7ff6b5b05.csv",
       "rows": 332
+    },
+    {
+      "file": "singles-auto-fafc75c004c6.csv",
+      "rows": 178
     },
     {
       "file": "singles-auto-fc4279f22610.csv",
@@ -342,7 +402,7 @@
       "rows": 1288
     }
   ],
-  "total_rows_checked": 33636,
+  "total_rows_checked": 36234,
   "cross_file_same_event_duplicates": [
     {
       "kind": "same_named_event_same_game",

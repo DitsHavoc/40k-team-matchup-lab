@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-17T22:06:21.927809+00:00",
-  "total_unique_games": 28450,
-  "total_source_rows": 33648,
+  "updated_at_utc": "2026-11-18T03:27:47.409423+00:00",
+  "total_unique_games": 30888,
+  "total_source_rows": 36246,
   "deduplicated": 0,
-  "duplicate_tournaments_suppressed": 9,
-  "duplicate_tournament_rows_suppressed": 5198,
+  "duplicate_tournaments_suppressed": 10,
+  "duplicate_tournament_rows_suppressed": 5358,
   "suppressed_events": [
     {
       "event": "LVO 2026 - Warhammer 40k Championships - Las Vegas Open",
@@ -69,6 +69,13 @@
       "chosen_source": "public/data/singles-auto-ee35b694d896.csv",
       "suppressed_rows": 210,
       "reason": "duplicate_tournament_source"
+    },
+    {
+      "event": "Warhammer 40000 Grand Tournament - Epsom Downs",
+      "dropped_source": "public/data/singles-epsom-2026.csv",
+      "chosen_source": "public/data/singles-auto-d482a230224b.csv",
+      "suppressed_rows": 160,
+      "reason": "duplicate_tournament_source"
     }
   ],
   "invalid_rows": 0,
@@ -78,17 +85,22 @@
     {
       "path": "data/warehouse-0001.csv",
       "records": 10000,
-      "sha256": "bd741070328af7aab74d39a1c6a8518353668a1c3b3b3247d523e5afcd7788d7"
+      "sha256": "3302c76726b948f4d6ee2956f0ce6792a191e8568ac053aa6c79b75fba9f141f"
     },
     {
       "path": "data/warehouse-0002.csv",
       "records": 10000,
-      "sha256": "cc7cda9af3741d41a0ae3fa14aa71fc53769b3463572af3cd73425d3e3bc3994"
+      "sha256": "9fa20ea4d03f212c20228978a10b138c0325e2626a161ce69e53ad6b1d961fe4"
     },
     {
       "path": "data/warehouse-0003.csv",
-      "records": 8450,
-      "sha256": "9842edb46170d7fe36c2a48d224281fba67c8bfd0a633f09961f12f5b82aa932"
+      "records": 10000,
+      "sha256": "e4dd21dd214dafb3ffafc4b30af5b55678b0e0f05ad3b98d5bf84c9ca1496262"
+    },
+    {
+      "path": "data/warehouse-0004.csv",
+      "records": 888,
+      "sha256": "49fb5889cf02c5fd0761a88e4b50f885c1fd327b887e045f86ca5e85d504ad6c"
     }
   ],
   "sources": [
@@ -348,6 +360,11 @@
       "accepted_unique": 212
     },
     {
+      "path": "public/data/singles-auto-c7097a0e8f0e.csv",
+      "event_name": "Iowaaagh! Moose-tacular 2026",
+      "accepted_unique": 210
+    },
+    {
       "path": "public/data/singles-auto-dec5e788292c.csv",
       "event_name": "Battle of the East",
       "accepted_unique": 210
@@ -366,6 +383,16 @@
       "path": "public/data/singles-auto-52d8cac9d751.csv",
       "event_name": "BAYERN MAJOR 40k 2026",
       "accepted_unique": 206
+    },
+    {
+      "path": "public/data/singles-auto-6b17b0096615.csv",
+      "event_name": "Chimera Gaming Warhammer 40K Grand Tournament \u2013 July 2026",
+      "accepted_unique": 205
+    },
+    {
+      "path": "public/data/singles-auto-6dfaa4f515ad.csv",
+      "event_name": "Ragnar\u00f6k GT 2026 \u2013 A Valkyrie Wargaming Event",
+      "accepted_unique": 198
     },
     {
       "path": "public/data/singles-auto-841f9df70ad3.csv",
@@ -398,19 +425,74 @@
       "accepted_unique": 182
     },
     {
+      "path": "public/data/singles-auto-49c6bfc674a2.csv",
+      "event_name": "The Phoenix GT: End of Summer Showdown",
+      "accepted_unique": 179
+    },
+    {
+      "path": "public/data/singles-auto-fafc75c004c6.csv",
+      "event_name": "Edmonton Wargaming Open 2026",
+      "accepted_unique": 178
+    },
+    {
+      "path": "public/data/singles-auto-714ccb449b25.csv",
+      "event_name": "Saimaa GT 2026",
+      "accepted_unique": 177
+    },
+    {
+      "path": "public/data/singles-auto-12c0b98dcf87.csv",
+      "event_name": "That 6++ Grand Tournament: South 2026",
+      "accepted_unique": 175
+    },
+    {
       "path": "public/data/singles-auto-de3e89b1d1e4.csv",
       "event_name": "KREFELD MAJOR 40k 2026",
       "accepted_unique": 171
     },
     {
-      "path": "public/data/singles-epsom-2026.csv",
-      "event_name": "Warhammer 40000 Grand Tournament - Epsom Downs",
+      "path": "public/data/singles-auto-4f1700126a3d.csv",
+      "event_name": "CHMECS FEST \u2013 French Warhammer 40K Open",
+      "accepted_unique": 169
+    },
+    {
+      "path": "public/data/singles-auto-947b11f0d6a3.csv",
+      "event_name": "Summer Slaughter: Warhammer 40K Grand Tournament",
+      "accepted_unique": 169
+    },
+    {
+      "path": "public/data/singles-auto-181b87b4ac13.csv",
+      "event_name": "Ironweld: Warhammer 40K Grand Tournament",
+      "accepted_unique": 162
+    },
+    {
+      "path": "public/data/singles-auto-beb5d2c60dea.csv",
+      "event_name": "Open des 3 Fronti\u00e8res",
+      "accepted_unique": 162
+    },
+    {
+      "path": "public/data/singles-auto-d482a230224b.csv",
+      "event_name": "Warhammer 40000 Grand Tournament \u2013 Epsom Downs",
       "accepted_unique": 160
+    },
+    {
+      "path": "public/data/singles-auto-21fef44fd34d.csv",
+      "event_name": "Calling the Banners 2026",
+      "accepted_unique": 158
+    },
+    {
+      "path": "public/data/singles-auto-61ff3d9ab946.csv",
+      "event_name": "Surrey Primarchs GW Golden Ticket Event",
+      "accepted_unique": 151
     },
     {
       "path": "public/data/singles-auto-dabf906a5e85.csv",
       "event_name": "Tolaris GT 2026",
       "accepted_unique": 148
+    },
+    {
+      "path": "public/data/singles-auto-2076be3fc9db.csv",
+      "event_name": "Dearg Doom VIII don\u2019t play in Cian\u2019s sandbox",
+      "accepted_unique": 145
     },
     {
       "path": "public/data/singles-auto-9d01b3f48ea0.csv",
