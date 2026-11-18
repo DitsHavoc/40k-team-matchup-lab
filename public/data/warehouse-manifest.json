@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-18T03:27:47.409423+00:00",
-  "total_unique_games": 30888,
-  "total_source_rows": 36246,
+  "updated_at_utc": "2026-11-18T08:56:20.582711+00:00",
+  "total_unique_games": 31519,
+  "total_source_rows": 37216,
   "deduplicated": 0,
-  "duplicate_tournaments_suppressed": 10,
-  "duplicate_tournament_rows_suppressed": 5358,
+  "duplicate_tournaments_suppressed": 11,
+  "duplicate_tournament_rows_suppressed": 5697,
   "suppressed_events": [
     {
       "event": "LVO 2026 - Warhammer 40k Championships - Las Vegas Open",
@@ -50,6 +50,13 @@
       "reason": "duplicate_tournament_source"
     },
     {
+      "event": "The Kent Teams November 2026",
+      "dropped_source": "public/data/teams-auto-af51b810dbc8.csv",
+      "chosen_source": "public/data/kent-teams-november-2026.csv",
+      "suppressed_rows": 339,
+      "reason": "duplicate_tournament_source"
+    },
+    {
       "event": "THE COVENTRY 40K : 2-Day",
       "dropped_source": "public/data/singles-uktc-coventry-2day-2026.csv",
       "chosen_source": "public/data/singles-auto-9500999842e4.csv",
@@ -90,17 +97,17 @@
     {
       "path": "data/warehouse-0002.csv",
       "records": 10000,
-      "sha256": "9fa20ea4d03f212c20228978a10b138c0325e2626a161ce69e53ad6b1d961fe4"
+      "sha256": "fdd1f8e836135d2300d94e40496804d4ab381253ca01c238ce43781e88c15088"
     },
     {
       "path": "data/warehouse-0003.csv",
       "records": 10000,
-      "sha256": "e4dd21dd214dafb3ffafc4b30af5b55678b0e0f05ad3b98d5bf84c9ca1496262"
+      "sha256": "3669fff09939b766f50580cc8cb749a16f50d1f6eadb8aaa481e238c0334dc3a"
     },
     {
       "path": "data/warehouse-0004.csv",
-      "records": 888,
-      "sha256": "49fb5889cf02c5fd0761a88e4b50f885c1fd327b887e045f86ca5e85d504ad6c"
+      "records": 1519,
+      "sha256": "ec1559060bbc576661c266ec4693e5cf6532a270335b3347c7cc5d09a9c636b6"
     }
   ],
   "sources": [
@@ -220,6 +227,11 @@
       "accepted_unique": 367
     },
     {
+      "path": "public/data/teams-auto-574510058d7a.csv",
+      "event_name": "October Super 6\u2019s.",
+      "accepted_unique": 360
+    },
+    {
       "path": "public/data/singles-auto-25004316c2e6.csv",
       "event_name": "The Utah Cup 2026 \u2013 Warhammer 40K",
       "accepted_unique": 356
@@ -298,6 +310,11 @@
       "path": "public/data/singles-auto-7e38f9f3a954.csv",
       "event_name": "Doonhamer Open 2026",
       "accepted_unique": 288
+    },
+    {
+      "path": "public/data/teams-auto-98b749ee9a6c.csv",
+      "event_name": "NRW 40K Teams 2026 \u2013 Alpine Cup",
+      "accepted_unique": 271
     },
     {
       "path": "public/data/singles-auto-9500999842e4.csv",

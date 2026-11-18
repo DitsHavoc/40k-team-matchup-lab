@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-17T22:06:20.536760+00:00",
+  "updated_at_utc": "2026-11-18T08:56:18.275775+00:00",
   "events": {
     "1819236fabb2": {
       "name": "GT BUNKERHAMMER XIV",
@@ -116,6 +116,45 @@
       "diagnostic": "Wrote public/data/teams-auto-abe52db76a14.csv",
       "attempts": 1,
       "last_attempt_utc": "2026-11-17T22:06:20.536724+00:00",
+      "retry_after_utc": null
+    },
+    "af51b810dbc8": {
+      "name": "The Kent Teams November 2026",
+      "event_date": "2026-11-07",
+      "source_url": "https://metascribe.gg/tournaments/the-kent-teams-november-2026/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 339,
+      "csv_path": "public/data/teams-auto-af51b810dbc8.csv",
+      "diagnostic": "Wrote public/data/teams-auto-af51b810dbc8.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-18T08:47:37.811362+00:00",
+      "retry_after_utc": null
+    },
+    "98b749ee9a6c": {
+      "name": "NRW 40K Teams 2026 \u2013 Alpine Cup",
+      "event_date": "2026-09-19",
+      "source_url": "https://metascribe.gg/tournaments/nrw-40k-teams-2026-alpine-cup/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 271,
+      "csv_path": "public/data/teams-auto-98b749ee9a6c.csv",
+      "diagnostic": "Wrote public/data/teams-auto-98b749ee9a6c.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-18T08:52:01.629204+00:00",
+      "retry_after_utc": null
+    },
+    "574510058d7a": {
+      "name": "October Super 6\u2019s.",
+      "event_date": "2026-10-31",
+      "source_url": "https://metascribe.gg/tournaments/october-super-6s/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 360,
+      "csv_path": "public/data/teams-auto-574510058d7a.csv",
+      "diagnostic": "Wrote public/data/teams-auto-574510058d7a.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-18T08:56:18.275744+00:00",
       "retry_after_utc": null
     }
   },
