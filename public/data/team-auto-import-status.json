@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-19T09:09:20.387343+00:00",
+  "updated_at_utc": "2026-11-19T21:52:09.669371+00:00",
   "events": {
     "1819236fabb2": {
       "name": "GT BUNKERHAMMER XIV",
@@ -246,6 +246,45 @@
       "diagnostic": "Wrote public/data/teams-auto-aaac98706520.csv",
       "attempts": 1,
       "last_attempt_utc": "2026-11-19T09:09:20.387310+00:00",
+      "retry_after_utc": null
+    },
+    "469228d7ce70": {
+      "name": "40k All Ireland Team Championship",
+      "event_date": "2026-07-24",
+      "source_url": "https://metascribe.gg/tournaments/40k-all-ireland-team-championship/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 284,
+      "csv_path": "public/data/teams-auto-469228d7ce70.csv",
+      "diagnostic": "Wrote public/data/teams-auto-469228d7ce70.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-19T21:45:40.020443+00:00",
+      "retry_after_utc": null
+    },
+    "4d48cfa3cf33": {
+      "name": "NTL 8-Player Championship \u2013 VENUE UPDATE",
+      "event_date": "2026-11-13",
+      "source_url": "https://metascribe.gg/tournaments/ntl-8-player-championship-venue-update/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 268,
+      "csv_path": "public/data/teams-auto-4d48cfa3cf33.csv",
+      "diagnostic": "Wrote public/data/teams-auto-4d48cfa3cf33.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-19T21:48:58.417475+00:00",
+      "retry_after_utc": null
+    },
+    "31bf50f7e44d": {
+      "name": "Risky Rollers Team Tournament",
+      "event_date": "2026-09-19",
+      "source_url": "https://metascribe.gg/tournaments/risky-rollers-team-tournament/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 262,
+      "csv_path": "public/data/teams-auto-31bf50f7e44d.csv",
+      "diagnostic": "Wrote public/data/teams-auto-31bf50f7e44d.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-19T21:52:09.669340+00:00",
       "retry_after_utc": null
     }
   },

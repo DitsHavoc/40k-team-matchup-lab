@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-19T11:34:19.460310+00:00",
-  "total_unique_games": 33498,
-  "total_source_rows": 39859,
+  "updated_at_utc": "2026-11-19T21:52:13.286664+00:00",
+  "total_unique_games": 34287,
+  "total_source_rows": 40673,
   "deduplicated": 0,
-  "duplicate_tournaments_suppressed": 13,
-  "duplicate_tournament_rows_suppressed": 6361,
+  "duplicate_tournaments_suppressed": 14,
+  "duplicate_tournament_rows_suppressed": 6386,
   "suppressed_events": [
     {
       "event": "LVO 2026 - Warhammer 40k Championships - Las Vegas Open",
@@ -97,6 +97,13 @@
       "chosen_source": "public/data/singles-auto-d482a230224b.csv",
       "suppressed_rows": 160,
       "reason": "duplicate_tournament_source"
+    },
+    {
+      "event": "40k All Ireland Team Championship",
+      "dropped_source": "public/data/verified-all-ireland-2026.csv",
+      "chosen_source": "public/data/teams-auto-469228d7ce70.csv",
+      "suppressed_rows": 25,
+      "reason": "duplicate_tournament_source"
     }
   ],
   "invalid_rows": 0,
@@ -106,22 +113,22 @@
     {
       "path": "data/warehouse-0001.csv",
       "records": 10000,
-      "sha256": "d2854f9ae96d42d62141ab2194cc0248adf27fc512688df4761622520d57ca5c"
+      "sha256": "a70f64e6e6ed4012cfbdb8793e8b0ffe332cfc28a6f401193368ba76c2222ffc"
     },
     {
       "path": "data/warehouse-0002.csv",
       "records": 10000,
-      "sha256": "9f9f6de91b4246c6f6edbc01acff4c5265cca1a28bf97470f2ee248ba5c2190c"
+      "sha256": "dc4666c8a01d7b199a7f6e1c0cad846388f7a6d6de72b633674f1bfd9a180089"
     },
     {
       "path": "data/warehouse-0003.csv",
       "records": 10000,
-      "sha256": "633aa14015cd816ee4103ea4d6adb051612f8290d8863ee93423cb49049ee499"
+      "sha256": "cfea55489d35041738f70686b3b8af96f374c7624e6ccd5228d3cf5d55f76dc1"
     },
     {
       "path": "data/warehouse-0004.csv",
-      "records": 3498,
-      "sha256": "dd17e8b8d4876c383111d5ca60dc1e66928c5a1727088ad0ffbd9644ed0c0d95"
+      "records": 4287,
+      "sha256": "1da72a7c04560d983747208e556d70be4f787103f3ef039c30097004a3be9b92"
     }
   ],
   "sources": [
@@ -336,9 +343,24 @@
       "accepted_unique": 288
     },
     {
+      "path": "public/data/teams-auto-469228d7ce70.csv",
+      "event_name": "40k All Ireland Team Championship",
+      "accepted_unique": 284
+    },
+    {
       "path": "public/data/teams-auto-98b749ee9a6c.csv",
       "event_name": "NRW 40K Teams 2026 \u2013 Alpine Cup",
       "accepted_unique": 271
+    },
+    {
+      "path": "public/data/teams-auto-4d48cfa3cf33.csv",
+      "event_name": "NTL 8-Player Championship \u2013 VENUE UPDATE",
+      "accepted_unique": 268
+    },
+    {
+      "path": "public/data/teams-auto-31bf50f7e44d.csv",
+      "event_name": "Risky Rollers Team Tournament",
+      "accepted_unique": 262
     },
     {
       "path": "public/data/singles-auto-9500999842e4.csv",
@@ -609,11 +631,6 @@
       "path": "public/data/singles-auto-4ebeade9f69a.csv",
       "event_name": "Dark Star Gaming Warhammer 40k 2000pts Tournament (November 2026)",
       "accepted_unique": 36
-    },
-    {
-      "path": "public/data/verified-all-ireland-2026.csv",
-      "event_name": "40k All Ireland Team Championship",
-      "accepted_unique": 25
     },
     {
       "path": "public/data/singles-auto-6b02e594906b.csv",
