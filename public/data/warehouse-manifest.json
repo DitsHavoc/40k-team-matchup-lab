@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-18T22:33:52.936677+00:00",
-  "total_unique_games": 32840,
-  "total_source_rows": 39201,
+  "updated_at_utc": "2026-11-19T09:09:23.853682+00:00",
+  "total_unique_games": 33498,
+  "total_source_rows": 39859,
   "deduplicated": 0,
   "duplicate_tournaments_suppressed": 13,
   "duplicate_tournament_rows_suppressed": 6361,
@@ -116,12 +116,12 @@
     {
       "path": "data/warehouse-0003.csv",
       "records": 10000,
-      "sha256": "1359b1c7bd9355ef9c52386d2c5a029f344ea720c501e723cb8638316a3c5012"
+      "sha256": "633aa14015cd816ee4103ea4d6adb051612f8290d8863ee93423cb49049ee499"
     },
     {
       "path": "data/warehouse-0004.csv",
-      "records": 2840,
-      "sha256": "7f67fd1b08ccb0d2bf3ebaa0a3fcb6586b9b1844e2110348719b6451b90f38e8"
+      "records": 3498,
+      "sha256": "dd17e8b8d4876c383111d5ca60dc1e66928c5a1727088ad0ffbd9644ed0c0d95"
     }
   ],
   "sources": [
@@ -371,8 +371,18 @@
       "accepted_unique": 231
     },
     {
+      "path": "public/data/teams-auto-ac88494ecd47.csv",
+      "event_name": "SASO Teams 5v5\u2019s",
+      "accepted_unique": 229
+    },
+    {
       "path": "public/data/singles-auto-3cdafecdcafe.csv",
       "event_name": "Denver 40K Fight Club Aug Open \u201826",
+      "accepted_unique": 228
+    },
+    {
+      "path": "public/data/teams-auto-c0beb001d564.csv",
+      "event_name": "Green Dice Games Presents: The Lehigh Valley Team Tournament II",
       "accepted_unique": 228
     },
     {
@@ -429,6 +439,11 @@
       "path": "public/data/singles-auto-6b17b0096615.csv",
       "event_name": "Chimera Gaming Warhammer 40K Grand Tournament \u2013 July 2026",
       "accepted_unique": 205
+    },
+    {
+      "path": "public/data/teams-auto-aaac98706520.csv",
+      "event_name": "Grand Fanatic V \u2013 40k",
+      "accepted_unique": 201
     },
     {
       "path": "public/data/singles-auto-6dfaa4f515ad.csv",

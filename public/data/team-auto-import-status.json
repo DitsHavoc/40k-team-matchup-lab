@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-18T21:49:41.904063+00:00",
+  "updated_at_utc": "2026-11-19T09:09:20.387343+00:00",
   "events": {
     "1819236fabb2": {
       "name": "GT BUNKERHAMMER XIV",
@@ -207,6 +207,45 @@
       "diagnostic": "Wrote public/data/teams-auto-14d4a81dbf23.csv",
       "attempts": 1,
       "last_attempt_utc": "2026-11-18T21:49:41.904038+00:00",
+      "retry_after_utc": null
+    },
+    "c0beb001d564": {
+      "name": "Green Dice Games Presents: The Lehigh Valley Team Tournament II",
+      "event_date": "2026-11-07",
+      "source_url": "https://metascribe.gg/tournaments/green-dice-games-presents-the-lehigh-valley-team-tournament-ii/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 228,
+      "csv_path": "public/data/teams-auto-c0beb001d564.csv",
+      "diagnostic": "Wrote public/data/teams-auto-c0beb001d564.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-19T09:02:20.429156+00:00",
+      "retry_after_utc": null
+    },
+    "ac88494ecd47": {
+      "name": "SASO Teams 5v5\u2019s",
+      "event_date": "2026-11-07",
+      "source_url": "https://metascribe.gg/tournaments/saso-teams-5v5s/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 229,
+      "csv_path": "public/data/teams-auto-ac88494ecd47.csv",
+      "diagnostic": "Wrote public/data/teams-auto-ac88494ecd47.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-19T09:06:03.004380+00:00",
+      "retry_after_utc": null
+    },
+    "aaac98706520": {
+      "name": "Grand Fanatic V \u2013 40k",
+      "event_date": "2026-10-03",
+      "source_url": "https://metascribe.gg/tournaments/grand-fanatic-v-40k/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 201,
+      "csv_path": "public/data/teams-auto-aaac98706520.csv",
+      "diagnostic": "Wrote public/data/teams-auto-aaac98706520.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-19T09:09:20.387310+00:00",
       "retry_after_utc": null
     }
   },

@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-18T22:33:50.951394+00:00",
+  "updated_at_utc": "2026-11-19T09:09:21.044010+00:00",
   "published_files_audited": [
     {
       "file": "challengers-cup-2026.csv",
@@ -402,8 +402,16 @@
       "rows": 331
     },
     {
+      "file": "teams-auto-aaac98706520.csv",
+      "rows": 201
+    },
+    {
       "file": "teams-auto-abe52db76a14.csv",
       "rows": 336
+    },
+    {
+      "file": "teams-auto-ac88494ecd47.csv",
+      "rows": 223
     },
     {
       "file": "teams-auto-ace282df4822.csv",
@@ -412,6 +420,10 @@
     {
       "file": "teams-auto-af51b810dbc8.csv",
       "rows": 339
+    },
+    {
+      "file": "teams-auto-c0beb001d564.csv",
+      "rows": 228
     },
     {
       "file": "teams-auto-ccc41fd004ab.csv",
@@ -446,7 +458,7 @@
       "rows": 1288
     }
   ],
-  "total_rows_checked": 39189,
+  "total_rows_checked": 39841,
   "cross_file_same_event_duplicates": [
     {
       "kind": "same_named_event_same_game",
@@ -3310,6 +3322,36 @@
     {
       "file": "singles-lvo-2026.csv",
       "line": 1832,
+      "issue": "incomplete identity"
+    },
+    {
+      "file": "teams-auto-ac88494ecd47.csv",
+      "line": 9,
+      "issue": "incomplete identity"
+    },
+    {
+      "file": "teams-auto-ac88494ecd47.csv",
+      "line": 13,
+      "issue": "incomplete identity"
+    },
+    {
+      "file": "teams-auto-ac88494ecd47.csv",
+      "line": 22,
+      "issue": "incomplete identity"
+    },
+    {
+      "file": "teams-auto-ac88494ecd47.csv",
+      "line": 63,
+      "issue": "incomplete identity"
+    },
+    {
+      "file": "teams-auto-ac88494ecd47.csv",
+      "line": 203,
+      "issue": "incomplete identity"
+    },
+    {
+      "file": "teams-auto-ac88494ecd47.csv",
+      "line": 210,
       "issue": "incomplete identity"
     }
   ],
