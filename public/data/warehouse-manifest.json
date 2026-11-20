@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-19T22:38:54.099857+00:00",
-  "total_unique_games": 34287,
-  "total_source_rows": 40673,
+  "updated_at_utc": "2026-11-20T08:53:52.574655+00:00",
+  "total_unique_games": 34868,
+  "total_source_rows": 41254,
   "deduplicated": 0,
   "duplicate_tournaments_suppressed": 14,
   "duplicate_tournament_rows_suppressed": 6386,
@@ -118,17 +118,17 @@
     {
       "path": "data/warehouse-0002.csv",
       "records": 10000,
-      "sha256": "dc4666c8a01d7b199a7f6e1c0cad846388f7a6d6de72b633674f1bfd9a180089"
+      "sha256": "163ba50aad0b887247234bcc579b8b394a8f3e65ead48c7d93bafb89d9e88935"
     },
     {
       "path": "data/warehouse-0003.csv",
       "records": 10000,
-      "sha256": "cfea55489d35041738f70686b3b8af96f374c7624e6ccd5228d3cf5d55f76dc1"
+      "sha256": "347753f5afce89114b7f0be378c9433a4ab5b05d65d9028b97f16696d74ba0e2"
     },
     {
       "path": "data/warehouse-0004.csv",
-      "records": 4287,
-      "sha256": "1da72a7c04560d983747208e556d70be4f787103f3ef039c30097004a3be9b92"
+      "records": 4868,
+      "sha256": "ee691a12a8cafff2d76ab0566d122ca7d804aed799dfaa16ce8f4fabf7366ee1"
     }
   ],
   "sources": [
@@ -358,6 +358,11 @@
       "accepted_unique": 268
     },
     {
+      "path": "public/data/teams-auto-56959cb58db4.csv",
+      "event_name": "Onslaught Team Open",
+      "accepted_unique": 268
+    },
+    {
       "path": "public/data/teams-auto-31bf50f7e44d.csv",
       "event_name": "Risky Rollers Team Tournament",
       "accepted_unique": 262
@@ -523,6 +528,11 @@
       "accepted_unique": 175
     },
     {
+      "path": "public/data/teams-auto-9328a5149d4e.csv",
+      "event_name": "New Mexico\u2019s 5v5 Teams Tournament Hosted by Pile of Games",
+      "accepted_unique": 175
+    },
+    {
       "path": "public/data/singles-auto-de3e89b1d1e4.csv",
       "event_name": "KREFELD MAJOR 40k 2026",
       "accepted_unique": 171
@@ -571,6 +581,11 @@
       "path": "public/data/singles-auto-2076be3fc9db.csv",
       "event_name": "Dearg Doom VIII don\u2019t play in Cian\u2019s sandbox",
       "accepted_unique": 145
+    },
+    {
+      "path": "public/data/teams-auto-8f597765a905.csv",
+      "event_name": "NOVA Open 2026 ATC Team Tournament",
+      "accepted_unique": 138
     },
     {
       "path": "public/data/singles-auto-9d01b3f48ea0.csv",

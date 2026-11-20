@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-19T21:52:09.669371+00:00",
+  "updated_at_utc": "2026-11-20T08:53:50.528659+00:00",
   "events": {
     "1819236fabb2": {
       "name": "GT BUNKERHAMMER XIV",
@@ -285,6 +285,45 @@
       "diagnostic": "Wrote public/data/teams-auto-31bf50f7e44d.csv",
       "attempts": 1,
       "last_attempt_utc": "2026-11-19T21:52:09.669340+00:00",
+      "retry_after_utc": null
+    },
+    "56959cb58db4": {
+      "name": "Onslaught Team Open",
+      "event_date": "2026-11-07",
+      "source_url": "https://metascribe.gg/tournaments/onslaught-team-open/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 268,
+      "csv_path": "public/data/teams-auto-56959cb58db4.csv",
+      "diagnostic": "Wrote public/data/teams-auto-56959cb58db4.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-20T08:47:44.610697+00:00",
+      "retry_after_utc": null
+    },
+    "9328a5149d4e": {
+      "name": "New Mexico\u2019s 5v5 Teams Tournament Hosted by Pile of Games",
+      "event_date": "2026-08-22",
+      "source_url": "https://metascribe.gg/tournaments/new-mexicos-5v5-teams-tournament-hosted-by-pile-of-games/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 175,
+      "csv_path": "public/data/teams-auto-9328a5149d4e.csv",
+      "diagnostic": "Wrote public/data/teams-auto-9328a5149d4e.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-20T08:50:54.476888+00:00",
+      "retry_after_utc": null
+    },
+    "8f597765a905": {
+      "name": "NOVA Open 2026 ATC Team Tournament",
+      "event_date": "2026-09-03",
+      "source_url": "https://metascribe.gg/tournaments/nova-open-2026-atc-team-tournament/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 138,
+      "csv_path": "public/data/teams-auto-8f597765a905.csv",
+      "diagnostic": "Wrote public/data/teams-auto-8f597765a905.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-20T08:53:50.528618+00:00",
       "retry_after_utc": null
     }
   },
