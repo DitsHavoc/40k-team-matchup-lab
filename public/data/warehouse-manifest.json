@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-20T08:53:52.574655+00:00",
-  "total_unique_games": 34868,
-  "total_source_rows": 41254,
+  "updated_at_utc": "2026-11-20T10:54:35.671972+00:00",
+  "total_unique_games": 38389,
+  "total_source_rows": 44775,
   "deduplicated": 0,
   "duplicate_tournaments_suppressed": 14,
   "duplicate_tournament_rows_suppressed": 6386,
@@ -113,22 +113,22 @@
     {
       "path": "data/warehouse-0001.csv",
       "records": 10000,
-      "sha256": "a70f64e6e6ed4012cfbdb8793e8b0ffe332cfc28a6f401193368ba76c2222ffc"
+      "sha256": "fcb6ffebde77f38002997ffa55400c9620e62e0f3912dd5080ea00c698a0901c"
     },
     {
       "path": "data/warehouse-0002.csv",
       "records": 10000,
-      "sha256": "163ba50aad0b887247234bcc579b8b394a8f3e65ead48c7d93bafb89d9e88935"
+      "sha256": "4079c03cec553442afb205f55182cec0f2e846af0a2ef86be5a097e68f3058e5"
     },
     {
       "path": "data/warehouse-0003.csv",
       "records": 10000,
-      "sha256": "347753f5afce89114b7f0be378c9433a4ab5b05d65d9028b97f16696d74ba0e2"
+      "sha256": "ba634872dae03c079f8081d8553e280e26a43da1a534f58555121c2a12efbb1a"
     },
     {
       "path": "data/warehouse-0004.csv",
-      "records": 4868,
-      "sha256": "ee691a12a8cafff2d76ab0566d122ca7d804aed799dfaa16ce8f4fabf7366ee1"
+      "records": 8389,
+      "sha256": "0f046fb3b0dd9218d2a5acc146732fa4b2ce8782ed9eaf7e85faaf2a482b16de"
     }
   ],
   "sources": [
@@ -138,9 +138,19 @@
       "accepted_unique": 2519
     },
     {
+      "path": "public/data/singles-auto-14599f9f743d.csv",
+      "event_name": "Warhammer 40000 Grand Tournament \u2013 Warhammer Open Tacoma",
+      "accepted_unique": 1872
+    },
+    {
       "path": "public/data/singles-auto-259cc2fb91e2.csv",
       "event_name": "LVO 2026 \u2013 Warhammer 40k Championships \u2013 Las Vegas Open",
       "accepted_unique": 1831
+    },
+    {
+      "path": "public/data/singles-auto-eb43a37fecb1.csv",
+      "event_name": "WTC Warmaster GT 2026",
+      "accepted_unique": 1649
     },
     {
       "path": "public/data/challengers-cup-2026.csv",

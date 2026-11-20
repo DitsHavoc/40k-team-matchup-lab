@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-19T22:38:52.086798+00:00",
+  "updated_at_utc": "2026-11-20T10:54:31.908105+00:00",
   "events": {
     "9d01b3f48ea0": {
       "name": "Madness in the middle",
@@ -987,6 +987,32 @@
       "diagnostic": "Wrote public/data/singles-auto-6b02e594906b.csv",
       "attempts": 1,
       "last_attempt_utc": "2026-11-18T11:31:43.132238+00:00",
+      "retry_after_utc": null
+    },
+    "eb43a37fecb1": {
+      "name": "WTC Warmaster GT 2026",
+      "event_date": "2026-08-11",
+      "source_url": "https://metascribe.gg/tournaments/wtc-warmaster-gt-2026/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 1649,
+      "csv_path": "public/data/singles-auto-eb43a37fecb1.csv",
+      "diagnostic": "Wrote public/data/singles-auto-eb43a37fecb1.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-20T10:39:03.664054+00:00",
+      "retry_after_utc": null
+    },
+    "14599f9f743d": {
+      "name": "Warhammer 40000 Grand Tournament \u2013 Warhammer Open Tacoma",
+      "event_date": "2026-07-17",
+      "source_url": "https://metascribe.gg/tournaments/warhammer-40000-grand-tournament-warhammer-open-tacoma/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 1872,
+      "csv_path": "public/data/singles-auto-14599f9f743d.csv",
+      "diagnostic": "Wrote public/data/singles-auto-14599f9f743d.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-20T10:54:31.908063+00:00",
       "retry_after_utc": null
     }
   },
