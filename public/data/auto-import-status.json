@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-22T21:00:06.027473+00:00",
+  "updated_at_utc": "2026-11-23T01:39:54.382259+00:00",
   "events": {
     "9d01b3f48ea0": {
       "name": "Madness in the middle",
@@ -376,9 +376,9 @@
       "published_records": 0,
       "csv_path": null,
       "diagnostic": "Import failed Below minimum singles game coverage; no CSV written",
-      "attempts": 4,
-      "last_attempt_utc": "2026-11-20T22:16:28.531981+00:00",
-      "retry_after_utc": "2026-11-22T22:16:28.531999+00:00"
+      "attempts": 5,
+      "last_attempt_utc": "2026-11-23T01:35:27.221088+00:00",
+      "retry_after_utc": "2026-11-26T01:35:27.221107+00:00"
     },
     "18d4c90b241c": {
       "name": "Denver 40K Fight Club Oct. Open \u201826",
@@ -621,9 +621,9 @@
       "published_records": 0,
       "csv_path": null,
       "diagnostic": "Import failed Below minimum singles game coverage; no CSV written",
-      "attempts": 4,
-      "last_attempt_utc": "2026-11-20T22:18:48.064374+00:00",
-      "retry_after_utc": "2026-11-22T22:18:48.064392+00:00"
+      "attempts": 5,
+      "last_attempt_utc": "2026-11-23T01:37:46.918811+00:00",
+      "retry_after_utc": "2026-11-26T01:37:46.918831+00:00"
     },
     "3cdafecdcafe": {
       "name": "Denver 40K Fight Club Aug Open \u201826",
@@ -738,9 +738,9 @@
       "published_records": 0,
       "csv_path": null,
       "diagnostic": "Import failed Below minimum singles game coverage; no CSV written",
-      "attempts": 4,
-      "last_attempt_utc": "2026-11-20T22:20:56.448108+00:00",
-      "retry_after_utc": "2026-11-22T22:20:56.448125+00:00"
+      "attempts": 5,
+      "last_attempt_utc": "2026-11-23T01:39:54.382206+00:00",
+      "retry_after_utc": "2026-11-26T01:39:54.382225+00:00"
     },
     "c7097a0e8f0e": {
       "name": "Iowaaagh! Moose-tacular 2026",
