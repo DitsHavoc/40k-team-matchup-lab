@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-23T12:13:16.163427+00:00",
+  "updated_at_utc": "2026-11-24T02:19:52.613155+00:00",
   "events": {
     "9d01b3f48ea0": {
       "name": "Madness in the middle",
@@ -1013,6 +1013,58 @@
       "diagnostic": "Wrote public/data/singles-auto-14599f9f743d.csv",
       "attempts": 1,
       "last_attempt_utc": "2026-11-20T10:54:31.908063+00:00",
+      "retry_after_utc": null
+    },
+    "14b7ff846d71": {
+      "name": "Fantasia Fanatic L 40k",
+      "event_date": "2026-11-21",
+      "source_url": "https://metascribe.gg/tournaments/fantasia-fanatic-l-40k/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 391,
+      "csv_path": "public/data/singles-auto-14b7ff846d71.csv",
+      "diagnostic": "Wrote public/data/singles-auto-14b7ff846d71.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-24T02:12:28.214250+00:00",
+      "retry_after_utc": null
+    },
+    "f8d250f1383c": {
+      "name": "The Standoff 2026",
+      "event_date": "2026-11-21",
+      "source_url": "https://metascribe.gg/tournaments/the-standoff-2026/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 208,
+      "csv_path": "public/data/singles-auto-f8d250f1383c.csv",
+      "diagnostic": "Wrote public/data/singles-auto-f8d250f1383c.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-24T02:15:08.842242+00:00",
+      "retry_after_utc": null
+    },
+    "48c0bf963c69": {
+      "name": "RenegadeOpen2026 \u2013 40K GT",
+      "event_date": "2026-11-21",
+      "source_url": "https://metascribe.gg/tournaments/renegadeopen2026-40k-gt/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 182,
+      "csv_path": "public/data/singles-auto-48c0bf963c69.csv",
+      "diagnostic": "Wrote public/data/singles-auto-48c0bf963c69.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-24T02:17:42.264098+00:00",
+      "retry_after_utc": null
+    },
+    "6525d1388c4e": {
+      "name": "Art of War UK Winter GT",
+      "event_date": "2026-11-21",
+      "source_url": "https://metascribe.gg/tournaments/art-of-war-uk-winter-gt/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 159,
+      "csv_path": "public/data/singles-auto-6525d1388c4e.csv",
+      "diagnostic": "Wrote public/data/singles-auto-6525d1388c4e.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-24T02:19:52.613124+00:00",
       "retry_after_utc": null
     }
   },

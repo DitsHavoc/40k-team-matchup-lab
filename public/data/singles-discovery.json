@@ -1,8 +1,48 @@
 {
-  "updated_at_utc": "2026-11-23T12:13:16.076150+00:00",
+  "updated_at_utc": "2026-11-24T02:07:43.581988+00:00",
   "source": "https://metascribe.gg/tournaments/?format=individual&size=major",
   "pages_checked": 4,
   "candidates": [
+    {
+      "id": "14b7ff846d71",
+      "name": "Fantasia Fanatic L 40k",
+      "event_date": "2026-11-21",
+      "players_reported": 160,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/fantasia-fanatic-l-40k/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "f8d250f1383c",
+      "name": "The Standoff 2026",
+      "event_date": "2026-11-21",
+      "players_reported": 87,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/the-standoff-2026/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "48c0bf963c69",
+      "name": "RenegadeOpen2026 \u2013 40K GT",
+      "event_date": "2026-11-21",
+      "players_reported": 84,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/renegadeopen2026-40k-gt/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "6525d1388c4e",
+      "name": "Art of War UK Winter GT",
+      "event_date": "2026-11-21",
+      "players_reported": 70,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/art-of-war-uk-winter-gt/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
     {
       "id": "e8af2c90cc42",
       "name": "Warhammer 40000 Grand Tournament \u2013 Kempton Park",

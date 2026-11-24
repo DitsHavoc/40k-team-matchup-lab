@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-24T01:04:18.472184+00:00",
-  "total_unique_games": 38389,
-  "total_source_rows": 44775,
+  "updated_at_utc": "2026-11-24T02:19:55.735181+00:00",
+  "total_unique_games": 39329,
+  "total_source_rows": 45715,
   "deduplicated": 0,
   "duplicate_tournaments_suppressed": 14,
   "duplicate_tournament_rows_suppressed": 6386,
@@ -127,8 +127,8 @@
     },
     {
       "path": "data/warehouse-0004.csv",
-      "records": 8389,
-      "sha256": "0f046fb3b0dd9218d2a5acc146732fa4b2ce8782ed9eaf7e85faaf2a482b16de"
+      "records": 9329,
+      "sha256": "33b6a488725b0eb9342c353e12482621ed28697e3d7dfd71b47e7fe4b9912da5"
     }
   ],
   "sources": [
@@ -246,6 +246,11 @@
       "path": "public/data/teams-auto-589923493fce.csv",
       "event_name": "The Armadillo Cup WarZone Houston",
       "accepted_unique": 392
+    },
+    {
+      "path": "public/data/singles-auto-14b7ff846d71.csv",
+      "event_name": "Fantasia Fanatic L 40k",
+      "accepted_unique": 391
     },
     {
       "path": "public/data/singles-auto-50675d219405.csv",
@@ -468,6 +473,11 @@
       "accepted_unique": 209
     },
     {
+      "path": "public/data/singles-auto-f8d250f1383c.csv",
+      "event_name": "The Standoff 2026",
+      "accepted_unique": 208
+    },
+    {
       "path": "public/data/singles-auto-52d8cac9d751.csv",
       "event_name": "BAYERN MAJOR 40k 2026",
       "accepted_unique": 206
@@ -511,6 +521,11 @@
       "path": "public/data/singles-auto-0ebb69d4f13e.csv",
       "event_name": "SSG & MM Shuffle Wars IV: Makari\u2019s Hope",
       "accepted_unique": 184
+    },
+    {
+      "path": "public/data/singles-auto-48c0bf963c69.csv",
+      "event_name": "RenegadeOpen2026 \u2013 40K GT",
+      "accepted_unique": 182
     },
     {
       "path": "public/data/singles-auto-6ab24298cc43.csv",
@@ -571,6 +586,11 @@
       "path": "public/data/singles-auto-d482a230224b.csv",
       "event_name": "Warhammer 40000 Grand Tournament \u2013 Epsom Downs",
       "accepted_unique": 160
+    },
+    {
+      "path": "public/data/singles-auto-6525d1388c4e.csv",
+      "event_name": "Art of War UK Winter GT",
+      "accepted_unique": 159
     },
     {
       "path": "public/data/singles-auto-21fef44fd34d.csv",

@@ -1,8 +1,8 @@
 {
-  "updated_at_utc": "2026-11-23T12:13:16.077134+00:00",
+  "updated_at_utc": "2026-11-24T02:07:43.582750+00:00",
   "status": "success",
-  "new_candidate_events": 70,
-  "candidate_events": 82,
+  "new_candidate_events": 74,
+  "candidate_events": 86,
   "issues": [
     "Page https://metascribe.gg/tournaments/page/2/?format=individual&size=super: 404 Client Error: Not Found for url: https://metascribe.gg/tournaments/page/2/?format=individual&size=super"
   ]
