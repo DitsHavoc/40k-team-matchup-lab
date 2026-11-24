@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-24T11:13:45.157833+00:00",
-  "total_unique_games": 39329,
-  "total_source_rows": 45715,
+  "updated_at_utc": "2026-11-24T13:12:03.845261+00:00",
+  "total_unique_games": 41634,
+  "total_source_rows": 48020,
   "deduplicated": 0,
   "duplicate_tournaments_suppressed": 14,
   "duplicate_tournament_rows_suppressed": 6386,
@@ -113,22 +113,27 @@
     {
       "path": "data/warehouse-0001.csv",
       "records": 10000,
-      "sha256": "fcb6ffebde77f38002997ffa55400c9620e62e0f3912dd5080ea00c698a0901c"
+      "sha256": "95af3169bc58c8ebaa678bd033924b59baf07f88c267f4f18f1225718647e167"
     },
     {
       "path": "data/warehouse-0002.csv",
       "records": 10000,
-      "sha256": "4079c03cec553442afb205f55182cec0f2e846af0a2ef86be5a097e68f3058e5"
+      "sha256": "9534da9c35b0c0dd6b0e75cb36eae68822378884d03a56445a4634297f1ed1cc"
     },
     {
       "path": "data/warehouse-0003.csv",
       "records": 10000,
-      "sha256": "ba634872dae03c079f8081d8553e280e26a43da1a534f58555121c2a12efbb1a"
+      "sha256": "8e254912009f4f37c03e2b21afe5e380fb345d69e44437e311e4b09dfbcb7c51"
     },
     {
       "path": "data/warehouse-0004.csv",
-      "records": 9329,
-      "sha256": "33b6a488725b0eb9342c353e12482621ed28697e3d7dfd71b47e7fe4b9912da5"
+      "records": 10000,
+      "sha256": "73bf8017f31c6f778a2327d8d2c09bc8dbf7c0071b0c34ec59093a357d292703"
+    },
+    {
+      "path": "data/warehouse-0005.csv",
+      "records": 1634,
+      "sha256": "71e9293a2bb22fcb3c37bbe6096c0b5efd29032f28f321ce00a5b0361348bd23"
     }
   ],
   "sources": [
@@ -158,9 +163,19 @@
       "accepted_unique": 1624
     },
     {
+      "path": "public/data/singles-auto-356915f1f324.csv",
+      "event_name": "NOVA Open 2026 Grand Tournament",
+      "accepted_unique": 1391
+    },
+    {
       "path": "public/data/wtc-wh40k-2026.csv",
       "event_name": "WTC WH40K 2026",
       "accepted_unique": 1288
+    },
+    {
+      "path": "public/data/singles-auto-a2896a285973.csv",
+      "event_name": "Lone Star Open 2026 \u2013 Warhammer 40k Champs",
+      "accepted_unique": 914
     },
     {
       "path": "public/data/uktc-summer-itt-2026.csv",

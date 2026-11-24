@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-24T02:19:52.613155+00:00",
+  "updated_at_utc": "2026-11-24T13:12:00.393742+00:00",
   "events": {
     "9d01b3f48ea0": {
       "name": "Madness in the middle",
@@ -1065,6 +1065,32 @@
       "diagnostic": "Wrote public/data/singles-auto-6525d1388c4e.csv",
       "attempts": 1,
       "last_attempt_utc": "2026-11-24T02:19:52.613124+00:00",
+      "retry_after_utc": null
+    },
+    "356915f1f324": {
+      "name": "NOVA Open 2026 Grand Tournament",
+      "event_date": "2026-09-04",
+      "source_url": "https://metascribe.gg/tournaments/nova-open-2026-grand-tournament/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 1391,
+      "csv_path": "public/data/singles-auto-356915f1f324.csv",
+      "diagnostic": "Wrote public/data/singles-auto-356915f1f324.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-24T13:02:24.988315+00:00",
+      "retry_after_utc": null
+    },
+    "a2896a285973": {
+      "name": "Lone Star Open 2026 \u2013 Warhammer 40k Champs",
+      "event_date": "2026-08-01",
+      "source_url": "https://metascribe.gg/tournaments/lone-star-open-2026-warhammer-40k-champs/",
+      "import_succeeded": true,
+      "collection_status": "passed_structural_audit",
+      "published_records": 914,
+      "csv_path": "public/data/singles-auto-a2896a285973.csv",
+      "diagnostic": "Wrote public/data/singles-auto-a2896a285973.csv",
+      "attempts": 1,
+      "last_attempt_utc": "2026-11-24T13:12:00.393695+00:00",
       "retry_after_utc": null
     }
   },
