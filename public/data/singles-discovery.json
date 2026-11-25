@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-25T12:36:03.536917+00:00",
+  "updated_at_utc": "2026-11-25T23:34:22.764394+00:00",
   "source": "https://metascribe.gg/tournaments/?format=individual&size=major",
   "pages_checked": 4,
   "candidates": [
@@ -10,6 +10,16 @@
       "players_reported": 160,
       "rules_version": "11.1.07",
       "source_url": "https://metascribe.gg/tournaments/fantasia-fanatic-l-40k/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "e50f2877a2aa",
+      "name": "Broadsword Wargaming 40K Seasonal Major X",
+      "event_date": "2026-11-21",
+      "players_reported": 99,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/broadsword-wargaming-40k-seasonal-major-x/",
       "event_format": "singles",
       "status": "candidate_not_imported"
     },
@@ -40,6 +50,16 @@
       "players_reported": 70,
       "rules_version": "11.1.07",
       "source_url": "https://metascribe.gg/tournaments/art-of-war-uk-winter-gt/",
+      "event_format": "singles",
+      "status": "candidate_not_imported"
+    },
+    {
+      "id": "5f94c6bcb03e",
+      "name": "Warhammer 40000 Grand Tournament: Warhammer Open Atlanta",
+      "event_date": "2026-11-20",
+      "players_reported": 175,
+      "rules_version": "11.1.07",
+      "source_url": "https://metascribe.gg/tournaments/warhammer-40000-grand-tournament-warhammer-open-atlanta/",
       "event_format": "singles",
       "status": "candidate_not_imported"
     },

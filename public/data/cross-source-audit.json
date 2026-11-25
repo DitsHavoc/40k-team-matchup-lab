@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-25T22:39:02.208242+00:00",
+  "updated_at_utc": "2026-11-25T23:43:15.503698+00:00",
   "published_files_audited": [
     {
       "file": "challengers-cup-2026.csv",
@@ -162,6 +162,10 @@
       "rows": 248
     },
     {
+      "file": "singles-auto-5f94c6bcb03e.csv",
+      "rows": 637
+    },
+    {
       "file": "singles-auto-606f13d6c8cb.csv",
       "rows": 189
     },
@@ -316,6 +320,10 @@
     {
       "file": "singles-auto-e27324e92b88.csv",
       "rows": 489
+    },
+    {
+      "file": "singles-auto-e50f2877a2aa.csv",
+      "rows": 240
     },
     {
       "file": "singles-auto-e8af2c90cc42.csv",
@@ -514,7 +522,7 @@
       "rows": 1288
     }
   ],
-  "total_rows_checked": 48002,
+  "total_rows_checked": 48879,
   "cross_file_same_event_duplicates": [
     {
       "kind": "same_named_event_same_game",

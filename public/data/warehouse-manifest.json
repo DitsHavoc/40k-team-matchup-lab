@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-25T22:39:04.828469+00:00",
-  "total_unique_games": 41634,
-  "total_source_rows": 48020,
+  "updated_at_utc": "2026-11-25T23:43:19.162424+00:00",
+  "total_unique_games": 42511,
+  "total_source_rows": 48897,
   "deduplicated": 0,
   "duplicate_tournaments_suppressed": 14,
   "duplicate_tournament_rows_suppressed": 6386,
@@ -132,8 +132,8 @@
     },
     {
       "path": "data/warehouse-0005.csv",
-      "records": 1634,
-      "sha256": "71e9293a2bb22fcb3c37bbe6096c0b5efd29032f28f321ce00a5b0361348bd23"
+      "records": 2511,
+      "sha256": "3c8868e8bc3d64867412ce813c5e044b90a04412472f9bd3051c721d3332bb67"
     }
   ],
   "sources": [
@@ -201,6 +201,11 @@
       "path": "public/data/singles-auto-d9fd6e79e4d3.csv",
       "event_name": "Warhammer 40000 Grand Tournament \u2013 Warhammer Open Newport",
       "accepted_unique": 697
+    },
+    {
+      "path": "public/data/singles-auto-5f94c6bcb03e.csv",
+      "event_name": "Warhammer 40000 Grand Tournament: Warhammer Open Atlanta",
+      "accepted_unique": 637
     },
     {
       "path": "public/data/singles-auto-48cb008694fe.csv",
@@ -416,6 +421,11 @@
       "path": "public/data/singles-auto-a92bdb1107eb.csv",
       "event_name": "Alba GT 2026",
       "accepted_unique": 243
+    },
+    {
+      "path": "public/data/singles-auto-e50f2877a2aa.csv",
+      "event_name": "Broadsword Wargaming 40K Seasonal Major X",
+      "accepted_unique": 240
     },
     {
       "path": "public/data/singles-auto-008718134b2f.csv",
