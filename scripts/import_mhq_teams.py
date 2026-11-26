@@ -20,7 +20,11 @@ def list_info(s):
  header=re.split(r"Attached Units|Unités Attachées|BATTLELINE|CHARACTERS|PERSONNAGES|OTHER DATASHEETS",s,flags=re.I)[0][:600]
  f=faction(header)
  m=re.search(r"\(\s*3\s+(?:Detachment Points|Points de Détachement)\s*\)\s*([^()]+?)(?:Strike Force|Force de Frappe)",header,re.I)
+ # Dispositions can follow any detachment-point total, not just three.
+ m=re.search(r"\(\s*\d+\s+(?:Detachment Points|Points de Détachement)\s*\)\s*([^()]+?)(?:Strike Force|Force de Frappe|\n|$)",header,re.I)
  d=next((v for k,v in DISPS.items() if m and plain(m.group(1)).casefold()==k.casefold()),"")
+ if not d:
+  print("UNPARSED DISPOSITION HEADER",repr(header[:600]))
  det=""
  if m and f:
   pre=header[:m.start()]
