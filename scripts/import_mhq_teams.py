@@ -11,6 +11,7 @@ DISPS={"Take and Hold":"Take and Hold","Prendre et Tenir":"Take and Hold","Purge
 FACTIONS="Adepta Sororitas|Adeptus Custodes|Adeptus Mechanicus|Aeldari|Astra Militarum|Black Templars|Blood Angels|Chaos Daemons|Chaos Knights|Chaos Space Marines|Dark Angels|Death Guard|Deathwatch|Drukhari|Emperor's Children|Genestealer Cults|Grey Knights|Imperial Agents|Imperial Knights|Leagues of Votann|Necrons|Orks|Space Marines|Space Wolves|T'au Empire|Thousand Sons|Tyranids|World Eaters".split("|")
 def plain(s):return " ".join(s.split())
 def faction(s):
+ if re.search(r"\bChaos\s*[-–]\s*Daemons\b|\bLegiones Daemonica\b",s,re.I):return "Chaos Daemons"
  for f in sorted(FACTIONS,key=len,reverse=True):
   if re.search(r"(?<!\w)"+re.escape(f)+r"(?!\w)",s,re.I):return f
  if "Adeptus Astartes" in s or "Ultramarines" in s:return "Space Marines"
