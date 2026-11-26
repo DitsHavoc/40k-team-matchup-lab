@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/test-mhq.yml'
+      - 'scripts/import_mhq_teams.py'
 permissions:
   contents: read
 jobs:
