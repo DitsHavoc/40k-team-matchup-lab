@@ -16,20 +16,23 @@ def faction(s):
  if "Adeptus Astartes" in s or "Ultramarines" in s:return "Space Marines"
  return ""
 def list_info(s):
- # Restrict classification to the list header, not unit names.
- header=re.split(r"Attached Units|Unités Attachées|BATTLELINE|CHARACTERS|PERSONNAGES|OTHER DATASHEETS",s,flags=re.I)[0][:600]
+ header=re.split(r"Attached Units?|Unités Attachées|BATTLELINE|CHARACTERS|PERSONNAGES|OTHER DATASHEETS",s,flags=re.I)[0][:1000]
+ header=header.replace("’","'")
  f=faction(header)
- m=re.search(r"\(\s*3\s+(?:Detachment Points|Points de Détachement)\s*\)\s*([^()]+?)(?:Strike Force|Force de Frappe)",header,re.I)
- # Dispositions can follow any detachment-point total, not just three.
- m=re.search(r"\(\s*\d+\s+(?:Detachment Points|Points de Détachement)\s*\)\s*([^()]+?)(?:Strike Force|Force de Frappe|\n|$)",header,re.I)
- d=next((v for k,v in DISPS.items() if m and plain(m.group(1)).casefold()==k.casefold()),"")
- if not d:
-  print("UNPARSED DISPOSITION HEADER",repr(header[:600]))
+ aliases={**DISPS,"Atouts Prioritaires":"Priority Assets"}
+ labels="|".join(re.escape(k) for k in sorted(aliases,key=len,reverse=True))
+ m=re.search(r"(?:Force\s+Disposition|Disposition)\s*:\s*("+labels+r")\b",header,re.I)
+ if not m:
+  m=re.search(r"\(\s*\d+\s+(?:Detachment Points|Points de Détachement)\s*\)\s*("+labels+r")\b",header,re.I)
+ d=next((v for k,v in aliases.items() if m and m.group(1).casefold()==k.casefold()),"")
  det=""
- if m and f:
+ dm=re.search(r"\b(?:DETACHMENT|Détachement)\s*:\s*(.+?)(?=\s*\+\s*|\s+Force Disposition\s*:|\s+\(\d+/\d+\)|$)",header,re.I)
+ if dm:det=plain(dm.group(1))
+ elif m and f:
   pre=header[:m.start()]
   matches=list(re.finditer(re.escape(f),pre,re.I))
-  if matches:det=plain(pre[matches[-1].end():])
+  if matches:det=plain(re.sub(r"\(\s*\d+\s+(?:Detachment Points|Points de Détachement)\s*\)\s*$","",pre[matches[-1].end():]))
+ if not f or not d:print("UNPARSED LIST HEADER",repr(header))
  return f,d,det
 def main():
  p=argparse.ArgumentParser();p.add_argument("url");p.add_argument("--date",required=True);p.add_argument("--teams",type=int,required=True);p.add_argument("--output",required=True);a=p.parse_args()
