@@ -53,7 +53,8 @@ def main():
      if getattr(tag,"name",None) in ("table","h3"):chunks.append(tag)
     table=next((x for x in chunks if x.name=="table"),None)
     lists=[x for x in chunks if x.name=="h3" and "Army list" in x.get_text()]
-    if table is None or len(lists)!=2:rejected+=1;continue
+    if table is None or len(lists)!=2:
+     print('REJECT structure',u,names,'table',table is not None,'army headings',len(lists));rejected+=1;continue
     scores={}
     for tr in table.select("tr"):
      cells=[plain(c.get_text(" ",strip=True)) for c in tr.select("th,td")]
@@ -65,11 +66,13 @@ def main():
       if getattr(el,"name",None) in ("h2","h3"):break
       if isinstance(el,str):parts.append(str(el))
      info.append(list_info(plain(" ".join(parts))))
-    if "Score" not in scores:rejected+=1;continue
+    if "Score" not in scores:
+     print("REJECT score",u,names,scores);rejected+=1;continue
     row=dict.fromkeys(FIELDS,"")
     row.update(event_name=name,event_date=a.date,source_url=u,event_size_teams=str(a.teams),round=str(rnd),team_a=teams[0],team_b=teams[1],player_a=names[0],player_b=names[1],faction_a=info[0][0],faction_b=info[1][0],disposition_a=info[0][1],disposition_b=info[1][1],detachment_a=info[0][2],detachment_b=info[1][2],score_a_20=str(scores["Score"][0]),score_b_20=str(scores["Score"][1]),edition="11",event_format="team",score_type="team_wtc_score")
     if "Goal average" in scores:row.update(raw_vp_a=str(scores["Goal average"][0]),raw_vp_b=str(scores["Goal average"][1]))
-    if not valid(row):rejected+=1;continue
+    if not valid(row):
+     print("REJECT validation",u,names,{k:row[k] for k in ("faction_a","faction_b","disposition_a","disposition_b","score_a_20","score_b_20","round")});rejected+=1;continue
     key=(rnd,tuple(sorted(n.casefold() for n in names)))
     if key in games and games[key]!=row:raise ValueError("Conflicting pairing "+str(key))
     games[key]=row
