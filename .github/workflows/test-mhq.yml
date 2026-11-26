@@ -1,0 +1,24 @@
+name: Test MHQ team importer
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/test-mhq.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - run: python scripts/import_mhq_teams.py https://miniheadquarters.com/tournaments/team/results/league-wars-2026-2027-ligue-3-reims-quentin-aller-2027-06-30 --date 2026-11-21 --teams 4 --output /tmp/mhq-test.csv
+      - run: python -c "import csv; r=list(csv.DictReader(open('/tmp/mhq-test.csv'))); print('Validated games:',len(r)); assert len(r)==36"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mhq-test-games
+          path: /tmp/mhq-test.csv
