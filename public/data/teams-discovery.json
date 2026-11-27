@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-26T22:28:58.783302+00:00",
+  "updated_at_utc": "2026-11-27T09:49:47.376873+00:00",
   "source": "https://metascribe.gg/tournaments/?format=team&size=major",
   "pages_checked": 4,
   "candidates": [
@@ -251,7 +251,7 @@
       "event_date": "2026-09-12",
       "players_reported": 170,
       "teams_reported": 34,
-      "rules_version": "11.1.04",
+      "rules_version": "11.01.01",
       "source_url": "https://metascribe.gg/tournaments/v-gt-de-cordoba/",
       "event_format": "team",
       "status": "candidate_not_imported"
